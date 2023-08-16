@@ -46,9 +46,9 @@ namespace Solace {
     void Start() {
       isVibrationEnabled = SettingsManager.instance.GetVibrationEnabled();
       pad = Gamepad.current;
-      // @TODO Fix InvalidCastException when using xbox controller
-      // Error: Specified cast is not valid.
-      //dualshockPad = (DualShock4GamepadHID)pad;
+      if (pad is DualShock4GamepadHID hID) {
+        dualshockPad = hID;
+      }
     }
 
     public void SetRedLight() {
