@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
-    <Compile Include="Assets\Scripts\UI\HorizontalSelectedItem.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
   </ItemGroup>

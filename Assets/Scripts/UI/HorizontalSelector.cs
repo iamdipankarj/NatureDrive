@@ -4,12 +4,23 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
+using UnityEngine.InputSystem;
+using System;
 
 namespace Solace {
-  public class HorizontalSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+  public class HorizontalSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler {
     public TMP_Text selection;
-    public Button leftCaret;
-    public Button rightCaret;
+    public Image leftCaret;
+    public Image rightCaret;
+
+    private Sprite leftCaretSprite;
+    private Sprite rightCaretSprite;
+    private Sprite leftCaretActiveSprite;
+    private Sprite rightCaretActiveSprite;
+
+    private bool isFocused = false;
+
+    SolaceInputActions inputActions;
 
     public int currentIndex = 1;
 
@@ -19,30 +30,59 @@ namespace Solace {
       "1024x768"
     };
 
+    private void Awake() {
+      inputActions = new();
+    }
+
+    void Start() {
+      UpdateSelectionText(currentIndex);
+      leftCaretSprite = Resources.Load<Sprite>("Sprites/CaretLeft");
+      rightCaretSprite = Resources.Load<Sprite>("Sprites/CaretRight");
+      leftCaretActiveSprite = Resources.Load<Sprite>("Sprites/CaretLeftActive");
+      rightCaretActiveSprite = Resources.Load<Sprite>("Sprites/CaretRightActive");
+    }
+
+    private void OnNavigatePeformed(InputAction.CallbackContext context) {
+      float value = context.ReadValue<float>();
+      if (value < 0f) {
+        OnLeftCaretClick();
+      } else if (value > 0f) {
+        OnRightCaretClick();
+      }
+    }
+
     public void OnPointerEnter(PointerEventData eventData) {
       selection.color = ColorManager.accentColor;
+      ActivateCarets(true);
     }
 
     public void OnPointerExit(PointerEventData eventData) {
       selection.color = ColorManager.defaultColor;
+      ActivateCarets(false);
     }
 
-    void Start() {
-      //ClearAll();
-      AddListeners();
-      //foreach (var option in options) {
-      //  TMP_Text text = Instantiate(optionText);
-      //  text.name = option;
-      //  text.SetText(option);
-      //  text.transform.SetParent(optionsContainer);
-      //  text.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
-      //}
-      UpdateSelectionText(currentIndex);
+    private void ActivateCarets(bool active) {
+      if (active) {
+        isFocused = true;
+        leftCaret.sprite = leftCaretActiveSprite;
+        rightCaret.sprite = rightCaretActiveSprite;
+      } else {
+        isFocused = false;
+        leftCaret.sprite = leftCaretSprite;
+        rightCaret.sprite = rightCaretSprite;
+      }
     }
 
-    private void AddListeners() {
-      leftCaret.onClick.AddListener(OnLeftCaretClick);
-      rightCaret.onClick.AddListener(OnRightCaretClick);
+    public void OnSelect(BaseEventData eventData) {
+      selection.color = ColorManager.accentColor;
+      ActivateCarets(true);
+      EnableInputActions();
+    }
+
+    public void OnDeselect(BaseEventData eventData) {
+      selection.color = ColorManager.defaultColor;
+      ActivateCarets(false);
+      DisableInputActions();
     }
 
     private void OnLeftCaretClick() {
@@ -52,6 +92,12 @@ namespace Solace {
         UpdateSelectionText(currentIndex);
       } else {
         UpdateSelectionText(currentIndex);
+      }
+    }
+
+    private void OnSubmitPerformed(InputAction.CallbackContext context) {
+      if (isFocused) {
+        OnRightCaretClick();
       }
     }
 
@@ -65,41 +111,27 @@ namespace Solace {
       }
     }
 
-    private void RemoveListeners() {
-      leftCaret.onClick.RemoveListener(OnLeftCaretClick);
-      rightCaret.onClick.RemoveListener(OnRightCaretClick);
-    }
-
     private void UpdateSelectionText(int index) {
       string text = options.ElementAt(index);
       selection.text = text;
-      //for (int i = 0; i < options.Count; i++) {
-      //  Transform child = optionsContainer.GetChild(i);
-      //  if (child != null) {
-      //    if (i == index) {
-      //      child.gameObject.SetActive(true);
-      //      currentSelection = child.gameObject.GetComponent<TextMeshProUGUI>();
-      //      if (isFocused) {
-      //        ChangeToActiveColor(currentSelection);
-      //      }
-      //    } else {
-      //      child.gameObject.SetActive(false);
-      //      if (isFocused) {
-      //        ChangeToDefaultColor(child.gameObject.GetComponent<TextMeshProUGUI>());
-      //      }
-      //    }
-      //  }
-      //}
     }
 
-    //private void ClearAll() {
-    //  foreach (Transform child in optionsContainer) {
-    //    Destroy(child.gameObject);
-    //  }
-    //}
+    private void EnableInputActions() {
+      inputActions.Enable();
+      inputActions.UI.Navigate.performed += OnNavigatePeformed;
+      inputActions.UI.Submit.performed += OnSubmitPerformed;
+      inputActions.UI.Click.performed += OnSubmitPerformed;
+    }
+
+    private void DisableInputActions() {
+      inputActions.Disable();
+      inputActions.UI.Navigate.performed -= OnNavigatePeformed;
+      inputActions.UI.Submit.performed -= OnSubmitPerformed;
+      inputActions.UI.Click.performed -= OnSubmitPerformed;
+    }
 
     private void OnDisable() {
-      RemoveListeners();
+      DisableInputActions();
     }
   }
 }

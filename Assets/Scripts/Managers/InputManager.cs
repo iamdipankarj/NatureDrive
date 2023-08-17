@@ -42,7 +42,7 @@ namespace Solace {
     SolaceInputActions controls;
 
     private void Awake() {
-      controls = new SolaceInputActions();
+      controls = new();
       if (instance == null) {
         instance = this;
       }
