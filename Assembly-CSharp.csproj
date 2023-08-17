@@ -64,6 +64,8 @@
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\UI\HorizontalSelectedItem.cs" />
+    <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
