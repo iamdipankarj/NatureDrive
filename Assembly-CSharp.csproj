@@ -58,14 +58,17 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI\StartMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
+    <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIButton.cs" />
+    <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectedItem.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
   </ItemGroup>
