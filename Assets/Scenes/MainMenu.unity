@@ -295,17 +295,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &1093879173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3012809503898556936, guid: 167354e72f0b16445a1bc5d3d3a88d5e, type: 3}
-  m_PrefabInstance: {fileID: 2752617217195884782}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1128977524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -656,10 +645,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIButton
       objectReference: {fileID: 0}
-    - target: {fileID: 2439662709914806942, guid: 167354e72f0b16445a1bc5d3d3a88d5e, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1093879173}
     - target: {fileID: 3020806113001356752, guid: 167354e72f0b16445a1bc5d3d3a88d5e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -819,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8795049762521081271, guid: 0c6892fe6b6fe104a9a39f94b411bc47, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8795049762521081271, guid: 0c6892fe6b6fe104a9a39f94b411bc47, type: 3}
       propertyPath: m_AnchoredPosition.y

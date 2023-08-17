@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Solace {
-  public class HorizontalSelector : MonoBehaviour {
+  public class HorizontalSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public Transform optionsContainer;
     public TMP_Text placeholder;
     public TMP_Text optionText;
+
+    private TextMeshProUGUI currentSelection;
+    private bool isFocused = false;
 
     public Button leftCaret;
     public Button rightCaret;
@@ -20,6 +24,23 @@ namespace Solace {
       "1024x768"
     };
 
+    public void OnPointerEnter(PointerEventData eventData) {
+      currentSelection.color = ColorManager.accentColor;
+      isFocused = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+      currentSelection.color = ColorManager.defaultColor;
+      isFocused = false;
+    }
+
+    private void ChangeToActiveColor(TextMeshProUGUI text) {
+      text.color = ColorManager.accentColor;
+    }
+
+    private void ChangeToDefaultColor(TextMeshProUGUI text) {
+      text.color = ColorManager.defaultColor;
+    }
 
     void Start() {
       ClearAll();
@@ -70,8 +91,15 @@ namespace Solace {
         if (child != null) {
           if (i == index) {
             child.gameObject.SetActive(true);
+            currentSelection = child.gameObject.GetComponent<TextMeshProUGUI>();
+            if (isFocused) {
+              ChangeToActiveColor(currentSelection);
+            }
           } else {
             child.gameObject.SetActive(false);
+            if (isFocused) {
+              ChangeToDefaultColor(child.gameObject.GetComponent<TextMeshProUGUI>());
+            }
           }
         }
       }
