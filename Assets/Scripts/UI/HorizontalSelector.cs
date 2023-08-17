@@ -18,8 +18,6 @@ namespace Solace {
     private Sprite leftCaretActiveSprite;
     private Sprite rightCaretActiveSprite;
 
-    private bool isFocused = false;
-
     SolaceInputActions inputActions;
 
     public int currentIndex = 1;
@@ -35,7 +33,7 @@ namespace Solace {
     }
 
     void Start() {
-      UpdateSelectionText(currentIndex);
+      UpdateSelectionText();
       leftCaretSprite = Resources.Load<Sprite>("Sprites/CaretLeft");
       rightCaretSprite = Resources.Load<Sprite>("Sprites/CaretRight");
       leftCaretActiveSprite = Resources.Load<Sprite>("Sprites/CaretLeftActive");
@@ -54,20 +52,20 @@ namespace Solace {
     public void OnPointerEnter(PointerEventData eventData) {
       selection.color = ColorManager.accentColor;
       ActivateCarets(true);
+      RegisterInputActions();
     }
 
     public void OnPointerExit(PointerEventData eventData) {
       selection.color = ColorManager.defaultColor;
       ActivateCarets(false);
+      DeregisterInputActions();
     }
 
     private void ActivateCarets(bool active) {
       if (active) {
-        isFocused = true;
         leftCaret.sprite = leftCaretActiveSprite;
         rightCaret.sprite = rightCaretActiveSprite;
       } else {
-        isFocused = false;
         leftCaret.sprite = leftCaretSprite;
         rightCaret.sprite = rightCaretSprite;
       }
@@ -76,62 +74,69 @@ namespace Solace {
     public void OnSelect(BaseEventData eventData) {
       selection.color = ColorManager.accentColor;
       ActivateCarets(true);
-      EnableInputActions();
+      RegisterInputActions();
     }
 
     public void OnDeselect(BaseEventData eventData) {
       selection.color = ColorManager.defaultColor;
       ActivateCarets(false);
-      DisableInputActions();
+      DeregisterInputActions();
     }
 
     private void OnLeftCaretClick() {
       currentIndex--;
       if (currentIndex < 0) {
         currentIndex = options.Count - 1;
-        UpdateSelectionText(currentIndex);
+        UpdateSelectionText();
       } else {
-        UpdateSelectionText(currentIndex);
+        UpdateSelectionText();
       }
     }
 
     private void OnSubmitPerformed(InputAction.CallbackContext context) {
-      if (isFocused) {
-        OnRightCaretClick();
-      }
+      OnRightCaretClick();
     }
 
     private void OnRightCaretClick() {
       currentIndex++;
       if (currentIndex > options.Count - 1) {
         currentIndex = 0;
-        UpdateSelectionText(currentIndex);
+        UpdateSelectionText();
       } else {
-        UpdateSelectionText(currentIndex);
+        UpdateSelectionText();
       }
     }
 
-    private void UpdateSelectionText(int index) {
-      string text = options.ElementAt(index);
-      selection.text = text;
+    public void UpdateSelectionText() {
+      if (currentIndex >= 0 && currentIndex < options.Count) {
+        string text = options.ElementAt(currentIndex);
+        selection.text = text;
+      }
     }
 
-    private void EnableInputActions() {
-      inputActions.Enable();
+    public string GetCurrentSelected() {
+      return options.ElementAt(currentIndex);
+    }
+
+    private void RegisterInputActions() {
       inputActions.UI.Navigate.performed += OnNavigatePeformed;
       inputActions.UI.Submit.performed += OnSubmitPerformed;
       inputActions.UI.Click.performed += OnSubmitPerformed;
     }
 
-    private void DisableInputActions() {
-      inputActions.Disable();
+    private void DeregisterInputActions() {
       inputActions.UI.Navigate.performed -= OnNavigatePeformed;
       inputActions.UI.Submit.performed -= OnSubmitPerformed;
       inputActions.UI.Click.performed -= OnSubmitPerformed;
     }
 
+    private void OnEnable() {
+      inputActions.Enable();
+    }
+
     private void OnDisable() {
-      DisableInputActions();
+      inputActions.Disable();
+      DeregisterInputActions();
     }
   }
 }

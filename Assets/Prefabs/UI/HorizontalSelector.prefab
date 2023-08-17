@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3136728049553848964}
   - component: {fileID: 5485980740395020503}
   - component: {fileID: 2291709101004894020}
+  - component: {fileID: 7720094673141676615}
   m_Layer: 5
   m_Name: HorizontalSelector
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
+--- !u!114 &7720094673141676615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295371941882701066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789698558263ba4481de7b745b08bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5808432582141570515
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1920 x 1080
+  m_text: Selection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}
   m_sharedMaterial: {fileID: 7126759310036043398, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}
