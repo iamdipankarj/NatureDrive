@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
     <Compile Include="Assets\Scripts\UI\StartMenuController.cs" />
+    <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />

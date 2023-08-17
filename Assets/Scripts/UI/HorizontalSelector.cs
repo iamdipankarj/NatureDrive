@@ -5,10 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.InputSystem;
-using System;
 
 namespace Solace {
-  public class HorizontalSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler {
+  public class HorizontalSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler, ISubmitHandler {
     public TMP_Text selection;
     public Image leftCaret;
     public Image rightCaret;
@@ -75,6 +74,7 @@ namespace Solace {
       selection.color = ColorManager.accentColor;
       ActivateCarets(true);
       RegisterInputActions();
+      AudioManager.instance.PlayClickClip();
     }
 
     public void OnDeselect(BaseEventData eventData) {
@@ -137,6 +137,10 @@ namespace Solace {
     private void OnDisable() {
       inputActions.Disable();
       DeregisterInputActions();
+    }
+
+    public void OnSubmit(BaseEventData eventData) {
+      AudioManager.instance.PlayFocusClip();
     }
   }
 }
