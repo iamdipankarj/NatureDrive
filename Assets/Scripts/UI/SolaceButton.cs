@@ -14,6 +14,7 @@ namespace Solace {
 
     public void OnPointerEnter(PointerEventData eventData) {
       textObj.color = ColorManager.accentColor;
+      AudioManager.instance.PlayClickClip();
     }
 
     public void OnPointerExit(PointerEventData eventData) {
@@ -30,7 +31,7 @@ namespace Solace {
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-      
+      AudioManager.instance.PlayFocusClip();
     }
 
     public void OnSubmit(BaseEventData eventData) {
