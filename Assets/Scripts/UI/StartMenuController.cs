@@ -12,7 +12,12 @@ namespace Solace {
     }
 
     private void OnNewGameClick() {
-      Debug.Log("New Game");
+      LevelManager instance = LevelManager.instance;
+      if (instance != null) {
+        instance.LoadScene("SampleScene");
+      } else {
+        Debug.LogWarning("LevelManager is not added in the scene.");
+      }
     }
 
     // Update is called once per frame
