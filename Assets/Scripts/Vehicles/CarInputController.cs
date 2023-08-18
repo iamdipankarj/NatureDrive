@@ -17,6 +17,8 @@ namespace Solace {
     public bool isTurningLeft;
     [HideInInspector]
     public bool isTurningRight;
+    [HideInInspector]
+    public float steeringDelta;
 
     [HideInInspector]
     public bool isPressingHandbrake;
@@ -45,6 +47,7 @@ namespace Solace {
         isTurningRight = false;
         isTurningLeft = false;
       }
+      steeringDelta = Mathf.Abs(delta);
     }
 
     private void OnAccelerateForward(float delta) {

@@ -295,22 +295,22 @@ namespace Solace {
     //STEERING METHODS
     //The following method turns the front car wheels to the left. The speed of this movement will depend on the steeringSpeed variable.
     public void TurnLeft() {
-      steeringAxis -= (Time.deltaTime * 10f * steeringSpeed);
+      steeringAxis -= Time.deltaTime * 10f * steeringSpeed;
       if (steeringAxis < -1f) {
         steeringAxis = -1f;
       }
-      var steeringAngle = steeringAxis * maxSteeringAngle;
+      var steeringAngle = steeringAxis * maxSteeringAngle * controller.steeringDelta;
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
       frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
 
     //The following method turns the front car wheels to the right. The speed of this movement will depend on the steeringSpeed variable.
     public void TurnRight() {
-      steeringAxis += (Time.deltaTime * 10f * steeringSpeed);
+      steeringAxis += Time.deltaTime * 10f * steeringSpeed;
       if (steeringAxis > 1f) {
         steeringAxis = 1f;
       }
-      var steeringAngle = steeringAxis * maxSteeringAngle;
+      var steeringAngle = steeringAxis * maxSteeringAngle * controller.steeringDelta;
       frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
       frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
