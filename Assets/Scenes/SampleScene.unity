@@ -560,11 +560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 119984020964245352, guid: 994f666526f870742b4300cac4a9e077, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.114018045
+      value: 0.11401805
       objectReference: {fileID: 0}
     - target: {fileID: 119984020964245352, guid: 994f666526f870742b4300cac4a9e077, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.012302659
+      value: -0.01230266
       objectReference: {fileID: 0}
     - target: {fileID: 1403330051754266449, guid: 994f666526f870742b4300cac4a9e077, type: 3}
       propertyPath: m_Name
@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 261786959600481424}
   - component: {fileID: 5135156708164389513}
   - component: {fileID: 5135156708164389514}
+  - component: {fileID: 5135156708164389515}
   m_Layer: 0
   m_Name: Prometheus
   m_TagString: Untagged
@@ -11071,20 +11072,24 @@ MonoBehaviour:
   RRWParticleSystem: {fileID: 4402756321026177887}
   RLWTireSkid: {fileID: 7045468751871767440}
   RRWTireSkid: {fileID: 7045468751166669142}
-  useUI: 0
   carSpeedText: {fileID: 0}
-  useSounds: 0
   carEngineSound: {fileID: 0}
   tireScreechSound: {fileID: 0}
-  useTouchControls: 0
-  throttleButton: {fileID: 0}
-  reverseButton: {fileID: 0}
-  turnRightButton: {fileID: 0}
-  turnLeftButton: {fileID: 0}
-  handbrakeButton: {fileID: 0}
   carSpeed: 0
   isDrifting: 0
   isTractionLocked: 0
+--- !u!114 &5135156708164389515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642287924366323242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ba9a95e0d692c488004bd662886a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5534550323622084516
 Transform:
   m_ObjectHideFlags: 0

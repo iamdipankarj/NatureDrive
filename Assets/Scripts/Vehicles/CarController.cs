@@ -1,25 +1,30 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 namespace Solace {
+  [RequireComponent(typeof(CarInputController))]
   public class CarController : MonoBehaviour {
+    // Inputs
+    private CarInputController controller;
+
     //[Header("CAR SETUP")]
     [Space(10)]
     [Range(20, 190)]
-    public int maxSpeed = 90; //The maximum speed that the car can reach in km/h.
+    public int maxSpeed = 120; //The maximum speed that the car can reach in km/h.
     [Range(10, 120)]
     public int maxReverseSpeed = 45; //The maximum speed that the car can reach while going on reverse in km/h.
     [Range(1, 10)]
-    public int accelerationMultiplier = 2; // How fast the car can accelerate. 1 is a slow acceleration and 10 is the fastest.
+    public int accelerationMultiplier = 6; // How fast the car can accelerate. 1 is a slow acceleration and 10 is the fastest.
     [Space(10)]
     [Range(10, 45)]
-    public int maxSteeringAngle = 27; // The maximum angle that the tires can reach while rotating the steering wheel.
+    public int maxSteeringAngle = 35; // The maximum angle that the tires can reach while rotating the steering wheel.
     [Range(0.1f, 1f)]
     public float steeringSpeed = 0.5f; // How fast the steering wheel turns.
     [Space(10)]
     [Range(100, 600)]
-    public int brakeForce = 350; // The strength of the wheel brakes.
+    public int brakeForce = 450; // The strength of the wheel brakes.
     [Range(1, 10)]
     public int decelerationMultiplier = 2; // How fast the car decelerates when the user is not using the throttle.
     [Range(1, 10)]
@@ -121,6 +126,10 @@ namespace Solace {
     void Start() {
       // Hide Cursor
       CursorManager.LockCursor();
+
+      // Initialize the inputs
+      controller = GetComponent<CarInputController>();
+
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given
       //in the inspector.
@@ -216,39 +225,39 @@ namespace Solace {
       In this part of the code we specify what the car needs to do if the user presses W (throttle), S (reverse),
       A (turn left), D (turn right) or Space bar (handbrake).
       */
-      if (Input.GetKey(KeyCode.W)) {
+      if (controller.isAcceleratingForward) {
         CancelInvoke(nameof(DecelerateCar));
         deceleratingCar = false;
         GoForward();
       }
-      if (Input.GetKey(KeyCode.S)) {
+      if (controller.isAcceleratingBackward) {
         CancelInvoke(nameof(DecelerateCar));
         deceleratingCar = false;
         GoReverse();
       }
 
-      if (Input.GetKey(KeyCode.A)) {
+      if (controller.isTurningLeft) {
         TurnLeft();
       }
-      if (Input.GetKey(KeyCode.D)) {
+      if (controller.isTurningRight) {
         TurnRight();
       }
-      if (Input.GetKey(KeyCode.Space)) {
+      if (controller.isPressingHandbrake) {
         CancelInvoke(nameof(DecelerateCar));
         deceleratingCar = false;
         Handbrake();
       }
-      if (Input.GetKeyUp(KeyCode.Space)) {
+      if (controller.isReleasingHandbrake) {
         RecoverTraction();
       }
-      if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))) {
+      if ((!controller.isAcceleratingBackward && !controller.isAcceleratingForward)) {
         ThrottleOff();
       }
-      if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.Space) && !deceleratingCar) {
+      if ((!controller.isAcceleratingBackward && !controller.isAcceleratingForward) && !controller.isPressingHandbrake && !deceleratingCar) {
         InvokeRepeating(nameof(DecelerateCar), 0f, 0.1f);
         deceleratingCar = true;
       }
-      if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && steeringAxis != 0f) {
+      if (!controller.isTurningLeft && !controller.isTurningRight && steeringAxis != 0f) {
         ResetSteeringAngle();
       }
       // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.

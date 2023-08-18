@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\CarInputController.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
