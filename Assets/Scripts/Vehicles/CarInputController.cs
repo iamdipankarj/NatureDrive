@@ -6,11 +6,18 @@ namespace Solace {
     [HideInInspector]
     public bool isAcceleratingForward;
     [HideInInspector]
+    public float forwardAccelerateDelta;
+
+    [HideInInspector]
     public bool isAcceleratingBackward;
+    [HideInInspector]
+    public float backwardAccelerateDelta;
+
     [HideInInspector]
     public bool isTurningLeft;
     [HideInInspector]
     public bool isTurningRight;
+
     [HideInInspector]
     public bool isPressingHandbrake;
     [HideInInspector]
@@ -40,12 +47,14 @@ namespace Solace {
       }
     }
 
-    private void OnAccelerateBackward(float delta) {
-      isAcceleratingBackward = delta > 0f;
-    }
-
     private void OnAccelerateForward(float delta) {
       isAcceleratingForward = delta > 0f;
+      forwardAccelerateDelta = delta;
+    }
+
+    private void OnAccelerateBackward(float delta) {
+      isAcceleratingBackward = delta > 0f;
+      backwardAccelerateDelta = delta;
     }
 
     private void OnEnable() {
