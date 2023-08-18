@@ -667,6 +667,56 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SolacePlayer"",
+            ""id"": ""7202087e-62b8-43ef-a94e-eafd1748c5ce"",
+            ""actions"": [
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4b3f6d47-f862-4562-a542-56ec282c5715"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""ScaleVector2(x=0.3,y=0.3)"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c6c370e0-f6de-4d87-948f-dc4b55d82ccb"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""164d88b1-9cf5-482c-a2f2-dbad8acac541"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0873e231-c589-47c0-84f6-8238acb5a804"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -685,6 +735,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        // SolacePlayer
+        m_SolacePlayer = asset.FindActionMap("SolacePlayer", throwIfNotFound: true);
+        m_SolacePlayer_Look = m_SolacePlayer.FindAction("Look", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -898,6 +951,52 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // SolacePlayer
+    private readonly InputActionMap m_SolacePlayer;
+    private List<ISolacePlayerActions> m_SolacePlayerActionsCallbackInterfaces = new List<ISolacePlayerActions>();
+    private readonly InputAction m_SolacePlayer_Look;
+    public struct SolacePlayerActions
+    {
+        private @SolaceInputActions m_Wrapper;
+        public SolacePlayerActions(@SolaceInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Look => m_Wrapper.m_SolacePlayer_Look;
+        public InputActionMap Get() { return m_Wrapper.m_SolacePlayer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SolacePlayerActions set) { return set.Get(); }
+        public void AddCallbacks(ISolacePlayerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SolacePlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SolacePlayerActionsCallbackInterfaces.Add(instance);
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+        }
+
+        private void UnregisterCallbacks(ISolacePlayerActions instance)
+        {
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+        }
+
+        public void RemoveCallbacks(ISolacePlayerActions instance)
+        {
+            if (m_Wrapper.m_SolacePlayerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISolacePlayerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SolacePlayerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SolacePlayerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SolacePlayerActions @SolacePlayer => new SolacePlayerActions(this);
     public interface ICarActions
     {
         void OnSteer(InputAction.CallbackContext context);
@@ -913,5 +1012,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnNavigate(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
+    }
+    public interface ISolacePlayerActions
+    {
+        void OnLook(InputAction.CallbackContext context);
     }
 }

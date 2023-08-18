@@ -645,6 +645,56 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "SolacePlayer",
+            "id": "7202087e-62b8-43ef-a94e-eafd1748c5ce",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "4b3f6d47-f862-4562-a542-56ec282c5715",
+                    "expectedControlType": "Vector2",
+                    "processors": "ScaleVector2(x=0.3,y=0.3)",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c6c370e0-f6de-4d87-948f-dc4b55d82ccb",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "164d88b1-9cf5-482c-a2f2-dbad8acac541",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0873e231-c589-47c0-84f6-8238acb5a804",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
