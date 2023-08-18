@@ -82,22 +82,6 @@ namespace Solace {
     public AudioSource tireScreechSound; // This variable stores the sound of the tire screech (when the car is drifting).
     float initialCarEngineSoundPitch; // Used to store the initial pitch of the car engine sound.
 
-    //CONTROLS
-    [Header("CONTROLS")]
-    [Space(10)]
-    //The following variables lets you to set up touch controls for mobile devices.
-    public bool useTouchControls = false;
-    public GameObject throttleButton;
-    PrometeoTouchInput throttlePTI;
-    public GameObject reverseButton;
-    PrometeoTouchInput reversePTI;
-    public GameObject turnRightButton;
-    PrometeoTouchInput turnRightPTI;
-    public GameObject turnLeftButton;
-    PrometeoTouchInput turnLeftPTI;
-    public GameObject handbrakeButton;
-    PrometeoTouchInput handbrakePTI;
-
     //CAR DATA
 
     [HideInInspector]
@@ -119,7 +103,6 @@ namespace Solace {
     float localVelocityZ;
     float localVelocityX;
     bool deceleratingCar;
-    bool touchControlsSetup = false;
     /*
     The following variables are used to store information about sideways friction of the wheels (such as
     extremumSlip,extremumValue, asymptoteSlip, asymptoteValue and stiffness). We change this values to
@@ -147,29 +130,37 @@ namespace Solace {
       //Initial setup to calculate the drift value of the car. This part could look a bit
       //complicated, but do not be afraid, the only thing we're doing here is to save the default
       //friction values of the car wheels so we can set an appropiate drifting value later.
-      FLwheelFriction = new WheelFrictionCurve();
-      FLwheelFriction.extremumSlip = frontLeftCollider.sidewaysFriction.extremumSlip;
+      FLwheelFriction = new WheelFrictionCurve
+      {
+        extremumSlip = frontLeftCollider.sidewaysFriction.extremumSlip
+      };
       FLWextremumSlip = frontLeftCollider.sidewaysFriction.extremumSlip;
       FLwheelFriction.extremumValue = frontLeftCollider.sidewaysFriction.extremumValue;
       FLwheelFriction.asymptoteSlip = frontLeftCollider.sidewaysFriction.asymptoteSlip;
       FLwheelFriction.asymptoteValue = frontLeftCollider.sidewaysFriction.asymptoteValue;
       FLwheelFriction.stiffness = frontLeftCollider.sidewaysFriction.stiffness;
-      FRwheelFriction = new WheelFrictionCurve();
-      FRwheelFriction.extremumSlip = frontRightCollider.sidewaysFriction.extremumSlip;
+      FRwheelFriction = new WheelFrictionCurve
+      {
+        extremumSlip = frontRightCollider.sidewaysFriction.extremumSlip
+      };
       FRWextremumSlip = frontRightCollider.sidewaysFriction.extremumSlip;
       FRwheelFriction.extremumValue = frontRightCollider.sidewaysFriction.extremumValue;
       FRwheelFriction.asymptoteSlip = frontRightCollider.sidewaysFriction.asymptoteSlip;
       FRwheelFriction.asymptoteValue = frontRightCollider.sidewaysFriction.asymptoteValue;
       FRwheelFriction.stiffness = frontRightCollider.sidewaysFriction.stiffness;
-      RLwheelFriction = new WheelFrictionCurve();
-      RLwheelFriction.extremumSlip = rearLeftCollider.sidewaysFriction.extremumSlip;
+      RLwheelFriction = new WheelFrictionCurve
+      {
+        extremumSlip = rearLeftCollider.sidewaysFriction.extremumSlip
+      };
       RLWextremumSlip = rearLeftCollider.sidewaysFriction.extremumSlip;
       RLwheelFriction.extremumValue = rearLeftCollider.sidewaysFriction.extremumValue;
       RLwheelFriction.asymptoteSlip = rearLeftCollider.sidewaysFriction.asymptoteSlip;
       RLwheelFriction.asymptoteValue = rearLeftCollider.sidewaysFriction.asymptoteValue;
       RLwheelFriction.stiffness = rearLeftCollider.sidewaysFriction.stiffness;
-      RRwheelFriction = new WheelFrictionCurve();
-      RRwheelFriction.extremumSlip = rearRightCollider.sidewaysFriction.extremumSlip;
+      RRwheelFriction = new WheelFrictionCurve
+      {
+        extremumSlip = rearRightCollider.sidewaysFriction.extremumSlip
+      };
       RRWextremumSlip = rearRightCollider.sidewaysFriction.extremumSlip;
       RRwheelFriction.extremumValue = rearRightCollider.sidewaysFriction.extremumValue;
       RRwheelFriction.asymptoteSlip = rearRightCollider.sidewaysFriction.asymptoteSlip;
@@ -185,7 +176,7 @@ namespace Solace {
       // the speed of the car and CarSounds() controls the engine and drifting sounds. Both methods are invoked
       // in 0 seconds, and repeatedly called every 0.1 seconds.
       InvokeRepeating(nameof(CarSpeedUI), 0f, 0.1f);
-      InvokeRepeating("CarSounds", 0f, 0.1f);
+      InvokeRepeating(nameof(CarSounds), 0f, 0.1f);
 
       if (!useEffects) {
         if (RLWParticleSystem != null) {
@@ -201,34 +192,11 @@ namespace Solace {
           RRWTireSkid.emitting = false;
         }
       }
-
-      if (useTouchControls) {
-        if (throttleButton != null && reverseButton != null &&
-        turnRightButton != null && turnLeftButton != null
-        && handbrakeButton != null) {
-
-          throttlePTI = throttleButton.GetComponent<PrometeoTouchInput>();
-          reversePTI = reverseButton.GetComponent<PrometeoTouchInput>();
-          turnLeftPTI = turnLeftButton.GetComponent<PrometeoTouchInput>();
-          turnRightPTI = turnRightButton.GetComponent<PrometeoTouchInput>();
-          handbrakePTI = handbrakeButton.GetComponent<PrometeoTouchInput>();
-          touchControlsSetup = true;
-
-        }
-        else {
-          String ex = "Touch controls are not completely set up. You must drag and drop your scene buttons in the" +
-          " PrometeoCarController component.";
-          Debug.LogWarning(ex);
-        }
-      }
-
     }
 
     // Update is called once per frame
     void Update() {
-
       //CAR DATA
-
       // We determine the speed of the car.
       carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
       // Save the local velocity of the car in the x axis. Used to know if the car is drifting.
@@ -248,89 +216,43 @@ namespace Solace {
       In this part of the code we specify what the car needs to do if the user presses W (throttle), S (reverse),
       A (turn left), D (turn right) or Space bar (handbrake).
       */
-      if (useTouchControls && touchControlsSetup) {
-
-        if (throttlePTI.buttonPressed) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          GoForward();
-        }
-        if (reversePTI.buttonPressed) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          GoReverse();
-        }
-
-        if (turnLeftPTI.buttonPressed) {
-          TurnLeft();
-        }
-        if (turnRightPTI.buttonPressed) {
-          TurnRight();
-        }
-        if (handbrakePTI.buttonPressed) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          Handbrake();
-        }
-        if (!handbrakePTI.buttonPressed) {
-          RecoverTraction();
-        }
-        if ((!throttlePTI.buttonPressed && !reversePTI.buttonPressed)) {
-          ThrottleOff();
-        }
-        if ((!reversePTI.buttonPressed && !throttlePTI.buttonPressed) && !handbrakePTI.buttonPressed && !deceleratingCar) {
-          InvokeRepeating("DecelerateCar", 0f, 0.1f);
-          deceleratingCar = true;
-        }
-        if (!turnLeftPTI.buttonPressed && !turnRightPTI.buttonPressed && steeringAxis != 0f) {
-          ResetSteeringAngle();
-        }
-
+      if (Input.GetKey(KeyCode.W)) {
+        CancelInvoke(nameof(DecelerateCar));
+        deceleratingCar = false;
+        GoForward();
       }
-      else {
-
-        if (Input.GetKey(KeyCode.W)) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          GoForward();
-        }
-        if (Input.GetKey(KeyCode.S)) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          GoReverse();
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-          TurnLeft();
-        }
-        if (Input.GetKey(KeyCode.D)) {
-          TurnRight();
-        }
-        if (Input.GetKey(KeyCode.Space)) {
-          CancelInvoke("DecelerateCar");
-          deceleratingCar = false;
-          Handbrake();
-        }
-        if (Input.GetKeyUp(KeyCode.Space)) {
-          RecoverTraction();
-        }
-        if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))) {
-          ThrottleOff();
-        }
-        if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.Space) && !deceleratingCar) {
-          InvokeRepeating("DecelerateCar", 0f, 0.1f);
-          deceleratingCar = true;
-        }
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && steeringAxis != 0f) {
-          ResetSteeringAngle();
-        }
-
+      if (Input.GetKey(KeyCode.S)) {
+        CancelInvoke(nameof(DecelerateCar));
+        deceleratingCar = false;
+        GoReverse();
       }
 
-
+      if (Input.GetKey(KeyCode.A)) {
+        TurnLeft();
+      }
+      if (Input.GetKey(KeyCode.D)) {
+        TurnRight();
+      }
+      if (Input.GetKey(KeyCode.Space)) {
+        CancelInvoke(nameof(DecelerateCar));
+        deceleratingCar = false;
+        Handbrake();
+      }
+      if (Input.GetKeyUp(KeyCode.Space)) {
+        RecoverTraction();
+      }
+      if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))) {
+        ThrottleOff();
+      }
+      if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.Space) && !deceleratingCar) {
+        InvokeRepeating(nameof(DecelerateCar), 0f, 0.1f);
+        deceleratingCar = true;
+      }
+      if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && steeringAxis != 0f) {
+        ResetSteeringAngle();
+      }
       // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.
       AnimateWheelMeshes();
-
     }
 
     // This method converts the car speed data from float to string, and then set the text of the UI carSpeedText with this value.
@@ -355,19 +277,17 @@ namespace Solace {
           if (!tireScreechSound.isPlaying) {
             tireScreechSound.Play();
           }
-        } else if ((!isDrifting) && (!isTractionLocked || Mathf.Abs(carSpeed) < 12f)) {
+        }
+        else if ((!isDrifting) && (!isTractionLocked || Mathf.Abs(carSpeed) < 12f)) {
           tireScreechSound.Stop();
         }
       }
     }
 
-    //
     //STEERING METHODS
-    //
-
     //The following method turns the front car wheels to the left. The speed of this movement will depend on the steeringSpeed variable.
     public void TurnLeft() {
-      steeringAxis = steeringAxis - (Time.deltaTime * 10f * steeringSpeed);
+      steeringAxis -= (Time.deltaTime * 10f * steeringSpeed);
       if (steeringAxis < -1f) {
         steeringAxis = -1f;
       }
@@ -378,7 +298,7 @@ namespace Solace {
 
     //The following method turns the front car wheels to the right. The speed of this movement will depend on the steeringSpeed variable.
     public void TurnRight() {
-      steeringAxis = steeringAxis + (Time.deltaTime * 10f * steeringSpeed);
+      steeringAxis += (Time.deltaTime * 10f * steeringSpeed);
       if (steeringAxis > 1f) {
         steeringAxis = 1f;
       }
@@ -391,10 +311,10 @@ namespace Solace {
     // on the steeringSpeed variable.
     public void ResetSteeringAngle() {
       if (steeringAxis < 0f) {
-        steeringAxis = steeringAxis + (Time.deltaTime * 10f * steeringSpeed);
+        steeringAxis += Time.deltaTime * 10f * steeringSpeed;
       }
       else if (steeringAxis > 0f) {
-        steeringAxis = steeringAxis - (Time.deltaTime * 10f * steeringSpeed);
+        steeringAxis -= (Time.deltaTime * 10f * steeringSpeed);
       }
       if (Mathf.Abs(frontLeftCollider.steerAngle) < 1f) {
         steeringAxis = 0f;
@@ -406,29 +326,17 @@ namespace Solace {
 
     // This method matches both the position and rotation of the WheelColliders with the WheelMeshes.
     void AnimateWheelMeshes() {
-      Quaternion FLWRotation;
-      Vector3 FLWPosition;
-      frontLeftCollider.GetWorldPose(out FLWPosition, out FLWRotation);
-      frontLeftMesh.transform.position = FLWPosition;
-      frontLeftMesh.transform.rotation = FLWRotation;
+      frontLeftCollider.GetWorldPose(out Vector3 FLWPosition, out Quaternion FLWRotation);
+      frontLeftMesh.transform.SetPositionAndRotation(FLWPosition, FLWRotation);
 
-      Quaternion FRWRotation;
-      Vector3 FRWPosition;
-      frontRightCollider.GetWorldPose(out FRWPosition, out FRWRotation);
-      frontRightMesh.transform.position = FRWPosition;
-      frontRightMesh.transform.rotation = FRWRotation;
+      frontRightCollider.GetWorldPose(out Vector3 FRWPosition, out Quaternion FRWRotation);
+      frontRightMesh.transform.SetPositionAndRotation(FRWPosition, FRWRotation);
 
-      Quaternion RLWRotation;
-      Vector3 RLWPosition;
-      rearLeftCollider.GetWorldPose(out RLWPosition, out RLWRotation);
-      rearLeftMesh.transform.position = RLWPosition;
-      rearLeftMesh.transform.rotation = RLWRotation;
+      rearLeftCollider.GetWorldPose(out Vector3 RLWPosition, out Quaternion RLWRotation);
+      rearLeftMesh.transform.SetPositionAndRotation(RLWPosition, RLWRotation);
 
-      Quaternion RRWRotation;
-      Vector3 RRWPosition;
-      rearRightCollider.GetWorldPose(out RRWPosition, out RRWRotation);
-      rearRightMesh.transform.position = RRWPosition;
-      rearRightMesh.transform.rotation = RRWRotation;
+      rearRightCollider.GetWorldPose(out Vector3 RRWPosition, out Quaternion RRWRotation);
+      rearRightMesh.transform.SetPositionAndRotation(RRWPosition, RRWRotation);
     }
 
     //
@@ -448,7 +356,7 @@ namespace Solace {
         DriftCarPS();
       }
       // The following part sets the throttle power to 1 smoothly.
-      throttleAxis = throttleAxis + (Time.deltaTime * 3f);
+      throttleAxis += (Time.deltaTime * 3f);
       if (throttleAxis > 1f) {
         throttleAxis = 1f;
       }
@@ -495,7 +403,7 @@ namespace Solace {
         DriftCarPS();
       }
       // The following part sets the throttle power to -1 smoothly.
-      throttleAxis = throttleAxis - (Time.deltaTime * 3f);
+      throttleAxis -= (Time.deltaTime * 3f);
       if (throttleAxis < -1f) {
         throttleAxis = -1f;
       }
@@ -552,16 +460,16 @@ namespace Solace {
       // The following part resets the throttle power to 0 smoothly.
       if (throttleAxis != 0f) {
         if (throttleAxis > 0f) {
-          throttleAxis = throttleAxis - (Time.deltaTime * 10f);
+          throttleAxis -= (Time.deltaTime * 10f);
         }
         else if (throttleAxis < 0f) {
-          throttleAxis = throttleAxis + (Time.deltaTime * 10f);
+          throttleAxis += (Time.deltaTime * 10f);
         }
         if (Mathf.Abs(throttleAxis) < 0.15f) {
           throttleAxis = 0f;
         }
       }
-      carRigidbody.velocity = carRigidbody.velocity * (1f / (1f + (0.025f * decelerationMultiplier)));
+      carRigidbody.velocity *= (1f / (1f + (0.025f * decelerationMultiplier)));
       // Since we want to decelerate the car, we are going to remove the torque from the wheels of the car.
       frontLeftCollider.motorTorque = 0;
       frontRightCollider.motorTorque = 0;
@@ -571,7 +479,7 @@ namespace Solace {
       // also cancel the invoke of this method.
       if (carRigidbody.velocity.magnitude < 0.25f) {
         carRigidbody.velocity = Vector3.zero;
-        CancelInvoke("DecelerateCar");
+        CancelInvoke(nameof(DecelerateCar));
       }
     }
 
@@ -587,11 +495,11 @@ namespace Solace {
     // will depend on the handbrakeDriftMultiplier variable. If this value is small, then the car will not drift too much, but if
     // it is high, then you could make the car to feel like going on ice.
     public void Handbrake() {
-      CancelInvoke("RecoverTraction");
+      CancelInvoke(nameof(RecoverTraction));
       // We are going to start losing traction smoothly, there is were our 'driftingAxis' variable takes
       // place. This variable will start from 0 and will reach a top value of 1, which means that the maximum
       // drifting value has been reached. It will increase smoothly by using the variable Time.deltaTime.
-      driftingAxis = driftingAxis + (Time.deltaTime);
+      driftingAxis += Time.deltaTime;
       float secureStartingPoint = driftingAxis * FLWextremumSlip * handbrakeDriftMultiplier;
 
       if (secureStartingPoint < FLWextremumSlip) {
@@ -639,7 +547,8 @@ namespace Solace {
         if (isDrifting) {
           RLWParticleSystem.Play();
           RRWParticleSystem.Play();
-        } else if (!isDrifting) {
+        }
+        else if (!isDrifting) {
           RLWParticleSystem.Stop();
           RRWParticleSystem.Stop();
         }
@@ -672,7 +581,7 @@ namespace Solace {
     // This function is used to recover the traction of the car when the user has stopped using the car's handbrake.
     public void RecoverTraction() {
       isTractionLocked = false;
-      driftingAxis = driftingAxis - (Time.deltaTime / 1.5f);
+      driftingAxis -= (Time.deltaTime / 1.5f);
       if (driftingAxis < 0f) {
         driftingAxis = 0f;
       }
@@ -693,7 +602,7 @@ namespace Solace {
         RRwheelFriction.extremumSlip = RRWextremumSlip * handbrakeDriftMultiplier * driftingAxis;
         rearRightCollider.sidewaysFriction = RRwheelFriction;
 
-        Invoke("RecoverTraction", Time.deltaTime);
+        Invoke(nameof(RecoverTraction), Time.deltaTime);
 
       }
       else if (FLwheelFriction.extremumSlip < FLWextremumSlip) {
