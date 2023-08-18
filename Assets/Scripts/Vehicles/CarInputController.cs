@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Solace {
@@ -15,18 +16,60 @@ namespace Solace {
     [HideInInspector]
     public bool isReleasingHandbrake;
 
-    void Start() {
-    
+    private void OnHandBrake(bool isPressing) {
+      if (isPressing) {
+        isPressingHandbrake = true;
+        isReleasingHandbrake = false;
+      }
+      else {
+        isPressingHandbrake = false;
+        isReleasingHandbrake = true;
+      }
+    }
+
+    private void OnSteer(float delta) {
+      if (delta < 0f) {
+        isTurningLeft = true;
+        isTurningRight = false;
+      } else if (delta > 0f) {
+        isTurningRight = true;
+        isTurningLeft = false;
+      } else if (delta.Equals(0f)) {
+        isTurningRight = false;
+        isTurningLeft = false;
+      }
+    }
+
+    private void OnAccelerateBackward(float delta) {
+      isAcceleratingBackward = delta > 0f;
+    }
+
+    private void OnAccelerateForward(float delta) {
+      isAcceleratingForward = delta > 0f;
+    }
+
+    private void OnEnable() {
+      InputManager.DidAccelerate += OnAccelerateForward;
+      InputManager.DidReverse += OnAccelerateBackward;
+      InputManager.DidSteer += OnSteer;
+      InputManager.DidUseHandBrake += OnHandBrake;
+    }
+
+    private void OnDisable() {
+      InputManager.DidAccelerate -= OnAccelerateForward;
+      InputManager.DidReverse -= OnAccelerateBackward;
+      InputManager.DidSteer -= OnSteer;
+      InputManager.DidUseHandBrake -= OnHandBrake;
     }
 
     // Update is called once per frame
     void Update() {
-      isAcceleratingForward = Input.GetKey(KeyCode.W);
-      isAcceleratingBackward = Input.GetKey(KeyCode.S);
-      isTurningLeft = Input.GetKey(KeyCode.A);
-      isTurningRight = Input.GetKey(KeyCode.D);
-      isPressingHandbrake = Input.GetKey(KeyCode.Space);
-      isReleasingHandbrake = Input.GetKeyUp(KeyCode.Space);
+      //isAcceleratingForward = Input.GetKey(KeyCode.W);
+      //isAcceleratingBackward = Input.GetKey(KeyCode.S);
+      //isTurningLeft = Input.GetKey(KeyCode.A);
+      //isTurningRight = Input.GetKey(KeyCode.D);
+      //isPressingHandbrake = Input.GetKey(KeyCode.Space);
+      //isReleasingHandbrake = Input.GetKeyUp(KeyCode.Space);
     }
   }
 }

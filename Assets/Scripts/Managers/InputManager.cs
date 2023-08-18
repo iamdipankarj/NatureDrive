@@ -7,7 +7,7 @@ namespace Solace {
     public static InputManager instance;
 
     // Steer
-    public delegate void SteerAction(Vector2 delta);
+    public delegate void SteerAction(float delta);
     public static event SteerAction DidSteer;
 
     // Look
@@ -22,9 +22,9 @@ namespace Solace {
     public delegate void ReverseAction(float delta);
     public static event ReverseAction DidReverse;
 
-    // Hand Brake
-    public delegate void HandBrakeAction();
-    public static event HandBrakeAction DidPressHandBrake;
+    // Hand Brake Use
+    public delegate void HandBrakeUseAction(bool isPressing);
+    public static event HandBrakeUseAction DidUseHandBrake;
 
     // Pause
     public delegate void PauseAction();
@@ -61,23 +61,35 @@ namespace Solace {
     }
 
     private void OnVehicleSteerPerformed(InputAction.CallbackContext context) {
-      DidSteer?.Invoke(context.ReadValue<Vector2>());
+      DidSteer?.Invoke(context.ReadValue<float>());
     }
 
     private void OnVehicleSteerCanceled(InputAction.CallbackContext context) {
-      DidSteer?.Invoke(context.ReadValue<Vector2>());
+      DidSteer?.Invoke(0f);
     }
 
     private void OnVehicleAccelerate(InputAction.CallbackContext context) {
       DidAccelerate?.Invoke(context.ReadValue<float>());
     }
 
+    private void OnVehicleAccelerateCanceled(InputAction.CallbackContext context) {
+      DidAccelerate?.Invoke(0f);
+    }
+
     private void OnVehicleReverse(InputAction.CallbackContext context) {
       DidReverse?.Invoke(context.ReadValue<float>());
     }
 
-    private void OnVehicleHandBrake(InputAction.CallbackContext context) {
-      DidPressHandBrake?.Invoke();
+    private void OnVehicleReverseCanceled(InputAction.CallbackContext context) {
+      DidReverse?.Invoke(0f);
+    }
+
+    private void OnVehicleHandBrakePress(InputAction.CallbackContext context) {
+      DidUseHandBrake?.Invoke(true);
+    }
+
+    private void OnVehicleHandBrakeRelease(InputAction.CallbackContext context) {
+      DidUseHandBrake?.Invoke(false);
     }
 
     private void InputSystemOnDeviceChange(InputDevice device, InputDeviceChange deviceChange) {
@@ -98,18 +110,35 @@ namespace Solace {
       controls.Car.Steer.performed += OnVehicleSteerPerformed;
       controls.Car.Steer.canceled += OnVehicleSteerCanceled;
       controls.Car.Look.performed += OnVehicleLook;
+
       controls.Car.Accelerate.performed += OnVehicleAccelerate;
+      controls.Car.Accelerate.canceled += OnVehicleAccelerateCanceled;
+
       controls.Car.Reverse.performed += OnVehicleReverse;
-      controls.Car.HandBrake.performed += OnVehicleHandBrake;
+      controls.Car.Reverse.canceled += OnVehicleReverseCanceled;
+
+      controls.Car.HandBrake.performed += OnVehicleHandBrakePress;
+      controls.Car.HandBrake.canceled += OnVehicleHandBrakeRelease;
 
       controls.UI.Pause.performed += OnPlayerPause;
     }
 
     private void OnDisable() {
       controls.Disable();
+      controls.Car.Steer.performed -= OnVehicleSteerPerformed;
+      controls.Car.Steer.canceled -= OnVehicleSteerCanceled;
+      controls.Car.Look.performed -= OnVehicleLook;
 
+      controls.Car.Accelerate.performed -= OnVehicleAccelerate;
+      controls.Car.Accelerate.canceled -= OnVehicleAccelerateCanceled;
 
+      controls.Car.Reverse.performed -= OnVehicleReverse;
+      controls.Car.Reverse.canceled -= OnVehicleReverseCanceled;
 
+      controls.Car.HandBrake.performed -= OnVehicleHandBrakePress;
+      controls.Car.HandBrake.canceled -= OnVehicleHandBrakeRelease;
+
+      controls.UI.Pause.performed -= OnPlayerPause;
       InputSystem.onDeviceChange -= InputSystemOnDeviceChange;
     }
   }

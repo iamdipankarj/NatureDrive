@@ -235,7 +235,6 @@ namespace Solace {
         deceleratingCar = false;
         GoReverse();
       }
-
       if (controller.isTurningLeft) {
         TurnLeft();
       }

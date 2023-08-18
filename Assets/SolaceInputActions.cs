@@ -31,7 +31,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Steer"",
                     ""type"": ""Value"",
                     ""id"": ""b21aaf57-9fcf-4ee4-971c-78df8910185c"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -40,6 +40,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Accelerate"",
                     ""type"": ""Value"",
                     ""id"": ""554db870-dac0-4494-b97b-1bc5d34abf22"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reverse"",
+                    ""type"": ""Value"",
+                    ""id"": ""ee6ae4a1-1517-4033-b9f5-1f9c922b7ab4"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -64,15 +73,6 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Reverse"",
-                    ""type"": ""Value"",
-                    ""id"": ""ee6ae4a1-1517-4033-b9f5-1f9c922b7ab4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""SwitchCamera"",
                     ""type"": ""Button"",
                     ""id"": ""a9958b30-a6a9-4e13-b386-99ddc53caa81"",
@@ -85,7 +85,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""e87b3000-1f98-4ff0-bbf9-c92851da658a"",
+                    ""id"": ""15d01a40-bf43-4c65-948d-3911505d78be"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -96,7 +96,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""e13dd208-b6e2-4ed7-9397-f208d5dd1f36"",
+                    ""id"": ""9743a484-ee5d-4c5e-990e-b8b387592843"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -107,7 +107,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""2959078e-5760-4f01-a62c-8fc7fded66da"",
+                    ""id"": ""3136f8f3-f15f-41c6-8cf6-94f05f0ee00b"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -117,37 +117,70 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""5b6132fb-5024-4c82-840b-e2b410eadd66"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""ba89566d-1d40-42b2-a093-9dd73b2bcc35"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Steer"",
-                    ""isComposite"": false,
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""7c49efb5-9d0c-4215-b985-15d1d334c692"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""name"": ""negative"",
+                    ""id"": ""32b24957-b0f7-45f9-8c01-21d6be53eb7a"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""bedcd89b-e110-4704-b178-3492fe807515"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""0a5ada5a-f044-4f73-8e87-15de3519403b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""a09e44d6-f64e-4a4c-a336-9f8393562799"",
-                    ""path"": ""<DualShockGamepad>/leftStick"",
+                    ""name"": ""negative"",
+                    ""id"": ""7f5f5ce5-b690-4d89-93c5-6f333e49a480"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""12537d2d-e20b-4fa4-b8e0-c81294ab6363"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -186,6 +219,17 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""61e299a6-6bbe-411b-8237-38981d73ced4"",
                     ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""837270eb-0269-45fb-ad6e-3411a24fc594"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -283,50 +327,6 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""90e888fc-655a-48fe-bbfe-69e49b4bfbf9"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d078cb04-fc47-45a5-a75d-688913e60796"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8d6eaa1e-fb1f-45ef-9531-bf52e3a8e923"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""93989a79-850c-4bec-bcfd-1b84c87090c2"",
-                    ""path"": ""<DualShockGamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""5948f0f9-663d-4afe-ac99-fea00beb7e97"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
@@ -377,6 +377,61 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90e888fc-655a-48fe-bbfe-69e49b4bfbf9"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d078cb04-fc47-45a5-a75d-688913e60796"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d6eaa1e-fb1f-45ef-9531-bf52e3a8e923"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93989a79-850c-4bec-bcfd-1b84c87090c2"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f3fd852-edd1-456b-b268-45b234ba4785"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -620,9 +675,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car = asset.FindActionMap("Car", throwIfNotFound: true);
         m_Car_Steer = m_Car.FindAction("Steer", throwIfNotFound: true);
         m_Car_Accelerate = m_Car.FindAction("Accelerate", throwIfNotFound: true);
+        m_Car_Reverse = m_Car.FindAction("Reverse", throwIfNotFound: true);
         m_Car_Look = m_Car.FindAction("Look", throwIfNotFound: true);
         m_Car_HandBrake = m_Car.FindAction("HandBrake", throwIfNotFound: true);
-        m_Car_Reverse = m_Car.FindAction("Reverse", throwIfNotFound: true);
         m_Car_SwitchCamera = m_Car.FindAction("SwitchCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -693,9 +748,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private List<ICarActions> m_CarActionsCallbackInterfaces = new List<ICarActions>();
     private readonly InputAction m_Car_Steer;
     private readonly InputAction m_Car_Accelerate;
+    private readonly InputAction m_Car_Reverse;
     private readonly InputAction m_Car_Look;
     private readonly InputAction m_Car_HandBrake;
-    private readonly InputAction m_Car_Reverse;
     private readonly InputAction m_Car_SwitchCamera;
     public struct CarActions
     {
@@ -703,9 +758,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public CarActions(@SolaceInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steer => m_Wrapper.m_Car_Steer;
         public InputAction @Accelerate => m_Wrapper.m_Car_Accelerate;
+        public InputAction @Reverse => m_Wrapper.m_Car_Reverse;
         public InputAction @Look => m_Wrapper.m_Car_Look;
         public InputAction @HandBrake => m_Wrapper.m_Car_HandBrake;
-        public InputAction @Reverse => m_Wrapper.m_Car_Reverse;
         public InputAction @SwitchCamera => m_Wrapper.m_Car_SwitchCamera;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
@@ -722,15 +777,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Accelerate.started += instance.OnAccelerate;
             @Accelerate.performed += instance.OnAccelerate;
             @Accelerate.canceled += instance.OnAccelerate;
+            @Reverse.started += instance.OnReverse;
+            @Reverse.performed += instance.OnReverse;
+            @Reverse.canceled += instance.OnReverse;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
             @HandBrake.started += instance.OnHandBrake;
             @HandBrake.performed += instance.OnHandBrake;
             @HandBrake.canceled += instance.OnHandBrake;
-            @Reverse.started += instance.OnReverse;
-            @Reverse.performed += instance.OnReverse;
-            @Reverse.canceled += instance.OnReverse;
             @SwitchCamera.started += instance.OnSwitchCamera;
             @SwitchCamera.performed += instance.OnSwitchCamera;
             @SwitchCamera.canceled += instance.OnSwitchCamera;
@@ -744,15 +799,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Accelerate.started -= instance.OnAccelerate;
             @Accelerate.performed -= instance.OnAccelerate;
             @Accelerate.canceled -= instance.OnAccelerate;
+            @Reverse.started -= instance.OnReverse;
+            @Reverse.performed -= instance.OnReverse;
+            @Reverse.canceled -= instance.OnReverse;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
             @HandBrake.started -= instance.OnHandBrake;
             @HandBrake.performed -= instance.OnHandBrake;
             @HandBrake.canceled -= instance.OnHandBrake;
-            @Reverse.started -= instance.OnReverse;
-            @Reverse.performed -= instance.OnReverse;
-            @Reverse.canceled -= instance.OnReverse;
             @SwitchCamera.started -= instance.OnSwitchCamera;
             @SwitchCamera.performed -= instance.OnSwitchCamera;
             @SwitchCamera.canceled -= instance.OnSwitchCamera;
@@ -847,9 +902,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     {
         void OnSteer(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
+        void OnReverse(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
-        void OnReverse(InputAction.CallbackContext context);
         void OnSwitchCamera(InputAction.CallbackContext context);
     }
     public interface IUIActions
