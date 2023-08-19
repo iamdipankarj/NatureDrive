@@ -65,7 +65,7 @@ MonoBehaviour:
   selection: {fileID: 4318286553259980252}
   leftCaret: {fileID: 5039598763681498417}
   rightCaret: {fileID: 8778904056058825875}
-  currentIndex: 1
+  currentIndex: 0
   options:
   - 2160x1920
   - 1920x1080
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selection
+  m_text: 2160x1920
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}
   m_sharedMaterial: {fileID: 7126759310036043398, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}
