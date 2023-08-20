@@ -80,6 +80,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CinematicMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""f95eab01-4d75-4edd-82de-5a858a3cb564"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -434,6 +443,28 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c037dbd1-f1eb-4501-9d80-41023c28c5c2"",
+                    ""path"": ""<DualShockGamepad>/touchpadButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CinematicMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c645d2f1-a9dc-4223-8141-70c0f88d54e3"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CinematicMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -729,6 +760,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car_Look = m_Car.FindAction("Look", throwIfNotFound: true);
         m_Car_HandBrake = m_Car.FindAction("HandBrake", throwIfNotFound: true);
         m_Car_SwitchCamera = m_Car.FindAction("SwitchCamera", throwIfNotFound: true);
+        m_Car_CinematicMode = m_Car.FindAction("CinematicMode", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -805,6 +837,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_Look;
     private readonly InputAction m_Car_HandBrake;
     private readonly InputAction m_Car_SwitchCamera;
+    private readonly InputAction m_Car_CinematicMode;
     public struct CarActions
     {
         private @SolaceInputActions m_Wrapper;
@@ -815,6 +848,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Car_Look;
         public InputAction @HandBrake => m_Wrapper.m_Car_HandBrake;
         public InputAction @SwitchCamera => m_Wrapper.m_Car_SwitchCamera;
+        public InputAction @CinematicMode => m_Wrapper.m_Car_CinematicMode;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -842,6 +876,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @SwitchCamera.started += instance.OnSwitchCamera;
             @SwitchCamera.performed += instance.OnSwitchCamera;
             @SwitchCamera.canceled += instance.OnSwitchCamera;
+            @CinematicMode.started += instance.OnCinematicMode;
+            @CinematicMode.performed += instance.OnCinematicMode;
+            @CinematicMode.canceled += instance.OnCinematicMode;
         }
 
         private void UnregisterCallbacks(ICarActions instance)
@@ -864,6 +901,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @SwitchCamera.started -= instance.OnSwitchCamera;
             @SwitchCamera.performed -= instance.OnSwitchCamera;
             @SwitchCamera.canceled -= instance.OnSwitchCamera;
+            @CinematicMode.started -= instance.OnCinematicMode;
+            @CinematicMode.performed -= instance.OnCinematicMode;
+            @CinematicMode.canceled -= instance.OnCinematicMode;
         }
 
         public void RemoveCallbacks(ICarActions instance)
@@ -1005,6 +1045,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
         void OnSwitchCamera(InputAction.CallbackContext context);
+        void OnCinematicMode(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

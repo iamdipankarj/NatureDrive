@@ -30,6 +30,10 @@ namespace Solace {
     public delegate void PauseAction();
     public static event PauseAction DidPause;
 
+    // Cinematic Mode
+    public delegate void CinematicModeAction(bool isPressing);
+    public static event CinematicModeAction DidUseCinematicMode;
+
     // Input Device Events
     // Disconnect
     public delegate void DeviceDisconnectAction();
@@ -92,6 +96,14 @@ namespace Solace {
       DidUseHandBrake?.Invoke(false);
     }
 
+    private void OnCinematicModeStart(InputAction.CallbackContext context) {
+      DidUseCinematicMode?.Invoke(true);
+    }
+
+    private void OnCinematicModeCanceled(InputAction.CallbackContext context) {
+      DidUseCinematicMode?.Invoke(false);
+    }
+
     private void InputSystemOnDeviceChange(InputDevice device, InputDeviceChange deviceChange) {
       if (deviceChange == InputDeviceChange.Removed || deviceChange == InputDeviceChange.Disconnected) {
         DidDeviceDisconnect?.Invoke();
@@ -103,7 +115,6 @@ namespace Solace {
 
     private void OnEnable() {
       controls.Enable();
-      InputSystem.onDeviceChange += InputSystemOnDeviceChange;
     }
 
     void Start() {
@@ -121,6 +132,10 @@ namespace Solace {
       controls.Car.HandBrake.canceled += OnVehicleHandBrakeRelease;
 
       controls.UI.Pause.performed += OnPlayerPause;
+      InputSystem.onDeviceChange += InputSystemOnDeviceChange;
+
+      controls.Car.CinematicMode.performed += OnCinematicModeStart;
+      controls.Car.CinematicMode.canceled += OnCinematicModeCanceled;
     }
 
     private void OnDisable() {
@@ -140,6 +155,9 @@ namespace Solace {
 
       controls.UI.Pause.performed -= OnPlayerPause;
       InputSystem.onDeviceChange -= InputSystemOnDeviceChange;
+
+      controls.Car.CinematicMode.performed -= OnCinematicModeStart;
+      controls.Car.CinematicMode.canceled -= OnCinematicModeCanceled;
     }
   }
 }
