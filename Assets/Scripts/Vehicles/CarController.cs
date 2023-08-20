@@ -5,6 +5,10 @@ using UnityEngine;
 namespace Solace {
   [RequireComponent(typeof(CarInputController))]
   public class CarController : MonoBehaviour {
+    // Car Speed UI Event
+    public delegate void CarSpeedUIAction(int speed);
+    public static event CarSpeedUIAction DidUpdateCarSpeed;
+
     // Inputs
     private CarInputController controller;
 
@@ -75,7 +79,6 @@ namespace Solace {
     [Space(10)]
     //The following variable lets you to set up a UI text to display the speed of your car.
     //public bool useUI = false;
-    public TMP_Text carSpeedText; // Used to store the UI object that is going to show the speed of the car.
 
     //SOUNDS
     [Header("Sounds")]
@@ -264,10 +267,8 @@ namespace Solace {
 
     // This method converts the car speed data from float to string, and then set the text of the UI carSpeedText with this value.
     public void CarSpeedUI() {
-      if (carSpeedText != null) {
-        float absoluteCarSpeed = Mathf.Abs(carSpeed);
-        carSpeedText.text = Mathf.RoundToInt(absoluteCarSpeed).ToString();
-      }
+      float absoluteCarSpeed = Mathf.Abs(carSpeed);
+      DidUpdateCarSpeed?.Invoke(Mathf.RoundToInt(absoluteCarSpeed));
     }
 
     // This method controls the car sounds. For example, the car engine will sound slow when the car speed is low because the

@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Solace {
   public class CinematicButton : MonoBehaviour {
     private float indicatorTimer = 0f;
     private const float maxIndicatorTimer = 1f;
+    public readonly static float transitionDuration = 1f;
 
     private Image radialIndicatorUI;
 
@@ -14,17 +15,80 @@ namespace Solace {
     private bool isReleasing;
     private bool hasTriggered;
 
-    public delegate void CinematicAction(bool shouldShow);
-    public static event CinematicAction DidUseCinematicAction;
+    public delegate void CinematicEnterAction();
+    public static event CinematicEnterAction DidEnterCinematicAction;
+
+    public delegate void CinematicBarTranslateAction(float delta);
+    public static event CinematicBarTranslateAction DidTranslateCinematicBars;
+
+    public delegate void CinematicExitAction();
+    public static event CinematicExitAction DidExitCinematicAction;
 
     private void OnCinematicMode(bool pressing) {
-      if (pressing) {
-        isPressing = true;
-        isReleasing = false;
+      if (inCinematicMode) {
+        if (pressing) {
+          isPressing = false;
+          isReleasing = false;
+          inCinematicMode = false;
+          DidExitCinematicAction?.Invoke();
+        }
+      } else {
+        if (pressing) {
+          isPressing = true;
+          isReleasing = false;
+        } else {
+          isPressing = false;
+          isReleasing = true;
+        }
       }
-      else {
-        isPressing = false;
-        isReleasing = true;
+    }
+
+    private void Start() {
+      radialIndicatorUI = GetComponent<Image>();
+    }
+
+    private void Update() {
+      if (isPressing) {
+        // Enable the UI
+        radialIndicatorUI.enabled = true;
+
+        // Record the event to avoid unnecesary state checks
+        hasTriggered = true;
+
+        // Incerement the timer
+        indicatorTimer += Time.deltaTime * transitionDuration;
+
+        // if the timer is within limits
+        if (indicatorTimer <= maxIndicatorTimer) {
+          radialIndicatorUI.fillAmount = indicatorTimer;
+          DidTranslateCinematicBars?.Invoke(indicatorTimer);
+        }
+
+        // If the timer is out of bounds, reset the timer and Invoke cinematic enter mode
+        if (indicatorTimer > maxIndicatorTimer) {
+          indicatorTimer = maxIndicatorTimer;
+
+          // Hide the UI
+          radialIndicatorUI.enabled = false;
+
+          // Do not invoke again if already in cinematic mode
+          if (!inCinematicMode) {
+            inCinematicMode = true;
+            DidEnterCinematicAction?.Invoke();
+          }
+        }
+      }
+      else if (isReleasing) {
+        if (hasTriggered) {
+          if (indicatorTimer >= 0f) {
+            indicatorTimer -= Time.deltaTime * transitionDuration;
+            radialIndicatorUI.fillAmount = indicatorTimer;
+            DidTranslateCinematicBars?.Invoke(indicatorTimer);
+          }
+          if (indicatorTimer <= 0f) {
+            hasTriggered = false;
+          }
+        }
       }
     }
 
@@ -34,41 +98,6 @@ namespace Solace {
 
     private void OnDisable() {
       InputManager.DidUseCinematicMode -= OnCinematicMode;
-    }
-
-    private void Start() {
-      radialIndicatorUI = GetComponent<Image>();
-    }
-
-    private void Update() {
-      if (!inCinematicMode && isPressing) {
-        hasTriggered = true;
-        radialIndicatorUI.enabled = true;
-        if (indicatorTimer <= maxIndicatorTimer) {
-          indicatorTimer += Time.deltaTime;
-        }
-        radialIndicatorUI.fillAmount = indicatorTimer;
-        // If the indicator has fully filled up, hide the indicator and start cinematic mode
-        if (indicatorTimer >= maxIndicatorTimer) {
-          indicatorTimer = 0f;
-          inCinematicMode = true;
-          radialIndicatorUI.enabled = false;
-          DidUseCinematicAction?.Invoke(true);
-        }
-      } else if (isReleasing) {
-        // If the indicator has stopped midway, reverse the transition and stop cinematic mode.
-        if (hasTriggered) {
-          if (indicatorTimer >= 0f) {
-            indicatorTimer -= Time.deltaTime;
-          }
-          radialIndicatorUI.fillAmount = indicatorTimer;
-          if (indicatorTimer <= 0f) {
-            radialIndicatorUI.enabled = false;
-            hasTriggered = false;
-            DidUseCinematicAction?.Invoke(false);
-          }
-        }
-      }
     }
   }
 }

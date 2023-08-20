@@ -74,7 +74,6 @@ namespace Solace {
       InputManager.DidUseHandBrake -= OnHandBrake;
     }
 
-    // Update is called once per frame
     void Update() {
       //isAcceleratingForward = Input.GetKey(KeyCode.W);
       //isAcceleratingBackward = Input.GetKey(KeyCode.S);
