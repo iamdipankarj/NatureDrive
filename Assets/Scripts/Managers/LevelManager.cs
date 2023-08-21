@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace Solace {
   public class LevelManager : MonoBehaviour {
+    public static readonly string PROTOTYPE_LEVEL = "PrototypeScene";
+
     public static LevelManager instance;
     public Canvas loaderCanvas;
     public Slider loadingSlider;

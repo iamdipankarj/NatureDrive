@@ -14,7 +14,7 @@ namespace Solace {
     private void OnNewGameClick() {
       LevelManager instance = LevelManager.instance;
       if (instance != null) {
-        instance.LoadScene("SampleScene");
+        instance.LoadScene(LevelManager.PROTOTYPE_LEVEL);
       } else {
         Debug.LogWarning("LevelManager is not added in the scene.");
       }
