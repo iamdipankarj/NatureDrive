@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
-    <Compile Include="Assets\Scripts\UI\StartMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\GraphicsOptionsMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
@@ -68,6 +68,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\LanguageOptionsMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorManagerTextures.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MoveController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
@@ -108,7 +110,9 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfField.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\InputMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
+    <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Wind.cs" />
@@ -116,6 +120,9 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorManagerEffects.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\GameOptionsMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ChangeWalkingSound.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
     <Compile Include="Assets\Scripts\Vehicles\CarInputController.cs" />
@@ -133,8 +140,10 @@
     <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_SimpleFPSController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\AudioOptionsMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientObscurance.cs" />
   </ItemGroup>
   <ItemGroup>

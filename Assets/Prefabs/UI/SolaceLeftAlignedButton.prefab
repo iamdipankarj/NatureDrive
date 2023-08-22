@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controller / Gamepad
+  m_text: Solace Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}
   m_sharedMaterial: {fileID: 7126759310036043398, guid: c04d023a1bbf53d44b1b2bfbbc789719, type: 2}

@@ -124,7 +124,6 @@ namespace Solace {
     WheelFrictionCurve RRwheelFriction;
     float RRWextremumSlip;
 
-    // Start is called before the first frame update
     void Start() {
       // Hide Cursor
       CursorManager.LockCursor();
