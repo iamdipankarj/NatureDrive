@@ -17,6 +17,9 @@ namespace Solace {
     private Sprite leftCaretActiveSprite;
     private Sprite rightCaretActiveSprite;
 
+    public delegate void ValueChangeAction(string value);
+    public event ValueChangeAction OnValueChange;
+
     SolaceInputActions inputActions;
 
     public int currentIndex = 1;
@@ -109,10 +112,15 @@ namespace Solace {
       }
     }
 
+    public void SetSelectionText(string text) {
+      selection.text = text;
+    }
+
     public void UpdateSelectionText() {
       if (currentIndex >= 0 && currentIndex < options.Count) {
         string text = options.ElementAt(currentIndex);
         selection.text = text;
+        OnValueChange?.Invoke(text);
       }
     }
 

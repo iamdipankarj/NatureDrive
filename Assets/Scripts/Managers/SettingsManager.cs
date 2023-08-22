@@ -37,7 +37,7 @@ namespace Solace {
     public static event ResolutionAction DidReceiveResolutions;
 
     // Default values
-    private const int DEFAULT_MOUSE_SENSITIVITY = 5;
+    private const int DEFAULT_MOUSE_SENSITIVITY = 50;
     private const int DEFAULT_BRIGHTNESS = 50;
     private const float DEFAULT_MASTER_VOLUME = 1f;
     private const float DEFAULT_MUSIC_VOLUME = 0.5f;
@@ -193,6 +193,10 @@ namespace Solace {
         return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY);
       }
       return DEFAULT_MOUSE_SENSITIVITY;
+    }
+
+    public float GetNormalizedMouseSensitivity() {
+      return GetMouseSensitivity() / 100;
     }
 
     public void SetAntiAliasLevel(AntiAliasingLevel level) {

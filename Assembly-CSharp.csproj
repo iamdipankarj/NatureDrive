@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Wind.cs" />
