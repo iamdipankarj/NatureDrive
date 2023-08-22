@@ -1,5 +1,5 @@
 namespace Solace {
-  public class GraphicsOptionsMenuController : MenuController {
+  public class GraphicsMenuController : MenuController {
     void Start() {
     
     }

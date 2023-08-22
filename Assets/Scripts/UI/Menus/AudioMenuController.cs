@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Solace {
-  public class AudioOptionsMenuController : MenuController {
+  public class AudioMenuController : MenuController {
     void Start() {
     
     }
