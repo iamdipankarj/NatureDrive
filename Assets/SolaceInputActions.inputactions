@@ -326,7 +326,7 @@
                 {
                     "name": "",
                     "id": "1e7c5bd3-c69f-47a4-98a3-be5e0515c2aa",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -337,18 +337,7 @@
                 {
                     "name": "",
                     "id": "88d66c74-b391-46ef-be5c-de90b6679195",
-                    "path": "<DualShockGamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchCamera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "23bae699-6c9a-49b0-a518-9e2f6a1af5ba",
-                    "path": "<DualShockGamepad>/touchpadButton",
+                    "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -359,7 +348,7 @@
                 {
                     "name": "",
                     "id": "4e1968e8-cffd-469d-8ea4-3331c21f7a37",
-                    "path": "<XInputController>/buttonNorth",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -425,7 +414,7 @@
                 {
                     "name": "",
                     "id": "c037dbd1-f1eb-4501-9d80-41023c28c5c2",
-                    "path": "<DualShockGamepad>/touchpadButton",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -437,6 +426,28 @@
                     "name": "",
                     "id": "c645d2f1-a9dc-4223-8141-70c0f88d54e3",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CinematicMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c6e33e6-efcd-4257-ab64-ab6a13d6f129",
+                    "path": "<DualShockGamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CinematicMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "535dbad2-62e6-44c0-9391-6596f541d4c5",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
