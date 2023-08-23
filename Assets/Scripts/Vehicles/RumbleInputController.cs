@@ -9,6 +9,7 @@ namespace Solace {
     private CarController car;
     private const float driftRumbleScale = 0.85f;
     private const float staticRumbleScale = 0.2f;
+    private const float STARTUP_THRESHOLD_SPEED = 20f;
     private float clampedSpeed = 0f;
     private System.Random random;
     private Coroutine RumbleCoroutine;
@@ -26,11 +27,15 @@ namespace Solace {
       pad?.SetMotorSpeeds(GetFrequency().low, GetFrequency().high);
     }
 
+    private void SetStartupVibration() {
+      pad?.SetMotorSpeeds(0.0f, 0.8f);
+    }
+
     private void PerformStaticRumble() {
       if (RumbleCoroutine != null) {
         StopCoroutine(RumbleCoroutine);
       }
-      RumbleCoroutine = StartCoroutine(StopRumble(GetRandomFloat(0f, 10f)));
+      RumbleCoroutine = StartCoroutine(StopRumble(GetRandomFloat(0f, 5f)));
     }
 
     private IEnumerator StopRumble(float duration) {
@@ -69,10 +74,20 @@ namespace Solace {
       }
     }
 
+    private bool IsSlipping() {
+      return car.isDrifting || car.isTractionLocked;
+    }
+
+    private bool IsStartingUp() {
+      return car.carSpeed > 2f && car.carSpeed <= STARTUP_THRESHOLD_SPEED;
+    }
+
     void FixedUpdate() {
       if (isRumbleEnabled) {
         clampedSpeed = Mathf.Clamp01(Mathf.Abs(car.carSpeed) / car.maxSpeed);
-        if (car.isDrifting || car.isTractionLocked) {
+        if (IsStartingUp()) {
+          SetStartupVibration();
+        } else if (IsSlipping()) {
           SetDriftVibration();
         } else {
           PerformStaticRumble();
