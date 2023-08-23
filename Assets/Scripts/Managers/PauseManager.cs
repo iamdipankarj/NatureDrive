@@ -20,7 +20,7 @@ namespace Solace {
     public RectTransform content;
     private CanvasRenderer panelRenderer;
     private Coroutine fadeCoroutine;
-    private const float fadeSpeed = 5f;
+    private const float fadeSpeed = 8f;
 
     private void OnPause() {
       if (isPaused) {
