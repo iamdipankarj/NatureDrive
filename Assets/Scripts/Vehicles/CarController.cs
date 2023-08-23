@@ -14,12 +14,12 @@ namespace Solace {
 
     //[Header("CAR SETUP")]
     [Space(10)]
-    [Range(20, 190)]
-    public int maxSpeed = 120; //The maximum speed that the car can reach in km/h.
+    [Range(1, 300)]
+    public int maxSpeed = 300; //The maximum speed that the car can reach in km/h.
     [Range(10, 120)]
     public int maxReverseSpeed = 45; //The maximum speed that the car can reach while going on reverse in km/h.
     [Range(1, 10)]
-    public int accelerationMultiplier = 6; // How fast the car can accelerate. 1 is a slow acceleration and 10 is the fastest.
+    public int accelerationMultiplier = 8; // How fast the car can accelerate. 1 is a slow acceleration and 10 is the fastest.
     [Space(10)]
     [Range(10, 45)]
     public int maxSteeringAngle = 35; // The maximum angle that the tires can reach while rotating the steering wheel.

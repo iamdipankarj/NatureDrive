@@ -5238,6 +5238,7 @@ GameObject:
   - component: {fileID: 6302330743782903109}
   - component: {fileID: 4111253416975245716}
   - component: {fileID: 3632706682583492222}
+  - component: {fileID: 539301112204972458}
   m_Layer: 0
   m_Name: MuscleCar
   m_TagString: Untagged
@@ -5303,9 +5304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eeeaf6536574ff4eab0c41b7ecbfa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 120
+  maxSpeed: 300
   maxReverseSpeed: 45
-  accelerationMultiplier: 6
+  accelerationMultiplier: 9
   maxSteeringAngle: 35
   steeringSpeed: 0.5
   brakeForce: 450
@@ -5325,7 +5326,6 @@ MonoBehaviour:
   RRWParticleSystem: {fileID: 7911454091404854581}
   RLWTireSkid: {fileID: 4423525668354118852}
   RRWTireSkid: {fileID: 7918150480893305452}
-  carSpeedText: {fileID: 0}
   carEngineSound: {fileID: 0}
   tireScreechSound: {fileID: 0}
   carSpeed: 0
@@ -5352,6 +5352,18 @@ MonoBehaviour:
   steeringDelta: 0
   isPressingHandbrake: 0
   isReleasingHandbrake: 0
+--- !u!114 &539301112204972458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4222477170800252176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88127b4e33ffb0f4cb87e40cbbed206a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5338870390432856779
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,6 +106,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindMaterial.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_SimpleMouseLook.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfField.cs" />

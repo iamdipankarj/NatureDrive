@@ -8,7 +8,6 @@ namespace Solace {
     public static RumbleManager instance;
     private Gamepad pad;
     private DualShockGamepad dualshockPad;
-    private bool isVibrationEnabled;
     private Coroutine StopRumbleAfterTime;
 
     private void Awake() {
@@ -22,7 +21,7 @@ namespace Solace {
     }
 
     public void RumblePulse(float lowFrequency, float highFrequency, float duration) {
-      if (pad != null && isVibrationEnabled) {
+      if (pad != null) {
         pad.SetMotorSpeeds(lowFrequency, highFrequency);
         StopRumbleAfterTime = StartCoroutine(StopRumble(duration, pad));
       }
@@ -38,13 +37,10 @@ namespace Solace {
     }
 
     private void ResetRumble() {
-      if (pad != null) {
-        pad.SetMotorSpeeds(0f, 0f);
-      }
+      pad?.SetMotorSpeeds(0f, 0f);
     }
 
     void Start() {
-      isVibrationEnabled = SettingsManager.instance.GetVibrationEnabled();
       pad = Gamepad.current;
       if (pad is DualShock4GamepadHID hID) {
         dualshockPad = hID;

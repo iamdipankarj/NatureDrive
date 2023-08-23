@@ -266,7 +266,7 @@ namespace Solace {
       if (PlayerPrefs.HasKey(VIBRATION_KEY)) {
         return PlayerPrefs.GetInt(VIBRATION_KEY) == 1;
       }
-      return false;
+      return true;
     }
 
     public void SetHUDEnabled(bool enabled) {

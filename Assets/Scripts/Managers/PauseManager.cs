@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Solace {
@@ -31,6 +32,7 @@ namespace Solace {
     }
 
     private void PauseGame() {
+      InputSystem.PauseHaptics();
       content.gameObject.SetActive(true);
       CursorManager.UnlockCursor();
       isPaused = true;
@@ -50,6 +52,7 @@ namespace Solace {
     }
 
     private void ResumeGame() {
+      InputSystem.ResumeHaptics();
       content.gameObject.SetActive(false);
       CursorManager.LockCursor();
       isPaused = false;

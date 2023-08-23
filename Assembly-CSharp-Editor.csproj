@@ -75,6 +75,7 @@
     <Compile Include="Assets\IL3DN\Scripts\Editor\IL3DN_ColorController_Editor.cs" />
     <Compile Include="Assets\IL3DN\Scripts\Editor\IL3DN_Wind_Editor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
     <Compile Include="Assets\IL3DN\Scripts\Editor\IL3DN_ColorManagerTextures_Editor.cs" />
   </ItemGroup>
