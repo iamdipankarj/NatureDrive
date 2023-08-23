@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
+    <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
@@ -121,7 +122,6 @@
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorManagerEffects.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ChangeWalkingSound.cs" />

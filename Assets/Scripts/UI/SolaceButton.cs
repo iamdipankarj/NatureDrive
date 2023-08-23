@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Solace {
+  [RequireComponent(typeof(TextMeshProUGUI))]
   public class SolaceButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler, IPointerClickHandler, ISubmitHandler {
     private TextMeshProUGUI textObj;
     private Color defaultColor;
