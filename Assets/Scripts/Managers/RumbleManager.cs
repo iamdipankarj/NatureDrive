@@ -53,7 +53,7 @@ namespace Solace {
 
     public void SetRedLight() {
       if (dualshockPad != null) {
-        if (dualshockPad is DualShock4GamepadHID hID) {
+        if (dualshockPad is DualShock4GamepadHID) {
           dualshockPad.SetLightBarColor(Color.red);
         }
       }
