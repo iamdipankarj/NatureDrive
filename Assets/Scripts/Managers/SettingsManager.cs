@@ -72,16 +72,19 @@ namespace Solace {
     private readonly Dictionary<string, string> languageMap = new() {
       { "en", "English" },
       { "es", "Spanish" },
-      { "zh-CN", "Chinese (Simplified)" },
-      { "ca", "Catalan" },
+      { "zh", "Chinese (Simplified)" },
       { "fr", "French" },
       { "bg", "Bulgarian" },
+      { "nl-BE", "Dutch (Belgium)" },
       { "it", "Italian" },
+      { "ja", "Japanese" },
+      { "ko", "Korean" },
       { "pl", "Polish" },
       { "de", "German" },
-      { "pt", "Portuguese" },
+      { "pt-BR", "Portuguese (Brazil)" },
+      { "pt-PT", "Portuguese (Portugal)" },
+      { "ru", "Russian" },
       { "tr", "Turkish" },
-      { "uk", "Ukrainian" }
     };
 
     private readonly List<string> colorBlindModes = new() {

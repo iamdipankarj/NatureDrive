@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 801661568679679802}
   - component: {fileID: 8919610854282009536}
   - component: {fileID: 5472756107523912497}
+  - component: {fileID: 5833541604922500982}
+  - component: {fileID: 2962664419324208571}
   m_Layer: 5
   m_Name: SolaceLeftAlignedButton
   m_TagString: Untagged
@@ -190,5 +192,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9de78846448b29d47adfdb856bfb8d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5833541604922500982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823084728642346583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &2962664419324208571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823084728642346583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79896518d4c02041a9db478691de695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

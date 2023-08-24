@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
+using TMPro;
 
 namespace Solace {
   public class LanguageMenuController : MenuController {
-    // Start is called before the first frame update
+    public TMP_Dropdown languageDropdown;
+
     void Start() {
-    
+      var languages = SettingsManager.instance.GetLanguages();
+      languageDropdown.ClearOptions();
+      languageDropdown.AddOptions(languages.Values.ToList());
     }
 
-    // Update is called once per frame
     void Update() {
     
     }
