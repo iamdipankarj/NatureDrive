@@ -49,8 +49,8 @@ namespace Solace {
     }
 
     private void SetStaticVibration() {
-      float leftRand = GetRandomFloat(0f, 0.6f);
-      float rightRand = GetRandomFloat(0f, 0.3f);
+      float leftRand = GetRandomFloat(0f, 0.3f);
+      float rightRand = GetRandomFloat(0f, 0.2f);
       float low = leftRand * clampedSpeed * staticRumbleScale;
       float high = rightRand * clampedSpeed * staticRumbleScale;
       pad?.SetMotorSpeeds(low, high);
