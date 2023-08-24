@@ -22,5 +22,11 @@ namespace Solace {
 #endif
       textComponent.text = localeText;
     }
+
+    private void OnDisable() {
+      if (TryGetComponent<LocalizeStringEvent>(out var comp)) {
+        comp.OnUpdateString.RemoveListener(OnSelectorLocaleUpdate);
+      }
+    }
   }
 }
