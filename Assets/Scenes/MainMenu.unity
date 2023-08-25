@@ -1325,7 +1325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &213902059
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4109,7 +4109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -265.07892, y: -23.125977}
+  m_AnchoredPosition: {x: -265.07898, y: -23.125977}
   m_SizeDelta: {x: -690.158, y: -173.748}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1247812365
@@ -6435,7 +6435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 1741052260}
-  activeMenuType: 5
+  activeMenuType: 0
 --- !u!1001 &1723891048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6992,7 +6992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1838277924
 RectTransform:
   m_ObjectHideFlags: 0

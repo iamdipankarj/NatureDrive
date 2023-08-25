@@ -47,6 +47,7 @@ namespace Solace {
     }
 
     private void OnDisable() {
+      languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
       LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
       if (optionsCoroutine != null) {
         StopCoroutine(optionsCoroutine);
