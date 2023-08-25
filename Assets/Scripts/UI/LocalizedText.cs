@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Components;
-using UnityEngine.Localization.Settings;
 
 namespace Solace {
   [RequireComponent(typeof(LocalizeStringEvent))]
@@ -17,9 +16,6 @@ namespace Solace {
     }
 
     private void OnSelectorLocaleUpdate(string localeText) {
-#if UNITY_EDITOR
-      Debug.Log($"Changed Locale to: {LocalizationSettings.SelectedLocale.LocaleName}");
-#endif
       textComponent.text = localeText;
     }
 

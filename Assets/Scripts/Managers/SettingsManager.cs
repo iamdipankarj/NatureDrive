@@ -69,22 +69,7 @@ namespace Solace {
     private const string SFX_VOLUME_KEY = "sfx_volume_key";
 
     // Language Settings
-    private readonly Dictionary<string, string> languageMap = new() {
-      { "English", "en" },
-      { "Spanish", "es" },
-      { "Chinese (Simplified)", "zh" },
-      { "French", "fr" },
-      { "Bulgarian", "bg" },
-      { "Dutch (Belgium)", "nl-BE" },
-      { "Italian", "it" },
-      { "Japanese", "ja" },
-      { "Korean", "ko" },
-      { "Polish", "pl" },
-      { "German", "de" },
-      { "Portuguese (Portugal)", "pt-PT" },
-      { "Russian", "ru" },
-      { "Turkish", "tr" }
-    };
+    private const string LANGUAGE_KEY = "selected_locale_key";
 
     private readonly List<string> colorBlindModes = new() {
       "Normal",
@@ -112,10 +97,6 @@ namespace Solace {
       DidReceiveResolutions?.Invoke(GetAvailableResolutions(Screen.resolutions));
     }
 
-    public Dictionary<string, string> GetLanguages() {
-      return languageMap;
-    }
-
     public List<string> GetColorBlindModes() {
       return colorBlindModes;
     }
@@ -129,6 +110,14 @@ namespace Solace {
         return PlayerPrefs.GetInt(BILINEAR_FILTER_KEY) == 1;
       }
       return false;
+    }
+
+    public void SetLanguage(string code) {
+      PlayerPrefs.SetString(LANGUAGE_KEY, code);
+    }
+
+    public string GetLanguage() {
+      return PlayerPrefs.GetString(LANGUAGE_KEY, "en");
     }
 
     public void SetBloomEnabled(bool enabled) {
