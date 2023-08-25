@@ -42,6 +42,10 @@ namespace Solace {
       }
     }
 
+    private void Start() {
+      Debug.Log(SaveManager.GetAppVersion());
+    }
+
     private void OnDisable() {
       newGameButton.onClick.RemoveAllListeners();
       loadGameButton.onClick.RemoveAllListeners();
