@@ -7,7 +7,7 @@ namespace Solace {
     private Gamepad pad;
     private CarController car;
     private const float DRIFT_RUMBLE_SCALE = 0.85f;
-    private const float STATIC_RUMBLE_SCALE = 0.2f;
+    private const float staticRumbleScale = 0.09f;
     private const float STARTUP_THRESHOLD_SPEED = 20f;
     private float clampedSpeed = 0f;
     private System.Random random;
@@ -50,8 +50,8 @@ namespace Solace {
     private void SetStaticVibration() {
       float leftRand = GetRandomFloat(0f, 0.3f);
       float rightRand = GetRandomFloat(0f, 0.2f);
-      float low = leftRand * clampedSpeed * 0.8f * STATIC_RUMBLE_SCALE;
-      float high = rightRand * clampedSpeed * 0.8f * STATIC_RUMBLE_SCALE;
+      float low = leftRand * clampedSpeed * staticRumbleScale;
+      float high = rightRand * clampedSpeed * staticRumbleScale;
       pad?.SetMotorSpeeds(low, high);
     }
 

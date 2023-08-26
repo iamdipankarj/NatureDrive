@@ -102,6 +102,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
+    <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
