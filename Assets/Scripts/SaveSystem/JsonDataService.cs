@@ -10,22 +10,21 @@ namespace Solace {
     private const string KEY = "ggdPhkeOoiv6YMiPWa34kIuOdDUL7NwQFg6l1DVdwN8=";
     private const string IV = "JZuM0HQsWSBVpRHTeRZMYQ==";
 
-    public bool SaveData<T>(string RelativePath, T Data, bool Encrypted) {
-      string path = Application.persistentDataPath + RelativePath;
+    public bool SaveData<T>(string Path, T Data, bool Encrypted) {
       try {
-        if (File.Exists(path)) {
+        if (File.Exists(Path)) {
           Debug.Log("Data exists. Deleting old file and writing a new one!");
-          File.Delete(path);
+          File.Delete(Path);
         }
         else {
           Debug.Log("Writing file for the first time!");
         }
-        using FileStream stream = File.Create(path);
+        using FileStream stream = File.Create(Path);
         if (Encrypted) {
           WriteEncryptedData(Data, stream);
         } else {
           stream.Close();
-          File.WriteAllText(path, JsonConvert.SerializeObject(Data, Formatting.Indented));
+          File.WriteAllText(Path, JsonConvert.SerializeObject(Data, Formatting.Indented));
         }
         return true;
       } catch (Exception e) {
@@ -47,17 +46,16 @@ namespace Solace {
       cryptoStream.Write(Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(Data)));
     }
 
-    public T LoadData<T>(string RelativePath, bool Encrypted) {
-      string path = Application.persistentDataPath + RelativePath;
-      if (!File.Exists(path)) {
+    public T LoadData<T>(string Path, bool Encrypted) {
+      if (!File.Exists(Path)) {
         return default;
       }
       try {
         T data;
         if (Encrypted) {
-          data = ReadEncryptedData<T>(path);
+          data = ReadEncryptedData<T>(Path);
         } else {
-          data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+          data = JsonConvert.DeserializeObject<T>(File.ReadAllText(Path));
         }
         return data;
       }
