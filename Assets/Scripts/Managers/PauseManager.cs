@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ namespace Solace {
 
     public Button resumeButton;
     public Button mainMenuButton;
+    public Button restartLevelButton;
 
     public Image panel;
     public RectTransform content;
@@ -84,12 +86,20 @@ namespace Solace {
       InputManager.DidPause += OnPause;
       resumeButton.onClick.AddListener(ResumeGame);
       mainMenuButton.onClick.AddListener(OnMainMenuClick);
+      restartLevelButton.onClick.AddListener(OnRestartLevelClick);
+    }
+
+    private void OnRestartLevelClick() {
+      UnPauseTime();
+      CursorManager.LockCursor();
+      LevelManager.instance.RestartLevel();
     }
 
     private void OnDisable() {
       InputManager.DidPause -= OnPause;
       resumeButton.onClick.RemoveListener(ResumeGame);
       mainMenuButton.onClick.RemoveListener(OnMainMenuClick);
+      restartLevelButton.onClick.RemoveListener(OnRestartLevelClick);
       if (fadeCoroutine != null) {
         StopCoroutine(fadeCoroutine);
       }

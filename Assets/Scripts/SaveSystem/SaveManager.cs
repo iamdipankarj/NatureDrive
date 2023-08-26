@@ -64,7 +64,7 @@ namespace Solace {
     }
 
     private void OnDisable() {
-      tokenSource.Cancel();
+      tokenSource?.Cancel();
     }
 
     private void Start() {

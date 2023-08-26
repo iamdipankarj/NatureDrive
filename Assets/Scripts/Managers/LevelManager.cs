@@ -22,6 +22,10 @@ namespace Solace {
       DontDestroyOnLoad(gameObject);
     }
 
+    public void RestartLevel() {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void LoadScene(string sceneName) {
       loaderCanvas.gameObject.SetActive(true);
       StartCoroutine(LoadSceneAsync(sceneName));
