@@ -6,8 +6,8 @@ namespace Solace {
   public class RumbleInputController : MonoBehaviour {
     private Gamepad pad;
     private CarController car;
-    private const float driftRumbleScale = 0.85f;
-    private const float staticRumbleScale = 0.2f;
+    private const float DRIFT_RUMBLE_SCALE = 0.85f;
+    private const float STATIC_RUMBLE_SCALE = 0.2f;
     private const float STARTUP_THRESHOLD_SPEED = 20f;
     private float clampedSpeed = 0f;
     private System.Random random;
@@ -19,7 +19,7 @@ namespace Solace {
     }
 
     private (float low, float high) GetFrequency() {
-      return (clampedSpeed * driftRumbleScale, clampedSpeed * driftRumbleScale);
+      return (clampedSpeed * DRIFT_RUMBLE_SCALE, clampedSpeed * DRIFT_RUMBLE_SCALE);
     }
 
     private void SetDriftVibration() {
@@ -50,8 +50,8 @@ namespace Solace {
     private void SetStaticVibration() {
       float leftRand = GetRandomFloat(0f, 0.3f);
       float rightRand = GetRandomFloat(0f, 0.2f);
-      float low = leftRand * clampedSpeed * staticRumbleScale;
-      float high = rightRand * clampedSpeed * staticRumbleScale;
+      float low = leftRand * clampedSpeed * 0.8f * STATIC_RUMBLE_SCALE;
+      float high = rightRand * clampedSpeed * 0.8f * STATIC_RUMBLE_SCALE;
       pad?.SetMotorSpeeds(low, high);
     }
 

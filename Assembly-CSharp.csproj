@@ -69,6 +69,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorManagerTextures.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GraphicsMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Fog_PP.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
@@ -101,6 +103,8 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
@@ -110,6 +114,7 @@
     <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_SimpleMouseLook.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\JsonDataService.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfField.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
@@ -119,6 +124,7 @@
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
+    <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Wind.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
@@ -127,6 +133,7 @@
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ChangeWalkingSound.cs" />
+    <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
     <Compile Include="Assets\Scripts\Vehicles\CarInputController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
@@ -136,11 +143,13 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorController.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Snow.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_SimpleFPSController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
