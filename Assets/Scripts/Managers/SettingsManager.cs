@@ -39,9 +39,8 @@ namespace Solace {
     // Default values
     private const int DEFAULT_MOUSE_SENSITIVITY = 50;
     private const int DEFAULT_BRIGHTNESS = 50;
-    private const float DEFAULT_MASTER_VOLUME = 1f;
-    private const float DEFAULT_MUSIC_VOLUME = 0.5f;
-    private const float DEFAULT_SFX_VOLUME = 0.5f;
+    private const int DEFAULT_MUSIC_VOLUME = 50;
+    private const int DEFAULT_SFX_VOLUME = 50;
 
     // Game Settings
     private const string DIFFICULTY_KEY = "atom_difficulty";
@@ -64,7 +63,6 @@ namespace Solace {
     private const string MOUSE_SENSITIVITY_KEY = "mouse_sensitivity_key";
 
     // Audio Settings
-    private const string MASTER_VOLUME_KEY = "master_volume_key";
     private const string MUSIC_VOLUME_KEY = "music_volume_key";
     private const string SFX_VOLUME_KEY = "sfx_volume_key";
 
@@ -131,37 +129,20 @@ namespace Solace {
       return false;
     }
 
-    public void SetMasterVolume(float amount) {
-      PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, amount);
+    public void SetMusicVolume(int amount) {
+      PlayerPrefs.SetInt(MUSIC_VOLUME_KEY, amount);
     }
 
-    public float GetMasterVolume() {
-      if (PlayerPrefs.HasKey(MASTER_VOLUME_KEY)) {
-        return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
-      }
-      return DEFAULT_MASTER_VOLUME;
+    public int GetMusicVolume() {
+      return PlayerPrefs.GetInt(MUSIC_VOLUME_KEY, DEFAULT_MUSIC_VOLUME);
     }
 
-    public void SetMusicVolume(float amount) {
-      PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, amount);
+    public void SetSFXVolume(int amount) {
+      PlayerPrefs.SetInt(SFX_VOLUME_KEY, amount);
     }
 
-    public float GetMusicVolume() {
-      if (PlayerPrefs.HasKey(MUSIC_VOLUME_KEY)) {
-        return PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY);
-      }
-      return DEFAULT_MUSIC_VOLUME;
-    }
-
-    public void SetSFXVolume(float amount) {
-      PlayerPrefs.SetFloat(SFX_VOLUME_KEY, amount);
-    }
-
-    public float GetSFXVolume() {
-      if (PlayerPrefs.HasKey(SFX_VOLUME_KEY)) {
-        return PlayerPrefs.GetFloat(SFX_VOLUME_KEY);
-      }
-      return DEFAULT_SFX_VOLUME;
+    public int GetSFXVolume() {
+      return PlayerPrefs.GetInt(SFX_VOLUME_KEY, DEFAULT_SFX_VOLUME);
     }
 
     public void SetBrightness(int amount) {
@@ -169,10 +150,7 @@ namespace Solace {
     }
 
     public int GetBrightness() {
-      if (PlayerPrefs.HasKey(BRIGHTNESS_KEY)) {
-        return PlayerPrefs.GetInt(BRIGHTNESS_KEY);
-      }
-      return DEFAULT_BRIGHTNESS;
+      return PlayerPrefs.GetInt(BRIGHTNESS_KEY, DEFAULT_BRIGHTNESS);
     }
 
     public void SetMouseSensitivity(int amount) {
@@ -180,10 +158,7 @@ namespace Solace {
     }
 
     public int GetMouseSensitivity() {
-      if (PlayerPrefs.HasKey(MOUSE_SENSITIVITY_KEY)) {
-        return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY);
-      }
-      return DEFAULT_MOUSE_SENSITIVITY;
+      return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY, DEFAULT_MOUSE_SENSITIVITY);
     }
 
     public float GetNormalizedMouseSensitivity() {
@@ -195,10 +170,7 @@ namespace Solace {
     }
 
     public AntiAliasingLevel GetAntiAliasingLevel() {
-      if (PlayerPrefs.HasKey(ANTI_ALIAS_KEY)) {
-        return (AntiAliasingLevel)PlayerPrefs.GetInt(ANTI_ALIAS_KEY);
-      }
-      return AntiAliasingLevel.X2;
+      return (AntiAliasingLevel)PlayerPrefs.GetInt(ANTI_ALIAS_KEY, (int)AntiAliasingLevel.X2);
     }
 
     public void SetFPSLimit(int fps) {
@@ -220,10 +192,7 @@ namespace Solace {
     }
 
     public int GetFPSLimit() {
-      if (PlayerPrefs.HasKey(FPS_KEY)) {
-        return PlayerPrefs.GetInt(FPS_KEY);
-      }
-      return 60;
+      return PlayerPrefs.GetInt(FPS_KEY, 60);
     }
 
     public void SetVsyncEnabled(bool enabled) {
@@ -369,7 +338,7 @@ namespace Solace {
       PlayerPrefs.Save();
     }
 
-    void OnDestroy() {
+    void OnDisable() {
       PlayerPrefs.Save();
     }
   }

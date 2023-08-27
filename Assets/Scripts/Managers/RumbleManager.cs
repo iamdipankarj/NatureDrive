@@ -55,7 +55,7 @@ namespace Solace {
       }
     }
 
-    private void OnDestroy() {
+    private void OnDisable() {
       InputSystem.ResetHaptics();
       if (StopRumbleAfterTime != null) {
         StopCoroutine(StopRumbleAfterTime);
