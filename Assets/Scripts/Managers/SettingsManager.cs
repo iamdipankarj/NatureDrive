@@ -33,9 +33,6 @@ namespace Solace {
   public class SettingsManager : MonoBehaviour {
     public static SettingsManager instance;
 
-    public delegate void ResolutionAction(List<string> options);
-    public static event ResolutionAction DidReceiveResolutions;
-
     // Default values
     private const int DEFAULT_MOUSE_SENSITIVITY = 50;
     private const int DEFAULT_BRIGHTNESS = 50;
@@ -55,7 +52,9 @@ namespace Solace {
     private const string BLOOM_KEY = "bloom_key";
     private const string BRIGHTNESS_KEY = "brightness_key";
     private const string BILINEAR_FILTER_KEY = "bilinear_filter_key";
-    private const string RESOLUTION_KEY = "resolution_key";
+
+    private const string SCREEN_WIDTH_KEY = "screen_width_key";
+    private const string SCREEN_HEIGHT_KEY = "screen_height_key";
 
     // Control Settings
     private const string VIBRATION_KEY = "vibration_enabled_key";
@@ -91,10 +90,6 @@ namespace Solace {
       DontDestroyOnLoad(gameObject);
     }
 
-    void Start() {
-      DidReceiveResolutions?.Invoke(GetAvailableResolutions(Screen.resolutions));
-    }
-
     public List<string> GetColorBlindModes() {
       return colorBlindModes;
     }
@@ -108,6 +103,15 @@ namespace Solace {
         return PlayerPrefs.GetInt(BILINEAR_FILTER_KEY) == 1;
       }
       return false;
+    }
+
+    public void SetResolution(int width, int height) {
+      PlayerPrefs.SetInt(SCREEN_WIDTH_KEY, width);
+      PlayerPrefs.SetInt(SCREEN_HEIGHT_KEY, height);
+    }
+
+    public (int width, int height) GetResolution() {
+      return (PlayerPrefs.GetInt(SCREEN_WIDTH_KEY, Screen.currentResolution.width), PlayerPrefs.GetInt(SCREEN_HEIGHT_KEY, Screen.currentResolution.height));
     }
 
     public void SetLanguage(string code) {
@@ -174,21 +178,21 @@ namespace Solace {
     }
 
     public void SetFPSLimit(int fps) {
-      if (fps == 60) {
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = fps;
-        PlayerPrefs.SetInt(FPS_KEY, fps);
-      }
-      else if (fps == 30) {
-        QualitySettings.vSyncCount = 2;
-        Application.targetFrameRate = fps;
-        PlayerPrefs.SetInt(FPS_KEY, fps);
-      }
-      else if (fps == -1) { // Unlimted framerate
-        QualitySettings.vSyncCount = 0;
+#if UNITY_EDITOR
+      Debug.Log($"Will change framerate to {fps} in production build");
+#else
+      if (fps >= 99) {
         Application.targetFrameRate = -1;
-        PlayerPrefs.SetInt(FPS_KEY, fps);
+      } else if (fps >= 60) {
+        QualitySettings.vSyncCount = 1;
+      } else if (fps >= 30) {
+        QualitySettings.vSyncCount = 2;
+      } else {
+        QualitySettings.vSyncCount = 0;
       }
+      Application.targetFrameRate = fps;
+#endif
+      PlayerPrefs.SetInt(FPS_KEY, fps);
     }
 
     public int GetFPSLimit() {
@@ -273,45 +277,12 @@ namespace Solace {
       return Difficulty.REGULAR;
     }
 
-    public void SetResolution(string resolution) {
-      PlayerPrefs.SetString(RESOLUTION_KEY, resolution);
-    }
-
-    public string GetResolution() {
-      if (PlayerPrefs.HasKey(RESOLUTION_KEY)) {
-        return PlayerPrefs.GetString(RESOLUTION_KEY);
-      }
-      return GetDefaultResolution();
-    }
-
-    public void SetResolution(int width, int height) {
-      Screen.SetResolution(width, height, GetCurrentWindowType(), new RefreshRate()
-      {
-        numerator = Screen.currentResolution.refreshRateRatio.numerator,
-        denominator = Screen.currentResolution.refreshRateRatio.denominator
-      });
-    }
-
-    private string GetDefaultResolution() {
-      Resolution res = Screen.currentResolution;
-      return $"{res.width}x{res.height}";
-    }
-
-    public List<string> GetAvailableResolutions(Resolution[] resolutions) {
-      List<string> options = new();
-      foreach (var res in resolutions) {
-        options.Add($"{res.width}x{res.height}");
-      }
-      return options;
-    }
-
-    public void SetDefaultResolution() {
-      Resolution currentResolution = Screen.currentResolution;
-      SetResolution(currentResolution.width, currentResolution.height);
-    }
-
     public void SetQuality(QualityIndex qualityIndex) {
+#if UNITY_EDITOR
+      Debug.Log($"Will change quality index to {qualityIndex} in production.");
+#else
       QualitySettings.SetQualityLevel((int)qualityIndex, true);
+#endif
     }
 
     public FullScreenMode GetCurrentWindowType() {
