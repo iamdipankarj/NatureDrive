@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,15 +14,71 @@ namespace Solace {
     public Slider framerateSlider;
     public Toggle motionBlurToggle;
 
+    // Resolution stuff
     private Resolution[] resolutions;
     private float currentRefreshRate = 0;
     private int currentScreenWidth;
     private int currentScreenHeight;
 
+    // Display mode
+    private List<string> displayModeOptions;
+
+    // Quality
+    private List<string> qualityOptions;
+
     private void OnEnable() {
       brightnessSlider.onValueChanged.AddListener(OnBrightnessChanged);
       framerateSlider.onValueChanged.AddListener(OnFramerateChanged);
       resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
+      displayModeDropdown.onValueChanged.AddListener(OnDisplayModeChanged);
+      qualityDropdown.onValueChanged.AddListener(OnQualityChanged);
+      vsyncToggle.onValueChanged.AddListener(OnVsyncChanged);
+    }
+
+    private void OnVsyncChanged(bool isOn) {
+      SettingsManager.instance.SetVsyncEnabled(isOn);
+    }
+
+    private void PrepareVsyncSettings() {
+      vsyncToggle.isOn = SettingsManager.instance.GetVsyncEnabled();
+    }
+
+    private void PrepareQualitySettingsDropdown() {
+      qualityOptions = new() {
+        "Very Low", "Low", "Medium", "High", "Very High", "Ultra"
+      };
+      QualityIndex preferedIndex = SettingsManager.instance.GetQuality();
+      qualityDropdown.ClearOptions();
+      qualityDropdown.AddOptions(qualityOptions);
+      qualityDropdown.value = (int)preferedIndex;
+      qualityDropdown.RefreshShownValue();
+    }
+
+    private void OnQualityChanged(int qualityIndex) {
+      QualityIndex preferedIndex = (QualityIndex)qualityIndex;
+      SettingsManager.instance.SetQuality(preferedIndex);
+    }
+
+    private void OnDisplayModeChanged(int modeIndex) {
+      if (modeIndex == 0) {
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+      } else if (modeIndex == 1) {
+        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+      } else if (modeIndex == 2) {
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+      }
+      SettingsManager.instance.SetDisplayMode(modeIndex);
+    }
+
+    private void PrepareDisplayModeDropdown() {
+      displayModeOptions = new() {
+        "Windowed", "Full Screen", "Borderless"
+      };
+      displayModeDropdown.ClearOptions();
+      displayModeDropdown.AddOptions(displayModeOptions);
+      int preferedMode = SettingsManager.instance.GetDisplayMode();
+      displayModeDropdown.value = preferedMode;
+      displayModeDropdown.RefreshShownValue();
     }
 
     private void PrepareResolutionDropdown() {
@@ -67,7 +125,7 @@ namespace Solace {
     }
 
     private void UpdateResolution(int width, int height) {
-      Screen.SetResolution(width, height, FullScreenMode.ExclusiveFullScreen, new RefreshRate()
+      Screen.SetResolution(width, height, Screen.fullScreenMode, new RefreshRate()
       {
         numerator = Screen.currentResolution.refreshRateRatio.numerator,
         denominator = Screen.currentResolution.refreshRateRatio.denominator
@@ -86,9 +144,15 @@ namespace Solace {
       brightnessSlider.onValueChanged.RemoveListener(OnBrightnessChanged);
       framerateSlider.onValueChanged.RemoveListener(OnFramerateChanged);
       resolutionDropdown.onValueChanged.RemoveListener(OnResolutionChanged);
+      displayModeDropdown.onValueChanged.RemoveListener(OnDisplayModeChanged);
+      qualityDropdown.onValueChanged.RemoveListener(OnQualityChanged);
+      vsyncToggle.onValueChanged.RemoveListener(OnVsyncChanged);
     }
 
     void Start() {
+      PrepareVsyncSettings();
+      PrepareQualitySettingsDropdown();
+      PrepareDisplayModeDropdown();
       PrepareResolutionDropdown();
       brightnessSlider.value = SettingsManager.instance.GetBrightness();
       framerateSlider.value = SettingsManager.instance.GetFPSLimit();

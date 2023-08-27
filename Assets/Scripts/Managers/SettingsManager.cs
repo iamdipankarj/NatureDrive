@@ -2,12 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Solace {
-  public enum WindowType {
-    WINDOWED = 1,
-    FULL_SCREEN = 2,
-    BORDERLESS = 3
-  }
-
   public enum QualityIndex {
     VERY_LOW = 0,
     LOW = 1,
@@ -53,8 +47,13 @@ namespace Solace {
     private const string BRIGHTNESS_KEY = "brightness_key";
     private const string BILINEAR_FILTER_KEY = "bilinear_filter_key";
 
+    // Resolution Settings
     private const string SCREEN_WIDTH_KEY = "screen_width_key";
     private const string SCREEN_HEIGHT_KEY = "screen_height_key";
+    private const string DISPLAY_MODE_KEY = "display_mode_key";
+
+    // Quality
+    private const string QUALITY_KEY = "quality_key";
 
     // Control Settings
     private const string VIBRATION_KEY = "vibration_enabled_key";
@@ -283,22 +282,19 @@ namespace Solace {
 #else
       QualitySettings.SetQualityLevel((int)qualityIndex, true);
 #endif
+      PlayerPrefs.SetInt(QUALITY_KEY, (int)qualityIndex);
     }
 
-    public FullScreenMode GetCurrentWindowType() {
-      return Screen.fullScreenMode;
+    public QualityIndex GetQuality() {
+      return (QualityIndex)PlayerPrefs.GetInt(QUALITY_KEY, (int)QualityIndex.MEDIUM);
     }
 
-    public void SetWindowType(WindowType windowType) {
-      if (windowType == WindowType.WINDOWED) {
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-      }
-      else if (windowType == WindowType.FULL_SCREEN) {
-        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-      }
-      else if (windowType == WindowType.BORDERLESS) {
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-      }
+    public int GetDisplayMode() {
+      return PlayerPrefs.GetInt(DISPLAY_MODE_KEY, 1);
+    }
+
+    public void SetDisplayMode(int mode) {
+      PlayerPrefs.SetInt(DISPLAY_MODE_KEY, mode);
     }
 
     public string GetGraphicsDeviceName() {
