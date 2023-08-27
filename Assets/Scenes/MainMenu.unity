@@ -9072,7 +9072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 1741052260}
-  activeMenuType: 6
+  activeMenuType: 0
 --- !u!1001 &1723891048
 PrefabInstance:
   m_ObjectHideFlags: 0

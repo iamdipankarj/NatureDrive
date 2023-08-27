@@ -182,6 +182,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\ColorBlind\ChannelMixer.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
