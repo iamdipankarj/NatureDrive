@@ -165,7 +165,7 @@ MonoBehaviour:
   m_IgnoreTag: 
   m_UseImpactDirection: 1
   m_ScaleImpactWithMass: 0
-  m_ScaleImpactWithSpeed: 0
+  m_ScaleImpactWithSpeed: 1
 --- !u!1 &6657687834287488063
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_IgnoreTag: 
   m_UseImpactDirection: 1
   m_ScaleImpactWithMass: 0
-  m_ScaleImpactWithSpeed: 0
+  m_ScaleImpactWithSpeed: 1
 --- !u!1 &8231064833664593074
 GameObject:
   m_ObjectHideFlags: 0

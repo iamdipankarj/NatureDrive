@@ -23,6 +23,9 @@ namespace Solace {
     }
 
     public void SaveCheckpoint(GameLevel level, int checkpointId) {
+#if UNITY_EDITOR
+      Debug.Log($"<color=#00FF00>Saving Checkpoint: </color> {checkpointId}");
+#endif
       // Save position
       playerStats.player.posX = Camera.main.transform.position.x;
       playerStats.player.posY = Camera.main.transform.position.y;

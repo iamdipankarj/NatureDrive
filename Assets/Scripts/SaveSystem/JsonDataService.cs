@@ -13,11 +13,7 @@ namespace Solace {
     public bool SaveData<T>(string Path, T Data, bool Encrypted) {
       try {
         if (File.Exists(Path)) {
-          Debug.Log("Data exists. Deleting old file and writing a new one!");
           File.Delete(Path);
-        }
-        else {
-          Debug.Log("Writing file for the first time!");
         }
         using FileStream stream = File.Create(Path);
         if (Encrypted) {

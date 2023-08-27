@@ -76,6 +76,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ContrastStretch.cs" />
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
