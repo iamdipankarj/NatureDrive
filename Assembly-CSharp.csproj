@@ -79,10 +79,12 @@
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\GroundMaterialManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\TireMarksRenderer.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
@@ -94,7 +96,9 @@
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\CommonTools.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\TireParticleEmitter.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
     <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\GroundMaterial.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
@@ -132,6 +137,7 @@
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ColorManagerEffects.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\MiniCooperController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_ChangeWalkingSound.cs" />
@@ -182,7 +188,6 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
-    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\ColorBlind\ChannelMixer.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
