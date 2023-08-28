@@ -246,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3703747834457297870}
   m_Layer: 0
-  m_Name: RearleftWheel
+  m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,6 @@ MonoBehaviour:
   RRWParticleSystem: {fileID: 0}
   RLWTireSkid: {fileID: 0}
   RRWTireSkid: {fileID: 0}
-  carSpeedText: {fileID: 0}
   carEngineSound: {fileID: 0}
   tireScreechSound: {fileID: 0}
   carSpeed: 0

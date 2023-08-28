@@ -426,8 +426,8 @@ namespace Solace {
       }
     }
 
-
     void FixedUpdate() {
+      
       // If paused, allow to perform a single time step
 
       if (paused) {

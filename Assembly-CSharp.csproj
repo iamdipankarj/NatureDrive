@@ -91,6 +91,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Fog.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\EDVehicle\MiniCooperInput.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
     <Compile Include="Assets\IL3DN\Scripts\IL3DN_Fog_PP.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Scripts\Vehicles\EDVehicle\TireParticleEmitter.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\NSVehicle\NSVehicleController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MoveController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
