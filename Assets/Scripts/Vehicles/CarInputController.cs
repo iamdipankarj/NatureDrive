@@ -59,11 +59,19 @@ namespace Solace {
       backwardAccelerateDelta = delta;
     }
 
+    private void Start() {
+      
+    }
+
     private void OnEnable() {
       InputManager.DidAccelerate += OnAccelerateForward;
       InputManager.DidReverse += OnAccelerateBackward;
       InputManager.DidSteer += OnSteer;
       InputManager.DidUseHandBrake += OnHandBrake;
+    }
+
+    private void OnApplicationQuit() {
+      LogitechGSDK.LogiSteeringShutdown();
     }
 
     private void OnDisable() {
