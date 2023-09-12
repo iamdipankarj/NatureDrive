@@ -324,7 +324,7 @@ WheelCollider:
   m_Radius: 0.37
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 1500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -542,7 +542,7 @@ WheelCollider:
   m_Radius: 0.37
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 1500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -791,10 +791,10 @@ WheelCollider:
   m_GameObject: {fileID: 7507551159266791243}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.37
+  m_Radius: 0.3773091
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 1500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -897,7 +897,7 @@ WheelCollider:
   m_Radius: 0.37
   m_SuspensionSpring:
     spring: 35000
-    damper: 4500
+    damper: 1500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
