@@ -10,7 +10,7 @@ using UnityEditor.SceneManagement;
 #endif
 
 namespace MSVehicle {
-  #region wheelClass
+
   [Serializable]
   public class GroundFrictionClass {
     [Range(0.1f, 2)]
@@ -164,9 +164,9 @@ namespace MSVehicle {
     [Tooltip("In this variable you can set the 'AsymptoteValue' parameter of the wheel collider. This parameter will be passed to the collider automatically when the vehicle starts.")]
     public float AsymptoteValue = 0.75f;
   }
-  #endregion
 
-  #region suspensionClass
+
+
   [Serializable]
   public class SuspensionAdjustmentClass {
     [Header("Settings")]
@@ -194,9 +194,8 @@ namespace MSVehicle {
     [HideInInspector]
     public int indexCustomSuspensionHeight = 0;
   }
-  #endregion
 
-  #region brakesClass
+
   [Serializable]
   public class VehicleBrakesClass {
     [Tooltip("If this variable is true, the vehicle brake system becomes ABS type.")]
@@ -226,9 +225,7 @@ namespace MSVehicle {
     [Tooltip("This variable defines how smooth the wheels will be braked. This parameter is valid only if the variable 'brakeSlowly' is true.")]
     public float speedBrakeSlowly = 1.0f;
   }
-  #endregion
 
-  #region vehicleDamageClass
   [Serializable]
   public class VehicleDamageClass {
     [Tooltip("If this variable is true, the vehicle may receive damages.")]
@@ -254,9 +251,9 @@ namespace MSVehicle {
     [Tooltip("if this variable is true, deformations will occur towards the vehicle's center of mass.")]
     public bool warpToTheCenter = true;
   }
-  #endregion
 
-  #region volantClass
+
+
   [Serializable]
   public class VolantSettingsClass {
     [Header("Settings")]
@@ -293,9 +290,9 @@ namespace MSVehicle {
     [Tooltip("If this variable is true, the steering assistant will intervene smoothly. It is advisable to use this option only if the steering wheel speed is high.")]
     public bool useLerp = false;
   }
-  #endregion
 
-  #region vehicleAdjustment
+
+
   [Serializable]
   public class VehicleAdjustmentClass {
     [Range(500, 2000000)]
@@ -332,198 +329,7 @@ namespace MSVehicle {
     public GameObject internalPlayerMesh;
   }
 
-  #endregion
 
-  #region cameraClass
-  [Serializable]
-  public class VehicleCamerasClass {
-    [Tooltip("Here you must associate all the cameras that you want to control by this script, associating each one with an index and selecting your preferences.")]
-    public List<CameraTypeClass> vehicleCameras = new List<CameraTypeClass>();
-    [Tooltip("Here you can configure the cameras, deciding their speed of movement, rotation, zoom, among other options.")]
-    public CameraSettingsClass cameraSettings;
-  }
-  [Serializable]
-  public class CameraTypeClass {
-    [Tooltip("A camera must be associated with this variable. The camera that is associated here, will receive the settings of this index.")]
-    public Camera _camera;
-    public enum RotType { LookAtThePlayer, FirstPerson, FollowPlayer, Orbital, Stop, StraightStop, OrbitalThatFollows, ETS_StyleCamera, FixedCamera }
-    [Tooltip("Here you must select the type of rotation and movement that camera will possess.")]
-    public RotType rotationType = RotType.LookAtThePlayer;
-    [Range(0.0001f, 1.0f)]
-    [Tooltip("Here you must adjust the volume that the camera attached to this element can perceive. In this way, each camera can perceive a different volume.")]
-    public float volume = 1.0f;
-    [Tooltip("If this variable is true, the code will automatically add sound components to this camera, which will attenuate the sound, simulating camera effects internal to the vehicle.")]
-    public bool internalCamera = false;
-  }
-  [Serializable]
-  public class CameraSettingsClass {
-    [Tooltip("Here you can set a target for cameras to follow or look at. If this variable is empty, the cameras will follow the pivot of the vehicle itself.")]
-    public Transform optionalTarget;
-    [Space(10)]
-    [Tooltip("If this variable is true, the cameras 'near' property will be set automatically by the code.")]
-    public bool setNearByCode = true;
-    [Range(0.01f, 0.5f)]
-    [Tooltip("The near the camera should possess. This parameter will be adjusted automatically depending on the type of camera.")]
-    public float near = 0.03f;
-    [Space(10)]
-    [Range(0.0f, 0.5f)]
-    [Tooltip("How much the camera shakes when the vehicle hits something.")]
-    public float impactTremor = 0.1f;
-
-
-    public enum CollisionDetectionMode {
-      NotDetect,
-      Linecast,
-      RayCastAll
-    };
-    [Space(10)]
-    [Header("CollidionDetection - ATENTION")]
-    [Tooltip("Here you can decide the type of collision the camera will have. The 'NotDetect' option does not detect any collisions. The 'Linecast' option detects collision via a Linecast, so it is necessary to correctly configure the vehicle layers. The 'RaycastAll' option detects all collisions and filters out desired ones automatically, but is heavier and accumulates a bit of trash in memory.")]
-    public CollisionDetectionMode collilsionDetection = CollisionDetectionMode.RayCastAll;
-    [Tooltip("If the collision style is set to 'Linecast' and this variable is true, the vehicle will be automatically placed in the 'IgnoreRaycast' layer.")]
-    public bool setLayersAutomatically = true;
-
-
-    [Space(15)]
-    [Header("Settings Of Each Style")]
-    [Tooltip("Here you can configure the preferences of ETS_StyleCamera style cameras.")]
-    public ETSStyleCameraCameraSettingsClass ETS_StyleCamera;
-    [Tooltip("Here you can configure the preferences of the cameras that follow the player.")]
-    public FollowPlayerCameraSettingsClass followPlayerCamera;
-    [Tooltip("Here you can configure the preferences of the cameras in first person.")]
-    public FirstPersonCameraSettingsClass firstPersonCamera;
-    [Tooltip("Here you can configure the preferences of cameras that orbit the player.")]
-    public OrbitalCameraSettingsClass orbitalCamera;
-    [Tooltip("Here you can configure the preferences of 'FixedCamera' style cameras.")]
-    public FixedCameraSettingsClass fixedCamera;
-  }
-  [Serializable]
-  public class ETSStyleCameraCameraSettingsClass {
-    [Range(1, 20)]
-    [Tooltip("In this variable you can configure the sensitivity with which the script will perceive the movement of the mouse. This is applied to cameras that interact with mouse movement only.")]
-    public float sensibility = 7.0f;
-    [Range(0.5f, 3.0f)]
-    [Tooltip("The distance the camera will move to the left when the mouse is also shifted to the left. This option applies only to cameras that have the 'ETS_StyleCamera' option selected.")]
-    public float ETS_CameraShift = 0.55f;
-    [Header("Automatic Movement")]
-    [Tooltip("If this variable is true, this type of camera will move according to vehicle speed, simulating the driver's head.")]
-    public bool enableAutomaticMovement = true;
-    [Range(0.1f, 3.0f)]
-    [Tooltip("In this variable it is possible to define how much the camera will rotate or move according to the acceleration of the vehicle.")]
-    public float displacementSpeed = 2;
-    [Range(3, 15)]
-    [Tooltip("In this variable, it is possible to define the maximum displacement in degrees that the camera rotation can have in the X axis when moving by vehicle acceleration.")]
-    public int maxHorizontalDisplacement = 4;
-    [Range(3, 15)]
-    [Tooltip("In this variable, it is possible to define the maximum displacement in degrees that the camera rotation can have in the Y axis when moving by vehicle acceleration.")]
-    public int maxVerticalDisplacement = 7;
-  }
-  [Serializable]
-  public class FirstPersonCameraSettingsClass {
-    [Range(1, 20)]
-    [Tooltip("In this variable you can configure the sensitivity with which the script will perceive the movement of the mouse. This is applied to cameras that interact with mouse movement only.")]
-    public float sensibility = 10.0f;
-    [Range(0, 160)]
-    [Tooltip("The highest horizontal angle that camera style 'FistPerson' camera can achieve.")]
-    public float horizontalAngle = 65.0f;
-    [Range(0, 85)]
-    [Tooltip("The highest vertical angle that camera style 'FistPerson' camera can achieve.")]
-    public float verticalAngle = 20.0f;
-    [Header("Automatic Movement")]
-    [Tooltip("If this variable is true, this type of camera will move according to vehicle speed, simulating the driver's head.")]
-    public bool enableAutomaticMovement = true;
-    [Range(0.1f, 3.0f)]
-    [Tooltip("In this variable it is possible to define how much the camera will rotate or move according to the acceleration of the vehicle.")]
-    public float displacementSpeed = 2;
-    [Range(3, 15)]
-    [Tooltip("In this variable, it is possible to define the maximum displacement in degrees that the camera rotation can have in the X axis when moving by vehicle acceleration.")]
-    public int maxHorizontalDisplacement = 4;
-    [Range(3, 15)]
-    [Tooltip("In this variable, it is possible to define the maximum displacement in degrees that the camera rotation can have in the Y axis when moving by vehicle acceleration.")]
-    public int maxVerticalDisplacement = 7;
-  }
-  [Serializable]
-  public class FollowPlayerCameraSettingsClass {
-    [Range(1, 20)]
-    [Tooltip("The speed at which the camera can follow the player.")]
-    public float displacementSpeed = 12.0f;
-    [Tooltip("If this variable is true, the camera that follows the player will do a custom 'LookAt'. Slower")]
-    public bool customLookAt = false;
-  }
-  [Serializable]
-  public class OrbitalCameraSettingsClass {
-    [Range(0.01f, 2.0f)]
-    [Tooltip("In this variable you can configure the sensitivity with which the script will perceive the movement of the mouse. ")]
-    public float sensibility = 0.8f;
-    [Range(0.01f, 2.0f)]
-    [Tooltip("In this variable, you can configure the speed at which the orbital camera will approach or distance itself from the player when the mouse scrool is used.")]
-    public float speedScrool = 1.0f;
-    [Range(0.01f, 2.0f)]
-    [Tooltip("In this variable, you can configure the speed at which the orbital camera moves up or down.")]
-    public float speedYAxis = 0.5f;
-    [Range(3.0f, 20.0f)]
-    [Tooltip("In this variable, you can set the minimum distance that the orbital camera can stay from the player.")]
-    public float minDistance = 5.0f;
-    [Range(20.0f, 1000.0f)]
-    [Tooltip("In this variable, you can set the maximum distance that the orbital camera can stay from the player.")]
-    public float maxDistance = 500.0f;
-    [Tooltip("If this variable is true, the orbital camera has the axes reversed when the Joystick is active.")]
-    public bool invertRotationJoystick = true;
-  }
-  [Serializable]
-  public class FixedCameraSettingsClass {
-    //position
-    [Header("Movement")]
-    [Range(0.5f, 10.0f)]
-    [Tooltip("The speed at which the camera can follow the player.")]
-    public float moveSpeed = 5;
-    [Tooltip("If this variable is true, the motion of the camera on the X-axis will be frozen.")]
-    public bool freezeMovX;
-    [Tooltip("If this variable is true, the motion of the camera on the Y-axis will be frozen.")]
-    public bool freezeMovY = true;
-    [Tooltip("If this variable is true, the motion of the camera on the Z-axis will be frozen.")]
-    public bool freezeMovZ;
-    public LimitsMoveFixedCameraClass limits;
-
-    //rotation
-    public enum RotType { LookAtThePlayer, FixedWithinTheLimits, FixedInTheInitialRotation }
-    [Space(5)]
-    [Header("Rotation")]
-    [Tooltip("Here you can set the type of rotation the camera will have. It may be rotated pointing at the vehicle, may be rotated at an angle defined by the variables below or may remain at the same rotation at which it was initialized.")]
-    public RotType rotationType = RotType.FixedInTheInitialRotation;
-    [Range(-180, 180)]
-    [Tooltip("The fixed rotation in 'eulerAngles' that the camera will have on the X axis.")]
-    public float fixRotationX = 30.0f;
-    [Range(-180, 180)]
-    [Tooltip("The fixed rotation in 'eulerAngles' that the camera will have on the Y axis.")]
-    public float fixRotationY = 0.0f;
-    [Range(-180, 180)]
-    [Tooltip("The fixed rotation in 'eulerAngles' that the camera will have on the Z axis.")]
-    public float fixRotationZ = 0.0f;
-  }
-  [Serializable]
-  public class LimitsMoveFixedCameraClass {
-    [Tooltip("If this variable is true, the cameras of type 'FixedCameras' will have position limits, defined by the variables below.")]
-    public bool useLimits = false;
-    [Space(5)]
-    [Tooltip("The minimum position limit the camera can reach on the X axis")]
-    public float minPosX = -5000.0f;
-    [Tooltip("The maximum position limit the camera can reach on the X axis")]
-    public float maxPosX = +5000.0f;
-    [Space(5)]
-    [Tooltip("The minimum position limit the camera can reach on the Y axis")]
-    public float minPosY = -1000.0f;
-    [Tooltip("The maximum position limit the camera can reach on the Y axis")]
-    public float maxPosY = +1000.0f;
-    [Space(5)]
-    [Tooltip("The minimum position limit the camera can reach on the Z axis")]
-    public float minPosZ = -5000.0f;
-    [Tooltip("The maximum position limit the camera can reach on the Z axis")]
-    public float maxPosZ = +5000.0f;
-  }
-  #endregion
-
-  #region vehicleTorqueClass
   [Serializable]
   public class TorqueAdjustmentClass {
     [Range(20, 420)]
@@ -576,9 +382,9 @@ namespace MSVehicle {
     [Tooltip("This variable defines the speed at which the vehicle will receive the engine torque. The lower the value, the slower the engine will receive the torque, as if the pilot was stepping slowly on the accelerator.")]
     public float speedEngineTorque = 0.75f;
   }
-  #endregion
 
-  #region fuelClass
+
+
   [Serializable]
   public class FuelAdjustmentClass {
     [Tooltip("If this variable is true, the vehicle will not count the fuel. It will always be maximum.")]
@@ -593,9 +399,9 @@ namespace MSVehicle {
     [Tooltip("This variable defines the speed at which the vehicle will consume fuel.")]
     public float consumption = 0.2f;
   }
-  #endregion
 
-  #region particlesClass
+
+
   [Serializable]
   public class VehicleParticlesClass {
     [Tooltip("If this variable is true, the vehicle emits particles associated with the classes below.")]
@@ -636,9 +442,8 @@ namespace MSVehicle {
     public List<ParticleSystem> wheelDustList = new List<ParticleSystem>();
 
   }
-  #endregion
 
-  #region vehicleSkidMarksClass
+
   [Serializable]
   public class VehicleSkidMarksClass {
     [Tooltip("If this variable is true, the vehicle generates skid marks and traces.")]
@@ -707,9 +512,8 @@ namespace MSVehicle {
     [Tooltip("This variable defines the opacity of the skid marks for lands that have the tag defined in this index.")]
     public float opacity = 0.3f;
   }
-  #endregion
 
-  #region vehiclePhysicsStabilizers
+
   [Serializable]
   public class VehiclePhysicsStabilizersClass {
     [Space(-5)]
@@ -774,9 +578,7 @@ namespace MSVehicle {
     public float extraGravity = 1.0f;
   }
 
-  #endregion
 
-  #region speedometerClass
   [Serializable]
   public class SpeedometerModel1 {
     [Tooltip("Here you must associate the prefab 'Canvas_Gauges' that you have affiliated with this vehicle, so that this vehicle happens to have gauges.")]
@@ -845,9 +647,9 @@ namespace MSVehicle {
     public SpeedometerModel1 _speedometerModel1__ScreenSpace;
     public SpeedometerModel2 _speedometerModel2__WorldSpace;
   }
-  #endregion
 
-  #region soundsClass
+
+
   [Serializable]
   public class VehicleSoundsClass {
     [Header("Engine Sound")]
@@ -952,9 +754,8 @@ namespace MSVehicle {
     [Tooltip("The sounds that the vehicle will emit on different terrains should be set here.")]
     public GroundSoundsClass[] groundSounds;
   }
-  #endregion
 
-  #region LightsVariavles
+
   [Serializable]
   public class VehicleLightsClass {
     [Tooltip("If this variable is true, the vehicle may emit sounds.")]
@@ -1100,9 +901,9 @@ namespace MSVehicle {
     [Tooltip("In this variable, you must associate all the meshes that represent the connected light of the vehicle, referring to this class.")]
     public GameObject meshesLightOff;
   }
-  #endregion
 
-  #region substepsClass
+
+
   [Serializable]
   public class VehicleSubstepsClass {
     [Range(0, 1000)]
@@ -1115,9 +916,9 @@ namespace MSVehicle {
     [Tooltip("Amount of simulation sub-steps when vehicle's speed is above speedThreshold.")]
     public int stepsAboveThreshold = 30;
   }
-  #endregion
 
-  #region AI Class
+
+
   [Serializable]
   public class VehicleAISettings {
     [Tooltip("If this variable is true, the vehicle may receive external commands, for example to an AI controller.")]
@@ -1134,9 +935,9 @@ namespace MSVehicle {
     [HideInInspector]
     public float vehicleMaxSteerAngle;
   }
-  #endregion
 
-  #region Additional
+
+
   [Serializable]
   public class VehicleAdditionalSettingsClass {
     [Header("Nitro")]
@@ -1161,10 +962,10 @@ namespace MSVehicle {
     [HideInInspector]
     public float timerNitro = 0;
   }
-  #endregion
 
 
-  #region mainClass
+
+
   [RequireComponent(typeof(Rigidbody))]
   [DisallowMultipleComponent]
   public class MSVehicleController : MonoBehaviour {
@@ -1175,12 +976,6 @@ namespace MSVehicle {
     public VehicleSubstepsClass substeps;
     [Tooltip("In this variable, empty objects must be associated with positions close to the vehicle doors.")]
     public GameObject[] doorPosition;
-
-
-
-    [Space(18)]
-    [Tooltip("In this class must be configured the cameras that the vehicle has.")]
-    public VehicleCamerasClass _cameras;
 
     [Tooltip("In this class you can configure the vehicle torque, number of gears and their respective torques.")]
     public TorqueAdjustmentClass _vehicleTorque;
@@ -1263,7 +1058,7 @@ namespace MSVehicle {
     [HideInInspector]
     public GameObject _mainSceneControl;
 
-    #region inputs
+
     [HideInInspector]
     public float verticalInput = 0;
     [HideInInspector]
@@ -1274,7 +1069,7 @@ namespace MSVehicle {
     public float mouseYInput = 0;
     [HideInInspector]
     public float mouseScrollWheelInput = 0;
-    #endregion
+
 
     bool _error = false;
     bool changinGearsAuto;
@@ -1401,38 +1196,6 @@ namespace MSVehicle {
     float[,,] alphaMaps;
     float[] terrainCompositionMix;
     //
-
-    [HideInInspector]
-    public int cameraTypeIndice;
-    [HideInInspector]
-    public int indexCamera;
-    bool movingTheCamera;
-    bool changeTypeCamera;
-    bool changeDistance;
-    bool orbitalOn = false;
-    bool orbitalOnTempFactor = false;
-    float rotationX = 0.0f;
-    float rotationY = 0.0f;
-    float orbitTime = 0.0f;
-    float rotationXETS = 0.0f;
-    float rotationYETS = 0.0f;
-    float speedLerpFollowOBTS = 0.0f;
-    float speedLerpOrbitOBTS = 0.0f;
-    GameObject[] objStraightStopCameras;
-    Quaternion[] startRotationCameras;
-    GameObject[] startPositionCameras;
-    float[] xOrbit, yOrbit, distanceOrbitCamera, distanceFollowCam;
-    Vector3[] startCamerasPosition_Vector3;
-    Vector3[] startOffsetCameras;
-    Vector3 refVelocitySmoothDamp = Vector3.zero;
-    //
-    Vector3 currentRBAcceleration = Vector3.zero;
-    Vector3 currentRBAngularAcceleration = Vector3.zero;
-    Vector3 lastRBVelocityForCameras = Vector3.zero;
-    Vector3 lastRBAngularVelocityForCameras = Vector3.zero;
-    float XIncrementFrstPerson = 0;
-    float yIncrementFrstPerson = 0;
-
     int ms_sumImpactCount = 0;
     float ms_lastImpactTime = 0.0f;
     Vector3 ms_sumImpactPosition = Vector3.zero;
@@ -1496,7 +1259,7 @@ namespace MSVehicle {
 
     MSSceneController _sceneController;
 
-    #region Validation Region
+
     void OnDestroy() {
       if (_sceneController) {
         int myIndex = -1;
@@ -1526,15 +1289,6 @@ namespace MSVehicle {
               GameObject tempControl = Instantiate(_mainSceneControl) as GameObject;
               tempControl.name = "MainControl";
             }
-          }
-        }
-      }
-
-      //cameras
-      if (_cameras != null) {
-        for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-          if (_cameras.vehicleCameras[x].volume == 0) {
-            _cameras.vehicleCameras[x].volume = 1;
           }
         }
       }
@@ -1810,7 +1564,7 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
+
 
     void Start() {
       if (!_error) {
@@ -1819,15 +1573,6 @@ namespace MSVehicle {
         enableSkidMarksOnStart = _skidMarks.enableSkidMarks;
         enableParticlesOnStart = _particles.enableParticles;
 
-        //set vehicle Layer
-        if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.Linecast && _cameras.cameraSettings.setLayersAutomatically) {
-          this.transform.gameObject.layer = 2;
-          foreach (Transform trans in this.transform.gameObject.GetComponentsInChildren<Transform>(true)) {
-            trans.gameObject.layer = 2;
-          }
-        }
-
-        SetCameras();
         SetValues();
         SetWheelCollidersOnStart();
         DisableParticles();
@@ -2135,11 +1880,6 @@ namespace MSVehicle {
           }
         }
       }
-
-      //cameras
-      if (_cameras.vehicleCameras.Count > 0 && Time.timeScale > 0.02f && _vehicleState == ControlState.isPlayer) {
-        CamerasManager();
-      }
     }
     void OnCollisionStay() {
       colliding = true;
@@ -2148,7 +1888,7 @@ namespace MSVehicle {
       colliding = false;
     }
 
-    #region AIFunctions
+
     void VehicleAIUpdate() {
       //Check vehicle status
       if (_sceneController) {
@@ -2271,9 +2011,9 @@ namespace MSVehicle {
         extraLightsOn = !extraLightsOn;
       }
     }
-    #endregion
 
-    #region Start Particles end others
+
+
     public void DisableParticles() {
       //DAMAGE 
       if (_particles.damageSmoke.Length > 0) {
@@ -2420,14 +2160,6 @@ namespace MSVehicle {
         }
         doorPosition[x].transform.rotation = transform.rotation;
         doorPosition[x].transform.parent = transform;
-      }
-
-      //cameras
-      indexCamera = 0;
-      if (_vehicleState == ControlState.isNull || _vehicleState == ControlState.isAI) {
-        EnableCameras(-1);
-      } else {
-        EnableCameras(indexCamera);
       }
 
       //wheel list
@@ -2631,655 +2363,17 @@ namespace MSVehicle {
         lastPositionYExtraWheels[x] = transform.InverseTransformPoint(posWheel).y;
       }
     }
-    #endregion
-
-    #region Cameras Manager Region
-    void SetCameras() {
-      changeTypeCamera = false;
-      movingTheCamera = false;
-      cameraTypeIndice = -1;
-      objStraightStopCameras = new GameObject[_cameras.vehicleCameras.Count];
-      startRotationCameras = new Quaternion[_cameras.vehicleCameras.Count];
-      startPositionCameras = new GameObject[_cameras.vehicleCameras.Count];
-      startCamerasPosition_Vector3 = new Vector3[_cameras.vehicleCameras.Count];
-      startOffsetCameras = new Vector3[_cameras.vehicleCameras.Count];
-      xOrbit = new float[_cameras.vehicleCameras.Count];
-      yOrbit = new float[_cameras.vehicleCameras.Count];
-      distanceOrbitCamera = new float[_cameras.vehicleCameras.Count];
-      distanceFollowCam = new float[_cameras.vehicleCameras.Count];
-      //
-      currentRBAcceleration = Vector3.zero;
-      currentRBAngularAcceleration = Vector3.zero;
-      lastRBVelocityForCameras = Vector3.zero;
-      lastRBAngularVelocityForCameras = Vector3.zero;
-      //
-      XIncrementFrstPerson = 0;
-      yIncrementFrstPerson = 0;
-      if (!_cameras.cameraSettings.optionalTarget) {
-        GameObject tempCamObject = new GameObject("targetCameras") as GameObject;
-        tempCamObject.transform.parent = transform;
-        tempCamObject.transform.localPosition = new Vector3(0, 2, 0);
-        _cameras.cameraSettings.optionalTarget = tempCamObject.transform;
-      }
-      for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-        if (!_cameras.vehicleCameras[x]._camera) {
-          Debug.LogError("No camera was associated with variable '_cameras.cameras [" + x + "]', therefore an orbital camera will be automatically created in its place.");
-          GameObject newCamera = new GameObject("OrbitalCamera" + x) as GameObject;
-          newCamera.AddComponent(typeof(Camera));
-          newCamera.AddComponent(typeof(FlareLayer));
-          newCamera.AddComponent(typeof(AudioListener));
-          _cameras.vehicleCameras[x]._camera = newCamera.GetComponent<Camera>();
-          newCamera.transform.parent = transform;
-          newCamera.transform.localPosition = new Vector3(0, 0, 0);
-          _cameras.vehicleCameras[x].rotationType = CameraTypeClass.RotType.Orbital;
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.StraightStop) {
-          objStraightStopCameras[x] = new GameObject("positionCameraStop" + x);
-          objStraightStopCameras[x].transform.parent = _cameras.vehicleCameras[x]._camera.transform;
-          objStraightStopCameras[x].transform.localPosition = new Vector3(0, 0, 1.0f);
-          objStraightStopCameras[x].transform.parent = transform;
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FirstPerson) {
-          startRotationCameras[x] = _cameras.vehicleCameras[x]._camera.transform.localRotation;
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FollowPlayer) {
-          startPositionCameras[x] = new GameObject("positionCameraFollow" + x);
-          startPositionCameras[x].transform.parent = transform;
-          startPositionCameras[x].transform.position = _cameras.vehicleCameras[x]._camera.transform.position;
-          distanceFollowCam[x] = Vector3.Distance(_cameras.cameraSettings.optionalTarget.position, _cameras.vehicleCameras[x]._camera.transform.position);
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.Orbital) {
-          _cameras.vehicleCameras[x]._camera.transform.LookAt(_cameras.cameraSettings.optionalTarget);
-          xOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.y;
-          yOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.x;
-        }
-        distanceOrbitCamera[x] = Vector3.Distance(_cameras.vehicleCameras[x]._camera.transform.position, _cameras.cameraSettings.optionalTarget.position);
-        distanceOrbitCamera[x] = Mathf.Clamp(distanceOrbitCamera[x], _cameras.cameraSettings.orbitalCamera.minDistance, _cameras.cameraSettings.orbitalCamera.maxDistance);
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.OrbitalThatFollows) {
-          _cameras.vehicleCameras[x]._camera.transform.LookAt(_cameras.cameraSettings.optionalTarget);
-          xOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.x;
-          yOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.y;
-          //
-          startPositionCameras[x] = new GameObject("positionCameraFollow" + x);
-          startPositionCameras[x].transform.parent = transform;
-          startPositionCameras[x].transform.position = _cameras.vehicleCameras[x]._camera.transform.position;
-          distanceFollowCam[x] = Vector3.Distance(_cameras.cameraSettings.optionalTarget.position, _cameras.vehicleCameras[x]._camera.transform.position);
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.ETS_StyleCamera) {
-          startRotationCameras[x] = _cameras.vehicleCameras[x]._camera.transform.localRotation;
-          startCamerasPosition_Vector3[x] = _cameras.vehicleCameras[x]._camera.transform.localPosition;
-        }
-        //
-        if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FixedCamera) {
-          startCamerasPosition_Vector3[x] = _cameras.vehicleCameras[x]._camera.transform.position;
-          startOffsetCameras[x] = startCamerasPosition_Vector3[x] - _cameras.cameraSettings.optionalTarget.position;
-          startRotationCameras[x] = _cameras.vehicleCameras[x]._camera.transform.rotation;
-        }
-
-        //SOUND EFFECTS
-        AudioListener _audListner = _cameras.vehicleCameras[x]._camera.GetComponent<AudioListener>();
-        if (!_audListner) {
-          _cameras.vehicleCameras[x]._camera.transform.gameObject.AddComponent(typeof(AudioListener));
-        }
-
-        //
-        if (_cameras.vehicleCameras[x].internalCamera) {
-          AudioLowPassFilter lowPassFilter = _cameras.vehicleCameras[x]._camera.transform.gameObject.GetComponent<AudioLowPassFilter>();
-          if (!lowPassFilter) {
-            lowPassFilter = _cameras.vehicleCameras[x]._camera.transform.gameObject.AddComponent(typeof(AudioLowPassFilter)) as AudioLowPassFilter;
-            lowPassFilter.cutoffFrequency = 3800;
-            lowPassFilter.lowpassResonanceQ = 1;
-          }
-          AudioDistortionFilter distortionFilter = _cameras.vehicleCameras[x]._camera.transform.gameObject.GetComponent<AudioDistortionFilter>();
-          if (!distortionFilter) {
-            distortionFilter = _cameras.vehicleCameras[x]._camera.transform.gameObject.AddComponent(typeof(AudioDistortionFilter)) as AudioDistortionFilter;
-            distortionFilter.distortionLevel = 0.1f;
-          }
-        }
-      }
-
-      //set tag and near
-      if (_cameras.vehicleCameras.Count > 0) {
-        for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-          _cameras.vehicleCameras[x]._camera.transform.tag = "MainCamera";
-          if (_cameras.cameraSettings.setNearByCode) {
-            Camera componentCameraX = _cameras.vehicleCameras[x]._camera.GetComponent<Camera>();
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.LookAtThePlayer) {
-              componentCameraX.nearClipPlane = 0.5f;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.Orbital) {
-              componentCameraX.nearClipPlane = 0.5f;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.OrbitalThatFollows) {
-              componentCameraX.nearClipPlane = 0.5f;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.Stop) {
-              componentCameraX.nearClipPlane = _cameras.cameraSettings.near;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.StraightStop) {
-              componentCameraX.nearClipPlane = _cameras.cameraSettings.near;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FirstPerson) {
-              componentCameraX.nearClipPlane = _cameras.cameraSettings.near;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.ETS_StyleCamera) {
-              componentCameraX.nearClipPlane = _cameras.cameraSettings.near;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FixedCamera) {
-              componentCameraX.nearClipPlane = _cameras.cameraSettings.near;
-            }
-            if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FollowPlayer) {
-              componentCameraX.nearClipPlane = 0.5f;
-            }
-          }
-        }
-      }
-    }
-
-    public void EnableCameras(int nextIndex) {
-      if (_cameras.vehicleCameras.Count > 0) {
-        if (nextIndex == -1) {
-          for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-            if (_cameras.vehicleCameras[x]._camera) {
-              _cameras.vehicleCameras[x]._camera.gameObject.SetActive(false);
-            }
-          }
-        } else {
-          for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-            if (x == nextIndex) {
-              _cameras.vehicleCameras[x]._camera.gameObject.SetActive(true);
-            } else {
-              _cameras.vehicleCameras[x]._camera.gameObject.SetActive(false);
-            }
-          }
-        }
-        changeTypeCamera = true;
-        cameraTypeIndice = -1;
-      }
-    }
-
-    void CamerasManager() {
-      float timeScaleSpeed = 1.0f / Time.timeScale;
-      if (changeTypeCamera) {
-        changeTypeCamera = false;
-
-        //index camera type (-1 = null)(0 = not inputs)(1 = full inputs)(2 == only joystick)
-        if (_cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.LookAtThePlayer ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.Stop ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.StraightStop ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.FixedCamera ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.FollowPlayer) {
-          cameraTypeIndice = 0;
-        }
-        if (_cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.Orbital ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.OrbitalThatFollows) {
-          cameraTypeIndice = 1;
-        }
-        if (_cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.FirstPerson ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.ETS_StyleCamera) {
-          cameraTypeIndice = 2;
-        }
-
-        // settings on change camera type
-        for (int x = 0; x < _cameras.vehicleCameras.Count; x++) {
-          if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.StraightStop) {
-            Quaternion quatStraightStop = Quaternion.LookRotation(objStraightStopCameras[x].transform.position - _cameras.vehicleCameras[x]._camera.transform.position, Vector3.up);
-            _cameras.vehicleCameras[x]._camera.transform.rotation = quatStraightStop;
-          }
-          if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FollowPlayer) {
-            _cameras.vehicleCameras[x]._camera.transform.position = startPositionCameras[x].transform.position;
-            if (_cameras.vehicleCameras[x]._camera.isActiveAndEnabled) {
-              _cameras.vehicleCameras[x]._camera.transform.parent = null;
-            } else {
-              _cameras.vehicleCameras[x]._camera.transform.parent = transform;
-            }
-          }
-          if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.Orbital || _cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.OrbitalThatFollows) {
-            _cameras.vehicleCameras[x]._camera.transform.LookAt(_cameras.cameraSettings.optionalTarget);
-            xOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.y;
-            yOrbit[x] = _cameras.vehicleCameras[x]._camera.transform.eulerAngles.x;
-            distanceOrbitCamera[x] = Vector3.Distance(_cameras.vehicleCameras[x]._camera.transform.position, _cameras.cameraSettings.optionalTarget.position);
-            distanceOrbitCamera[x] = Mathf.Clamp(distanceOrbitCamera[x], _cameras.cameraSettings.orbitalCamera.minDistance, _cameras.cameraSettings.orbitalCamera.maxDistance);
-          }
-          if (_cameras.vehicleCameras[x].rotationType == CameraTypeClass.RotType.FixedCamera) {
-            Vector3 newPosTemp = _cameras.cameraSettings.optionalTarget.position + startOffsetCameras[x];
-            float tempPosX = newPosTemp.x;
-            float tempPosY = newPosTemp.y;
-            float tempPosZ = newPosTemp.z;
-            if (_cameras.cameraSettings.fixedCamera.freezeMovX) {
-              tempPosX = startCamerasPosition_Vector3[x].x;
-            }
-            if (_cameras.cameraSettings.fixedCamera.freezeMovY) {
-              tempPosY = startCamerasPosition_Vector3[x].y;
-            }
-            if (_cameras.cameraSettings.fixedCamera.freezeMovZ) {
-              tempPosZ = startCamerasPosition_Vector3[x].z;
-            }
-            Vector3 newPos = new Vector3(tempPosX, tempPosY, tempPosZ);
-            if (_cameras.cameraSettings.fixedCamera.limits.useLimits) {
-              Vector2 clampedX = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosX, _cameras.cameraSettings.fixedCamera.limits.maxPosX);
-              Vector2 clampedY = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosY, _cameras.cameraSettings.fixedCamera.limits.maxPosY);
-              Vector2 clampedZ = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosZ, _cameras.cameraSettings.fixedCamera.limits.maxPosZ);
-              newPos = new Vector3(Mathf.Clamp(newPos.x, clampedX.x, clampedX.y), Mathf.Clamp(newPos.y, clampedY.x, clampedY.y), Mathf.Clamp(newPos.z, clampedZ.x, clampedZ.y));
-            }
-            _cameras.vehicleCameras[x]._camera.transform.position = newPos;
-            _cameras.vehicleCameras[x]._camera.transform.rotation = startRotationCameras[x];
-            //
-            if (_cameras.vehicleCameras[x]._camera.isActiveAndEnabled) {
-              _cameras.vehicleCameras[x]._camera.transform.parent = null;
-            } else {
-              _cameras.vehicleCameras[x]._camera.transform.parent = transform;
-            }
-          }
-        }
-        AudioListener.volume = _cameras.vehicleCameras[indexCamera].volume;
-        //
-        refVelocitySmoothDamp = Vector3.zero;
-        speedLerpFollowOBTS = 0.0f;
-        speedLerpOrbitOBTS = 0.0f;
-        lastRBVelocityForCameras = ms_Rigidbody.velocity;
-        lastRBAngularVelocityForCameras = ms_Rigidbody.angularVelocity;
-        XIncrementFrstPerson = 0;
-        yIncrementFrstPerson = 0;
-      }
-
-      Vector3 customTransformPos = _cameras.cameraSettings.optionalTarget.position; // = transform.position + transform.up * 1.5f;
-
-      if (_cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.FirstPerson ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.FollowPlayer ||
-          _cameras.vehicleCameras[indexCamera].rotationType == CameraTypeClass.RotType.ETS_StyleCamera) {
-
-        //get rb acceleration
-        currentRBAcceleration = (ms_Rigidbody.velocity - lastRBVelocityForCameras) / fixedDeltaTime;
-        lastRBVelocityForCameras = ms_Rigidbody.velocity;
-
-        //get rb angular acceleration
-        currentRBAngularAcceleration = (ms_Rigidbody.angularVelocity - lastRBAngularVelocityForCameras) / fixedDeltaTime;
-        lastRBAngularVelocityForCameras = ms_Rigidbody.angularVelocity;
-      }
-
-      switch (_cameras.vehicleCameras[indexCamera].rotationType) {
-        case CameraTypeClass.RotType.StraightStop:
-          Quaternion quatStraightStop = Quaternion.LookRotation(objStraightStopCameras[indexCamera].transform.position - _cameras.vehicleCameras[indexCamera]._camera.transform.position, Vector3.up);
-          _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = Quaternion.Slerp(_cameras.vehicleCameras[indexCamera]._camera.transform.rotation, quatStraightStop, Time.deltaTime * 15 * timeScaleSpeed);
-          break;
-        case CameraTypeClass.RotType.LookAtThePlayer:
-          _cameras.vehicleCameras[indexCamera]._camera.transform.LookAt(customTransformPos);
-          break;
-        case CameraTypeClass.RotType.FirstPerson:
-          if (_cameras.cameraSettings.firstPersonCamera.enableAutomaticMovement) {
-            //set values
-            Vector3 crossX = Vector3.Cross(transform.forward, Vector3.forward);
-            Vector3 crossZ = Vector3.Cross(transform.forward, Vector3.right);
-            Vector3 crossCam = Vector3.Cross(transform.right, _cameras.vehicleCameras[indexCamera]._camera.transform.forward);
-            float targetAcceleration = ((-currentRBAcceleration.x * crossX.y) + (currentRBAcceleration.z * crossZ.y)) * (-crossCam.y) * _cameras.cameraSettings.firstPersonCamera.displacementSpeed;
-            float lerpSpeed = Mathf.Clamp(currentRBAcceleration.magnitude * 0.05f, 1.0f, 3.0f);
-
-            XIncrementFrstPerson = Mathf.Lerp(XIncrementFrstPerson, currentRBAngularAcceleration.y * -_cameras.cameraSettings.firstPersonCamera.maxHorizontalDisplacement, Time.deltaTime * _cameras.cameraSettings.firstPersonCamera.displacementSpeed * 0.3f);
-            yIncrementFrstPerson = Mathf.Lerp(yIncrementFrstPerson, targetAcceleration, Time.deltaTime * lerpSpeed);
-            yIncrementFrstPerson = Mathf.Clamp(yIncrementFrstPerson, -_cameras.cameraSettings.firstPersonCamera.maxVerticalDisplacement, _cameras.cameraSettings.firstPersonCamera.maxVerticalDisplacement);
-          } else {
-            XIncrementFrstPerson = 0;
-            yIncrementFrstPerson = 0;
-          }
-
-          //
-          rotationX += (mouseXInput * _cameras.cameraSettings.firstPersonCamera.sensibility);
-          rotationY += (mouseYInput * _cameras.cameraSettings.firstPersonCamera.sensibility);
-          rotationX = ClampAngle(rotationX, -_cameras.cameraSettings.firstPersonCamera.horizontalAngle, _cameras.cameraSettings.firstPersonCamera.horizontalAngle);
-          rotationY = ClampAngle(rotationY, -_cameras.cameraSettings.firstPersonCamera.verticalAngle, _cameras.cameraSettings.firstPersonCamera.verticalAngle);
-          Quaternion xQuaternionFirstPerson = Quaternion.AngleAxis(rotationX + XIncrementFrstPerson, Vector3.up);
-          Quaternion yQuaternionFirstPerson = Quaternion.AngleAxis(rotationY + yIncrementFrstPerson, -Vector3.right);
-          Quaternion quatFirstPerson = startRotationCameras[indexCamera] * xQuaternionFirstPerson * yQuaternionFirstPerson;
-          _cameras.vehicleCameras[indexCamera]._camera.transform.localRotation = Quaternion.Lerp(_cameras.vehicleCameras[indexCamera]._camera.transform.localRotation, quatFirstPerson, 10 * Time.deltaTime * timeScaleSpeed);
-          break;
-        case CameraTypeClass.RotType.FollowPlayer:
-          //collision detection
-          Vector3 targetPosFllPl = Vector3.zero;
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.NotDetect) {
-            targetPosFllPl = startPositionCameras[indexCamera].transform.position;
-          }
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.Linecast) {
-            RaycastHit linecastHit;
-            if (Physics.Linecast(customTransformPos, startPositionCameras[indexCamera].transform.position, out linecastHit)) {
-              if (linecastHit.collider.isTrigger) {
-                targetPosFllPl = startPositionCameras[indexCamera].transform.position;
-              } else {
-                targetPosFllPl = linecastHit.point;
-              }
-            } else {
-              targetPosFllPl = startPositionCameras[indexCamera].transform.position;
-            }
-          }
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.RayCastAll) {
-            bool obstacleFollow = false;
-            Vector3 directionFollow = (startPositionCameras[indexCamera].transform.position - customTransformPos).normalized;
-            RaycastHit[] hits;
-            hits = Physics.RaycastAll(customTransformPos, directionFollow, distanceFollowCam[indexCamera]);
-            for (int x = 0; x < hits.Length; x++) {
-              if (hits[x].transform != this.transform && !hits[x].collider.isTrigger) {
-                obstacleFollow = true;
-                targetPosFllPl = hits[x].point;
-                break;
-              }
-            }
-            if (!obstacleFollow) {
-              targetPosFllPl = startPositionCameras[indexCamera].transform.position;
-            }
-          }
-
-          //set position
-          float displacementSpeedFlp = (1 / (_cameras.cameraSettings.followPlayerCamera.displacementSpeed * timeScaleSpeed));
-          _cameras.vehicleCameras[indexCamera]._camera.transform.position = Vector3.SmoothDamp(_cameras.vehicleCameras[indexCamera]._camera.transform.position, targetPosFllPl, ref refVelocitySmoothDamp, displacementSpeedFlp);
-
-          //set rotation
-          if (!_cameras.cameraSettings.followPlayerCamera.customLookAt) {
-            _cameras.vehicleCameras[indexCamera]._camera.transform.LookAt(customTransformPos);
-          } else {
-            Quaternion quatFollowPlayer = Quaternion.LookRotation(customTransformPos - _cameras.vehicleCameras[indexCamera]._camera.transform.position, Vector3.up);
-            _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = Quaternion.Slerp(_cameras.vehicleCameras[indexCamera]._camera.transform.rotation, quatFollowPlayer, 15 * Time.deltaTime * timeScaleSpeed);
-          }
-          break;
-        case CameraTypeClass.RotType.Orbital:
-          float minDistance = _cameras.cameraSettings.orbitalCamera.minDistance;
-          float camerasMovXOrbit = mouseXInput;
-          float camerasMovYOrbit = mouseYInput;
-          float camerasMovZOrbit = mouseScrollWheelInput;
-
-          if (_cameras.cameraSettings.orbitalCamera.invertRotationJoystick && (_sceneController.selectControls == MSSceneController.ControlType.mobileJoystick || _sceneController.selectControls == MSSceneController.ControlType.mobileButton || _sceneController.selectControls == MSSceneController.ControlType.mobileVolant)) {
-            camerasMovXOrbit = -mouseXInput;
-            camerasMovYOrbit = -mouseYInput;
-          }
 
 
-          //collision detection
-          float hitDistanceOrbital = Vector3.Distance(customTransformPos, _cameras.vehicleCameras[indexCamera]._camera.transform.position);
-          Vector3 directionOrbital = (_cameras.vehicleCameras[indexCamera]._camera.transform.position - customTransformPos).normalized;
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.NotDetect) {
-            //
-          }
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.Linecast) {
-            RaycastHit linecastHitOrbit;
-            if (Physics.Linecast(customTransformPos, _cameras.vehicleCameras[indexCamera]._camera.transform.position, out linecastHitOrbit)) {
-              if (!linecastHitOrbit.collider.isTrigger) {
-                distanceOrbitCamera[indexCamera] = Vector3.Distance(customTransformPos, linecastHitOrbit.point);
-              }
-            }
-          }
-          if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.RayCastAll) {
-            RaycastHit[] hitsOrbit;
-            hitsOrbit = Physics.RaycastAll(customTransformPos, directionOrbital, hitDistanceOrbital);
-            for (int x = 0; x < hitsOrbit.Length; x++) {
-              if (hitsOrbit[x].transform != transform && !hitsOrbit[x].collider.isTrigger) {
-                distanceOrbitCamera[indexCamera] = Vector3.Distance(customTransformPos, hitsOrbit[x].point);
-                minDistance = Mathf.Clamp((Vector3.Distance(customTransformPos, hitsOrbit[x].point)), (minDistance * 0.5f), _cameras.cameraSettings.orbitalCamera.maxDistance);
-                break;
-              }
-            }
-          }
 
 
-          //set position and rotation variables
-          xOrbit[indexCamera] += camerasMovXOrbit * (_cameras.cameraSettings.orbitalCamera.sensibility * distanceOrbitCamera[indexCamera]) / (distanceOrbitCamera[indexCamera] * 0.5f);
-          yOrbit[indexCamera] -= camerasMovYOrbit * _cameras.cameraSettings.orbitalCamera.sensibility * (_cameras.cameraSettings.orbitalCamera.speedYAxis * 10.0f);
-          yOrbit[indexCamera] = ClampAngle(yOrbit[indexCamera], 0.0f, 85.0f);
-          Quaternion quatOrbital = Quaternion.Euler(yOrbit[indexCamera], xOrbit[indexCamera], 0);
-          distanceOrbitCamera[indexCamera] = Mathf.Clamp(distanceOrbitCamera[indexCamera] - (camerasMovZOrbit * _cameras.cameraSettings.orbitalCamera.speedScrool * 50.0f), minDistance, _cameras.cameraSettings.orbitalCamera.maxDistance);
-          Vector3 _newDistance = new Vector3(0.0f, 0.0f, -distanceOrbitCamera[indexCamera]);
-          Vector3 _positionCameras = (quatOrbital * _newDistance) + customTransformPos;
-          Vector3 _currentPosition = _cameras.vehicleCameras[indexCamera]._camera.transform.position;
-          Quaternion _currentRotation = _cameras.vehicleCameras[indexCamera]._camera.transform.rotation;
-
-          //set rotation
-          _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = Quaternion.Slerp(_currentRotation, quatOrbital, 5 * Time.deltaTime * timeScaleSpeed);
-
-          //set position
-          _cameras.vehicleCameras[indexCamera]._camera.transform.position = Vector3.Lerp(_currentPosition, _positionCameras, 5 * Time.deltaTime * timeScaleSpeed);
-          break;
-        case CameraTypeClass.RotType.OrbitalThatFollows:
-          float camerasMovXOTF = mouseXInput;
-          float camerasMovYOTF = mouseYInput;
-          float camerasMovZOTF = mouseScrollWheelInput;
-          //
-          if (_cameras.cameraSettings.orbitalCamera.invertRotationJoystick && (_sceneController.selectControls == MSSceneController.ControlType.mobileJoystick || _sceneController.selectControls == MSSceneController.ControlType.mobileButton || _sceneController.selectControls == MSSceneController.ControlType.mobileVolant)) {
-            camerasMovXOTF = -mouseXInput;
-            camerasMovYOTF = -mouseYInput;
-            camerasMovZOTF = mouseScrollWheelInput;
-          }
-
-          if (Mathf.Abs(camerasMovXOTF) > 0.0f || Mathf.Abs(camerasMovYOTF) > 0.0f || Mathf.Abs(camerasMovZOTF) > 0.0f) {
-            orbitalOn = true;
-            orbitTime = 0.0f;
-            speedLerpFollowOBTS = 0.0f;
-            if (!orbitalOnTempFactor) {
-              orbitalOnTempFactor = true;
-              xOrbit[indexCamera] = _cameras.vehicleCameras[indexCamera]._camera.transform.eulerAngles.y;
-              yOrbit[indexCamera] = _cameras.vehicleCameras[indexCamera]._camera.transform.eulerAngles.x;
-            }
-          } else {
-            orbitTime += Time.deltaTime;
-            if (orbitTime > 3.0f) {
-              speedLerpOrbitOBTS = 0.0f;
-              orbitTime = 0.0f;
-              orbitalOn = false;
-              orbitalOnTempFactor = false;
-            }
-          }
-
-          if (orbitalOn) {
-            //collision detection orbital
-            float min_Distance = _cameras.cameraSettings.orbitalCamera.minDistance;
-            float hitDistanceObts = Vector3.Distance(customTransformPos, _cameras.vehicleCameras[indexCamera]._camera.transform.position);
-            Vector3 directionObts = (_cameras.vehicleCameras[indexCamera]._camera.transform.position - customTransformPos).normalized;
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.NotDetect) {
-              //
-            }
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.Linecast) {
-              RaycastHit linecastHitOrbit;
-              if (Physics.Linecast(customTransformPos, _cameras.vehicleCameras[indexCamera]._camera.transform.position, out linecastHitOrbit)) {
-                if (!linecastHitOrbit.collider.isTrigger) {
-                  distanceOrbitCamera[indexCamera] = Vector3.Distance(customTransformPos, linecastHitOrbit.point);
-                }
-              }
-            }
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.RayCastAll) {
-              RaycastHit[] hitsObts;
-              hitsObts = Physics.RaycastAll(customTransformPos, directionObts, hitDistanceObts);
-              for (int x = 0; x < hitsObts.Length; x++) {
-                if (hitsObts[x].transform != transform && !hitsObts[x].collider.isTrigger) {
-                  distanceOrbitCamera[indexCamera] = Vector3.Distance(customTransformPos, hitsObts[x].point);
-                  min_Distance = Mathf.Clamp((Vector3.Distance(customTransformPos, hitsObts[x].point)), (min_Distance * 0.5f), _cameras.cameraSettings.orbitalCamera.maxDistance);
-                  break;
-                }
-              }
-            }
-
-
-            xOrbit[indexCamera] += camerasMovXOTF * (_cameras.cameraSettings.orbitalCamera.sensibility * distanceOrbitCamera[indexCamera]) / (distanceOrbitCamera[indexCamera] * 0.5f);
-            yOrbit[indexCamera] -= camerasMovYOTF * _cameras.cameraSettings.orbitalCamera.sensibility * (_cameras.cameraSettings.orbitalCamera.speedYAxis * 10.0f);
-            yOrbit[indexCamera] = ClampAngle(yOrbit[indexCamera], 0.0f, 85.0f);
-            Quaternion quatOrbitalFollow_1 = Quaternion.Euler(yOrbit[indexCamera], xOrbit[indexCamera], 0);
-            distanceOrbitCamera[indexCamera] = Mathf.Clamp(distanceOrbitCamera[indexCamera] - camerasMovZOTF * (_cameras.cameraSettings.orbitalCamera.speedScrool * 50.0f), min_Distance, _cameras.cameraSettings.orbitalCamera.maxDistance);
-            Vector3 newDistance = new Vector3(0.0f, 0.0f, -distanceOrbitCamera[indexCamera]);
-            Vector3 positionCameras = quatOrbitalFollow_1 * newDistance + customTransformPos;
-            Vector3 currentPosition = _cameras.vehicleCameras[indexCamera]._camera.transform.position;
-            Quaternion currentRotation = _cameras.vehicleCameras[indexCamera]._camera.transform.rotation;
-
-            //set rotation
-            _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = Quaternion.Slerp(currentRotation, quatOrbitalFollow_1, 5 * Time.deltaTime * timeScaleSpeed);
-
-            //setPosition
-            speedLerpOrbitOBTS += Time.deltaTime;
-            speedLerpOrbitOBTS = Mathf.Clamp(speedLerpOrbitOBTS, 1.5f, 5.0f);
-            _cameras.vehicleCameras[indexCamera]._camera.transform.position = Vector3.Lerp(currentPosition, positionCameras, Time.deltaTime * speedLerpOrbitOBTS * timeScaleSpeed);
-          } else {
-            //collision detection
-            Vector3 targetPosOrbTf = Vector3.zero;
-            Vector3 directionFlobs = (startPositionCameras[indexCamera].transform.position - customTransformPos).normalized;
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.NotDetect) {
-              targetPosOrbTf = startPositionCameras[indexCamera].transform.position;
-            }
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.Linecast) {
-              RaycastHit linecastHitOBTS;
-              if (Physics.Linecast(customTransformPos, startPositionCameras[indexCamera].transform.position, out linecastHitOBTS)) {
-                if (linecastHitOBTS.collider.isTrigger) {
-                  targetPosOrbTf = startPositionCameras[indexCamera].transform.position;
-                } else {
-                  targetPosOrbTf = linecastHitOBTS.point;
-                }
-              } else {
-                targetPosOrbTf = startPositionCameras[indexCamera].transform.position;
-              }
-            }
-            if (_cameras.cameraSettings.collilsionDetection == CameraSettingsClass.CollisionDetectionMode.RayCastAll) {
-              bool obstacleFlobs = false;
-              RaycastHit[] hitsFlobs;
-              hitsFlobs = Physics.RaycastAll(customTransformPos, directionFlobs, distanceFollowCam[indexCamera]);
-              for (int x = 0; x < hitsFlobs.Length; x++) {
-                if (hitsFlobs[x].transform != transform && !hitsFlobs[x].collider.isTrigger) {
-                  obstacleFlobs = true;
-                  targetPosOrbTf = hitsFlobs[x].point;
-                  break;
-                }
-              }
-              if (!obstacleFlobs) {
-                targetPosOrbTf = startPositionCameras[indexCamera].transform.position;
-              }
-            }
-
-            //set position
-            speedLerpFollowOBTS += Time.deltaTime * 2.0f;
-            speedLerpFollowOBTS = Mathf.Clamp(speedLerpFollowOBTS, 0.5f, _cameras.cameraSettings.followPlayerCamera.displacementSpeed);
-            float displacementSpeedOrbTf = (1 / (speedLerpFollowOBTS * timeScaleSpeed));
-            _cameras.vehicleCameras[indexCamera]._camera.transform.position = Vector3.SmoothDamp(_cameras.vehicleCameras[indexCamera]._camera.transform.position, targetPosOrbTf, ref refVelocitySmoothDamp, displacementSpeedOrbTf);
-
-            // set rotation
-            if (!_cameras.cameraSettings.followPlayerCamera.customLookAt) {
-              _cameras.vehicleCameras[indexCamera]._camera.transform.LookAt(customTransformPos);
-            } else {
-              Quaternion quatOrbitalFollow_2 = Quaternion.LookRotation(customTransformPos - _cameras.vehicleCameras[indexCamera]._camera.transform.position, Vector3.up);
-              _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = Quaternion.Slerp(_cameras.vehicleCameras[indexCamera]._camera.transform.rotation, quatOrbitalFollow_2, 10 * Time.deltaTime * timeScaleSpeed);
-            }
-          }
-          break;
-        case CameraTypeClass.RotType.ETS_StyleCamera:
-          if (_cameras.cameraSettings.ETS_StyleCamera.enableAutomaticMovement) {
-            //set values
-            Vector3 crossX = Vector3.Cross(transform.forward, Vector3.forward);
-            Vector3 crossZ = Vector3.Cross(transform.forward, Vector3.right);
-            Vector3 crossCam = Vector3.Cross(transform.right, _cameras.vehicleCameras[indexCamera]._camera.transform.forward);
-            float targetAcceleration = ((-currentRBAcceleration.x * crossX.y) + (currentRBAcceleration.z * crossZ.y)) * (-crossCam.y) * _cameras.cameraSettings.ETS_StyleCamera.displacementSpeed;
-            float lerpSpeed = Mathf.Clamp(currentRBAcceleration.magnitude * 0.05f, 1.0f, 3.0f);
-
-            XIncrementFrstPerson = Mathf.Lerp(XIncrementFrstPerson, currentRBAngularAcceleration.y * -_cameras.cameraSettings.ETS_StyleCamera.maxHorizontalDisplacement, Time.deltaTime * _cameras.cameraSettings.ETS_StyleCamera.displacementSpeed * 0.3f);
-            yIncrementFrstPerson = Mathf.Lerp(yIncrementFrstPerson, targetAcceleration, Time.deltaTime * lerpSpeed);
-            yIncrementFrstPerson = Mathf.Clamp(yIncrementFrstPerson, -_cameras.cameraSettings.ETS_StyleCamera.maxVerticalDisplacement, _cameras.cameraSettings.ETS_StyleCamera.maxVerticalDisplacement);
-          } else {
-            XIncrementFrstPerson = 0;
-            yIncrementFrstPerson = 0;
-          }
-          //
-          rotationXETS += mouseXInput * _cameras.cameraSettings.ETS_StyleCamera.sensibility;
-          rotationYETS += mouseYInput * _cameras.cameraSettings.ETS_StyleCamera.sensibility;
-          Vector3 posCameras = new Vector3(startCamerasPosition_Vector3[indexCamera].x + Mathf.Clamp(rotationXETS / 50 + (_cameras.cameraSettings.ETS_StyleCamera.ETS_CameraShift / 3.0f), -_cameras.cameraSettings.ETS_StyleCamera.ETS_CameraShift, 0), startCamerasPosition_Vector3[indexCamera].y, startCamerasPosition_Vector3[indexCamera].z);
-          _cameras.vehicleCameras[indexCamera]._camera.transform.localPosition = Vector3.Lerp(_cameras.vehicleCameras[indexCamera]._camera.transform.localPosition, posCameras, Time.deltaTime * 10.0f);
-          rotationXETS = ClampAngle(rotationXETS, -180, 80);
-          rotationYETS = ClampAngle(rotationYETS, -60, 60);
-          Quaternion xQuaternionETS = Quaternion.AngleAxis(rotationXETS + XIncrementFrstPerson, Vector3.up);
-          Quaternion yQuaternionETS = Quaternion.AngleAxis(rotationYETS + yIncrementFrstPerson, -Vector3.right);
-          Quaternion quatETS = startRotationCameras[indexCamera] * xQuaternionETS * yQuaternionETS;
-          //
-          _cameras.vehicleCameras[indexCamera]._camera.transform.localRotation = Quaternion.Slerp(_cameras.vehicleCameras[indexCamera]._camera.transform.localRotation, quatETS, Time.deltaTime * 10 * timeScaleSpeed);
-          //audio
-          if (_cameras.vehicleCameras[indexCamera].internalCamera) {
-            float distanceETSOrigin = (Vector3.Distance(startCamerasPosition_Vector3[indexCamera], _cameras.vehicleCameras[indexCamera]._camera.transform.localPosition));
-            float maxDistanceETSOrigin = _cameras.cameraSettings.ETS_StyleCamera.ETS_CameraShift * 0.8f;
-            if (distanceETSOrigin < maxDistanceETSOrigin) {
-              if (!changeDistance) {
-                changeDistance = true;
-                _cameras.vehicleCameras[indexCamera]._camera.GetComponent<AudioLowPassFilter>().enabled = true;
-                _cameras.vehicleCameras[indexCamera]._camera.GetComponent<AudioDistortionFilter>().enabled = true;
-              }
-            } else {
-              if (changeDistance) {
-                changeDistance = false;
-                _cameras.vehicleCameras[indexCamera]._camera.GetComponent<AudioLowPassFilter>().enabled = false;
-                _cameras.vehicleCameras[indexCamera]._camera.GetComponent<AudioDistortionFilter>().enabled = false;
-              }
-            }
-          }
-          break;
-        case CameraTypeClass.RotType.FixedCamera:
-          // new position
-          Vector3 newPosTemp = customTransformPos + startOffsetCameras[indexCamera];
-          float tempPosX = newPosTemp.x;
-          float tempPosY = newPosTemp.y;
-          float tempPosZ = newPosTemp.z;
-          if (_cameras.cameraSettings.fixedCamera.freezeMovX) {
-            tempPosX = startCamerasPosition_Vector3[indexCamera].x;
-          }
-          if (_cameras.cameraSettings.fixedCamera.freezeMovY) {
-            tempPosY = startCamerasPosition_Vector3[indexCamera].y;
-          }
-          if (_cameras.cameraSettings.fixedCamera.freezeMovZ) {
-            tempPosZ = startCamerasPosition_Vector3[indexCamera].z;
-          }
-          Vector3 newPos = new Vector3(tempPosX, tempPosY, tempPosZ);
-
-          // set limits
-          if (_cameras.cameraSettings.fixedCamera.limits.useLimits) {
-            Vector2 clampedX = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosX, _cameras.cameraSettings.fixedCamera.limits.maxPosX);
-            Vector2 clampedY = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosY, _cameras.cameraSettings.fixedCamera.limits.maxPosY);
-            Vector2 clampedZ = new Vector2(_cameras.cameraSettings.fixedCamera.limits.minPosZ, _cameras.cameraSettings.fixedCamera.limits.maxPosZ);
-            newPos = new Vector3(Mathf.Clamp(newPos.x, clampedX.x, clampedX.y), Mathf.Clamp(newPos.y, clampedY.x, clampedY.y), Mathf.Clamp(newPos.z, clampedZ.x, clampedZ.y));
-          }
-
-          // apply position
-          _cameras.vehicleCameras[indexCamera]._camera.transform.position = Vector3.Lerp(_cameras.vehicleCameras[indexCamera]._camera.transform.position, newPos, Time.deltaTime * _cameras.cameraSettings.fixedCamera.moveSpeed);
-
-          //apply rotation
-          switch (_cameras.cameraSettings.fixedCamera.rotationType) {
-            case FixedCameraSettingsClass.RotType.LookAtThePlayer:
-              _cameras.vehicleCameras[indexCamera]._camera.transform.LookAt(customTransformPos);
-              break;
-            case FixedCameraSettingsClass.RotType.FixedWithinTheLimits:
-              Vector3 newRot = new Vector3(_cameras.cameraSettings.fixedCamera.fixRotationX, _cameras.cameraSettings.fixedCamera.fixRotationY, _cameras.cameraSettings.fixedCamera.fixRotationZ);
-              _cameras.vehicleCameras[indexCamera]._camera.transform.eulerAngles = newRot;
-              break;
-            case FixedCameraSettingsClass.RotType.FixedInTheInitialRotation:
-              _cameras.vehicleCameras[indexCamera]._camera.transform.rotation = startRotationCameras[indexCamera];
-              break;
-          }
-          break;
-      }
-    }
     public static float ClampAngle(float angle, float min, float max) {
       if (angle < -360F) { angle += 360F; }
       if (angle > 360F) { angle -= 360F; }
       return Mathf.Clamp(angle, min, max);
     }
-    IEnumerator ShakeCameras(float shakeValue, bool returnStartPosition) {
-      Vector3 startPositionShakeCameras = _cameras.vehicleCameras[indexCamera]._camera.transform.localPosition;
-      _cameras.vehicleCameras[indexCamera]._camera.transform.position = new Vector3(_cameras.vehicleCameras[indexCamera]._camera.transform.position.x + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.y + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.z + Random.Range(-shakeValue, shakeValue));
-      yield return new WaitForSeconds(0.033f);
-      _cameras.vehicleCameras[indexCamera]._camera.transform.position = new Vector3(_cameras.vehicleCameras[indexCamera]._camera.transform.position.x + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.y + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.z + Random.Range(-shakeValue, shakeValue));
-      yield return new WaitForSeconds(0.033f);
-      _cameras.vehicleCameras[indexCamera]._camera.transform.position = new Vector3(_cameras.vehicleCameras[indexCamera]._camera.transform.position.x + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.y + Random.Range(-shakeValue, shakeValue), _cameras.vehicleCameras[indexCamera]._camera.transform.position.z + Random.Range(-shakeValue, shakeValue));
-      yield return new WaitForSeconds(0.033f);
-      if (returnStartPosition) {
-        _cameras.vehicleCameras[indexCamera]._camera.transform.localPosition = startPositionShakeCameras;
-      }
-      movingTheCamera = false;
-    }
-    #endregion
 
-    #region Deform Mesh
+
     float DeformMesh(Mesh mesh, Vector3[] originalMesh, Transform localTransform, Vector3 contactPoint, Vector3 contactVelocity) {
       Vector3[] verticesDeformMesh = mesh.vertices;
       Vector3 localContactPointDeformMesh = localTransform.InverseTransformPoint(contactPoint);
@@ -3315,9 +2409,9 @@ namespace MSVehicle {
       mesh.RecalculateBounds();
       return damagedVerticesDeformMesh > 0 ? totalDamageDeformMesh / damagedVerticesDeformMesh : 0.0f;
     }
-    #endregion
 
-    #region RPM and Others
+
+
     void SpeedometerAndOthers() { //On Update
       if (_speedometer._speedometerModel1__ScreenSpace.canvas_Gauges) {
         if (_vehicleState == ControlState.isPlayer) {
@@ -3597,18 +2691,16 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Enter end Exit
+
+
     public void EnterInVehicle(bool _isPlayer) {
       if (_vehicleState == ControlState.isNull || (_vehicleState == ControlState.isAI && _isPlayer)) {
         if (_isPlayer) {
           _vehicleState = ControlState.isPlayer;
-          EnableCameras(indexCamera);
         } else {
           _vehicleState = ControlState.isAI;
           automaticGears = true;
-          EnableCameras(-1);
           handBrakeTrue = false;
           handBrakeSoundWasPlayed = true;
         }
@@ -3617,16 +2709,13 @@ namespace MSVehicle {
     public void ExitTheVehicle() {
       if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
         _vehicleState = ControlState.isNull;
-        EnableCameras(-1);
         if (automaticGears) {
           handBrakeTrue = true;
           handBrakeSoundWasPlayed = true;
         }
       }
     }
-    #endregion
 
-    #region Current Wheel Friction
     public void SetWheelCollidersFrictionFixedUpdate(WheelCollider collider) {
       if (collider.isGrounded) {
         bool changeFriction = false;
@@ -3741,9 +2830,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Tire Forces
+
+
     void SetWheelForces(WheelCollider wheelCollider) {
       wheelCollider.GetGroundHit(out tempWheelHit);
       if (wheelCollider.isGrounded) {
@@ -3835,9 +2924,9 @@ namespace MSVehicle {
       tireSL = tireSlips * _vehiclePhysicStabilizers.tireSlipsFactor;
       tireFO = tireForces * _vehiclePhysicStabilizers.tireSlipsFactor;
     }
-    #endregion
 
-    #region Update Wheel Mesh
+
+
     void UpdateWheelMeshes() {
       Vector3 posWheel;
       Quaternion rotWheel;
@@ -3884,9 +2973,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Stabilizers
+
+
     void StabilizeAngularRotation() {
       if (_vehiclePhysicStabilizers.stabilizeAngularVelocity > 0.1f) {  // Avoid unnecessary processing for very low forces
         if (Mathf.Abs(volantDir_horizontalInput) < 0.9f) {
@@ -4031,9 +3120,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Fuel Manager
+
+
     void FuelManager() {
       if (theEngineIsRunning) {
         if (!_fuel.infinityFuel) {
@@ -4048,9 +3137,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Particles Emitter
+
+
     void ParticlesEmitter() {
       if (enableParticlesOnStart) {
 
@@ -4238,9 +3327,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Sounds Manager
+
+
     public AudioSource GenerateAudioSource(string name, float minDistance, float volume, AudioClip audioClip, bool loop, bool playNow, bool playAwake, GameObject gameObjectParent, float minDist3D, float maxDist3D) {
       GameObject audioSource = new GameObject(name);
       audioSource.transform.position = transform.position;
@@ -4962,9 +4051,9 @@ namespace MSVehicle {
       yield return new WaitForSeconds(hornSoundAUD.clip.length);
       hornIsOn = false;
     }
-    #endregion
 
-    #region Coroutine Start End Turn Off
+
+
     public IEnumerator StartEngineCoroutine(bool startEngine) {
       if (startEngine) {
         youCanCall = false;
@@ -4988,9 +4077,9 @@ namespace MSVehicle {
         _vehicleSettings.delayToStartTheEngine = previousDelayStartEngine;
       }
     }
-    #endregion
 
-    #region Vehicle Damage
+
+
     public void ResetVehicleDamage() {
       for (int i = 0; i < _damage.deformMesh.meshes.Length; i++) {
         if (_damage.deformMesh.meshes[i]) {
@@ -5011,43 +4100,6 @@ namespace MSVehicle {
             }
           }
           if (collision.contacts[0].thisCollider.gameObject.transform != transform.parent) {
-            //shake the camera
-            if (_cameras.vehicleCameras.Count > 0) {
-              if (_cameras.cameraSettings.impactTremor > 0.0f) {
-                if (!movingTheCamera) {
-                  movingTheCamera = true;
-                  switch (_cameras.vehicleCameras[indexCamera].rotationType) {
-                    case CameraTypeClass.RotType.Stop:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor * 0.5f, true));
-                      break;
-                    case CameraTypeClass.RotType.StraightStop:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor * 0.5f, true));
-                      break;
-                    case CameraTypeClass.RotType.LookAtThePlayer:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor * 0.5f, true));
-                      break;
-                    case CameraTypeClass.RotType.FirstPerson:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor * 0.15f, true));
-                      break;
-                    case CameraTypeClass.RotType.ETS_StyleCamera:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor * 0.15f, true));
-                      break;
-                    case CameraTypeClass.RotType.FixedCamera:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor, false));
-                      break;
-                    case CameraTypeClass.RotType.FollowPlayer:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor, false));
-                      break;
-                    case CameraTypeClass.RotType.Orbital:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor, false));
-                      break;
-                    case CameraTypeClass.RotType.OrbitalThatFollows:
-                      StartCoroutine(ShakeCameras(_cameras.cameraSettings.impactTremor, false));
-                      break;
-                  }
-                }
-              }
-            }
             //vehicle life
             if (enableDamageOnStart) {
               vehicleLife -= collision.relativeVelocity.magnitude;
@@ -5086,9 +4138,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Gears Manager
+
+
     public IEnumerator ChangeGears(int gear) {
       changinGears = true;
       if (gear == 1) {
@@ -5186,9 +4238,9 @@ namespace MSVehicle {
       yield return new WaitForSeconds(waitingTime);
       changinGearsAuto = false;
     }
-    #endregion
 
-    #region Volant Manager
+
+
     float SteerAngleOptimized(float clampHorizontalInput) {
       float v3Dot_speed = Vector3.Dot(ms_Rigidbody.velocity, transform.forward);
       float dot_factor = Mathf.InverseLerp(0.1f, 3.0f, v3Dot_speed);
@@ -5309,9 +4361,9 @@ namespace MSVehicle {
         disableBlinkers1 = false;
       }
     }
-    #endregion
 
-    #region Update Torque
+
+
     public float VehicleTorque(WheelCollider wheelCollider, float torqueInfluence) {
       float torqueToLerp = 0;
       float rpmTempTorque = Mathf.Abs(wheelCollider.rpm);
@@ -5511,9 +4563,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Brakes Update
+
+
     void Brakes() {
       float brakeVerticalInput = 0.0f;
       float currentBrakeValue = 0.0f;
@@ -5668,9 +4720,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Set Wheel Properties
+
+
     public void SetWheelCollidersOnStart() {
       //forces
       _wheels.rightFrontWheel.wheelCollider.wheelDampingRate = 0.75f;
@@ -5828,9 +4880,9 @@ namespace MSVehicle {
       }
       collider.sidewaysFriction = wheelFrictionCurveSW;
     }
-    #endregion
 
-    #region Lights Manager
+
+
     void LightsManager() {
       float lightVerticalInput = 0.0f;
 
@@ -6062,9 +5114,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Set Lights End Materials
+
+
     void DisableAllLightsOnStart() {
       disableBlinkers2 = disableBlinkers1 = alertOn = headlightsOn = highLightOn = lowLightOn = rightBlinkersOn = leftBlinkersOn = extraLightsOn = false;
       //brake lights===================================================================================
@@ -6252,9 +5304,9 @@ namespace MSVehicle {
         }
       }
     }
-    #endregion
 
-    #region Get Terrain Settings
+
+
     int GetDominantTerrainTextureInWorldPosition(Vector3 worldPosition) {
       terrainCompositionArray = TerrainComposition(worldPosition, activeTerrain_optional);
       if (terrainCompositionArray != null) {
@@ -6293,9 +5345,9 @@ namespace MSVehicle {
         return null;
       }
     }
-    #endregion
 
-    #region Skid Marks Generation
+
+
     void CheckGroundForSKidMarks() {
       if (_wheels.rightFrontWheel.wheelCollider) {
         if (wheelFDIsGrounded) {
@@ -6633,7 +5685,7 @@ namespace MSVehicle {
     }
 
     Mesh GerarRendRef(Material skdMaterial, string wheelName) {
-      GameObject rendRef = new GameObject("SkidMesh " + wheelName + " " + transform.name);
+      GameObject rendRef = new("SkidMesh " + wheelName + " " + transform.name);
       rendRef.AddComponent<MeshFilter>();
       rendRef.AddComponent<MeshRenderer>();
       Mesh mesh = rendRef.GetComponent<MeshFilter>().mesh = new Mesh();
@@ -6700,7 +5752,6 @@ namespace MSVehicle {
       texture.Apply();
       return texture;
     }
-    #endregion
+
   }
-  #endregion
 }
