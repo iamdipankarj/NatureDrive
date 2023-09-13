@@ -1823,8 +1823,6 @@ namespace MSVehicle {
       }
     }
 
-
-
     public void DisableParticles() {
       //NITRO
       if (_particles.nitroParticles.Length > 0) {

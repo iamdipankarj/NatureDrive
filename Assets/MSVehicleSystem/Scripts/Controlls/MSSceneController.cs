@@ -259,19 +259,6 @@ namespace MSVehicle {
     [Tooltip("Here you can configure the sensitivity of the controls for mobile devices.")]
     public SensibilityControlsMobile sensitivityOfMobileControls;
 
-
-    public enum StartMode { StartInThePlayer, StartInTheVehicle, AIInControl };
-    [Space(10)]
-    [Header("*SETTINGS")]
-    [Tooltip("Here you can decide whether the game will start in the player ('Player' variable) or in any vehicle ('Starting Vehicle Name' variable). If there is no vehicle, the system will automatically start on the Player, and if there is no Player, the system will automatically start on a vehicle. If there is neither, nothing will start. If 'AI In Control' is selected, initial control will be passed to some AI.")]
-    public StartMode _StartingMode = StartMode.StartInTheVehicle;
-    [Tooltip("Here you can define the vehicle that starts in player control by the name of that vehicle.")]
-    public string startingVehicleName = "VehicleName";
-    [Tooltip("The player must be associated with this variable. This variable should only be used if your scene also has a player other than a vehicle. This 'player' will temporarily be disabled when you get in a vehicle, and will be activated again when you leave a vehicle.")]
-    public GameObject player;
-    [Tooltip("This is the minimum distance the player needs to be in relation to the door of a vehicle, to interact with it.")]
-    public float minDistance = 3;
-
     [Space(10)]
     [Header("*UI TEXT")]
     [Tooltip("If this variable is true, a warning will appear on the screen every time the player approaches a vehicle, informing which key it is necessary to press to enter the vehicle.")]
@@ -322,8 +309,6 @@ namespace MSVehicle {
     float MSbuttonVertical;
 
     private MSVehicleController vehicleCode;
-    [HideInInspector]
-    public bool pause = false;
 
     bool interactBool;
 
@@ -345,56 +330,16 @@ namespace MSVehicle {
       vehicleCode = GetComponent<MSVehicleController>();
       vehicleCode.theEngineIsRunning = false;
       vehicleCode._vehicleState = MSVehicleController.ControlState.isNull;
-      if (_StartingMode == StartMode.StartInThePlayer) {
-        if (player) {
-          player.SetActive(true);
-          EnableOrDisableButtons(false);
-        } else {
-          _StartingMode = StartMode.StartInTheVehicle;
-          vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-          EnableOrDisableButtons(true);
-          vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-        }
-      }
-      if (_StartingMode == StartMode.StartInTheVehicle) {
-        if (player) {
-          player.SetActive(false);
-        }
-        vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-        EnableOrDisableButtons(true);
-        vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-      }
-      if (_StartingMode == StartMode.AIInControl) {
-        vehicleCode.EnterInVehicle(false); //vehicle state >> isAI
-        EnableOrDisableButtons(false);
-        vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-      }
+      vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
+      EnableOrDisableButtons(true);
+      vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
     }
 
     #region UPDATE REGION
     void SetUpFirstVehicleOnRunTime() {
-      if (_StartingMode == StartMode.StartInTheVehicle) {
-        if (player) {
-          if (!player.activeInHierarchy) {
-            vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-            EnableOrDisableButtons(true);
-            vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-          }
-        } else {
-          vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-          EnableOrDisableButtons(true);
-          vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-        }
-      }
-      if (_StartingMode == StartMode.AIInControl) {
-        vehicleCode.EnterInVehicle(false); //vehicle state >> isAI
-        EnableOrDisableButtons(false);
-        vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
-      }
-      if (_StartingMode == StartMode.StartInThePlayer) {
-        vehicleCode.ExitTheVehicle();
-        EnableOrDisableButtons(false);
-      }
+      vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
+      EnableOrDisableButtons(true);
+      vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
     }
 
     void Update() {
@@ -485,82 +430,11 @@ namespace MSVehicle {
       }
       #endregion
 
-      //pause input
-      if (controls.enable_pause_Input_key) {
-        if (Input.GetKeyDown(controls.pause)) {
-          pause = !pause;
-        }
-        if (pause) {
-          Time.timeScale = Mathf.Lerp(Time.timeScale, 0.0f, Time.fixedDeltaTime * 5.0f);
-        } else {
-          Time.timeScale = Mathf.Lerp(Time.timeScale, 1.0f, Time.fixedDeltaTime * 5.0f);
-        }
-      }
-
       bool _insideTheCar = false;
       if (vehicleCode._vehicleState == MSVehicleController.ControlState.isPlayer) {
         _insideTheCar = true;
       }
       EnableOrDisableButtons(_insideTheCar);
-
-      //enter end exit 
-      if ((Input.GetKeyDown(controls.enterEndExit) || enterAndExitBoolMobile) && !blockedInteraction && player && controls.enable_enterEndExit_Input_key) {
-        if (vehicleCode.transform.gameObject.activeInHierarchy) {
-          if (_insideTheCar) {
-            vehicleCode.ExitTheVehicle();
-            if (player) {
-              int freeDoor = 0;
-              for (int x = 0; x < vehicleCode.doorPosition.Length; x++) {
-                bool checkObstacles = CheckObstacles(vehicleCode.doorPosition[x].transform);
-                if (checkObstacles) {
-                  freeDoor++;
-                } else {
-                  break;
-                }
-              }
-              //
-              if (freeDoor < vehicleCode.doorPosition.Length) {
-                player.transform.position = vehicleCode.doorPosition[freeDoor].transform.position;
-              } else {
-                player.transform.position = vehicleCode.doorPosition[0].transform.position + Vector3.up * 3.0f;
-              }
-              player.SetActive(true);
-            }
-            blockedInteraction = true;
-            enterAndExitBoolMobile = false;
-            StartCoroutine("WaitToInteract");
-          } else {
-            float currentDistance = Vector3.Distance(player.transform.position, vehicleCode.doorPosition[0].transform.position);
-            for (int x = 0; x < vehicleCode.doorPosition.Length; x++) {
-              float proximityDistance = Vector3.Distance(player.transform.position, vehicleCode.doorPosition[x].transform.position);
-              if (proximityDistance < currentDistance) {
-                currentDistance = proximityDistance;
-              }
-            }
-            if (currentDistance < minDistance) {
-              vehicleCode.EnterInVehicle(true); //true = isplayer
-              if (player) {
-                player.SetActive(false);
-              }
-              blockedInteraction = true;
-              enterAndExitBoolMobile = false;
-              StartCoroutine("WaitToInteract");
-            } else {
-              enterAndExitBoolMobile = false;
-            }
-          }
-        }
-      }
-
-
-      //enable or disable text (Press X to enter in vehicle)
-      if (player) {
-        if (!enterAndExitTextBool) {
-          enterAndExitTextBool = true;
-          StartCoroutine(WaitToCheckDistance(_insideTheCar));
-        }
-      }
-
 
       //set all Player Inputs on Vehicle code
       SetCurrentVehicleInputs();
@@ -744,36 +618,6 @@ namespace MSVehicle {
       yield return new WaitForSeconds(0.7f);
       blockedInteraction = false;
     }
-
-    IEnumerator WaitToCheckDistance(bool isInsideTheCar) {
-      interactBool = false;
-      if (!isInsideTheCar) {
-        if (vehicleCode.transform.gameObject.activeInHierarchy && vehicleCode.enabled) {
-          for (int y = 0; y < vehicleCode.doorPosition.Length; y++) {
-            if (Vector3.Distance(player.transform.position, vehicleCode.doorPosition[y].transform.position) < minDistance) {
-              interactBool = true;
-            }
-          }
-        }
-        if (interactBool && pressKeyUI) {
-          if (selectControls == ControlType.mobileButton || selectControls == ControlType.mobileJoystick || selectControls == ControlType.mobileVolant) {
-            enterOrExitVehicleText.enabled = false;
-          } else {
-            enterOrExitVehicleText.enabled = true;
-          }
-        } else {
-          enterOrExitVehicleText.enabled = false;
-        }
-      } else {
-        enterOrExitVehicleText.enabled = false;
-      }
-      //
-      yield return new WaitForSeconds(0.2f);
-      enterAndExitTextBool = false;
-    }
-    #endregion
-
-
 
     #region MOBILE REGION
     void SetVoidsOnMobileButtons() {
@@ -996,11 +840,7 @@ namespace MSVehicle {
           controls.startTheVehicleMobileButton.gameObject.SetActive(insideInCar & controls.enable_startTheVehicle_Button_Mobile);
         }
         if (controls.enterEndExitMobileButton) {
-          if (player) {
-            controls.enterEndExitMobileButton.gameObject.SetActive(controls.enable_enterEndExit_Button_Mobile);
-          } else {
-            controls.enterEndExitMobileButton.gameObject.SetActive(false);
-          }
+          controls.enterEndExitMobileButton.gameObject.SetActive(false);
         }
         if (controls.hornMobileButton) {
           if (vehicleCode._sounds.hornSound) {
@@ -1413,12 +1253,6 @@ namespace MSVehicle {
     }
     void Mobile_PauseButton() {
       if (controls.enable_pause_Button_Mobile) {
-        pause = !pause;
-        if (pause) {
-          Time.timeScale = 0.0f;
-        } else {
-          Time.timeScale = 1.0f;
-        }
       }
     }
 
@@ -1510,4 +1344,5 @@ namespace MSVehicle {
     #endregion
     #endregion
   }
+  #endregion
 }
