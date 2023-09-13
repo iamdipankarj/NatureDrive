@@ -62,7 +62,6 @@
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\AI\SimpleRuteExample.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleAudio.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\MSSceneController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
@@ -84,6 +82,7 @@
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\Scripts\Vehicles\L2VehicleInput.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
     <Compile Include="Assets\Scripts\Vehicles\VehicleStandardInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleTireEffects.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
@@ -95,7 +94,6 @@
     <Compile Include="Assets\EVP5\Scripts\VehicleController.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechArxControl.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\MSButton.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\SceneTools.cs" />
@@ -133,7 +131,6 @@
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyPause.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\Joystick.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\GasStation.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\VehicleNitro.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\TextureCanvas.cs" />

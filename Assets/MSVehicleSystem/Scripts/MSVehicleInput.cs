@@ -59,41 +59,9 @@ namespace MSVehicle {
     public KeyCode nitro = KeyCode.G;
   }
 
-  public class MSSceneController : MonoBehaviour {
-    [Space(10)]
-    [Header("*CONTROLS")]
-    #region defineInputs
-    [Tooltip("Vertical input recognized by the system")]
-    public string _verticalInput = "Vertical";
-
-    [Tooltip("Horizontal input recognized by the system")]
-    public string _horizontalInput = "Horizontal";
-
-    [Tooltip("Horizontal input for camera movements")]
-    public string _mouseXInput = "Mouse X";
-
-    [Tooltip("Vertical input for camera movements")]
-    public string _mouseYInput = "Mouse Y";
-
-    [Tooltip("Scroll input, to zoom in and out of the cameras.")]
-    public string _mouseScrollWheelInput = "Mouse ScrollWheel";
-    #endregion
-
+  public class MSVehicleInput : Solace.VehicleStandardInput {
     [Tooltip("Here you can configure the vehicle controls, choose the desired inputs and also, deactivate the unwanted ones.")]
     public Controls controls;
-
-    #region customizeInputs
-    [HideInInspector]
-    public float verticalInput = 0;
-    [HideInInspector]
-    public float horizontalInput = 0;
-    [HideInInspector]
-    public float mouseXInput = 0;
-    [HideInInspector]
-    public float mouseYInput = 0;
-    [HideInInspector]
-    public float mouseScrollWheelInput = 0;
-    #endregion
 
     private MSVehicleController vc;
 
@@ -112,24 +80,14 @@ namespace MSVehicle {
     }
 
     void Update() {
-      verticalInput = Mathf.Clamp(Input.GetAxis(_verticalInput), -1, 1);
-      horizontalInput = Mathf.Clamp(Input.GetAxis(_horizontalInput), -1, 1);
-      mouseXInput = Input.GetAxis(_mouseXInput);
-      mouseYInput = Input.GetAxis(_mouseYInput);
-      mouseScrollWheelInput = Input.GetAxis(_mouseScrollWheelInput);
-
-      //set all Player Inputs on Vehicle code
       SetCurrentVehicleInputs();
       SetUpFirstVehicleOnRunTime();
     }
 
     void SetCurrentVehicleInputs() {
       if (vc._vehicleState == MSVehicleController.ControlState.isPlayer) {
-        vc.verticalInput = verticalInput;
-        vc.horizontalInput = horizontalInput;
-        vc.mouseXInput = mouseXInput;
-        vc.mouseYInput = mouseYInput;
-        vc.mouseScrollWheelInput = mouseScrollWheelInput;
+        vc.verticalInput = Mathf.Clamp(base.throttleInput - base.reverseInput, -1, 1);
+        vc.horizontalInput = Mathf.Clamp(base.steerInput, -1, 1);
         //gears
         //input manual or automatic gears
         if (Input.GetKeyDown(controls.manualOrAutoGears)) {
@@ -138,13 +96,13 @@ namespace MSVehicle {
 
         //gears logic
         if (vc.automaticGears) {
-          if (Input.GetKey(controls.handBrakeInput)) {
+          if (base.handbrakeInput) {
             vc.handBrakeTrue = true;
           } else {
             vc.handBrakeTrue = false;
           }
         } else {
-          if (Input.GetKeyDown(controls.handBrakeInput)) {
+          if (base.handbrakeInput) {
             vc.handBrakeTrue = !vc.handBrakeTrue;
           }
         }

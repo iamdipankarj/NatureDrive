@@ -1003,12 +1003,6 @@ namespace MSVehicle {
     [HideInInspector]
     public float horizontalInput = 0;
     [HideInInspector]
-    public float mouseXInput = 0;
-    [HideInInspector]
-    public float mouseYInput = 0;
-    [HideInInspector]
-    public float mouseScrollWheelInput = 0;
-
 
     bool _error = false;
     bool changinGearsAuto;
@@ -2224,7 +2218,7 @@ namespace MSVehicle {
 
         if (pitchAUDforRPM > (_sounds.speedOfEngineSound * 0.95f) && Mathf.Abs(verticalInput) > 0.25f) {
           pitchAUDforRPM = _sounds.speedOfEngineSound * 0.85f;
-          lastKnownTorque = lastKnownTorque * 0.5f;
+          lastKnownTorque *= 0.5f;
         }
 
         //set RPM value
@@ -2456,8 +2450,6 @@ namespace MSVehicle {
         }
       }
     }
-
-
 
     void SetWheelForces(WheelCollider wheelCollider) {
       wheelCollider.GetGroundHit(out tempWheelHit);
@@ -4223,8 +4215,6 @@ namespace MSVehicle {
         }
       }
     }
-
-
 
     public void SetWheelCollidersOnStart() {
       //forces
