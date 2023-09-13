@@ -22,7 +22,7 @@ namespace NWH.VehiclePhysics2.VehicleGUI
         /// <summary>
         ///     Numerical value formatting.
         /// </summary>
-        [Tooltip("    Numerical value formatting.")]
+        [Tooltip("Numerical value formatting.")]
         public string format = "0.0";
 
         /// <summary>
@@ -38,38 +38,38 @@ namespace NWH.VehiclePhysics2.VehicleGUI
         /// <summary>
         ///     Maximum value that the gauge can display. Only used if showProgressBar enabled.
         /// </summary>
-        [Tooltip("    Maximum value that the gauge can display. Only used if showProgressBar enabled.")]
+        [Tooltip("Maximum value that the gauge can display. Only used if showProgressBar enabled.")]
         public float maxValue;
 
         /// <summary>
         ///     Time over which the numerical value will be smoothed.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Time over which the numerical value will be smoothed.")]
+        [Tooltip("Time over which the numerical value will be smoothed.")]
         public float numericalSmoothing = 0.5f;
 
         /// <summary>
         ///     Numerical value that will be displayed on the gauge.
         /// </summary>
-        [Tooltip("    Numerical value that will be displayed on the gauge.")]
+        [Tooltip("Numerical value that will be displayed on the gauge.")]
         public float numericalValue;
 
         /// <summary>
         ///     Should the progress line/bar be displayed for better visualization?
         /// </summary>
-        [Tooltip("    Should the progress line/bar be displayed for better visualization?")]
+        [Tooltip("Should the progress line/bar be displayed for better visualization?")]
         public bool showProgressBar;
 
         /// <summary>
         ///     String value that will be displayed on the gauge.
         /// </summary>
-        [Tooltip("    String value that will be displayed on the gauge.")]
+        [Tooltip("String value that will be displayed on the gauge.")]
         public string stringValue;
 
         /// <summary>
         ///     Unit displayed after the value, e.g. km/h.
         /// </summary>
-        [Tooltip("    Unit displayed after the value, e.g. km/h.")]
+        [Tooltip("Unit displayed after the value, e.g. km/h.")]
         public string unit;
 
         private float _fullLineWidth;

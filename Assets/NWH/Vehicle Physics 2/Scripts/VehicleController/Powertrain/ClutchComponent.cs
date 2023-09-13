@@ -18,7 +18,7 @@ namespace NWH.VehiclePhysics2.Powertrain
         /// <summary>
         ///     RPM at which automatic clutch will try to engage.
         /// </summary>
-        [Tooltip("    RPM at which automatic clutch will try to engage.")]
+        [Tooltip("RPM at which automatic clutch will try to engage.")]
         [FormerlySerializedAs("baseEngagementRPM")]
         [ShowInTelemetry]
         [ShowInSettings("Engagement RPM", 900, 2000, 100)]
@@ -43,7 +43,7 @@ namespace NWH.VehiclePhysics2.Powertrain
         /// <summary>
         /// Curve representing pedal travel vs. clutch engagement. Should start at 0,0 and end at 1,1.
         /// </summary>
-        [UnityEngine.Tooltip("Curve representing pedal travel vs. clutch engagement. Should start at 0,0 and end at 1,1.")]
+        [Tooltip("Curve representing pedal travel vs. clutch engagement. Should start at 0,0 and end at 1,1.")]
         [FormerlySerializedAs("clutchEngagementCurve")]
         public AnimationCurve engagementCurve = new AnimationCurve();
 
@@ -65,7 +65,7 @@ namespace NWH.VehiclePhysics2.Powertrain
         /// 1400 fully engaged. Setting it too low might cause clutch to hunt/oscillate.
         /// </summary>
         [ShowInSettings("Engagement Range", 200f, 1000f, 100f)]
-        [UnityEngine.Tooltip("The RPM range in which the clutch will go from disengaged to engaged and vice versa. \r\nE.g. if set to 400 and engagementRPM is 1000, 1000 will mean clutch is fully disengaged and\r\n1400 fully engaged. Setting it too low might cause clutch to hunt/oscillate.")]
+        [Tooltip("The RPM range in which the clutch will go from disengaged to engaged and vice versa. \r\nE.g. if set to 400 and engagementRPM is 1000, 1000 will mean clutch is fully disengaged and\r\n1400 fully engaged. Setting it too low might cause clutch to hunt/oscillate.")]
         public float engagementRange = 400f;
 
 

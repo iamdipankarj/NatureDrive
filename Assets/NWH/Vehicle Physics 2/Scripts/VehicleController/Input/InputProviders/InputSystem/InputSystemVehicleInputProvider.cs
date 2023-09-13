@@ -25,7 +25,7 @@ namespace NWH.VehiclePhysics2.Input
         /// <summary>
         ///     Should mouse be used for input?
         /// </summary>
-        [Tooltip("    Should mouse be used for input?")]
+        [Tooltip("Should mouse be used for input?")]
         public bool mouseInput;
 
         private readonly bool[] _shiftIntoHeld = new bool[H_SHIFTER_GEAR_COUNT];

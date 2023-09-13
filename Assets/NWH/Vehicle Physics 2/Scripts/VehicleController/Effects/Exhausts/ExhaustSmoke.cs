@@ -33,19 +33,19 @@ namespace NWH.VehiclePhysics2.Effects
         /// <summary>
         ///     Normal particle start color. Used when there is no throttle - engine is under no load.
         /// </summary>
-        [Tooltip("    Normal particle start color. Used when there is no throttle - engine is under no load.")]
+        [Tooltip("Normal particle start color. Used when there is no throttle - engine is under no load.")]
         public Color normalColor = new Color(0.6f, 0.6f, 0.6f, 0.3f);
 
         /// <summary>
         ///     Soot particle start color. Used under heavy throttle - engine is under load.
         /// </summary>
-        [Tooltip("    Soot particle start color. Used under heavy throttle - engine is under load.")]
+        [Tooltip("Soot particle start color. Used under heavy throttle - engine is under load.")]
         public Color sootColor = new Color(0.1f, 0.1f, 0.8f);
 
         /// <summary>
         ///     List of exhaust particle systems.
         /// </summary>
-        [Tooltip("    List of exhaust particle systems.")]
+        [Tooltip("List of exhaust particle systems.")]
         public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
         
         private float _initStartSpeedMin;

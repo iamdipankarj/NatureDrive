@@ -39,13 +39,13 @@ namespace NWH.VehiclePhysics2.GroundDetection
         /// <summary>
         ///     Surface preset used when there are no matches in the surfaceMaps list for the current surface.
         /// </summary>
-        [Tooltip("    Surface preset used when there are no matches in the surfaceMaps list for the current surface.")]
+        [Tooltip("Surface preset used when there are no matches in the surfaceMaps list for the current surface.")]
         public SurfacePreset fallbackSurfacePreset;
 
         /// <summary>
         ///     Surface maps - each represents a single ground surface.
         /// </summary>
-        [Tooltip("    Surface maps - each represents a single ground surface.")]
+        [Tooltip("Surface maps - each represents a single ground surface.")]
         public List<SurfaceMap> surfaceMaps = new List<SurfaceMap>();
     }
 }

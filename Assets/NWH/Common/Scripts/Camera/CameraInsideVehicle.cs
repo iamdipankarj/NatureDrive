@@ -17,7 +17,7 @@ namespace NWH.Common.Cameras
         /// <summary>
         ///     Is the camera inside vehicle?
         /// </summary>
-        [Tooltip("    Is the camera inside vehicle?")]
+        [Tooltip("Is the camera inside vehicle?")]
         public bool isInsideVehicle = true;
 
         private Vehicle _vehicle;

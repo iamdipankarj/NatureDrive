@@ -37,19 +37,19 @@ namespace NWH.VehiclePhysics2.Effects
         /// <summary>
         ///     Coefficient by which the particle start size will be multiplied.
         /// </summary>
-        [Tooltip("    Coefficient by which the particle start size will be multiplied.")]
+        [Tooltip("Coefficient by which the particle start size will be multiplied.")]
         public float particleSizeCoeff = 1f;
 
         /// <summary>
         ///     Coefficient by which the emission rate will be multiplied.
         /// </summary>
-        [Tooltip("    Coefficient by which the emission rate will be multiplied.")]
+        [Tooltip("Coefficient by which the emission rate will be multiplied.")]
         public float emissionRateCoeff = 1f;
 
         /// <summary>
         ///     Makes the particle either emit or not emit with no in-between.
         /// </summary>
-        [Tooltip("    Makes the particle either emit or not emit with no in-between.")]
+        [Tooltip("Makes the particle either emit or not emit with no in-between.")]
         public bool binaryEmission;
 
         public ParticleSystem particlePS;

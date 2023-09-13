@@ -54,19 +54,19 @@ namespace NWH.VehiclePhysics2.Modules.Trailer
         ///     If a trailer is in range when the scene is started it will be attached.
         /// </summary>
         [FormerlySerializedAs("attachOnPlay")] 
-        [Tooltip("    If a trailer is in range when the scene is started it will be attached.")]
+        [Tooltip("If a trailer is in range when the scene is started it will be attached.")]
         public bool attachOnEnable;
 
         /// <summary>
         ///     Breaking force of the generated joint.
         /// </summary>
-        [Tooltip("    Breaking force of the generated joint.")]
+        [Tooltip("Breaking force of the generated joint.")]
         public float breakForce = Mathf.Infinity;
 
         /// <summary>
         ///     Can the trailer be detached once it is attached?
         /// </summary>
-        [Tooltip("    Can the trailer be detached once it is attached?")]
+        [Tooltip("Can the trailer be detached once it is attached?")]
         public bool detachable = true;
 
         /// <summary>
@@ -83,13 +83,13 @@ namespace NWH.VehiclePhysics2.Modules.Trailer
         /// <summary>
         ///     Is trailer's attachment point close enough to be attached to the towing vehicle?
         /// </summary>
-        [Tooltip("    Is trailer's attachment point close enough to be attached to the towing vehicle?")]
+        [Tooltip("Is trailer's attachment point close enough to be attached to the towing vehicle?")]
         public bool trailerInRange;
 
         /// <summary>
         ///     Use for articulated busses and equipment where rotation around vertical axis is not wanted.
         /// </summary>
-        [Tooltip("    Use for articulated busses and equipment where rotation around vertical axis is not wanted.")]
+        [Tooltip("Use for articulated busses and equipment where rotation around vertical axis is not wanted.")]
         public bool useHingeJoint;
 
         [NonSerialized]

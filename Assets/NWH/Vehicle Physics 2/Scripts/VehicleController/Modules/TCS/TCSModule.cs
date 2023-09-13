@@ -25,20 +25,20 @@ namespace NWH.VehiclePhysics2.Modules.TCS
         /// <summary>
         ///     Speed under which TCS will not work.
         /// </summary>
-        [Tooltip("    Speed under which TCS will not work.")]
+        [Tooltip("Speed under which TCS will not work.")]
         public float lowerSpeedThreshold = 2f;
 
         /// <summary>
         ///     Longitudinal slip threshold at which TCS will activate.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Longitudinal slip threshold at which TCS will activate.")]
+        [Tooltip("Longitudinal slip threshold at which TCS will activate.")]
         public float slipThreshold = 0.1f;
 
         /// <summary>
         ///     Called each frame while TCS is active.
         /// </summary>
-        [Tooltip("    Called each frame while TCS is active.")]
+        [Tooltip("Called each frame while TCS is active.")]
         public UnityEvent onTCSActive = new UnityEvent();
 
 

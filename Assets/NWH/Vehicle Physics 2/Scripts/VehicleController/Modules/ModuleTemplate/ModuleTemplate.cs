@@ -16,13 +16,13 @@ namespace NWH.VehiclePhysics2.Modules.ModuleTemplate
         ///     Example float field.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Example float field.")]
+        [Tooltip("Example float field.")]
         public float floatExample;
 
         /// <summary>
         ///     Example list field.
         /// </summary>
-        [Tooltip("    Example list field.")]
+        [Tooltip("Example list field.")]
         public List<int> listExample = new List<int>();
 
 

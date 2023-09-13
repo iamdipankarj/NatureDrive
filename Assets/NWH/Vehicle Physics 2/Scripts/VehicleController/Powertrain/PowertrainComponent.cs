@@ -17,7 +17,7 @@ namespace NWH.VehiclePhysics2.Powertrain
         /// <summary>
         ///     Name of the component. Only unique names should be used on the same vehicle.
         /// </summary>
-        [Tooltip("    Name of the component. Only unique names should be used on the same vehicle.")]
+        [Tooltip("Name of the component. Only unique names should be used on the same vehicle.")]
         [SerializeField]
         public string name = "";
         

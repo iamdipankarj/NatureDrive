@@ -32,7 +32,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     If true direct steering input will be used, without any modification.
         /// </summary>
-        [Tooltip("    If true direct steering input will be used, without any modification.")]
+        [Tooltip("If true direct steering input will be used, without any modification.")]
         [ShowInSettings("Raw Input")]
         public bool useRawInput;
 
@@ -45,14 +45,14 @@ namespace NWH.VehiclePhysics2
         ///     Maximum steering angle at the wheels.
         /// </summary>
         [Range(0f, 90f)]
-        [Tooltip("    Maximum steering angle at the wheels.")]
+        [Tooltip("Maximum steering angle at the wheels.")]
         [ShowInSettings("Max. Steer Angle", 5f, 50f, 5f)]
         public float maximumSteerAngle = 25f;
 
         /// <summary>
         ///     Should wheels return to neutral position when there is no input?
         /// </summary>
-        [Tooltip("    Should wheels return to neutral position when there is no input?")]
+        [Tooltip("Should wheels return to neutral position when there is no input?")]
         [ShowInSettings("Return to Center")]
         public bool returnToCenter = true;
 
@@ -77,7 +77,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     Steering wheel transform that will be rotated when steering. Optional.
         /// </summary>
-        [Tooltip("    Steering wheel transform that will be rotated when steering. Optional.")]
+        [Tooltip("Steering wheel transform that will be rotated when steering. Optional.")]
         public Transform steeringWheel;
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     Current steer angle.
         /// </summary>
-        [UnityEngine.Tooltip("    Current steer angle.")]
+        [Tooltip("Current steer angle.")]
         [ShowInTelemetry]
         public float angle;
 
@@ -103,7 +103,7 @@ namespace NWH.VehiclePhysics2
         ///     angle added to the user set angle, used mostly for motorcycle balancing.
         ///     To add angle to the current steer angle use this instead of angle, since this goes around smoothing and clamping.
         /// </summary>
-        [UnityEngine.Tooltip("    angle added to the user set angle, used mostly for motorcycle balancing.\r\n    To add angle to the current steer angle use this instead of angle, since this goes around smoothing and clamping.")]
+        [Tooltip("angle added to the user set angle, used mostly for motorcycle balancing.\r\n    To add angle to the current steer angle use this instead of angle, since this goes around smoothing and clamping.")]
         public float externallyAddedAngle;
 
 

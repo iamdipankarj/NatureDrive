@@ -22,7 +22,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// <summary>
         /// Maximum angle delta in [deg] per [s] for given speed [m/s].
         /// </summary>
-        [UnityEngine.Tooltip("Maximum angle delta in [deg] per [s] for given speed [m/s].")]
+        [Tooltip("Maximum angle delta in [deg] per [s] for given speed [m/s].")]
         public AnimationCurve leanAngleMaxDelta = new AnimationCurve(
                 new Keyframe[2]
                 {
@@ -33,7 +33,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// <summary>
         /// Maximum lean angle [deg] for given speed [m/s].
         /// </summary>
-        [UnityEngine.Tooltip("Maximum lean angle [deg] for given speed [m/s].")]
+        [Tooltip("Maximum lean angle [deg] for given speed [m/s].")]
         public AnimationCurve maxLeanAngle = new AnimationCurve(
                 new Keyframe[2]
                 {
@@ -46,7 +46,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// Allows the motorcycle to lean and slide sideways when drifting,
         /// instead of highsiding.
         /// </summary>
-        [UnityEngine.Tooltip("Lean angle addition given the lateral tire slip.\r\nAllows the motorcycle to lean and slide sideways when drifting,\r\ninstead of highsiding.")]
+        [Tooltip("Lean angle addition given the lateral tire slip.\r\nAllows the motorcycle to lean and slide sideways when drifting,\r\ninstead of highsiding.")]
         public float leanAngleSlipCoefficient = -30f;
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// in extreme cases, but can be more realistic as the motorcycle will be able to
         /// fall over, highside, etc.
         /// </summary>
-        [UnityEngine.Tooltip("Maximum torque the lean controller can apply to the Rigidbody.\r\nToo small value will result in lack of lean control on the vehicle\r\nin extreme cases, but can be more realistic as the motorcycle will be able to\r\nfall over, highside, etc.")]
+        [Tooltip("Maximum torque the lean controller can apply to the Rigidbody.\r\nToo small value will result in lack of lean control on the vehicle\r\nin extreme cases, but can be more realistic as the motorcycle will be able to\r\nfall over, highside, etc.")]
         public float maxLeanTorque = 7000f;
 
 
@@ -64,25 +64,25 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// <summary>
         /// Lean PID controller proportional gain.
         /// </summary>
-        [UnityEngine.Tooltip("Lean PID controller proportional gain.")]
+        [Tooltip("Lean PID controller proportional gain.")]
         public float gainProportional = 4f;
 
         /// <summary>
         /// Lean PID controller integral gain.
         /// </summary>
-        [UnityEngine.Tooltip("Lean PID controller integral gain.")]
+        [Tooltip("Lean PID controller integral gain.")]
         public float gainIntegral = 5f;
 
         /// <summary>
         /// Lean PID controller derivative gain.
         /// </summary>
-        [UnityEngine.Tooltip("Lean PID controller derivative gain.")]
+        [Tooltip("Lean PID controller derivative gain.")]
         public float gainDerivative = 1f;
 
         /// <summary>
         /// Lean PID controller proportional gain.
         /// </summary>
-        [UnityEngine.Tooltip("Lean PID controller proportional gain.")]
+        [Tooltip("Lean PID controller proportional gain.")]
         public float leanPIDCoefficient = 50f;
 
         // Animation
@@ -90,13 +90,13 @@ namespace NWH.VehiclePhysics2.Modules.MotorcycleModule
         /// <summary>
         /// Transform representing the upper forks and handlebars.
         /// </summary>
-        [UnityEngine.Tooltip("Transform representing the upper forks and handlebars.")]
+        [Tooltip("Transform representing the upper forks and handlebars.")]
         public Transform handlebarsTransform;
 
         /// <summary>
         /// Transform representing the rear swingarm.
         /// </summary>
-        [UnityEngine.Tooltip("Transform representing the rear swingarm.")]
+        [Tooltip("Transform representing the rear swingarm.")]
         public Transform swingarmTransform;
 
 

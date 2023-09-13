@@ -71,21 +71,21 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     Position of the engine relative to the vehicle. Turn on gizmos to see the marker.
         /// </summary>
-        [Tooltip("    Position of the engine relative to the vehicle. Turn on gizmos to see the marker.")]
+        [Tooltip("Position of the engine relative to the vehicle. Turn on gizmos to see the marker.")]
         public Vector3 enginePosition = new Vector3(0f, 0.4f, 1.5f);
 
 
         /// <summary>
         ///     Position of the exhaust relative to the vehicle. Turn on gizmos to see the marker.
         /// </summary>
-        [Tooltip("    Position of the exhaust relative to the vehicle. Turn on gizmos to see the marker.")]
+        [Tooltip("Position of the exhaust relative to the vehicle. Turn on gizmos to see the marker.")]
         public Vector3 exhaustPosition = new Vector3(0f, 0.1f, -2f);
 
 
         /// <summary>
         ///     Position of the transmission relative to the vehicle. Turn on gizmos to see the marker.
         /// </summary>
-        [Tooltip("    Position of the transmission relative to the vehicle. Turn on gizmos to see the marker.")]
+        [Tooltip("Position of the transmission relative to the vehicle. Turn on gizmos to see the marker.")]
         public Vector3 transmissionPosition = new Vector3(0f, 0.2f, 0.2f);
 
 
@@ -129,7 +129,7 @@ namespace NWH.VehiclePhysics2
         ///     Cached Time.fixedDeltaTime.
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Cached Time.fixedDeltaTime.")]
+        [Tooltip("Cached Time.fixedDeltaTime.")]
         public float fixedDeltaTime = 0.02f;
 
 
@@ -137,7 +137,7 @@ namespace NWH.VehiclePhysics2
         ///     Cached Time.deltaTime;
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Cached Time.deltaTime;")]
+        [Tooltip("Cached Time.deltaTime;")]
         public float deltaTime = 0.02f;
 
 
@@ -157,7 +157,7 @@ namespace NWH.VehiclePhysics2
         ///     Called after vehicle has finished initializing.
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Called after vehicle has finished initializing.")]
+        [Tooltip("Called after vehicle has finished initializing.")]
         public UnityEvent onVehicleInitialized = new UnityEvent();
 
         public UnityEvent<Collision> onCollisionEnter = new UnityEvent<Collision>();

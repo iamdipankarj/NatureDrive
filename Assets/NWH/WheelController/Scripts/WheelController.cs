@@ -15,23 +15,23 @@ namespace NWH.WheelController3D
     [DefaultExecutionOrder(100)]
     public partial class WheelController : WheelUAPI
     {
-        [Tooltip("    Instance of the spring.")]
+        [Tooltip("Instance of the spring.")]
         [SerializeField]
         public Spring spring = new Spring();
 
-        [Tooltip("    Instance of the damper.")]
+        [Tooltip("Instance of the damper.")]
         [SerializeField]
         public Damper damper = new Damper();
 
-        [Tooltip("    Instance of the wheel.")]
+        [Tooltip("Instance of the wheel.")]
         [SerializeField]
         public Wheel wheel = new Wheel();
 
-        [Tooltip("    Side (lateral) friction info.")]
+        [Tooltip("Side (lateral) friction info.")]
         [SerializeField]
         public Friction sideFriction = new Friction();
 
-        [Tooltip("    Forward (longitudinal) friction info.")]
+        [Tooltip("Forward (longitudinal) friction info.")]
         [SerializeField]
         public Friction forwardFriction = new Friction();
 
@@ -39,14 +39,14 @@ namespace NWH.WheelController3D
         ///     Contains data about the ground contact point. 
         ///     Not valid if !_isGrounded.
         /// </summary>
-        [Tooltip("    Contains point in which wheel touches ground. Not valid if !_isGrounded.")]
+        [Tooltip("Contains point in which wheel touches ground. Not valid if !_isGrounded.")]
         [NonSerialized]
         private WheelHit wheelHit;
 
         /// <summary>
         ///     Current active friction preset.
         /// </summary>
-        [Tooltip("    Current active friction preset.")]
+        [Tooltip("Current active friction preset.")]
         [SerializeField]
         private FrictionPreset activeFrictionPreset;
 
@@ -62,7 +62,7 @@ namespace NWH.WheelController3D
         ///     Brake torque applied to the wheel in Nm.
         ///     Must be positive.
         /// </summary>
-        [Tooltip("    Brake torque applied to the wheel in Nm.")]
+        [Tooltip("Brake torque applied to the wheel in Nm.")]
         private float brakeTorque;
 
         /// <summary>
@@ -70,13 +70,13 @@ namespace NWH.WheelController3D
         ///     Under no-slip conditions this will be equal to the torque that was input.
         ///     When there is wheel spin, the value will be less than the input torque.
         /// </summary>
-        [Tooltip("    The amount of torque returned by the wheel.\r\n    Under perfect grip conditions this will be equal to the torque that was put down.\r\n    While in air the value will be equal to the source torque minus torque that is result of dW of the wheel.")]
+        [Tooltip("The amount of torque returned by the wheel.\r\n    Under perfect grip conditions this will be equal to the torque that was put down.\r\n    While in air the value will be equal to the source torque minus torque that is result of dW of the wheel.")]
         private float counterTorque;
 
         /// <summary>
         ///     Current steer angle of the wheel, in deg.
         /// </summary>
-        [Tooltip("    Current steer angle of the wheel.")]
+        [Tooltip("Current steer angle of the wheel.")]
         private float steerAngle;
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace NWH.WheelController3D
         /// <summary>
         ///     Tire load in Nm.
         /// </summary>
-        [Tooltip("    Tire load in Nm.")]
+        [Tooltip("Tire load in Nm.")]
         [NonSerialized]
         private float load;
 
@@ -107,7 +107,7 @@ namespace NWH.WheelController3D
         ///     Imitates rolling resistance.
         /// </summary>
         [Range(0, 500)]
-        [Tooltip("    Constant torque acting similar to brake torque.\r\n    Imitates rolling resistance.")]
+        [Tooltip("Constant torque acting similar to brake torque.\r\n    Imitates rolling resistance.")]
         public float rollingResistanceTorque = 30f;
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace NWH.WheelController3D
         ///     Higher value will result in less vehicle squat/dive under acceleration/braking.
         /// </summary>
         [Range(-1, 1)]
-        [Tooltip("    Amount of anti-squat geometry. \r\n    " +
+        [Tooltip("Amount of anti-squat geometry. \r\n    " +
             "-1 = There is no anti-squat and full squat torque is applied to the chassis.\r\n    " +
             "0 = No squat torque is applied to the chassis.\r\n    " +
             "1 = Anti-squat torque (inverse squat) is applied to the chassis.\r\n    " +
@@ -152,13 +152,13 @@ namespace NWH.WheelController3D
         /// <summary>
         ///     True if wheel touching ground.
         /// </summary>
-        [Tooltip("    True if wheel touching ground.")]
+        [Tooltip("True if wheel touching ground.")]
         private bool _isGrounded;
 
         /// <summary>
         ///     Rigidbody to which the forces will be applied.
         /// </summary>
-        [Tooltip("    Rigidbody to which the forces will be applied.")]
+        [Tooltip("Rigidbody to which the forces will be applied.")]
         [SerializeField]
         private Rigidbody targetRigidbody;
 

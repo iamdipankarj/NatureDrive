@@ -17,7 +17,7 @@ namespace NWH.Common.Vehicles
         /// <summary>
         ///     Cached value of vehicle rigidbody.
         /// </summary>
-        [UnityEngine.Tooltip("    Cached value of vehicle rigidbody.")]
+        [Tooltip("Cached value of vehicle rigidbody.")]
         [NonSerialized]
         public Rigidbody vehicleRigidbody;
 
@@ -25,7 +25,7 @@ namespace NWH.Common.Vehicles
         /// <summary>
         ///     Cached value of vehicle transform.
         /// </summary>
-        [Tooltip("    Cached value of vehicle transform.")]
+        [Tooltip("Cached value of vehicle transform.")]
         [NonSerialized]
         public Transform vehicleTransform;
         
@@ -78,14 +78,14 @@ namespace NWH.Common.Vehicles
         /// <summary>
         ///     Called when vehicle is put to sleep.
         /// </summary>
-        [Tooltip("    Called when vehicle is put to sleep.")]
+        [Tooltip("Called when vehicle is put to sleep.")]
         [NonSerialized]
         public UnityEvent onDisable = new UnityEvent();
 
         /// <summary>
         ///     Called when vehicle is woken up.
         /// </summary>
-        [Tooltip("    Called when vehicle is woken up.")]
+        [Tooltip("Called when vehicle is woken up.")]
         [NonSerialized]
         public UnityEvent onEnable = new UnityEvent();
 
@@ -98,7 +98,7 @@ namespace NWH.Common.Vehicles
         /// <summary>
         ///     Determines if vehicle is running locally is synchronized over active multiplayer framework.
         /// </summary>
-        [Tooltip("    Determines if vehicle is running locally is synchronized over active multiplayer framework.")]
+        [Tooltip("Determines if vehicle is running locally is synchronized over active multiplayer framework.")]
         private bool _multiplayerIsRemote = false;
 
 

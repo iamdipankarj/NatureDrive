@@ -41,14 +41,14 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         ///     Distortion at maximum engine load.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Distortion at maximum engine load.")]
+        [Tooltip("Distortion at maximum engine load.")]
         public float maxDistortion = 0.4f;
 
         /// <summary>
         ///     Pitch added to the base engine pitch depending on engine RPM.
         /// </summary>
         [Range(0, 4)]
-        [Tooltip("    Pitch added to the base engine pitch depending on engine RPM.")]
+        [Tooltip("Pitch added to the base engine pitch depending on engine RPM.")]
         public float pitchRange = 2f;
 
         /// <summary>
@@ -60,14 +60,14 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         ///     Smoothing of engine volume.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Smoothing of engine volume.")]
+        [Tooltip("Smoothing of engine volume.")]
         public float smoothing = 0.05f;
 
         /// <summary>
         ///     Volume added to the base engine volume depending on engine state.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Volume added to the base engine volume depending on engine state.")]
+        [Tooltip("Volume added to the base engine volume depending on engine state.")]
         public float volumeRange = 0.1f;
 
 

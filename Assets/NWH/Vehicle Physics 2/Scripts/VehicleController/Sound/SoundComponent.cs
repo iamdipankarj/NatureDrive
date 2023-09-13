@@ -27,7 +27,7 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         /// </summary>
         [FormerlySerializedAs("volume")]
         [Range(0f, 1f)]
-        [Tooltip("    Base volume of the sound component.")]
+        [Tooltip("Base volume of the sound component.")]
         public float baseVolume = 0.1f;
 
         /// <summary>

@@ -15,21 +15,21 @@ namespace NWH.VehiclePhysics2
         ///     Distance between camera and vehicle used for determining LOD.
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Distance between camera and vehicle used for determining LOD.")]
+        [Tooltip("Distance between camera and vehicle used for determining LOD.")]
         public float vehicleToCamDistance;
 
         /// <summary>
         ///     Currently active LOD.
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Currently active LOD.")]
+        [Tooltip("Currently active LOD.")]
         public LOD activeLOD;
 
         /// <summary>
         ///     Currently active LOD index.
         /// </summary>
         [NonSerialized]
-        [Tooltip("    Currently active LOD index.")]
+        [Tooltip("Currently active LOD index.")]
         public int activeLODIndex = -2;
 
         /// <summary>

@@ -47,25 +47,25 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         /// The source for the pop trigger. 
         /// If ExhaustFlash is selected, ExhaustFlash effect needs to be set up for this to work.
         /// </summary>
-        [UnityEngine.Tooltip("The source for the pop trigger. \r\nIf ExhaustFlash is selected, ExhaustFlash effect needs to be set up for this to work.")]
+        [Tooltip("The source for the pop trigger. \r\nIf ExhaustFlash is selected, ExhaustFlash effect needs to be set up for this to work.")]
         public PopSource popSource = PopSource.ExhaustFlash;
 
         /// <summary>
         /// Each time there is an exhaust flash or rev limiter is hit, what is the chance of exhaust pop?
         /// </summary>
-        [UnityEngine.Tooltip("Each time there is an exhaust flash or rev limiter is hit, what is the chance of exhaust pop?")]
+        [Tooltip("Each time there is an exhaust flash or rev limiter is hit, what is the chance of exhaust pop?")]
         public float popChance = 0.1f;
 
         /// <summary>
         /// Should pops happen randomly when the vehicle is decelerating with throttle released.
         /// </summary>
-        [UnityEngine.Tooltip("Should pops happen randomly when the vehicle is decelerating with throttle released.")]
+        [Tooltip("Should pops happen randomly when the vehicle is decelerating with throttle released.")]
         public bool popOnDeceleration = true;
 
         /// <summary>
         /// The amount of pops under deceleration.
         /// </summary>
-        [UnityEngine.Tooltip("The amount of pops under deceleration.")]
+        [Tooltip("The amount of pops under deceleration.")]
         public float decelerationPopChanceCoeff = 1f;
 
 

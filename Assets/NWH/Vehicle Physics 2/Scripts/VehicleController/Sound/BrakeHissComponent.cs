@@ -35,7 +35,7 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         /// <summary>
         ///     Minimum time between two plays.
         /// </summary>
-        [Tooltip("    Minimum time between two plays.")]
+        [Tooltip("Minimum time between two plays.")]
         public float minInterval = 4f;
 
         private float _timer;

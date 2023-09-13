@@ -33,20 +33,20 @@ namespace NWH.Common.CoM
         /// <summary>
         /// Base mass of the object, without IMassAffectors.
         /// </summary>
-        [UnityEngine.Tooltip("Base mass of the object, without IMassAffectors.")]
+        [Tooltip("Base mass of the object, without IMassAffectors.")]
         public float baseMass = 1400f;
 
         /// <summary>
         /// Total mass of the object with masses of IMassAffectors counted in.
         /// </summary>
-        [UnityEngine.Tooltip("Total mass of the object with masses of IMassAffectors counted in.")]
+        [Tooltip("Total mass of the object with masses of IMassAffectors counted in.")]
         public float combinedMass = 1400f;
 
         /// <summary>
         /// Object dimensions in [m]. X - width, Y - height, Z - length.
         /// It is important to set the correct dimensions or otherwise inertia might be calculated incorrectly.
         /// </summary>
-        [UnityEngine.Tooltip("Object dimensions in [m]. X - width, Y - height, Z - length.\r\nIt is important to set the correct dimensions or otherwise inertia might be calculated incorrectly.")]
+        [Tooltip("Object dimensions in [m]. X - width, Y - height, Z - length.\r\nIt is important to set the correct dimensions or otherwise inertia might be calculated incorrectly.")]
         public Vector3 dimensions = new Vector3(1.8f, 1.6f, 4.6f);
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace NWH.Common.CoM
         /// <summary>
         /// When true inertia settings will be ignored and default Rigidbody inertia tensor will be used.
         /// </summary>
-        [UnityEngine.Tooltip("When true inertia settings will be ignored and default Rigidbody inertia tensor will be used.")]
+        [Tooltip("When true inertia settings will be ignored and default Rigidbody inertia tensor will be used.")]
         public bool useDefaultInertia = true;
 
         /// <summary>

@@ -20,19 +20,19 @@ namespace NWH.VehiclePhysics2.VehicleGUI
         /// <summary>
         ///     Locks the needle position at the end angle (play mode only).
         /// </summary>
-        [Tooltip("    Locks the needle position at the end angle (play mode only).")]
+        [Tooltip("Locks the needle position at the end angle (play mode only).")]
         public bool lockAtEnd;
 
         /// <summary>
         ///     Locks the needle position at the start angle (play mode only).
         /// </summary>
-        [Tooltip("    Locks the needle position at the start angle (play mode only).")]
+        [Tooltip("Locks the needle position at the start angle (play mode only).")]
         public bool lockAtStart;
 
         /// <summary>
         ///     Value at the end of needle travel, at the end angle.
         /// </summary>
-        [Tooltip("    Value at the end of needle travel, at the end angle.")]
+        [Tooltip("Value at the end of needle travel, at the end angle.")]
         public float maxValue;
 
         /// <summary>
