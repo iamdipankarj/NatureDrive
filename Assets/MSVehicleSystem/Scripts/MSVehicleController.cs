@@ -2680,36 +2680,30 @@ namespace MSVehicle {
 
 
     void UpdateWheelMeshes() {
-      Vector3 posWheel;
-      Quaternion rotWheel;
 
       //rightFrontWheel
-      _wheels.rightFrontWheel.wheelCollider.GetWorldPose(out posWheel, out rotWheel);
+      _wheels.rightFrontWheel.wheelCollider.GetWorldPose(out Vector3 posWheel, out Quaternion rotWheel);
       _wheels.rightFrontWheel.wheelWorldPosition = posWheel;
       if (_wheels.rightFrontWheel.wheelMesh) {
-        _wheels.rightFrontWheel.wheelMesh.position = posWheel;
-        _wheels.rightFrontWheel.wheelMesh.rotation = rotWheel;
+        _wheels.rightFrontWheel.wheelMesh.SetPositionAndRotation(posWheel, rotWheel);
       }
       //leftFrontWheel
       _wheels.leftFrontWheel.wheelCollider.GetWorldPose(out posWheel, out rotWheel);
       _wheels.leftFrontWheel.wheelWorldPosition = posWheel;
       if (_wheels.leftFrontWheel.wheelMesh) {
-        _wheels.leftFrontWheel.wheelMesh.position = posWheel;
-        _wheels.leftFrontWheel.wheelMesh.rotation = rotWheel;
+        _wheels.leftFrontWheel.wheelMesh.SetPositionAndRotation(posWheel, rotWheel);
       }
       //rightRearWheel
       _wheels.rightRearWheel.wheelCollider.GetWorldPose(out posWheel, out rotWheel);
       _wheels.rightRearWheel.wheelWorldPosition = posWheel;
       if (_wheels.rightRearWheel.wheelMesh) {
-        _wheels.rightRearWheel.wheelMesh.position = posWheel;
-        _wheels.rightRearWheel.wheelMesh.rotation = rotWheel;
+        _wheels.rightRearWheel.wheelMesh.SetPositionAndRotation(posWheel, rotWheel);
       }
       //leftRearWheel
       _wheels.leftRearWheel.wheelCollider.GetWorldPose(out posWheel, out rotWheel);
       _wheels.leftRearWheel.wheelWorldPosition = posWheel;
       if (_wheels.leftRearWheel.wheelMesh) {
-        _wheels.leftRearWheel.wheelMesh.position = posWheel;
-        _wheels.leftRearWheel.wheelMesh.rotation = rotWheel;
+        _wheels.leftRearWheel.wheelMesh.SetPositionAndRotation(posWheel, rotWheel);
       }
 
       if (_wheels.extraWheels.Length > 0) {
@@ -2718,15 +2712,12 @@ namespace MSVehicle {
             _wheels.extraWheels[i].wheelCollider.GetWorldPose(out posWheel, out rotWheel);
             _wheels.extraWheels[i].wheelWorldPosition = posWheel;
             if (_wheels.extraWheels[i].wheelMesh) {
-              _wheels.extraWheels[i].wheelMesh.position = posWheel;
-              _wheels.extraWheels[i].wheelMesh.rotation = rotWheel;
+              _wheels.extraWheels[i].wheelMesh.SetPositionAndRotation(posWheel, rotWheel);
             }
           }
         }
       }
     }
-
-
 
     void StabilizeAngularRotation() {
       if (_vehiclePhysicStabilizers.stabilizeAngularVelocity > 0.1f) {  // Avoid unnecessary processing for very low forces
@@ -2742,14 +2733,14 @@ namespace MSVehicle {
           if (!colliding) {
             if (groundedWheels == 0) {
               Vector3 axisFromRotate = Vector3.Cross(transform.up, Vector3.up);
-              Vector3 torqueForceAirRotation = axisFromRotate.normalized * axisFromRotate.magnitude * _vehiclePhysicStabilizers.airRotation * 5.0f;
+              Vector3 torqueForceAirRotation = _vehiclePhysicStabilizers.airRotation * 5.0f * axisFromRotate.magnitude * axisFromRotate.normalized;
               torqueForceAirRotation -= ms_Rigidbody.angularVelocity;
-              ms_Rigidbody.AddTorque(torqueForceAirRotation * _vehicleSettings.vehicleMass * 0.02f, ForceMode.Impulse);
+              ms_Rigidbody.AddTorque(_vehicleSettings.vehicleMass * 0.02f * torqueForceAirRotation, ForceMode.Impulse);
               if (Mathf.Abs(volantDir_horizontalInput) > 0.1f) {
-                ms_Rigidbody.AddTorque(transform.forward * -volantDir_horizontalInput * _vehicleSettings.vehicleMass * _vehiclePhysicStabilizers.airRotation * 1.5f);
+                ms_Rigidbody.AddTorque(_vehiclePhysicStabilizers.airRotation * _vehicleSettings.vehicleMass * 1.5f * -volantDir_horizontalInput * transform.forward);
               }
               if (Mathf.Abs(verticalInput) > 0.1f) {
-                ms_Rigidbody.AddTorque(transform.right * verticalInput * _vehicleSettings.vehicleMass * _vehiclePhysicStabilizers.airRotation * 1.1f);
+                ms_Rigidbody.AddTorque(_vehiclePhysicStabilizers.airRotation * _vehicleSettings.vehicleMass * 1.1f * verticalInput * transform.right);
               }
             }
           }
@@ -2885,7 +2876,7 @@ namespace MSVehicle {
 
         if (currentFuelLiters <= 0) {
           currentFuelLiters = 0;
-          StartCoroutine("StartEngineCoroutine", false);
+          StartCoroutine(nameof(StartEngineCoroutine), false);
         }
       }
     }
