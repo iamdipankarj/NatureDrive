@@ -969,6 +969,7 @@ namespace MSVehicle {
   [RequireComponent(typeof(Rigidbody))]
   [DisallowMultipleComponent]
   public class MSVehicleController : MonoBehaviour {
+    public Transform SkidMarksContainer;
 
     [Tooltip("If this variable is checked, the vehicle will automatically manage the gearshift.")]
     public bool automaticGears = true;
@@ -1040,8 +1041,6 @@ namespace MSVehicle {
 
     [Tooltip("In this class, you can adjust all preferences in relation to vehicle skid marks, such as color, width, among other options.")]
     public VehicleSkidMarksClass _skidMarks;
-
-
 
     [Space(15)]
     [Tooltip("In this class, you can configure the use of external inputs for the vehicle.")]
@@ -1257,42 +1256,9 @@ namespace MSVehicle {
     [HideInInspector]
     public ControlState _vehicleState = ControlState.isNull;
 
-    MSSceneController _sceneController;
-
-
-    void OnDestroy() {
-      if (_sceneController) {
-        int myIndex = -1;
-        for (int x = 0; x < _sceneController.vehicles.Count; x++) {
-          if (this == _sceneController.vehicles[x].GetComponent<MSVehicleController>()) {
-            myIndex = x;
-          }
-        }
-        if (_sceneController.currentVehicle >= myIndex) {
-          _sceneController.currentVehicle = _sceneController.currentVehicle - 1;
-          _sceneController.currentVehicle = Mathf.Clamp(_sceneController.currentVehicle, 0, 9999);
-        }
-        _sceneController.vehicles.Remove(this.gameObject);
-      }
-    }
-
 #if UNITY_EDITOR
     private void OnValidate() {
       //The 'OnValidate' function is called only in the editor.
-      //Generate Control
-      if (UnityEngine.SceneManagement.SceneManager.loadedSceneCount > 0) {
-        _sceneController = GameObject.FindObjectOfType(typeof(MSSceneController)) as MSSceneController;
-        if (!_sceneController) {
-          var vehiclesOnScene = GameObject.FindObjectsOfType<MSVehicleController>();
-          if (vehiclesOnScene.Length > 0) {
-            if (_mainSceneControl) {
-              GameObject tempControl = Instantiate(_mainSceneControl) as GameObject;
-              tempControl.name = "MainControl";
-            }
-          }
-        }
-      }
-
       //suspension
       if (_suspension != null) {
         for (int x = 0; x < _suspension.vehicleCustomHeights.Length; x++) {
@@ -1493,20 +1459,8 @@ namespace MSVehicle {
     void OnEnable() {
       _error = false;
 
-      //Get Scene Controller
-      _sceneController = GameObject.FindObjectOfType(typeof(MSSceneController)) as MSSceneController;
-      if (!_sceneController) {
-        GameObject tempControl = Instantiate(_mainSceneControl) as GameObject;
-        tempControl.name = "MainControl";
-      }
-
       //null by default
       _vehicleState = ControlState.isNull;
-
-      //add the vehicle to the vehicle list if it is not already there.
-      if (!_sceneController.vehicles.Contains(this.gameObject)) {
-        _sceneController.vehicles.Add(this.gameObject);
-      }
 
       //check wheels
       if (!_wheels.rightFrontWheel.wheelCollider || !_wheels.leftFrontWheel.wheelCollider || !_wheels.rightRearWheel.wheelCollider || !_wheels.leftRearWheel.wheelCollider) {
@@ -1696,11 +1650,6 @@ namespace MSVehicle {
           }
         }
       }
-
-      //AI control
-      if (_AISettings._enableTheUseOfAI) {
-        VehicleAIUpdate();
-      }
     }
     void FixedUpdate() {
       CheckGroundedWheelsOnFixedUpdate();
@@ -1888,50 +1837,6 @@ namespace MSVehicle {
       colliding = false;
     }
 
-
-    void VehicleAIUpdate() {
-      //Check vehicle status
-      if (_sceneController) {
-        if (this == _sceneController.vehicleCode) {
-          if (_sceneController.vehicleCode._vehicleState == MSVehicleController.ControlState.isPlayer) {
-            _AISettings.AIIsActive = _AISettings._AIisInControl = false;
-          } else {
-            if (_AISettings.AIIsActive) {
-              _AISettings._AIisInControl = true;
-              if (_vehicleState == MSVehicleController.ControlState.isNull) {
-                EnterInVehicle(false);
-              }
-            }
-          }
-        } else {
-          if (_AISettings.AIIsActive) {
-            _AISettings._AIisInControl = true;
-            if (_vehicleState == MSVehicleController.ControlState.isNull) {
-              EnterInVehicle(false);
-            }
-          } else {
-            _AISettings._AIisInControl = false;
-            if (_vehicleState == MSVehicleController.ControlState.isAI) {
-              ExitTheVehicle();
-            }
-          }
-        }
-      } else {
-        _AISettings._AIisInControl = _AISettings.AIIsActive = false;
-      }
-
-      // set inputs
-      if (_AISettings._AIisInControl) {
-        //get max angle
-        _AISettings.vehicleMaxSteerAngle = _steeringWheel.maxAngle;
-        //clamp
-        _AISettings._AIVerticalInput = Mathf.Clamp(_AISettings._AIVerticalInput, -1, 1);
-        _AISettings._AIHorizontalInput = Mathf.Clamp(_AISettings._AIHorizontalInput, -1, 1);
-        //vertical and horizontal Input
-        verticalInput = _AISettings._AIVerticalInput;
-        horizontalInput = _AISettings._AIHorizontalInput;
-      }
-    }
     public void AIHornInput() {
       if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
         hornIsOn = true;
@@ -4094,11 +3999,6 @@ namespace MSVehicle {
     void OnCollisionEnter(Collision collision) {
       if (collision.contacts.Length > 0) {
         if (collision.relativeVelocity.magnitude > 1) {
-          if (_sceneController.player) {
-            if (collision.collider.gameObject == _sceneController.player) {
-              return;
-            }
-          }
           if (collision.contacts[0].thisCollider.gameObject.transform != transform.parent) {
             //vehicle life
             if (enableDamageOnStart) {
@@ -4170,27 +4070,14 @@ namespace MSVehicle {
         }
       }
       if (_vehicleState == ControlState.isPlayer) {
-        if (_sceneController.selectControls == MSSceneController.ControlType.windows) {//joystick OFF && buttons OFF && volant OFF 
-          if ((Mathf.Abs(Mathf.Clamp(verticalInput, -1f, 0f))) > 0.8f) {
-            if ((KMh < 5 && mediumRPM < 1) || mediumRPM < -2) {
-              currentGear = -1;
-            }
+        if ((Mathf.Abs(Mathf.Clamp(verticalInput, -1f, 0f))) > 0.8f) {
+          if ((KMh < 5 && mediumRPM < 1) || mediumRPM < -2) {
+            currentGear = -1;
           }
-          if ((Mathf.Abs(Mathf.Clamp(verticalInput, 0f, 1f))) > 0.8f) {
-            if ((KMh < 5) || (mediumRPM > 2 && currentGear < 2)) {
-              currentGear = 1;
-            }
-          }
-        } else {//joystick ON
-          if ((Mathf.Abs(Mathf.Clamp(verticalInput, -1f, 0f))) > 0.2f) {
-            if ((KMh < 5) || mediumRPM < -2) {
-              currentGear = -1;
-            }
-          }
-          if ((Mathf.Abs(Mathf.Clamp(verticalInput, 0f, 1f))) > 0.2f) {
-            if ((KMh < 5) || (mediumRPM > 2 && currentGear < 2)) {
-              currentGear = 1;
-            }
+        }
+        if ((Mathf.Abs(Mathf.Clamp(verticalInput, 0f, 1f))) > 0.8f) {
+          if ((KMh < 5) || (mediumRPM > 2 && currentGear < 2)) {
+            currentGear = 1;
           }
         }
       } else {
@@ -5697,7 +5584,7 @@ namespace MSVehicle {
       mesh.MarkDynamic();
       rendRef.GetComponent<MeshRenderer>().material = skdMaterial;
       rendRef.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-      rendRef.transform.parent = _sceneController.gameObject.transform;
+      rendRef.transform.parent = SkidMarksContainer;
       return mesh;
     }
 
