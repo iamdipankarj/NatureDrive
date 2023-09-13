@@ -227,34 +227,6 @@ namespace MSVehicle {
   }
 
   [Serializable]
-  public class VehicleDamageClass {
-    [Tooltip("If this variable is true, the vehicle may receive damages.")]
-    public bool enableDamage = true;
-    [Range(50, 2000)]
-    [Tooltip("This variable defines how much damage the vehicle is able to withstand.")]
-    public float damageSupported = 350;
-    [Tooltip("If this variable is true, the vehicle will lose torque as it receives damage.")]
-    public bool affectTorque = false;
-    [Tooltip("If this variable is true, the direction of the vehicle will be affected by the damage caused to the vehicle.")]
-    public bool affectVolant = false;
-    [Tooltip("In this class you can configure the deformations that the vehicle can suffer when it receives beats.")]
-    public DeformMeshClass deformMesh;
-  }
-  [Serializable]
-  public class DeformMeshClass {
-    [Tooltip("The meshes of the vehicle must be associated with this variable.")]
-    public MeshFilter[] meshes;
-    [Tooltip("How much damage the vehicle will receive per hit.")]
-    public float hitDamage = 0.2f;
-    [Tooltip("The deformation area of each beat.")]
-    public float areaOfDeformation = 0.5f;
-    [Tooltip("if this variable is true, deformations will occur towards the vehicle's center of mass.")]
-    public bool warpToTheCenter = true;
-  }
-
-
-
-  [Serializable]
   public class VolantSettingsClass {
     [Header("Settings")]
     [Range(0.2f, 5.0f)]
@@ -406,8 +378,6 @@ namespace MSVehicle {
   public class VehicleParticlesClass {
     [Tooltip("If this variable is true, the vehicle emits particles associated with the classes below.")]
     public bool enableParticles = true;
-    [Tooltip("A particle of smoke must be associated with this variable. It will issue automatically when the vehicle receives too much damage.")]
-    public ParticleSystem[] damageSmoke;
     [Tooltip("When vehicle nitro is activated, the associated particles in this list will be activated as well.")]
     public ParticleSystem[] nitroParticles;
     [Tooltip("In this class the exhaust particles of the vehicle are configured.")]
@@ -999,9 +969,6 @@ namespace MSVehicle {
     [Tooltip("In this class, you can adjust all preferences relative to the fuel consumption of the vehicle.")]
     public FuelAdjustmentClass _fuel;
 
-    [Tooltip("In this class, you can adjust all preferences related to the damage received by the vehicle.")]
-    public VehicleDamageClass _damage;
-
     [Tooltip("In this class, you can adjust all wheels of the vehicle separately, each with its own settings.")]
     public VehicleWheelsClass _wheels;
 
@@ -1080,7 +1047,6 @@ namespace MSVehicle {
     bool loopBlinkersOn;
 
     bool enableLightsOnStart;
-    bool enableDamageOnStart;
     bool enableSkidMarksOnStart;
     bool enableParticlesOnStart;
 
@@ -1194,12 +1160,6 @@ namespace MSVehicle {
     float[] terrainCompositionArray;
     float[,,] alphaMaps;
     float[] terrainCompositionMix;
-    //
-    int ms_sumImpactCount = 0;
-    float ms_lastImpactTime = 0.0f;
-    Vector3 ms_sumImpactPosition = Vector3.zero;
-    Vector3 ms_sumImpactVelocity = Vector3.zero;
-    Vector3[][] ms_originalMeshes;
 
     [HideInInspector]
     public float KMh;
@@ -1265,14 +1225,6 @@ namespace MSVehicle {
           if (_suspension.vehicleCustomHeights[x] < 0.1f) {
             _suspension.vehicleCustomHeights[x] = 0.25f;
           }
-        }
-      }
-
-      //damage
-      if (_damage != null) {
-        if (_damage.deformMesh != null) {
-          _damage.deformMesh.hitDamage = Mathf.Clamp(_damage.deformMesh.hitDamage, 0.02f, 100.0f);
-          _damage.deformMesh.areaOfDeformation = Mathf.Clamp(_damage.deformMesh.areaOfDeformation, 0.1f, 5.0f);
         }
       }
 
@@ -1485,32 +1437,10 @@ namespace MSVehicle {
         activeTerrain_optional = Terrain.activeTerrain;
       }
 
-      //meshes to deform
-      if (!_error) {
-        ms_originalMeshes = new Vector3[_damage.deformMesh.meshes.Length][];
-        for (int i = 0; i < _damage.deformMesh.meshes.Length; i++) {
-          if (_damage.deformMesh.meshes[i]) {
-            Mesh mesh = _damage.deformMesh.meshes[i].mesh;
-            ms_originalMeshes[i] = mesh.vertices;
-            mesh.MarkDynamic();
-          }
-        }
-      }
-
       //AI
       _AISettings._AIisInControl = false; //false by default
     }
     void OnDisable() {
-      if (!_error) {
-        for (int i = 0; i < _damage.deformMesh.meshes.Length; i++) {
-          if (_damage.deformMesh.meshes[i]) {
-            Mesh mesh = _damage.deformMesh.meshes[i].mesh;
-            mesh.vertices = ms_originalMeshes[i];
-            mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
-          }
-        }
-      }
       if (_AISettings._enableTheUseOfAI) {
         if (_vehicleState == MSVehicleController.ControlState.isAI) {
           _AISettings._AIisInControl = false;
@@ -1519,11 +1449,9 @@ namespace MSVehicle {
       }
     }
 
-
     void Start() {
       if (!_error) {
         enableLightsOnStart = _lights.enableLights;
-        enableDamageOnStart = _damage.enableDamage;
         enableSkidMarksOnStart = _skidMarks.enableSkidMarks;
         enableParticlesOnStart = _particles.enableParticles;
 
@@ -1728,28 +1656,6 @@ namespace MSVehicle {
         }
       }
 
-      //damage_deform
-      if (_damage.deformMesh.meshes.Length > 0 && enableDamageOnStart) {
-        if (Time.time - ms_lastImpactTime >= 0.2f && ms_sumImpactCount > 0) {
-          ms_sumImpactPosition *= (1.0f / ms_sumImpactCount);
-          ms_sumImpactVelocity *= (1.0f / ms_sumImpactCount);
-          Vector3 impactVelocityFixedUpdate = Vector3.zero;
-          if (ms_sumImpactVelocity.sqrMagnitude > 1.5f) {
-            impactVelocityFixedUpdate = transform.TransformDirection(ms_sumImpactVelocity) * 0.02f;
-          }
-          if (impactVelocityFixedUpdate.sqrMagnitude > 0.0f) {
-            Vector3 contactPointFixedUpdate = transform.TransformPoint(ms_sumImpactPosition);
-            for (int i = 0, c = _damage.deformMesh.meshes.Length; i < c; i++) {
-              DeformMesh(_damage.deformMesh.meshes[i].mesh, ms_originalMeshes[i], _damage.deformMesh.meshes[i].transform, contactPointFixedUpdate, impactVelocityFixedUpdate);
-            }
-          }
-          ms_sumImpactCount = 0;
-          ms_sumImpactPosition = Vector3.zero;
-          ms_sumImpactVelocity = Vector3.zero;
-          ms_lastImpactTime = Time.time + 0.2f * UnityEngine.Random.Range(-0.4f, 0.4f);
-        }
-      }
-
       //Reverse force
       if (_vehiclePhysicStabilizers.airDrag > 0.05f && KMh > 0.1f) {
         if (verticalInput == 0) {
@@ -1920,20 +1826,6 @@ namespace MSVehicle {
 
 
     public void DisableParticles() {
-      //DAMAGE 
-      if (_particles.damageSmoke.Length > 0) {
-        for (int x = 0; x < _particles.damageSmoke.Length; x++) {
-          if (_particles.damageSmoke[x]) {
-            ParticleSystem.MainModule particleMainModule = _particles.damageSmoke[x].main;
-            particleMainModule.playOnAwake = false;
-            _particles.damageSmoke[x].Stop(true);
-            //
-            ParticleSystem.EmissionModule tempParticle = _particles.damageSmoke[x].emission;
-            tempParticle.rateOverTime = 1;
-            tempParticle.enabled = false;
-          }
-        }
-      }
       //NITRO
       if (_particles.nitroParticles.Length > 0) {
         for (int x = 0; x < _particles.nitroParticles.Length; x++) {
@@ -2016,7 +1908,6 @@ namespace MSVehicle {
       //speedometer
       if (_speedometer._speedometerModel1__ScreenSpace.canvas_Gauges) {
         _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.enabledGauge = false;
-        _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.enableDamageText = _damage.enableDamage;
         _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.enableNitroBar = _additionalFeatures.useNitro;
       }
       if (_speedometer._speedometerModel2__WorldSpace.masterObject) {
@@ -2096,7 +1987,6 @@ namespace MSVehicle {
       }
 
       boolTimeAirBrake = windLoop = loopBlinkersOn = hornIsOn = false;
-      vehicleLife = _damage.damageSupported;
       handBrakeTrue = _vehicleSettings.startBraking;
       changinGears = false;
 
@@ -2278,45 +2168,6 @@ namespace MSVehicle {
       return Mathf.Clamp(angle, min, max);
     }
 
-
-    float DeformMesh(Mesh mesh, Vector3[] originalMesh, Transform localTransform, Vector3 contactPoint, Vector3 contactVelocity) {
-      Vector3[] verticesDeformMesh = mesh.vertices;
-      Vector3 localContactPointDeformMesh = localTransform.InverseTransformPoint(contactPoint);
-      //
-      Vector3 localContactForceDeformMesh = Vector3.zero;
-      if (_damage.deformMesh.warpToTheCenter) {
-        Vector3 vel = (contactPoint - _vehiclePhysicStabilizers.centerOfMass.position).normalized;
-        localContactForceDeformMesh = -localTransform.InverseTransformDirection(vel);
-      } else {
-        localContactForceDeformMesh = localTransform.InverseTransformDirection(contactVelocity);
-      }
-      //
-      float totalDamageDeformMesh = 0.0f;
-      float damagedVerticesDeformMesh = 0;
-      float computedDamage = _damage.deformMesh.hitDamage * (1 + Mathf.Clamp((KMh * _damage.deformMesh.hitDamage * 0.018f), 0, 0.7f)); //velocity_x_Damage = 0.018f
-      float computedImpactArea = _damage.deformMesh.areaOfDeformation * (1 + Mathf.Clamp((KMh * _damage.deformMesh.areaOfDeformation * 0.018f), 0, 0.7f)); //velocity_x_Damage = 0.018f
-      for (int i = 0; i < verticesDeformMesh.Length; i++) {
-        float distDeformMesh = (localContactPointDeformMesh - verticesDeformMesh[i]).sqrMagnitude;
-        if (distDeformMesh < computedImpactArea) {
-          Vector3 damageDeformMesh = computedDamage * ((localContactForceDeformMesh * ((computedImpactArea * 1.2f) - Mathf.Sqrt(distDeformMesh))) / (computedImpactArea));// + Random.onUnitSphere*_damage.deformMesh.breaksInTheMesh;
-          verticesDeformMesh[i] += damageDeformMesh;
-          Vector3 deformDeformMesh = verticesDeformMesh[i] - originalMesh[i];
-          float maxDistortion = _damage.deformMesh.hitDamage * 2.0f; // *_damage.deformMesh.maxDistortion (removed) -- (1 = ideal value)
-          if (deformDeformMesh.sqrMagnitude > (maxDistortion * maxDistortion)) {
-            verticesDeformMesh[i] = originalMesh[i] + deformDeformMesh.normalized * maxDistortion;
-          }
-          totalDamageDeformMesh += damageDeformMesh.magnitude;
-          damagedVerticesDeformMesh++;
-        }
-      }
-      mesh.vertices = verticesDeformMesh;
-      mesh.RecalculateNormals();
-      mesh.RecalculateBounds();
-      return damagedVerticesDeformMesh > 0 ? totalDamageDeformMesh / damagedVerticesDeformMesh : 0.0f;
-    }
-
-
-
     void SpeedometerAndOthers() { //On Update
       if (_speedometer._speedometerModel1__ScreenSpace.canvas_Gauges) {
         if (_vehicleState == ControlState.isPlayer) {
@@ -2344,8 +2195,6 @@ namespace MSVehicle {
           //gear
           _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.vehicleCurrentGear = currentGear;
           _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.autoGears = automaticGears;
-          //damage
-          _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.vehiclePercentDamage = 1 - ((Mathf.Clamp(vehicleLife, 0.00001f, 2000)) / _damage.damageSupported);
           //nitro
           _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges.vehiclePercentNitro = _additionalFeatures.timerNitro / _additionalFeatures.nitroTime;
           //fuel
@@ -3047,29 +2896,6 @@ namespace MSVehicle {
 
     void ParticlesEmitter() {
       if (enableParticlesOnStart) {
-
-        //damage particle
-        if (enableDamageOnStart) {
-          if (_particles.damageSmoke.Length > 0) {
-            for (int x = 0; x < _particles.damageSmoke.Length; x++) {
-              ParticleSystem.EmissionModule tempParticle = _particles.damageSmoke[x].emission;
-              if (vehicleLife / _damage.damageSupported < 0.5f) {
-                if (!_particles.damageSmoke[x].isPlaying) {
-                  _particles.damageSmoke[x].Play(true);
-                }
-                tempParticle.enabled = true;
-                if (vehicleLife / _damage.damageSupported > 0.3f) {
-                  tempParticle.rateOverTime = 1;
-                } else {
-                  tempParticle.rateOverTime = 50;
-                }
-              } else {
-                tempParticle.enabled = false;
-              }
-            }
-          }
-        }
-
         //nitro
         if (_additionalFeatures.useNitro) {
           if (_particles.nitroParticles.Length > 0) {
@@ -3983,56 +3809,14 @@ namespace MSVehicle {
       }
     }
 
-
-
-    public void ResetVehicleDamage() {
-      for (int i = 0; i < _damage.deformMesh.meshes.Length; i++) {
-        if (_damage.deformMesh.meshes[i]) {
-          Mesh mesh = _damage.deformMesh.meshes[i].mesh;
-          mesh.vertices = ms_originalMeshes[i];
-          mesh.RecalculateNormals();
-          mesh.RecalculateBounds();
-        }
-      }
-      vehicleLife = _damage.damageSupported;
-    }
     void OnCollisionEnter(Collision collision) {
       if (collision.contacts.Length > 0) {
         if (collision.relativeVelocity.magnitude > 1) {
           if (collision.contacts[0].thisCollider.gameObject.transform != transform.parent) {
-            //vehicle life
-            if (enableDamageOnStart) {
-              vehicleLife -= collision.relativeVelocity.magnitude;
-              if (vehicleLife < 0.01f) {
-                vehicleLife = 0.01f;
-              }
-            }
             //impact sound
             if (_sounds.collisionSounds.Length > 0) {
               beatsSoundAUD.clip = _sounds.collisionSounds[UnityEngine.Random.Range(0, _sounds.collisionSounds.Length)];
               beatsSoundAUD.PlayOneShot(beatsSoundAUD.clip);
-            }
-            //deform_damage
-            if (_damage.deformMesh.meshes.Length > 0 && enableDamageOnStart) {
-              int impactCount = 0;
-              Vector3 impactPosition = Vector3.zero;
-              Vector3 impactVelocity = Vector3.zero;
-              foreach (ContactPoint contact in collision.contacts) {
-                float draagRatio = Vector3.Dot(ms_Rigidbody.GetPointVelocity(contact.point), contact.normal);
-                if (draagRatio < -0.6f || collision.relativeVelocity.sqrMagnitude > 3.0f) {
-                  impactCount++;
-                  impactPosition += contact.point;
-                  impactVelocity += collision.relativeVelocity;
-                }
-              }
-              if (impactCount > 0) {
-                float invCount = 1.0f / impactCount;
-                impactPosition *= invCount;
-                impactVelocity *= invCount;
-                ms_sumImpactCount++;
-                ms_sumImpactPosition += transform.InverseTransformPoint(impactPosition);
-                ms_sumImpactVelocity += transform.InverseTransformDirection(impactVelocity);
-              }
             }
           }
         }
@@ -4157,11 +3941,6 @@ namespace MSVehicle {
           }
         } else {
           volantDir_horizontalInput = horizontalInput;
-          if (_damage.affectVolant) {
-            if (vehicleLife / _damage.damageSupported < 0.7f) {
-              volantDir_horizontalInput = (volantDistortion / (vehicleLife / _damage.damageSupported)) + horizontalInput;
-            }
-          }
         }
 
         angleSteeringClamp = Mathf.MoveTowards(angleSteeringClamp, volantDir_horizontalInput, _steeringWheel.steeringWheelSpeed * fixedDeltaTime);
@@ -4381,9 +4160,6 @@ namespace MSVehicle {
 
       //damage adjustment
       float damageFactorTorque = 1;
-      if (_damage.affectTorque) {
-        damageFactorTorque = (vehicleLife / _damage.damageSupported);
-      }
 
       // compute torque
       float nitroFactor = 1;
