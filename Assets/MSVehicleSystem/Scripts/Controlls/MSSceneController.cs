@@ -345,7 +345,6 @@ namespace MSVehicle {
       vehicleCode = GetComponent<MSVehicleController>();
       vehicleCode.theEngineIsRunning = false;
       vehicleCode._vehicleState = MSVehicleController.ControlState.isNull;
-      //
       if (_StartingMode == StartMode.StartInThePlayer) {
         if (player) {
           player.SetActive(true);

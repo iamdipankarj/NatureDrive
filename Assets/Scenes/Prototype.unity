@@ -1005,7 +1005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.043838974, y: 0.8730236, z: -0.07988594, w: 0.47908884}
+  m_LocalRotation: {x: 0.043838974, y: 0.8730236, z: -0.07988592, w: 0.4790889}
   m_LocalPosition: {x: -3.0874987, y: 4.02, z: -0.32932568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1524,7 +1524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.47980535
+      value: 0.4798053
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1548,7 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4790889
+      value: 0.47908884
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1556,7 +1556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8730237
+      value: 0.8730236
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1663,11 +1663,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1342691196134540 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1220903671460710833, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-  m_PrefabInstance: {fileID: 8849343868602830423}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4116005122144124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4682524627559718531, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
@@ -1678,122 +1673,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6238495661527958283, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
   m_PrefabInstance: {fileID: 8849343868602830423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &114215487819416091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342691196134540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b04a667d4113e444a681c2bed221283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _verticalInput: Vertical
-  _horizontalInput: Horizontal
-  _mouseXInput: Mouse X
-  _mouseYInput: Mouse Y
-  _mouseScrollWheelInput: Mouse ScrollWheel
-  selectControls: 0
-  controls:
-    enable_manualOrAutoGears_Input_key: 1
-    enable_manualOrAutoGears_Button_Mobile: 1
-    manualOrAutoGears: 111
-    manualOrAutoGearsMobileButton: {fileID: 0}
-    enable_increasedGear_Input_key: 1
-    enable_increasedGear_Button_Mobile: 1
-    increasedGear: 304
-    increasedGearMobileButton: {fileID: 0}
-    enable_decreasedGear_Input_key: 1
-    enable_decreasedGear_Button_Mobile: 1
-    decreasedGear: 306
-    decreasedGearMobileButton: {fileID: 0}
-    enable_flashesRightAlert_Input_key: 1
-    enable_flashesRightAlert_Button_Mobile: 1
-    flashesRightAlert: 101
-    flashesRightAlertMobileButton: {fileID: 0}
-    enable_flashesLeftAlert_Input_key: 1
-    enable_flashesLeftAlert_Button_Mobile: 1
-    flashesLeftAlert: 113
-    flashesLeftAlertMobileButton: {fileID: 0}
-    enable_mainLightsInput_Input_key: 1
-    enable_mainLightsInput_Button_Mobile: 1
-    mainLightsInput: 108
-    mainLightsMobileButton: {fileID: 0}
-    enable_extraLightsInput_Input_key: 1
-    enable_extraLightsInput_Button_Mobile: 1
-    extraLightsInput: 107
-    extraLightsMobileButton: {fileID: 0}
-    enable_headlightsInput_Input_key: 1
-    enable_headlightsInput_Button_Mobile: 1
-    headlightsInput: 106
-    headlightsMobileButton: {fileID: 0}
-    enable_warningLightsInput_Input_key: 1
-    enable_warningLightsInput_Button_Mobile: 1
-    warningLightsInput: 104
-    warningLightsMobileButton: {fileID: 0}
-    enable_reloadScene_Input_key: 1
-    enable_reloadScene_Button_Mobile: 1
-    reloadScene: 114
-    reloadSceneMobileButton: {fileID: 0}
-    enable_pause_Input_key: 1
-    enable_pause_Button_Mobile: 1
-    pause: 112
-    pauseMobileButton: {fileID: 0}
-    enable_startTheVehicle_Input_key: 1
-    enable_startTheVehicle_Button_Mobile: 1
-    startTheVehicle: 102
-    startTheVehicleMobileButton: {fileID: 0}
-    enable_enterEndExit_Input_key: 1
-    enable_enterEndExit_Button_Mobile: 1
-    enterEndExit: 116
-    enterEndExitMobileButton: {fileID: 0}
-    enable_hornInput_Input_key: 1
-    enable_hornInput_Button_Mobile: 1
-    hornInput: 98
-    hornMobileButton: {fileID: 0}
-    enable_handBrakeInput_Input_key: 1
-    enable_handBrakeInput_Button_Mobile: 1
-    handBrakeInput: 32
-    handBrakeMobileButton: {fileID: 0}
-    enable_switchingCameras_Input_key: 1
-    enable_switchingCameras_Button_Mobile: 1
-    switchingCameras: 99
-    switchingCamerasMobileButton: {fileID: 0}
-    enable_changeSuspensionHeight_Input_key: 1
-    enable_changeSuspensionHeight_Button_Mobile: 1
-    changeSuspensionHeight: 105
-    changeSuspensionHeightMobileButton: {fileID: 0}
-    enable_nitro_Input_key: 1
-    enable_nitro_Button_Mobile: 1
-    nitro: 103
-    nitroMobileButton: {fileID: 0}
-  sensitivityOfMobileControls:
-    speedScrollWheelMobile: 0.5
-    speedJoystickMove: 5
-    speedJoystickCamera: 0.4
-    speedButtonMove: 5
-    speedButtonDirection: 5
-    _speedJoystickCamera: 0.4
-    speedMobileVolant: 10
-  _StartingMode: 1
-  startingVehicleName: VehicleName
-  player: {fileID: 0}
-  minDistance: 3
-  pressKeyUI: 1
-  disableVehicleByDistance: 1
-  distanceDisable: 500
-  verticalInput: 0
-  horizontalInput: 0
-  mouseXInput: 0
-  mouseYInput: 0
-  mouseScrollWheelInput: 0
-  blockedInteraction: 0
-  currentVehicle: 0
-  vehicleCode: {fileID: 0}
-  pause: 0
-  error: 0
 --- !u!1001 &1594564783624489031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2801,38 +2680,6 @@ PrefabInstance:
       propertyPath: SkidMarksContainer
       value: 
       objectReference: {fileID: 392126314}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.gearText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.masterObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel1__ScreenSpace.canvas_Gauges
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.nitroBar_filled
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.speedometerRPMPointer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.speedometerFuelPointer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: _speedometer._speedometerModel2__WorldSpace.speedometerSpeedPointer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3284936310226324673, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: m_Name
-      value: FollowPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 4682524627559718531, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.49
@@ -2873,23 +2720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6238495661527958283, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.758
-      objectReference: {fileID: 0}
-    - target: {fileID: 6238495661527958283, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.321
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5407510038696297408, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-    - {fileID: 6511234239829971903, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1220903671460710833, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 114215487819416091}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
