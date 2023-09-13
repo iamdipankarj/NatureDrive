@@ -83,8 +83,6 @@ namespace MSVehicle {
     [Tooltip("Here you can configure the vehicle controls, choose the desired inputs and also, deactivate the unwanted ones.")]
     public Controls controls;
 
-    Text enterOrExitVehicleText;
-
     #region customizeInputs
     [HideInInspector]
     public float verticalInput = 0;

@@ -887,27 +887,6 @@ namespace MSVehicle {
     public int stepsAboveThreshold = 30;
   }
 
-
-
-  [Serializable]
-  public class VehicleAISettings {
-    [Tooltip("If this variable is true, the vehicle may receive external commands, for example to an AI controller.")]
-    public bool _enableTheUseOfAI = false;
-    //
-    [HideInInspector]
-    public bool AIIsActive = true;
-    [HideInInspector]
-    public bool _AIisInControl;
-    [HideInInspector]
-    public float _AIVerticalInput;
-    [HideInInspector]
-    public float _AIHorizontalInput;
-    [HideInInspector]
-    public float vehicleMaxSteerAngle;
-  }
-
-
-
   [Serializable]
   public class VehicleAdditionalSettingsClass {
     [Header("Nitro")]
@@ -1008,12 +987,6 @@ namespace MSVehicle {
 
     [Tooltip("In this class, you can adjust all preferences in relation to vehicle skid marks, such as color, width, among other options.")]
     public VehicleSkidMarksClass _skidMarks;
-
-    [Space(15)]
-    [Tooltip("In this class, you can configure the use of external inputs for the vehicle.")]
-    public VehicleAISettings _AISettings;
-
-
 
     [Space(5)]
     [Header("Resources")]
@@ -1212,7 +1185,7 @@ namespace MSVehicle {
     [HideInInspector]
     public bool msvs_useWarningOrFlashingLights;
 
-    public enum ControlState { isNull, isAI, isPlayer };
+    public enum ControlState { isNull, isPlayer };
     [HideInInspector]
     public ControlState _vehicleState = ControlState.isNull;
 
@@ -1436,17 +1409,6 @@ namespace MSVehicle {
       if (!activeTerrain_optional) {
         activeTerrain_optional = Terrain.activeTerrain;
       }
-
-      //AI
-      _AISettings._AIisInControl = false; //false by default
-    }
-    void OnDisable() {
-      if (_AISettings._enableTheUseOfAI) {
-        if (_vehicleState == MSVehicleController.ControlState.isAI) {
-          _AISettings._AIisInControl = false;
-          ExitTheVehicle();
-        }
-      }
     }
 
     void Start() {
@@ -1477,12 +1439,7 @@ namespace MSVehicle {
       }
     }
     void Update() {
-      if (_vehicleState == ControlState.isAI) {
-        automaticGears = true;
-      }
-
       KMh = ms_Rigidbody.velocity.magnitude * 3.6f;
-
       DiscoverAverageRpm();
 
       //engine DIES
@@ -1513,11 +1470,8 @@ namespace MSVehicle {
       if (_vehicleState == ControlState.isNull && theEngineIsRunning) {
         StartCoroutine("StartEngineCoroutine", false);
       }
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         float limit = 0.5f;
-        if (_vehicleState == ControlState.isAI) {
-          limit = 0.05f;
-        }
         if (Mathf.Abs(verticalInput) > limit && !theEngineIsRunning && _vehicleSettings.turnOnWhenAccelerating && youCanCall) {
           if (currentFuelLiters > 0) {
             enableEngineSound = true;
@@ -1538,7 +1492,7 @@ namespace MSVehicle {
       }
 
       //VEHICLE NITRO
-      if (theEngineIsRunning && (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI)) {
+      if (theEngineIsRunning && (_vehicleState == ControlState.isPlayer)) {
         NitroFunction();
       } else {
         _additionalFeatures.nitroIsTrueVar = false;
@@ -1557,7 +1511,7 @@ namespace MSVehicle {
       ParticlesEmitter();
 
       //gears
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         if (automaticGears) {
           AutomaticGears();
         }
@@ -1568,7 +1522,7 @@ namespace MSVehicle {
       SpeedometerAndOthers();
       //
       if (_vehicleSettings.internalPlayerMesh) {
-        if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+        if (_vehicleState == ControlState.isPlayer) {
           if (!_vehicleSettings.internalPlayerMesh.activeInHierarchy) {
             _vehicleSettings.internalPlayerMesh.SetActive(true);
           }
@@ -1588,7 +1542,7 @@ namespace MSVehicle {
         fixedDeltaTime = 0.02f;
       }
 
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         VehicleSteeringWheel();
         //set vehicle heigth (Move Towards)
         if (_suspension.vehicleCustomHeights.Length > 0) {
@@ -1645,7 +1599,7 @@ namespace MSVehicle {
 
       //tire slips
       if (_vehiclePhysicStabilizers.stabilizeTireSlips) {
-        if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI || KMh > 0.1f) {
+        if (_vehicleState == ControlState.isPlayer || KMh > 0.1f) {
           SetWheelForces(_wheels.rightFrontWheel.wheelCollider);
           SetWheelForces(_wheels.leftFrontWheel.wheelCollider);
           SetWheelForces(_wheels.rightRearWheel.wheelCollider);
@@ -1676,7 +1630,7 @@ namespace MSVehicle {
       //
 
       //brakes ABS
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         if (_brakes.ABS && isBraking) {
           if (wheelFDIsGrounded && wheelFEIsGrounded && wheelTDIsGrounded && wheelTEIsGrounded) {
             if (_brakes.brakeSlowly) {
@@ -1741,86 +1695,6 @@ namespace MSVehicle {
     }
     void OnCollisionExit() {
       colliding = false;
-    }
-
-    public void AIHornInput() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        hornIsOn = true;
-      }
-    }
-    public void AISuspensionHeight() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        if (_suspension.vehicleCustomHeights.Length > 0) {
-          if (_suspension.indexCustomSuspensionHeight < (_suspension.vehicleCustomHeights.Length - 1)) {
-            _suspension.indexCustomSuspensionHeight++;
-          } else if (_suspension.indexCustomSuspensionHeight >= (_suspension.vehicleCustomHeights.Length - 1)) {
-            _suspension.indexCustomSuspensionHeight = 0;
-          }
-        }
-      }
-    }
-    public void AIMainLights() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        if (!lowLightOn && !highLightOn) {
-          lowLightOn = true;
-          brakeLightsIntensity = 0.5f;
-        } else if (lowLightOn && !highLightOn) {
-          lowLightOn = false;
-          highLightOn = true;
-          brakeLightsIntensity = 0.5f;
-        } else if (!lowLightOn && highLightOn) {
-          lowLightOn = false;
-          highLightOn = false;
-          brakeLightsIntensity = 0.0f;
-        }
-      }
-    }
-    public void AIHeadLights() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        headlightsOn = !headlightsOn;
-      }
-    }
-    public void AIFlashesRightAlert() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        if (!rightBlinkersOn && !alertOn) {
-          rightBlinkersOn = true;
-          leftBlinkersOn = false;
-          disableBlinkers1 = true;
-        } else if (rightBlinkersOn && !alertOn) {
-          rightBlinkersOn = false;
-          leftBlinkersOn = false;
-          disableBlinkers1 = false;
-        }
-      }
-    }
-    public void AIFlashesLeftAlert() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        if (!leftBlinkersOn && !alertOn) {
-          rightBlinkersOn = false;
-          leftBlinkersOn = true;
-          disableBlinkers1 = true;
-        } else if (leftBlinkersOn && !alertOn) {
-          rightBlinkersOn = false;
-          leftBlinkersOn = false;
-          disableBlinkers1 = false;
-        }
-      }
-    }
-    public void AIWarningLight() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        if (alertOn) {
-          alertOn = false;
-          rightBlinkersOn = leftBlinkersOn = false;
-        } else {
-          alertOn = true;
-          rightBlinkersOn = leftBlinkersOn = true;
-        }
-      }
-    }
-    public void AIExtraLights() {
-      if (_AISettings._AIisInControl && _AISettings._enableTheUseOfAI) {
-        extraLightsOn = !extraLightsOn;
-      }
     }
 
     public void DisableParticles() {
@@ -2325,7 +2199,7 @@ namespace MSVehicle {
       }
     }
     void VehicleRPMFunction() { //On Update
-      if (theEngineIsRunning && (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI)) {
+      if (theEngineIsRunning && (_vehicleState == ControlState.isPlayer)) {
         float maxSpeedCurrentGear = 0;
         if (currentGear == -1 || currentGear == 0) {
           maxSpeedCurrentGear = _vehicleTorque.maxVelocityGears[0] * _vehicleTorque.speedOfGear;
@@ -2447,19 +2321,19 @@ namespace MSVehicle {
 
 
     public void EnterInVehicle(bool _isPlayer) {
-      if (_vehicleState == ControlState.isNull || (_vehicleState == ControlState.isAI && _isPlayer)) {
+      if (_vehicleState == ControlState.isNull || _isPlayer) {
         if (_isPlayer) {
           _vehicleState = ControlState.isPlayer;
         } else {
-          _vehicleState = ControlState.isAI;
           automaticGears = true;
           handBrakeTrue = false;
           handBrakeSoundWasPlayed = true;
         }
       }
     }
+
     public void ExitTheVehicle() {
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         _vehicleState = ControlState.isNull;
         if (automaticGears) {
           handBrakeTrue = true;
@@ -3542,7 +3416,7 @@ namespace MSVehicle {
     void VehicleSoundsFunction() {
       //airBrakeSound
       if (_sounds.airBrakeSound) {
-        if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+        if (_vehicleState == ControlState.isPlayer) {
           float brakeInput = 0.0f;
           if (automaticGears) {
             if (currentGear > 0) {
@@ -3571,7 +3445,7 @@ namespace MSVehicle {
 
       //groundSounds
       if (_groundSounds.groundSounds.Length > 0) {
-        if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI || KMh > 0.1f) {
+        if (_vehicleState == ControlState.isPlayer || KMh > 0.1f) {
           GroundSoundsEmitter(wheelColliderList);
         } else {
           for (int x = 0; x < _groundSounds.groundSounds.Length; x++) {
@@ -3586,7 +3460,7 @@ namespace MSVehicle {
 
       //skiddingSound
       if (_groundSounds.standardSkidSound) {
-        if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI || KMh > 0.1f) {
+        if (_vehicleState == ControlState.isPlayer || KMh > 0.1f) {
           SkiddingSounds();
         } else {
           skiddingSoundAUD.volume = Mathf.Lerp(skiddingSoundAUD.volume, 0, Time.deltaTime * 7.0f);
@@ -3648,7 +3522,7 @@ namespace MSVehicle {
       }
 
       //other sounds
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         //hornSound
         if (_sounds.hornSound) { // hornIsOn
           if (hornIsOn && !hornSoundAUD.isPlaying) {
@@ -3939,40 +3813,34 @@ namespace MSVehicle {
         } else {
           finalAngleDegress = newFinalAngleDegress;
         }
-      } else if (_vehicleState == ControlState.isAI) {
-        //get steering wheel inputs
-        volantDir_horizontalInput = horizontalInput;
-        angleSteeringClamp = Mathf.MoveTowards(angleSteeringClamp, volantDir_horizontalInput, _steeringWheel.steeringWheelSpeed * fixedDeltaTime);
-        finalAngleDegress = SteerAngleOptimized(angleSteeringClamp);
       }
-
 
       //APPLY ANGLE IN WHEELS--------------------------------------------------------------------------------------------------------------
       if (_wheels.rightFrontWheel.wheelTurn) {
         float angleMultiplFactor = _wheels.rightFrontWheel.angleFactor;
         if (_wheels.rightFrontWheel.reverseTurn) {
-          angleMultiplFactor = angleMultiplFactor * -1;
+          angleMultiplFactor *= -1;
         }
         _wheels.rightFrontWheel.wheelCollider.steerAngle = finalAngleDegress * angleMultiplFactor;
       }
       if (_wheels.leftFrontWheel.wheelTurn) {
         float angleMultiplFactor = _wheels.leftFrontWheel.angleFactor;
         if (_wheels.leftFrontWheel.reverseTurn) {
-          angleMultiplFactor = angleMultiplFactor * -1;
+          angleMultiplFactor *= -1;
         }
         _wheels.leftFrontWheel.wheelCollider.steerAngle = finalAngleDegress * angleMultiplFactor;
       }
       if (_wheels.rightRearWheel.wheelTurn) {
         float angleMultiplFactor = _wheels.rightRearWheel.angleFactor;
         if (_wheels.rightRearWheel.reverseTurn) {
-          angleMultiplFactor = angleMultiplFactor * -1;
+          angleMultiplFactor *= -1;
         }
         _wheels.rightRearWheel.wheelCollider.steerAngle = finalAngleDegress * angleMultiplFactor;
       }
       if (_wheels.leftRearWheel.wheelTurn) {
         float angleMultiplFactor = _wheels.leftRearWheel.angleFactor;
         if (_wheels.leftRearWheel.reverseTurn) {
-          angleMultiplFactor = angleMultiplFactor * -1;
+          angleMultiplFactor *= -1;
         }
         _wheels.leftRearWheel.wheelCollider.steerAngle = finalAngleDegress * angleMultiplFactor;
       }
@@ -3980,7 +3848,7 @@ namespace MSVehicle {
         if (_wheels.extraWheels[x].wheelTurn) {
           float angleMultiplFactor = _wheels.extraWheels[x].angleFactor;
           if (_wheels.extraWheels[x].reverseTurn) {
-            angleMultiplFactor = angleMultiplFactor * -1;
+            angleMultiplFactor *= -1;
           }
           _wheels.extraWheels[x].wheelCollider.steerAngle = finalAngleDegress * angleMultiplFactor;
         }
@@ -4167,7 +4035,7 @@ namespace MSVehicle {
 
     void ApplyTorque() {
       //motor torque
-      if ((theEngineIsRunning && _vehicleState == ControlState.isPlayer) || (theEngineIsRunning && _vehicleState == ControlState.isAI)) {
+      if ((theEngineIsRunning && _vehicleState == ControlState.isPlayer)) {
         float leftAngularDifferential = 1 + Mathf.Abs((0.2f * Mathf.Abs(Mathf.Clamp(volantDir_horizontalInput, 0, 1))) * (finalAngleDegress / 60)) * _wheels.differentialInfluence;
         float rightAngularDifferential = 1 + Mathf.Abs((0.2f * Mathf.Abs(Mathf.Clamp(volantDir_horizontalInput, -1, 0))) * (finalAngleDegress / 60)) * _wheels.differentialInfluence;
         //
@@ -4224,7 +4092,7 @@ namespace MSVehicle {
       float handBrake_Input = 0.0f;
 
       //handBrake
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         if (handBrakeTrue) {
           handBrake_Input = 1;
         }
@@ -4260,32 +4128,15 @@ namespace MSVehicle {
         } else {
           currentBrakeValue = Mathf.Abs(Mathf.Clamp(brakeVerticalInput, -1.0f, 0.0f));
         }
-      } else if (_vehicleState == ControlState.isAI) { //only automatic gears
-        brakeVerticalInput = verticalInput;
-        if (currentGear > 0) {
-          currentBrakeValue = Mathf.Abs(Mathf.Clamp(brakeVerticalInput, -1.0f, 0.0f));
-        } else if (currentGear < 0) {
-          currentBrakeValue = Mathf.Abs(Mathf.Clamp(brakeVerticalInput, 0.0f, 1.0f));
-        } else if (currentGear == 0) {
-          if (mediumRPM > 0) {
-            currentBrakeValue = Mathf.Abs(Mathf.Clamp(brakeVerticalInput, -1.0f, 0.0f));
-          } else {
-            currentBrakeValue = Mathf.Abs(Mathf.Clamp(brakeVerticalInput, 0.0f, 1.0f));
-          }
-        }
       }
-
 
       //compute total brake
       float totalFootBrake = currentBrakeValue * _brakes.vehicleBrakingForce * _vehicleSettings.vehicleMass;
       float totalHandBrake = handBrake_Input * _brakes.vehicleBrakingForce * _vehicleSettings.vehicleMass * 2.0f;
 
       //auto brake
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         float autoBrakeInputValue = 0.5f;
-        if (_vehicleState == ControlState.isAI) {
-          autoBrakeInputValue = 0.05f;
-        }
         if (_brakes.brakingWithLowRpm && wheelFDIsGrounded && wheelFEIsGrounded && wheelTDIsGrounded && wheelTEIsGrounded) {
           if (Mathf.Abs(mediumRPM) < 15.0f && Mathf.Abs(brakeVerticalInput) < autoBrakeInputValue && !handBrakeTrue && (totalFootBrake + totalHandBrake) < 100.0f) {
             brakingAuto = true;
@@ -4300,7 +4151,7 @@ namespace MSVehicle {
         brakingAuto = false;
       }
 
-      isBraking = (totalFootBrake > 1) ? true : false;
+      isBraking = totalFootBrake > 1;
 
       //cancel brakeForces for ABS
       if (_brakes.ABS && !brakingAuto) {
@@ -4320,7 +4171,7 @@ namespace MSVehicle {
     }
 
     void ApplyBrakeInWheels(WheelCollider wheelCollider, bool handBrake, float sumHandBrake, float sumFootBrake) {
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         if (_brakes.brakeSlowly) {
           if (sumFootBrake == 0) {
             if (handBrake) {
@@ -4538,7 +4389,7 @@ namespace MSVehicle {
     void LightsManager() {
       float lightVerticalInput = 0.0f;
 
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         //MAIN LIGHTS
         for (int x = 0; x < _lights.mainLights.lights.Length; x++) {
           if (_lights.mainLights.lights[x]) {
@@ -4622,7 +4473,7 @@ namespace MSVehicle {
       //
       //reverseGearLights ==========================================================================
       bool insideInVehicle = false;
-      if (_vehicleState == ControlState.isPlayer || _vehicleState == ControlState.isAI) {
+      if (_vehicleState == ControlState.isPlayer) {
         insideInVehicle = true;
       }
       for (int x = 0; x < _lights.reverseGearLights.lights.Length; x++) {

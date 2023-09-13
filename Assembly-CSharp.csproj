@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\AI\MSAIFollowTargetExample.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\AI\SimpleRuteExample.cs" />
