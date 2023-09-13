@@ -249,11 +249,6 @@ namespace MSVehicle {
     public string _mouseScrollWheelInput = "Mouse ScrollWheel";
     #endregion
 
-    public enum ControlType { windows, mobileJoystick, mobileButton, mobileVolant };
-    [Space(10)]
-    [Tooltip("Here you can select the type of control, where 'Mobile Button' will cause buttons to appear on the screen so that vehicles can be controlled, 'Mobile Joystick' will cause two Joysticks to appear on the screen so vehicles can be controlled, 'windows' will allow vehicles to be controlled through the computer, and 'Mobile Volant' will make a steering wheel and two pedals appear on the screen, allowing you to control the vehicle through them.")]
-    public ControlType selectControls = ControlType.windows;
-
     [Tooltip("Here you can configure the vehicle controls, choose the desired inputs and also, deactivate the unwanted ones.")]
     public Controls controls;
     [Tooltip("Here you can configure the sensitivity of the controls for mobile devices.")]
@@ -331,110 +326,29 @@ namespace MSVehicle {
       vehicleCode.theEngineIsRunning = false;
       vehicleCode._vehicleState = MSVehicleController.ControlState.isNull;
       vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-      EnableOrDisableButtons(true);
       vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
     }
 
     #region UPDATE REGION
     void SetUpFirstVehicleOnRunTime() {
       vehicleCode.EnterInVehicle(true); //vehicle state >> isPlayer
-      EnableOrDisableButtons(true);
       vehicleCode.theEngineIsRunning = vehicleCode._vehicleSettings.startOn;
     }
 
     void Update() {
-
-      #region customizeMainInputsValues
-      switch (selectControls) {
-        case ControlType.mobileVolant:
-          if (androidInputVolant) {
-            if (!wheelBeingHeld && !Mathf.Approximately(0.0f, wheelAngle)) {
-              float deltaAngle = rotateSpeed * Time.deltaTime;
-              if (Mathf.Abs(deltaAngle) > Mathf.Abs(wheelAngle)) {
-                wheelAngle = 0.0f;
-              } else if (wheelAngle > 0.0f) {
-                wheelAngle -= deltaAngle;
-              } else {
-                wheelAngle += deltaAngle;
-              }
-            }
-            MSbuttonHorizontal = (wheelAngle / maxAngle);
-            rectT.localEulerAngles = Vector3.back * wheelAngle;
-          }
-          if (buttonUp && buttonDown) {
-            MSbuttonVertical = (-buttonDown.buttonInput + buttonUp.buttonInput);
-          }
-          if (joystickCamera) {
-            mouseXInput = Mathf.Lerp(mouseXInput, joystickCamera.joystickHorizontal * sensitivityOfMobileControls._speedJoystickCamera, Time.deltaTime * 5);
-            mouseYInput = Mathf.Lerp(mouseYInput, joystickCamera.joystickVertical * sensitivityOfMobileControls._speedJoystickCamera, Time.deltaTime * 5);
-          }
-          verticalInput = Mathf.Lerp(verticalInput, MSbuttonVertical, Time.deltaTime * sensitivityOfMobileControls.speedButtonMove);
-          horizontalInput = Mathf.Lerp(horizontalInput, MSbuttonHorizontal, Time.deltaTime * sensitivityOfMobileControls.speedMobileVolant);
-          //
-          if (buttonScrollUp && buttonScrollDown) {
-            mouseScrollWheelInput = (-buttonScrollDown.buttonInput + buttonScrollUp.buttonInput) * Time.deltaTime * sensitivityOfMobileControls.speedScrollWheelMobile;
-          }
-          break;
-        case ControlType.mobileButton:
-          if (buttonLeft && buttonRight) {
-            MSbuttonHorizontal = (-buttonLeft.buttonInput + buttonRight.buttonInput);
-          }
-          if (buttonUp && buttonDown) {
-            MSbuttonVertical = (-buttonDown.buttonInput + buttonUp.buttonInput);
-          }
-          if (joystickCamera) {
-            mouseXInput = Mathf.Lerp(mouseXInput, joystickCamera.joystickHorizontal * sensitivityOfMobileControls._speedJoystickCamera, Time.deltaTime * 5);
-            mouseYInput = Mathf.Lerp(mouseYInput, joystickCamera.joystickVertical * sensitivityOfMobileControls._speedJoystickCamera, Time.deltaTime * 5);
-          }
-          verticalInput = Mathf.Lerp(verticalInput, MSbuttonVertical, Time.deltaTime * sensitivityOfMobileControls.speedButtonMove);
-          horizontalInput = Mathf.Lerp(horizontalInput, MSbuttonHorizontal, Time.deltaTime * sensitivityOfMobileControls.speedButtonDirection);
-          //
-          if (buttonScrollUp && buttonScrollDown) {
-            mouseScrollWheelInput = (-buttonScrollDown.buttonInput + buttonScrollUp.buttonInput) * Time.deltaTime * sensitivityOfMobileControls.speedScrollWheelMobile;
-          }
-          break;
-        //====================================================================================
-        case ControlType.mobileJoystick:
-          if (joystickMove || joystickRotate) {
-            if (joystickMove) {
-              vectorDirJoystick = new Vector2(joystickMove.joystickHorizontal, joystickMove.joystickVertical);
-              if (vectorDirJoystick.magnitude > 1) {
-                vectorDirJoystick.Normalize();
-              }
-              if (joystickMove.joystickVertical >= 0) {
-                verticalInput = vectorDirJoystick.magnitude;
-              } else {
-                verticalInput = -vectorDirJoystick.magnitude;
-              }
-              horizontalInput = Mathf.Lerp(horizontalInput, joystickMove.joystickHorizontal, Time.deltaTime * sensitivityOfMobileControls.speedJoystickMove);
-            }
-            if (joystickRotate) {
-              mouseXInput = Mathf.Lerp(mouseXInput, joystickRotate.joystickHorizontal * sensitivityOfMobileControls.speedJoystickCamera, Time.deltaTime * 5.0f);
-              mouseYInput = Mathf.Lerp(mouseYInput, joystickRotate.joystickVertical * sensitivityOfMobileControls.speedJoystickCamera, Time.deltaTime * 5.0f);
-            }
-            //
-            if (buttonScrollUp && buttonScrollDown) {
-              mouseScrollWheelInput = (-buttonScrollDown.buttonInput + buttonScrollUp.buttonInput) * Time.deltaTime * sensitivityOfMobileControls.speedScrollWheelMobile;
-            }
-          }
-          break;
-        //====================================================================================
-        case ControlType.windows:
-          verticalInput = Mathf.Clamp(Input.GetAxis(_verticalInput), -1, 1);
-          horizontalInput = Mathf.Clamp(Input.GetAxis(_horizontalInput), -1, 1);
-          mouseXInput = Input.GetAxis(_mouseXInput);
-          mouseYInput = Input.GetAxis(_mouseYInput);
-          mouseScrollWheelInput = Input.GetAxis(_mouseScrollWheelInput);
-          break;
-          //====================================================================================
-      }
-      #endregion
+      verticalInput = Mathf.Clamp(Input.GetAxis(_verticalInput), -1, 1);
+      horizontalInput = Mathf.Clamp(Input.GetAxis(_horizontalInput), -1, 1);
+      mouseXInput = Input.GetAxis(_mouseXInput);
+      mouseYInput = Input.GetAxis(_mouseYInput);
+      mouseScrollWheelInput = Input.GetAxis(_mouseScrollWheelInput);
 
       bool _insideTheCar = false;
       if (vehicleCode._vehicleState == MSVehicleController.ControlState.isPlayer) {
+        Debug.Log("MSVehicleController.ControlState.isPlayer");
         _insideTheCar = true;
+      } else {
+        Debug.Log("Not MSVehicleController.ControlState.isPlayer");
       }
-      EnableOrDisableButtons(_insideTheCar);
 
       //set all Player Inputs on Vehicle code
       SetCurrentVehicleInputs();
@@ -451,156 +365,149 @@ namespace MSVehicle {
           vehicleCode.mouseScrollWheelInput = mouseScrollWheelInput;
           //
           //gears
-          if (selectControls == MSSceneController.ControlType.windows) {
-            //input manual or automatic gears
-            if (Input.GetKeyDown(controls.manualOrAutoGears) && controls.enable_manualOrAutoGears_Input_key) {
-              vehicleCode.automaticGears = !vehicleCode.automaticGears;
-            }
+          //input manual or automatic gears
+          if (Input.GetKeyDown(controls.manualOrAutoGears) && controls.enable_manualOrAutoGears_Input_key) {
+            vehicleCode.automaticGears = !vehicleCode.automaticGears;
+          }
 
-            //gears logic
-            if (vehicleCode.automaticGears) {
-              if (Input.GetKey(controls.handBrakeInput) && controls.enable_handBrakeInput_Input_key) {
-                vehicleCode.handBrakeTrue = true;
-              } else {
-                vehicleCode.handBrakeTrue = false;
-              }
+          //gears logic
+          if (vehicleCode.automaticGears) {
+            if (Input.GetKey(controls.handBrakeInput) && controls.enable_handBrakeInput_Input_key) {
+              vehicleCode.handBrakeTrue = true;
             } else {
-              if (Input.GetKeyDown(controls.handBrakeInput) && controls.enable_handBrakeInput_Input_key) {
-                vehicleCode.handBrakeTrue = !vehicleCode.handBrakeTrue;
-              }
-            }
-
-            //up and down gear
-            if (!vehicleCode.automaticGears) {
-              if (Input.GetKeyDown(controls.increasedGear) && controls.enable_increasedGear_Input_key && vehicleCode.currentGear < vehicleCode._vehicleTorque.numberOfGears && !vehicleCode.changinGears) {
-                vehicleCode.StartCoroutine("ChangeGears", vehicleCode.currentGear + 1);
-              }
-              if (Input.GetKeyDown(controls.decreasedGear) && controls.enable_decreasedGear_Input_key && vehicleCode.currentGear > -1 && !vehicleCode.changinGears) {
-                vehicleCode.StartCoroutine("ChangeGears", vehicleCode.currentGear - 1);
-              }
-            }
-
-            //horn input
-            if (Input.GetKeyDown(controls.hornInput) && controls.enable_hornInput_Input_key) {
-              vehicleCode.hornIsOn = true;
-            }
-
-            //turn on and turn off input
-            if (vehicleCode.youCanCall && controls.enable_startTheVehicle_Input_key) {
-              if (vehicleCode.theEngineIsRunning) {
-                if (Input.GetKeyDown(controls.startTheVehicle)) {
-                  vehicleCode.StartCoroutine(nameof(vehicleCode.StartEngineCoroutine), false);
-                }
-              } else {
-                if (Input.GetKeyDown(controls.startTheVehicle)) {
-                  if (vehicleCode.currentFuelLiters > 0) {
-                    vehicleCode.enableEngineSound = true;
-                    if (vehicleCode._sounds.engineSound) {
-                      if (vehicleCode.engineSoundAUD) {
-                        vehicleCode.engineSoundAUD.pitch = 0.5f;
-                        vehicleCode.pitchAUDforRPM = 0.7f;
-                      }
-                    }
-                    if (vehicleCode._sounds.engineStartSound) {
-                      if (vehicleCode.engineStartSoundAUD) {
-                        vehicleCode.previousDelayStartEngine = vehicleCode._vehicleSettings.delayToStartTheEngine;
-                        vehicleCode._vehicleSettings.delayToStartTheEngine = Mathf.Abs(vehicleCode._sounds.engineStartSound.length - 0.1f);
-                        vehicleCode.engineSoundAUD.volume = 0;
-                        vehicleCode.engineStartSoundAUD.PlayOneShot(vehicleCode.engineStartSoundAUD.clip);
-                      }
-                    }
-                    //
-                    vehicleCode.StartCoroutine(nameof(vehicleCode.StartEngineCoroutine), true);
-                  }
-                }
-              }
-            }
-
-            //change suspension height input
-            if (controls.enable_changeSuspensionHeight_Input_key) {
-              if (vehicleCode._suspension.vehicleCustomHeights.Length > 0) {
-                if (Input.GetKeyDown(controls.changeSuspensionHeight)) {
-                  if (vehicleCode._suspension.indexCustomSuspensionHeight < (vehicleCode._suspension.vehicleCustomHeights.Length - 1)) {
-                    vehicleCode._suspension.indexCustomSuspensionHeight++;
-                  } else if (vehicleCode._suspension.indexCustomSuspensionHeight >= (vehicleCode._suspension.vehicleCustomHeights.Length - 1)) {
-                    vehicleCode._suspension.indexCustomSuspensionHeight = 0;
-                  }
-                }
-              }
-            }
-
-            //NITRO input
-            if (controls.enable_nitro_Input_key) {
-              if (vehicleCode._additionalFeatures.useNitro) {
-                if (Input.GetKeyDown(controls.nitro)) {
-                  vehicleCode._additionalFeatures.nitroIsTrueInput = !vehicleCode._additionalFeatures.nitroIsTrueInput;
-                }
-              }
-            }
-
-            //LIGHTS
-            //main lights
-            if (Input.GetKeyDown(controls.mainLightsInput) && controls.enable_mainLightsInput_Input_key) {
-              if (!vehicleCode.lowLightOn && !vehicleCode.highLightOn) {
-                vehicleCode.lowLightOn = true;
-                vehicleCode.brakeLightsIntensity = 0.5f;
-              } else if (vehicleCode.lowLightOn && !vehicleCode.highLightOn) {
-                vehicleCode.lowLightOn = false;
-                vehicleCode.highLightOn = true;
-                vehicleCode.brakeLightsIntensity = 0.5f;
-              } else if (!vehicleCode.lowLightOn && vehicleCode.highLightOn) {
-                vehicleCode.lowLightOn = false;
-                vehicleCode.highLightOn = false;
-                vehicleCode.brakeLightsIntensity = 0.0f;
-              }
-            }
-            //head lights
-            if (Input.GetKeyDown(controls.headlightsInput) && controls.enable_headlightsInput_Input_key) {
-              vehicleCode.headlightsOn = !vehicleCode.headlightsOn;
-            }
-            //flashesRightAlert
-            if (controls.enable_flashesRightAlert_Input_key) {
-              if (Input.GetKeyDown(controls.flashesRightAlert) && !vehicleCode.rightBlinkersOn && !vehicleCode.alertOn) {
-                vehicleCode.rightBlinkersOn = true;
-                vehicleCode.leftBlinkersOn = false;
-                vehicleCode.disableBlinkers1 = true;
-              } else if (Input.GetKeyDown(controls.flashesRightAlert) && vehicleCode.rightBlinkersOn && !vehicleCode.alertOn) {
-                vehicleCode.rightBlinkersOn = false;
-                vehicleCode.leftBlinkersOn = false;
-                vehicleCode.disableBlinkers1 = false;
-              }
-            }
-            //flashesLeftAlert
-            if (controls.enable_flashesLeftAlert_Input_key) {
-              if (Input.GetKeyDown(controls.flashesLeftAlert) && !vehicleCode.leftBlinkersOn && !vehicleCode.alertOn) {
-                vehicleCode.rightBlinkersOn = false;
-                vehicleCode.leftBlinkersOn = true;
-                vehicleCode.disableBlinkers1 = true;
-              } else if (Input.GetKeyDown(controls.flashesLeftAlert) && vehicleCode.leftBlinkersOn && !vehicleCode.alertOn) {
-                vehicleCode.rightBlinkersOn = false;
-                vehicleCode.leftBlinkersOn = false;
-                vehicleCode.disableBlinkers1 = false;
-              }
-            }
-            //alertOn
-            if (Input.GetKeyDown(controls.warningLightsInput) && controls.enable_warningLightsInput_Input_key) {
-              if (vehicleCode.alertOn) {
-                vehicleCode.alertOn = false;
-                vehicleCode.rightBlinkersOn = vehicleCode.leftBlinkersOn = false;
-              } else {
-                vehicleCode.alertOn = true;
-                vehicleCode.rightBlinkersOn = vehicleCode.leftBlinkersOn = true;
-              }
-            }
-            //extraLightsOn
-            if (Input.GetKeyDown(controls.extraLightsInput) && controls.enable_extraLightsInput_Input_key) {
-              vehicleCode.extraLightsOn = !vehicleCode.extraLightsOn;
-            }
-          } else {
-            //mobile inputs
-            if (vehicleCode.automaticGears) {
               vehicleCode.handBrakeTrue = false;
             }
+          } else {
+            if (Input.GetKeyDown(controls.handBrakeInput) && controls.enable_handBrakeInput_Input_key) {
+              vehicleCode.handBrakeTrue = !vehicleCode.handBrakeTrue;
+            }
+          }
+
+          //up and down gear
+          if (!vehicleCode.automaticGears) {
+            if (Input.GetKeyDown(controls.increasedGear) && controls.enable_increasedGear_Input_key && vehicleCode.currentGear < vehicleCode._vehicleTorque.numberOfGears && !vehicleCode.changinGears) {
+              vehicleCode.StartCoroutine("ChangeGears", vehicleCode.currentGear + 1);
+            }
+            if (Input.GetKeyDown(controls.decreasedGear) && controls.enable_decreasedGear_Input_key && vehicleCode.currentGear > -1 && !vehicleCode.changinGears) {
+              vehicleCode.StartCoroutine("ChangeGears", vehicleCode.currentGear - 1);
+            }
+          }
+
+          //horn input
+          if (Input.GetKeyDown(controls.hornInput) && controls.enable_hornInput_Input_key) {
+            vehicleCode.hornIsOn = true;
+          }
+
+          //turn on and turn off input
+          if (vehicleCode.youCanCall && controls.enable_startTheVehicle_Input_key) {
+            if (vehicleCode.theEngineIsRunning) {
+              if (Input.GetKeyDown(controls.startTheVehicle)) {
+                vehicleCode.StartCoroutine(nameof(vehicleCode.StartEngineCoroutine), false);
+              }
+            } else {
+              if (Input.GetKeyDown(controls.startTheVehicle)) {
+                if (vehicleCode.currentFuelLiters > 0) {
+                  vehicleCode.enableEngineSound = true;
+                  if (vehicleCode._sounds.engineSound) {
+                    if (vehicleCode.engineSoundAUD) {
+                      vehicleCode.engineSoundAUD.pitch = 0.5f;
+                      vehicleCode.pitchAUDforRPM = 0.7f;
+                    }
+                  }
+                  if (vehicleCode._sounds.engineStartSound) {
+                    if (vehicleCode.engineStartSoundAUD) {
+                      vehicleCode.previousDelayStartEngine = vehicleCode._vehicleSettings.delayToStartTheEngine;
+                      vehicleCode._vehicleSettings.delayToStartTheEngine = Mathf.Abs(vehicleCode._sounds.engineStartSound.length - 0.1f);
+                      vehicleCode.engineSoundAUD.volume = 0;
+                      vehicleCode.engineStartSoundAUD.PlayOneShot(vehicleCode.engineStartSoundAUD.clip);
+                    }
+                  }
+                  //
+                  vehicleCode.StartCoroutine(nameof(vehicleCode.StartEngineCoroutine), true);
+                }
+              }
+            }
+          }
+
+          //change suspension height input
+          if (controls.enable_changeSuspensionHeight_Input_key) {
+            if (vehicleCode._suspension.vehicleCustomHeights.Length > 0) {
+              if (Input.GetKeyDown(controls.changeSuspensionHeight)) {
+                if (vehicleCode._suspension.indexCustomSuspensionHeight < (vehicleCode._suspension.vehicleCustomHeights.Length - 1)) {
+                  vehicleCode._suspension.indexCustomSuspensionHeight++;
+                } else if (vehicleCode._suspension.indexCustomSuspensionHeight >= (vehicleCode._suspension.vehicleCustomHeights.Length - 1)) {
+                  vehicleCode._suspension.indexCustomSuspensionHeight = 0;
+                }
+              }
+            }
+          }
+
+          //NITRO input
+          if (controls.enable_nitro_Input_key) {
+            if (vehicleCode._additionalFeatures.useNitro) {
+              if (Input.GetKeyDown(controls.nitro)) {
+                vehicleCode._additionalFeatures.nitroIsTrueInput = !vehicleCode._additionalFeatures.nitroIsTrueInput;
+              }
+            }
+          }
+
+          //LIGHTS
+          //main lights
+          if (Input.GetKeyDown(controls.mainLightsInput) && controls.enable_mainLightsInput_Input_key) {
+            if (!vehicleCode.lowLightOn && !vehicleCode.highLightOn) {
+              vehicleCode.lowLightOn = true;
+              vehicleCode.brakeLightsIntensity = 0.5f;
+            } else if (vehicleCode.lowLightOn && !vehicleCode.highLightOn) {
+              vehicleCode.lowLightOn = false;
+              vehicleCode.highLightOn = true;
+              vehicleCode.brakeLightsIntensity = 0.5f;
+            } else if (!vehicleCode.lowLightOn && vehicleCode.highLightOn) {
+              vehicleCode.lowLightOn = false;
+              vehicleCode.highLightOn = false;
+              vehicleCode.brakeLightsIntensity = 0.0f;
+            }
+          }
+          //head lights
+          if (Input.GetKeyDown(controls.headlightsInput) && controls.enable_headlightsInput_Input_key) {
+            vehicleCode.headlightsOn = !vehicleCode.headlightsOn;
+          }
+          //flashesRightAlert
+          if (controls.enable_flashesRightAlert_Input_key) {
+            if (Input.GetKeyDown(controls.flashesRightAlert) && !vehicleCode.rightBlinkersOn && !vehicleCode.alertOn) {
+              vehicleCode.rightBlinkersOn = true;
+              vehicleCode.leftBlinkersOn = false;
+              vehicleCode.disableBlinkers1 = true;
+            } else if (Input.GetKeyDown(controls.flashesRightAlert) && vehicleCode.rightBlinkersOn && !vehicleCode.alertOn) {
+              vehicleCode.rightBlinkersOn = false;
+              vehicleCode.leftBlinkersOn = false;
+              vehicleCode.disableBlinkers1 = false;
+            }
+          }
+          //flashesLeftAlert
+          if (controls.enable_flashesLeftAlert_Input_key) {
+            if (Input.GetKeyDown(controls.flashesLeftAlert) && !vehicleCode.leftBlinkersOn && !vehicleCode.alertOn) {
+              vehicleCode.rightBlinkersOn = false;
+              vehicleCode.leftBlinkersOn = true;
+              vehicleCode.disableBlinkers1 = true;
+            } else if (Input.GetKeyDown(controls.flashesLeftAlert) && vehicleCode.leftBlinkersOn && !vehicleCode.alertOn) {
+              vehicleCode.rightBlinkersOn = false;
+              vehicleCode.leftBlinkersOn = false;
+              vehicleCode.disableBlinkers1 = false;
+            }
+          }
+          //alertOn
+          if (Input.GetKeyDown(controls.warningLightsInput) && controls.enable_warningLightsInput_Input_key) {
+            if (vehicleCode.alertOn) {
+              vehicleCode.alertOn = false;
+              vehicleCode.rightBlinkersOn = vehicleCode.leftBlinkersOn = false;
+            } else {
+              vehicleCode.alertOn = true;
+              vehicleCode.rightBlinkersOn = vehicleCode.leftBlinkersOn = true;
+            }
+          }
+          //extraLightsOn
+          if (Input.GetKeyDown(controls.extraLightsInput) && controls.enable_extraLightsInput_Input_key) {
+            vehicleCode.extraLightsOn = !vehicleCode.extraLightsOn;
           }
         }
       }
@@ -748,308 +655,6 @@ namespace MSVehicle {
         controls.nitroMobileButton.onClick.AddListener(() => Mobile_NitroMobileButtonInputButton());
       } else {
         controls.enable_nitro_Button_Mobile = false;
-      }
-    }
-    void EnableOrDisableButtons(bool insideInCar) { //on Update
-      if (selectControls == ControlType.mobileButton || selectControls == ControlType.mobileJoystick || selectControls == ControlType.mobileVolant) {
-        if (backgroundMobile) {
-          if (insideInCar) {
-            backgroundMobile.enabled = true;
-          } else {
-            backgroundMobile.enabled = false;
-          }
-        }
-        //gears
-        if (controls.manualOrAutoGearsMobileButton) {
-          controls.manualOrAutoGearsMobileButton.gameObject.SetActive(insideInCar & controls.enable_manualOrAutoGears_Button_Mobile);
-        }
-        if (vehicleCode.automaticGears) {
-          if (controls.increasedGearMobileButton) {
-            controls.increasedGearMobileButton.gameObject.SetActive(false);
-          }
-          if (controls.decreasedGearMobileButton) {
-            controls.decreasedGearMobileButton.gameObject.SetActive(false);
-          }
-        } else {
-          if (controls.increasedGearMobileButton) {
-            controls.increasedGearMobileButton.gameObject.SetActive(insideInCar & controls.enable_increasedGear_Button_Mobile);
-          }
-          if (controls.decreasedGearMobileButton) {
-            controls.decreasedGearMobileButton.gameObject.SetActive(insideInCar & controls.enable_decreasedGear_Button_Mobile);
-          }
-        }
-
-
-        //lights
-        if (vehicleCode.msvs_useWarningOrFlashingLights) {
-          if (controls.flashesRightAlertMobileButton) {
-            controls.flashesRightAlertMobileButton.gameObject.SetActive(insideInCar & controls.enable_flashesRightAlert_Button_Mobile);
-          }
-          if (controls.flashesLeftAlertMobileButton) {
-            controls.flashesLeftAlertMobileButton.gameObject.SetActive(insideInCar & controls.enable_flashesLeftAlert_Button_Mobile);
-          }
-          if (controls.warningLightsMobileButton) {
-            controls.warningLightsMobileButton.gameObject.SetActive(insideInCar & controls.enable_warningLightsInput_Button_Mobile);
-          }
-        } else {
-          if (controls.flashesRightAlertMobileButton) {
-            controls.flashesRightAlertMobileButton.gameObject.SetActive(false);
-          }
-          if (controls.flashesLeftAlertMobileButton) {
-            controls.flashesLeftAlertMobileButton.gameObject.SetActive(false);
-          }
-          if (controls.warningLightsMobileButton) {
-            controls.warningLightsMobileButton.gameObject.SetActive(false);
-          }
-        }
-        //
-        if (controls.mainLightsMobileButton) {
-          if (vehicleCode.msvs_useMainLights) {
-            controls.mainLightsMobileButton.gameObject.SetActive(insideInCar & controls.enable_mainLightsInput_Button_Mobile);
-          } else {
-            controls.mainLightsMobileButton.gameObject.SetActive(false);
-          }
-        }
-        //
-        if (controls.headlightsMobileButton) {
-          if (vehicleCode.msvs_useHeadLights) {
-            controls.headlightsMobileButton.gameObject.SetActive(insideInCar & controls.enable_headlightsInput_Button_Mobile);
-          } else {
-            controls.headlightsMobileButton.gameObject.SetActive(false);
-          }
-        }
-        //
-        if (controls.extraLightsMobileButton) {
-          if (vehicleCode.msvs_useExtraLights) {
-            controls.extraLightsMobileButton.gameObject.SetActive(insideInCar & controls.enable_extraLightsInput_Button_Mobile);
-          } else {
-            controls.extraLightsMobileButton.gameObject.SetActive(false);
-          }
-        }
-
-        //game
-        if (controls.reloadSceneMobileButton) {
-          controls.reloadSceneMobileButton.gameObject.SetActive(controls.enable_reloadScene_Button_Mobile);
-        }
-        if (controls.pauseMobileButton) {
-          controls.pauseMobileButton.gameObject.SetActive(controls.enable_pause_Button_Mobile);
-        }
-
-        //vehicle
-        if (controls.startTheVehicleMobileButton) {
-          controls.startTheVehicleMobileButton.gameObject.SetActive(insideInCar & controls.enable_startTheVehicle_Button_Mobile);
-        }
-        if (controls.enterEndExitMobileButton) {
-          controls.enterEndExitMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.hornMobileButton) {
-          if (vehicleCode._sounds.hornSound) {
-            controls.hornMobileButton.gameObject.SetActive(insideInCar & controls.enable_hornInput_Button_Mobile);
-          } else {
-            controls.hornMobileButton.gameObject.SetActive(false);
-          }
-        }
-        if (controls.handBrakeMobileButton) {
-          if (vehicleCode.automaticGears) {
-            controls.handBrakeMobileButton.gameObject.SetActive(false);
-          } else {
-            controls.handBrakeMobileButton.gameObject.SetActive(insideInCar & controls.enable_handBrakeInput_Button_Mobile);
-          }
-        }
-        if (controls.changeSuspensionHeightMobileButton) {
-          if (vehicleCode._suspension.vehicleCustomHeights.Length <= 0) {
-            controls.changeSuspensionHeightMobileButton.gameObject.SetActive(false);
-          } else {
-            controls.changeSuspensionHeightMobileButton.gameObject.SetActive(insideInCar & controls.enable_changeSuspensionHeight_Button_Mobile);
-          }
-        }
-        if (controls.nitroMobileButton) {
-          if (vehicleCode._additionalFeatures.useNitro) {
-            controls.nitroMobileButton.gameObject.SetActive(insideInCar & controls.enable_nitro_Button_Mobile);
-          } else {
-            controls.nitroMobileButton.gameObject.SetActive(false);
-          }
-        }
-
-
-        /// JOYSTICK, BUTTON AND MOVE CONTROLLS
-        if (selectControls == ControlType.mobileButton) {
-          //joystick
-          if (joystickMove) {
-            joystickMove.gameObject.SetActive(false);
-          }
-          if (joystickRotate) {
-            joystickRotate.gameObject.SetActive(false);
-          }
-
-          //move buttons
-          if (buttonLeft) {
-            buttonLeft.gameObject.SetActive(insideInCar);
-          }
-          if (buttonRight) {
-            buttonRight.gameObject.SetActive(insideInCar);
-          }
-          if (buttonUp) {
-            buttonUp.gameObject.SetActive(insideInCar);
-          }
-          if (buttonDown) {
-            buttonDown.gameObject.SetActive(insideInCar);
-          }
-          //volant
-          if (androidInputVolant) {
-            androidInputVolant.gameObject.SetActive(false);
-          }
-        }
-        // \/
-        if (selectControls == ControlType.mobileJoystick) {
-          //joystick
-          if (joystickMove) {
-            joystickMove.gameObject.SetActive(insideInCar);
-          }
-
-          //move buttons
-          if (buttonLeft) {
-            buttonLeft.gameObject.SetActive(false);
-          }
-          if (buttonRight) {
-            buttonRight.gameObject.SetActive(false);
-          }
-          if (buttonUp) {
-            buttonUp.gameObject.SetActive(false);
-          }
-          if (buttonDown) {
-            buttonDown.gameObject.SetActive(false);
-          }
-          //volant
-          if (androidInputVolant) {
-            androidInputVolant.gameObject.SetActive(false);
-          }
-        }
-        // \/
-        if (selectControls == ControlType.mobileVolant) {
-          //joystick
-          if (joystickMove) {
-            joystickMove.gameObject.SetActive(false);
-          }
-          if (joystickRotate) {
-            joystickRotate.gameObject.SetActive(false);
-          }
-
-          //move buttons
-          if (buttonLeft) {
-            buttonLeft.gameObject.SetActive(false);
-          }
-          if (buttonRight) {
-            buttonRight.gameObject.SetActive(false);
-          }
-          if (buttonUp) {
-            buttonUp.gameObject.SetActive(insideInCar);
-          }
-          if (buttonDown) {
-            buttonDown.gameObject.SetActive(insideInCar);
-          }
-          //volant
-          if (androidInputVolant) {
-            androidInputVolant.gameObject.SetActive(insideInCar);
-          }
-        }
-      } else {
-        if (backgroundMobile) {
-          backgroundMobile.enabled = false;
-        }
-        //gears
-        if (controls.manualOrAutoGearsMobileButton) {
-          controls.manualOrAutoGearsMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.increasedGearMobileButton) {
-          controls.increasedGearMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.decreasedGearMobileButton) {
-          controls.decreasedGearMobileButton.gameObject.SetActive(false);
-        }
-
-        //lights
-        if (controls.flashesRightAlertMobileButton) {
-          controls.flashesRightAlertMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.flashesLeftAlertMobileButton) {
-          controls.flashesLeftAlertMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.mainLightsMobileButton) {
-          controls.mainLightsMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.extraLightsMobileButton) {
-          controls.extraLightsMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.headlightsMobileButton) {
-          controls.headlightsMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.warningLightsMobileButton) {
-          controls.warningLightsMobileButton.gameObject.SetActive(false);
-        }
-
-        //game
-        if (controls.reloadSceneMobileButton) {
-          controls.reloadSceneMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.pauseMobileButton) {
-          controls.pauseMobileButton.gameObject.SetActive(false);
-        }
-
-        //vehicle
-        if (controls.startTheVehicleMobileButton) {
-          controls.startTheVehicleMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.enterEndExitMobileButton) {
-          controls.enterEndExitMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.hornMobileButton) {
-          controls.hornMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.handBrakeMobileButton) {
-          controls.handBrakeMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.switchingCamerasMobileButton) {
-          controls.switchingCamerasMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.changeSuspensionHeightMobileButton) {
-          controls.changeSuspensionHeightMobileButton.gameObject.SetActive(false);
-        }
-        if (controls.nitroMobileButton) {
-          controls.nitroMobileButton.gameObject.SetActive(false);
-        }
-
-        //
-        if (joystickMove) {
-          joystickMove.gameObject.SetActive(false);
-        }
-        if (joystickRotate) {
-          joystickRotate.gameObject.SetActive(false);
-        }
-        if (joystickCamera) {
-          joystickCamera.gameObject.SetActive(false);
-        }
-        if (buttonScrollUp) {
-          buttonScrollUp.gameObject.SetActive(false);
-        }
-        if (buttonScrollDown) {
-          buttonScrollDown.gameObject.SetActive(false);
-        }
-        if (buttonLeft) {
-          buttonLeft.gameObject.SetActive(false);
-        }
-        if (buttonRight) {
-          buttonRight.gameObject.SetActive(false);
-        }
-        if (buttonUp) {
-          buttonUp.gameObject.SetActive(false);
-        }
-        if (buttonDown) {
-          buttonDown.gameObject.SetActive(false);
-        }
-        if (androidInputVolant) {
-          androidInputVolant.gameObject.SetActive(false);
-        }
       }
     }
 
