@@ -60,9 +60,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\AI\MSAIFollowTargetExample.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\PlayerRigController\MSRigidbodyController.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\AI\SimpleRuteExample.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleAudio.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Example Scene\SimpleLookAt.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechGKey.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GraphicsMenuController.cs" />
@@ -70,7 +75,10 @@
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\MSSceneController.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
@@ -81,6 +89,7 @@
     <Compile Include="Assets\Scripts\Vehicles\L2VehicleInput.cs" />
     <Compile Include="Assets\Scripts\Vehicles\VehicleStandardInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleTireEffects.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleViewConfig.cs" />
@@ -89,6 +98,7 @@
     <Compile Include="Assets\EVP5\Scripts\VehicleController.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechArxControl.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\MSButton.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\SceneTools.cs" />
@@ -96,6 +106,7 @@
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleStandardInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireMarksRenderer.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\UI_ChangeVehiclesMSVS.cs" />
     <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\CommonTools.cs" />
@@ -114,6 +125,7 @@
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleCameraController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\GroundMaterialManager.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Example Scene\ExampleScene.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyImpulse.cs" />
     <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
@@ -126,6 +138,8 @@
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyPause.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Controlls\Joystick.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\GasStation.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\VehicleNitro.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\TextureCanvas.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\FollowHeading.cs" />
@@ -149,10 +163,12 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Particles Alpha Blended Shadows.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\MSVehicleSystem\TUTORIAL.txt" />
     <None Include="Assets\Logitech SDK\LogitechSteeringWheelEnginesWrapper.dll" />
     <None Include="Assets\Logitech SDK\LogitechGkeyEnginesWrapper.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks Debug.shader" />
+    <None Include="Assets\MSVehicleSystem\SUPPORT.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -167,7 +183,9 @@
     <None Include="Assets\NWH\Common\Resources\NWH\Fonts\Inconsolata\OFL.txt" />
     <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks Bump.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\MSVehicleSystem\Update Notes.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\MSVehicleSystem\Scripts\Shaders\SkidMarks.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Logitech SDK\LogitechLedEnginesWrapper.dll" />

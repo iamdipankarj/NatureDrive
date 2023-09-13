@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: dd5cef599e2dc8d46b3d00191a81526e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rpm_X_4500: {fileID: 21300000, guid: 83dd160cf45d69443baf1248b82d290a, type: 3}
+  - rpm_X_7500: {fileID: 21300000, guid: aa85680567295a744a8188b1934c4732, type: 3}
+  - speed_X_140: {fileID: 21300000, guid: ab23163b6c771c2438c6f7493c6791d8, type: 3}
+  - speed_X_280: {fileID: 21300000, guid: c9152f34a293e394ab342105c4908636, type: 3}
+  - speed_X_420: {fileID: 21300000, guid: ec70c6e3b1a45a641a2171f4c9a48261, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
