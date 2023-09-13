@@ -78,6 +78,8 @@
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\L2VehicleInput.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\VehicleStandardInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleTireEffects.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\EVP5\Scripts\Tools\CommonTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleDamage.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\JsonDataService.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\R2VehicleInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireParticleEmitter.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\InputMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
@@ -114,7 +117,6 @@
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyImpulse.cs" />
     <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\CarInputController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />

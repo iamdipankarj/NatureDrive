@@ -5237,8 +5237,8 @@ GameObject:
   - component: {fileID: 4482116828658231828}
   - component: {fileID: 6302330743782903109}
   - component: {fileID: 4111253416975245716}
-  - component: {fileID: 3632706682583492222}
   - component: {fileID: 539301112204972458}
+  - component: {fileID: 1392084831997532246}
   m_Layer: 0
   m_Name: MuscleCar
   m_TagString: Player
@@ -5331,27 +5331,6 @@ MonoBehaviour:
   carSpeed: 0
   isDrifting: 0
   isTractionLocked: 0
---- !u!114 &3632706682583492222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4222477170800252176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ba9a95e0d692c488004bd662886a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAcceleratingForward: 0
-  forwardAccelerateDelta: 0
-  isAcceleratingBackward: 0
-  backwardAccelerateDelta: 0
-  isTurningLeft: 0
-  isTurningRight: 0
-  steeringDelta: 0
-  isPressingHandbrake: 0
-  isReleasingHandbrake: 0
 --- !u!114 &539301112204972458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5364,6 +5343,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88127b4e33ffb0f4cb87e40cbbed206a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1392084831997532246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4222477170800252176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52565a210cae68d4481e1e07aff74d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAcceleratingForward: 0
+  forwardAccelerateDelta: 0
+  isAcceleratingBackward: 0
+  backwardAccelerateDelta: 0
+  isTurningLeft: 0
+  isTurningRight: 0
+  steeringDelta: 0
+  isPressingHandbrake: 0
+  isReleasingHandbrake: 0
 --- !u!1 &5338870390432856779
 GameObject:
   m_ObjectHideFlags: 0

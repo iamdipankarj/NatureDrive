@@ -32,12 +32,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""b21aaf57-9fcf-4ee4-971c-78df8910185c"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Clamp(min=-1,max=1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Accelerate"",
+                    ""name"": ""Throttle"",
                     ""type"": ""Value"",
                     ""id"": ""554db870-dac0-4494-b97b-1bc5d34abf22"",
                     ""expectedControlType"": """",
@@ -192,13 +192,46 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""69c28bfc-eb00-4af2-8485-7a604e1a41ce"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""daf8b805-9d06-458e-a7d2-caa875221ea0"",
+                    ""path"": ""<DualShockGamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2a9cddd5-91d5-4887-b343-6001d6f872f3"",
+                    ""path"": ""<DualShockGamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""bcaa0027-c444-430d-907b-639b336463cf"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -209,7 +242,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -220,7 +253,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -231,7 +264,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -242,7 +275,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -766,7 +799,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         // Car
         m_Car = asset.FindActionMap("Car", throwIfNotFound: true);
         m_Car_Steer = m_Car.FindAction("Steer", throwIfNotFound: true);
-        m_Car_Accelerate = m_Car.FindAction("Accelerate", throwIfNotFound: true);
+        m_Car_Throttle = m_Car.FindAction("Throttle", throwIfNotFound: true);
         m_Car_Reverse = m_Car.FindAction("Reverse", throwIfNotFound: true);
         m_Car_Look = m_Car.FindAction("Look", throwIfNotFound: true);
         m_Car_HandBrake = m_Car.FindAction("HandBrake", throwIfNotFound: true);
@@ -843,7 +876,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Car;
     private List<ICarActions> m_CarActionsCallbackInterfaces = new List<ICarActions>();
     private readonly InputAction m_Car_Steer;
-    private readonly InputAction m_Car_Accelerate;
+    private readonly InputAction m_Car_Throttle;
     private readonly InputAction m_Car_Reverse;
     private readonly InputAction m_Car_Look;
     private readonly InputAction m_Car_HandBrake;
@@ -854,7 +887,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         private @SolaceInputActions m_Wrapper;
         public CarActions(@SolaceInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steer => m_Wrapper.m_Car_Steer;
-        public InputAction @Accelerate => m_Wrapper.m_Car_Accelerate;
+        public InputAction @Throttle => m_Wrapper.m_Car_Throttle;
         public InputAction @Reverse => m_Wrapper.m_Car_Reverse;
         public InputAction @Look => m_Wrapper.m_Car_Look;
         public InputAction @HandBrake => m_Wrapper.m_Car_HandBrake;
@@ -872,9 +905,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Steer.started += instance.OnSteer;
             @Steer.performed += instance.OnSteer;
             @Steer.canceled += instance.OnSteer;
-            @Accelerate.started += instance.OnAccelerate;
-            @Accelerate.performed += instance.OnAccelerate;
-            @Accelerate.canceled += instance.OnAccelerate;
+            @Throttle.started += instance.OnThrottle;
+            @Throttle.performed += instance.OnThrottle;
+            @Throttle.canceled += instance.OnThrottle;
             @Reverse.started += instance.OnReverse;
             @Reverse.performed += instance.OnReverse;
             @Reverse.canceled += instance.OnReverse;
@@ -897,9 +930,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Steer.started -= instance.OnSteer;
             @Steer.performed -= instance.OnSteer;
             @Steer.canceled -= instance.OnSteer;
-            @Accelerate.started -= instance.OnAccelerate;
-            @Accelerate.performed -= instance.OnAccelerate;
-            @Accelerate.canceled -= instance.OnAccelerate;
+            @Throttle.started -= instance.OnThrottle;
+            @Throttle.performed -= instance.OnThrottle;
+            @Throttle.canceled -= instance.OnThrottle;
             @Reverse.started -= instance.OnReverse;
             @Reverse.performed -= instance.OnReverse;
             @Reverse.canceled -= instance.OnReverse;
@@ -1051,7 +1084,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     public interface ICarActions
     {
         void OnSteer(InputAction.CallbackContext context);
-        void OnAccelerate(InputAction.CallbackContext context);
+        void OnThrottle(InputAction.CallbackContext context);
         void OnReverse(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);

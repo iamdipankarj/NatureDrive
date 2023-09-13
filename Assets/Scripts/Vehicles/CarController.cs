@@ -1,16 +1,14 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 namespace Solace {
-  [RequireComponent(typeof(CarInputController))]
   public class CarController : MonoBehaviour {
     // Car Speed UI Event
     public delegate void CarSpeedUIAction(int speed);
     public static event CarSpeedUIAction DidUpdateCarSpeed;
 
     // Inputs
-    private CarInputController controller;
+    private R2VehicleInput controller;
 
     //[Header("CAR SETUP")]
     [Space(10)]
@@ -129,7 +127,7 @@ namespace Solace {
       CursorManager.LockCursor();
 
       // Initialize the inputs
-      controller = GetComponent<CarInputController>();
+      controller = GetComponent<R2VehicleInput>();
 
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given

@@ -1,35 +1,38 @@
+using System;
 using UnityEngine;
 
 namespace Solace {
-  public class CarInputController : MonoBehaviour {
-    [HideInInspector]
+  /// <summary>
+  /// Input Controller for Promoteo based vehicles
+  /// </summary>
+  public class R2VehicleInput : VehicleStandardInput {
+    [NonSerialized]
     public bool isAcceleratingForward;
-    [HideInInspector]
+    [NonSerialized]
     public float forwardAccelerateDelta;
 
-    [HideInInspector]
+    [NonSerialized]
     public bool isAcceleratingBackward;
-    [HideInInspector]
+    [NonSerialized]
     public float backwardAccelerateDelta;
 
-    [HideInInspector]
+    [NonSerialized]
     public bool isTurningLeft;
-    [HideInInspector]
+    [NonSerialized]
     public bool isTurningRight;
-    [HideInInspector]
+    [NonSerialized]
     public float steeringDelta;
 
-    [HideInInspector]
+    [NonSerialized]
     public bool isPressingHandbrake;
-    [HideInInspector]
+    [NonSerialized]
     public bool isReleasingHandbrake;
 
     private void OnHandBrake(bool isPressing) {
       if (isPressing) {
         isPressingHandbrake = true;
         isReleasingHandbrake = false;
-      }
-      else {
+      } else {
         isPressingHandbrake = false;
         isReleasingHandbrake = true;
       }
@@ -59,35 +62,11 @@ namespace Solace {
       backwardAccelerateDelta = delta;
     }
 
-    private void Start() {
-      
-    }
-
-    private void OnEnable() {
-      InputManager.DidAccelerate += OnAccelerateForward;
-      InputManager.DidReverse += OnAccelerateBackward;
-      InputManager.DidSteer += OnSteer;
-      InputManager.DidUseHandBrake += OnHandBrake;
-    }
-
-    private void OnApplicationQuit() {
-      LogitechGSDK.LogiSteeringShutdown();
-    }
-
-    private void OnDisable() {
-      InputManager.DidAccelerate -= OnAccelerateForward;
-      InputManager.DidReverse -= OnAccelerateBackward;
-      InputManager.DidSteer -= OnSteer;
-      InputManager.DidUseHandBrake -= OnHandBrake;
-    }
-
-    void Update() {
-      //isAcceleratingForward = Input.GetKey(KeyCode.W);
-      //isAcceleratingBackward = Input.GetKey(KeyCode.S);
-      //isTurningLeft = Input.GetKey(KeyCode.A);
-      //isTurningRight = Input.GetKey(KeyCode.D);
-      //isPressingHandbrake = Input.GetKey(KeyCode.Space);
-      //isReleasingHandbrake = Input.GetKeyUp(KeyCode.Space);
+    private void Update() {
+      OnAccelerateForward(base.throttleInput);
+      OnAccelerateBackward(base.reverseInput);
+      OnSteer(base.steerInput);
+      OnHandBrake(base.handbrakeInput);
     }
   }
 }

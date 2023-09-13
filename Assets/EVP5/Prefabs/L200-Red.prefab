@@ -1505,12 +1505,9 @@ GameObject:
   - component: {fileID: 424522}
   - component: {fileID: 5460554}
   - component: {fileID: 11434010}
-  - component: {fileID: 11440460}
   - component: {fileID: 11461368}
-  - component: {fileID: 11438042}
-  - component: {fileID: 11427576}
-  - component: {fileID: 11464846}
   - component: {fileID: 11422184}
+  - component: {fileID: 6274869520874170461}
   m_Layer: 0
   m_Name: L200-Red
   m_TagString: Untagged
@@ -1656,25 +1653,6 @@ MonoBehaviour:
   disallowRuntimeChanges: 0
   disableSteerAngleCorrection: 0
   showCollisionGizmos: 0
---- !u!114 &11440460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3701632bb9aec654bbac0ba63a2956a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookAtPoint: {fileID: 0}
-  driverView: {fileID: 404496}
-  viewDistance: 7.5
-  viewHeight: 3
-  viewDamping: 3
-  viewMinDistance: 3.6
-  viewMinHeight: 0
 --- !u!114 &11461368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,75 +1757,6 @@ MonoBehaviour:
     minPitch: 0.5
     maxPitch: 1
     maxVolume: 0.4
---- !u!114 &11438042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca79ba03ebacd504783b096c3667cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  continuousForwardAndReverse: 1
-  throttleAndBrakeInput: 0
-  steerAxis: Horizontal
-  throttleAndBrakeAxis: Vertical
-  throttleAxis: Fire2
-  brakeAxis: Fire3
-  handbrakeAxis: Jump
-  resetVehicleKey: 13
---- !u!114 &11427576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07053ca8c2415de47bd6817d9b10569c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshes:
-  - {fileID: 3321130}
-  - {fileID: 3306334}
-  colliders:
-  - {fileID: 6449196}
-  - {fileID: 6413524}
-  nodes:
-  - {fileID: 489054}
-  - {fileID: 498706}
-  - {fileID: 435082}
-  - {fileID: 465798}
-  minVelocity: 2.25
-  multiplier: 1
-  damageRadius: 0.5
-  maxDisplacement: 0.5
-  maxVertexFracture: 0
-  nodeDamageRadius: 0.34
-  maxNodeRotation: 14
-  nodeRotationRate: 10
-  vertexRepairRate: 0.1
-  enableRepairKey: 1
-  repairKey: 114
---- !u!114 &11464846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19030b8c4fd42b0469f069522d3b4a9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause: 0
-  key: 112
 --- !u!114 &11422184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,6 +1777,18 @@ MonoBehaviour:
   minIntensityTime: 1
   maxIntensityTime: 7
   limitIntensityTime: 8
+--- !u!114 &6274869520874170461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5170f16b4395afe4d83c5e7168c6a858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &164134
 GameObject:
   m_ObjectHideFlags: 0

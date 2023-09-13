@@ -15,8 +15,8 @@ namespace Solace {
     public static event LookAction DidLook;
 
     // Accelerate
-    public delegate void AccelerateAction(float delta);
-    public static event AccelerateAction DidAccelerate;
+    public delegate void ThrottleAction(float delta);
+    public static event ThrottleAction DidThrottle;
 
     // Reverse
     public delegate void ReverseAction(float delta);
@@ -43,7 +43,7 @@ namespace Solace {
     public delegate void DeviceReconnectAction();
     public static event DeviceReconnectAction DidDeviceReconnect;
 
-    SolaceInputActions controls;
+    private SolaceInputActions controls;
 
     private void Awake() {
       controls = new();
@@ -73,11 +73,11 @@ namespace Solace {
     }
 
     private void OnVehicleAccelerate(InputAction.CallbackContext context) {
-      DidAccelerate?.Invoke(context.ReadValue<float>());
+      DidThrottle?.Invoke(context.ReadValue<float>());
     }
 
     private void OnVehicleAccelerateCanceled(InputAction.CallbackContext context) {
-      DidAccelerate?.Invoke(0f);
+      DidThrottle?.Invoke(0f);
     }
 
     private void OnVehicleReverse(InputAction.CallbackContext context) {
@@ -122,8 +122,8 @@ namespace Solace {
       controls.Car.Steer.canceled += OnVehicleSteerCanceled;
       controls.Car.Look.performed += OnVehicleLook;
 
-      controls.Car.Accelerate.performed += OnVehicleAccelerate;
-      controls.Car.Accelerate.canceled += OnVehicleAccelerateCanceled;
+      controls.Car.Throttle.performed += OnVehicleAccelerate;
+      controls.Car.Throttle.canceled += OnVehicleAccelerateCanceled;
 
       controls.Car.Reverse.performed += OnVehicleReverse;
       controls.Car.Reverse.canceled += OnVehicleReverseCanceled;
@@ -144,8 +144,8 @@ namespace Solace {
       controls.Car.Steer.canceled -= OnVehicleSteerCanceled;
       controls.Car.Look.performed -= OnVehicleLook;
 
-      controls.Car.Accelerate.performed -= OnVehicleAccelerate;
-      controls.Car.Accelerate.canceled -= OnVehicleAccelerateCanceled;
+      controls.Car.Throttle.performed -= OnVehicleAccelerate;
+      controls.Car.Throttle.canceled -= OnVehicleAccelerateCanceled;
 
       controls.Car.Reverse.performed -= OnVehicleReverse;
       controls.Car.Reverse.canceled -= OnVehicleReverseCanceled;

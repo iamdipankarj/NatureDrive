@@ -10,12 +10,12 @@
                     "type": "Value",
                     "id": "b21aaf57-9fcf-4ee4-971c-78df8910185c",
                     "expectedControlType": "Axis",
-                    "processors": "",
+                    "processors": "Clamp(min=-1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Accelerate",
+                    "name": "Throttle",
                     "type": "Value",
                     "id": "554db870-dac0-4494-b97b-1bc5d34abf22",
                     "expectedControlType": "",
@@ -170,13 +170,46 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "69c28bfc-eb00-4af2-8485-7a604e1a41ce",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "daf8b805-9d06-458e-a7d2-caa875221ea0",
+                    "path": "<DualShockGamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2a9cddd5-91d5-4887-b343-6001d6f872f3",
+                    "path": "<DualShockGamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "bcaa0027-c444-430d-907b-639b336463cf",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerate",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -187,7 +220,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerate",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -198,7 +231,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerate",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -209,7 +242,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerate",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -220,7 +253,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerate",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
