@@ -2401,7 +2401,7 @@ Transform:
   m_GameObject: {fileID: 3457939751592948597}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.454, y: 1.317, z: -0.032}
+  m_LocalPosition: {x: -0.454, y: 1.297, z: -0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2433,14 +2433,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3524494745990101349}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07486222, y: 0.6009353, z: -0.05667602, w: 0.79376334}
-  m_LocalPosition: {x: -0.454, y: 1.317, z: -0.032000065}
+  m_LocalRotation: {x: 0.06707294, y: 0.69043064, z: -0.0645529, w: 0.7173839}
+  m_LocalPosition: {x: -0.454, y: 1.297, z: -0.016000032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7257043324489971533}
   m_Father: {fileID: 4682524627559718531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.776, y: 0, z: 0}
 --- !u!114 &2701305170898128934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7622,7 +7622,7 @@ GameObject:
   - component: {fileID: 7257043324489971533}
   - component: {fileID: 8676817665849638901}
   - component: {fileID: 6106186387350732719}
-  - component: {fileID: 9215382408092264423}
+  - component: {fileID: 2802346619709657084}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -7671,16 +7671,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 0
   m_VerticalAxis:
-    Value: 10.775595
+    Value: 10.682883
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 400
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -70
-    m_MaxValue: 70
+    m_MinValue: -45
+    m_MaxValue: 45
     m_Wrap: 0
     m_Recentering:
       m_enabled: 0
@@ -7695,17 +7695,17 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 74.25662
+    Value: 87.80637
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 400
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
+    m_MinValue: -90
+    m_MaxValue: 90
+    m_Wrap: 0
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -7719,7 +7719,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_ApplyBeforeBody: 0
---- !u!114 &9215382408092264423
+--- !u!114 &2802346619709657084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
