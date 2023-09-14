@@ -8,11 +8,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>Solace</RootNamespace>
-    <ProjectGuid>{775C7372-6916-AC22-C763-72CC2172FF04}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{467517EB-7E4C-1E96-E480-FCA852F1D3E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Solace.Common</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -58,131 +58,38 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
-    <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
-    <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleAudio.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
-    <Compile Include="Assets\Logitech SDK\Script Sample\LogitechGKey.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\GraphicsMenuController.cs" />
-    <Compile Include="Assets\Logitech SDK\LogitechGSDK.cs" />
-    <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
-    <Compile Include="Assets\SolaceInputActions.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
-    <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
-    <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
-    <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
-    <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\L2VehicleInput.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\VehicleStandardInput.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleTireEffects.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
-    <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleViewConfig.cs" />
-    <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
-    <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleController.cs" />
-    <Compile Include="Assets\Logitech SDK\Script Sample\LogitechArxControl.cs" />
-    <Compile Include="Assets\ColorBlind\ColorBlindHelper.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Tools\SceneTools.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleManager.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleStandardInput.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireMarksRenderer.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
-    <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Tools\CommonTools.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleDamage.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\JsonDataService.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\R2VehicleInput.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireParticleEmitter.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\InputMenuController.cs" />
-    <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleVisualEffects.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
-    <Compile Include="Assets\Scripts\SolaceUtils.cs" />
-    <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
-    <Compile Include="Assets\Scripts\Checkpoint.cs" />
-    <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleCameraController.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Ground Materials\GroundMaterialManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyImpulse.cs" />
-    <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
-    <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
-    <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
-    <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleTelemetry.cs" />
-    <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyPause.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
-    <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\GasStation.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Extra\VehicleNitro.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Tools\TextureCanvas.cs" />
-    <Compile Include="Assets\EVP5\Scripts\Extra\FollowHeading.cs" />
-    <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLed.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerStats.cs" />
-    <Compile Include="Assets\EVP5\Scripts\VehicleRandomInput.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
-    <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
-    <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\CoM\IMassAffector.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\QuaternionExtensions.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\CoM\VariableCenterOfMass.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\CoM\MassAffector.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\VehicleReflectionProbe.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\PIDController.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\AssetInfo\Editor\WelcomeMessageWindow.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\GeomUtility.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\NUISettings.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\UnitConverter.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\NUIEditor.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\MathUtility.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\WheelUAPI.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\ShowInTelemetry.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\FollowVehicleState.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\AssetInfo\AssetInfo.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\Vehicle.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\EditorCache.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\AnimationCurveExtensions.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\SerializedPropertyHelper.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\GameObjectExtensions.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\FloatingOrigin\FloatingOrigin.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\AssetInfo\Editor\CommonInitializationMethods.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\NUIPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\FrictionPreset.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\ShowInSettings.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Utility\ArrayExtensions.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\Vehicle\WheelColliderUAPI.cs" />
+    <Compile Include="Assets\Scripts\Django\Common\NUI\Editor\NUIDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\EVP5\Visual Effects\Shaders\EVPParticleShadows.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks.shader" />
-    <None Include="Assets\Logitech SDK\LogitechLcdEnginesWrapper.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\ColorBlind\ChannelMixer.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Particles Alpha Blended Shadows.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\MSVehicleSystem\TUTORIAL.txt" />
-    <None Include="Assets\Logitech SDK\LogitechSteeringWheelEnginesWrapper.dll" />
-    <None Include="Assets\Logitech SDK\LogitechGkeyEnginesWrapper.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks Debug.shader" />
-    <None Include="Assets\MSVehicleSystem\SUPPORT.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Logitech SDK\LogitechGArxControlEnginesWrapper.dll" />
-    <None Include="Assets\EVP5\Readme 5.3.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks Bump.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\MSVehicleSystem\Update Notes.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\MSVehicleSystem\Scripts\Shaders\SkidMarks.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Logitech SDK\LogitechLedEnginesWrapper.dll" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\PROMETEO - Car Controller\Fonts\Licence.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Scripts\Django\Common\Solace.Common.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -434,14 +341,41 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.YamlDotNet">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.TextureAssets">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -809,126 +743,14 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ResourceManager">
-      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Localization.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Localization">
-      <HintPath>Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.CacheServer">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Addressables.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Addressables">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Solace.Common.csproj">
-      <Project>{467517EB-7E4C-1E96-E480-FCA852F1D3E8}</Project>
-      <Name>Solace.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -839,14 +839,14 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
@@ -856,6 +856,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Solace.Common.csproj">
+      <Project>{467517EB-7E4C-1E96-E480-FCA852F1D3E8}</Project>
+      <Name>Solace.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
