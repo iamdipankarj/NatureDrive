@@ -37,7 +37,7 @@ namespace EVP {
           zRotation = 0.0f;
         }
 
-        angles.z = Mathf.Lerp(angles.z, zRotation, Time.deltaTime * 10f);
+        angles.z = zRotation * 1.65f;
 
         steeringWheel.localEulerAngles = angles;
       }

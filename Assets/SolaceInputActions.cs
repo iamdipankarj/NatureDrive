@@ -32,7 +32,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""b21aaf57-9fcf-4ee4-971c-78df8910185c"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": ""Clamp(min=-1,max=1)"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
