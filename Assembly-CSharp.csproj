@@ -58,26 +58,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\Spring.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelController.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\Friction.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleAudio.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechGKey.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GraphicsMenuController.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\Wheel.cs" />
     <Compile Include="Assets\Logitech SDK\LogitechGSDK.cs" />
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\CamberController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
@@ -92,10 +87,8 @@
     <Compile Include="Assets\EVP5\Scripts\VehicleTireEffects.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelControllerManager.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleViewConfig.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\TyreWear.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
     <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleController.cs" />
@@ -106,7 +99,6 @@
     <Compile Include="Assets\EVP5\Scripts\Tools\SceneTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelController.Debug.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleStandardInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireMarksRenderer.cs" />
     <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
@@ -120,23 +112,19 @@
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleVisualEffects.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\StandardGroundDetection.cs" />
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\GroundDetectionBase.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleCameraController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\GroundMaterialManager.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelHit.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyImpulse.cs" />
     <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelControllerUtility.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleTelemetry.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
@@ -149,13 +137,11 @@
     <Compile Include="Assets\EVP5\Scripts\Extra\FollowHeading.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLed.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\WheelController.UAPI.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerStats.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleRandomInput.cs" />
     <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\Damper.cs" />
     <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -939,14 +925,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Django.Common.csproj">
-      <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
-      <Name>Django.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.VehiclePhysics2.csproj">
-      <Project>{B36BA0D8-322A-0960-D03C-CF2EDA317C15}</Project>
-      <Name>Django.VehiclePhysics2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -58,7 +58,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Django\WheelController\Scripts\Editor\InitializationMethodsWC3D.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\InspectorTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\VehicleStandardInputInspector.cs" />
     <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
@@ -857,14 +856,6 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.Common.csproj">
-      <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
-      <Name>Django.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.VehiclePhysics2.csproj">
-      <Project>{B36BA0D8-322A-0960-D03C-CF2EDA317C15}</Project>
-      <Name>Django.VehiclePhysics2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
