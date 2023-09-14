@@ -839,14 +839,14 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
@@ -856,22 +856,6 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.WheelController.csproj">
-      <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
-      <Name>NWH.WheelController</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.csproj">
-      <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
-      <Name>NWH.VehiclePhysics2</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.SetupWizard.csproj">
-      <Project>{258A6EFB-1A99-C5EB-E3FD-6D380BED91DE}</Project>
-      <Name>NWH.VehiclePhysics2.SetupWizard</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.Common.csproj">
-      <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
-      <Name>NWH.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

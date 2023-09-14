@@ -126,8 +126,8 @@
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
-    <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleTelemetry.cs" />
+    <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyPause.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
@@ -172,7 +172,6 @@
     <None Include="Assets\Logitech SDK\LogitechGArxControlEnginesWrapper.dll" />
     <None Include="Assets\EVP5\Readme 5.3.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\NWH\Common\Resources\NWH\Fonts\Inconsolata\OFL.txt" />
     <None Include="Assets\EVP5\Visual Effects\Shaders\EVP Tire Marks Bump.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\MSVehicleSystem\Update Notes.txt" />
@@ -912,36 +911,20 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NWH.WheelController.csproj">
-      <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
-      <Name>NWH.WheelController</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.csproj">
-      <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
-      <Name>NWH.VehiclePhysics2</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.SetupWizard.csproj">
-      <Project>{258A6EFB-1A99-C5EB-E3FD-6D380BED91DE}</Project>
-      <Name>NWH.VehiclePhysics2.SetupWizard</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.Common.csproj">
-      <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
-      <Name>NWH.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
