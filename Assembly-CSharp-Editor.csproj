@@ -857,6 +857,10 @@
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="Django.Common.csproj">
+      <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
+      <Name>Django.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
