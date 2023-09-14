@@ -58,12 +58,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\SetupWizard\VehicleSetupWizard.cs" />
-    <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\SetupWizard\VehicleSetupWizardPreset.cs" />
-    <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\SetupWizard\VehicleSetupWizardTest.cs" />
+    <Compile Include="Assets\Scripts\Django\VehiclePhysics\Scripts\SetupWizard\VehicleSetupWizardTest.cs" />
+    <Compile Include="Assets\Scripts\Django\VehiclePhysics\Scripts\SetupWizard\VehicleSetupWizardPreset.cs" />
+    <Compile Include="Assets\Scripts\Django\VehiclePhysics\Scripts\SetupWizard\VehicleSetupWizard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\NWH\Vehicle Physics 2\Scripts\SetupWizard\NWH.VehiclePhysics2.SetupWizard.asmdef" />
+    <None Include="Assets\Scripts\Django\VehiclePhysics\Scripts\SetupWizard\NWH.VehiclePhysics2.SetupWizard.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -725,18 +725,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NWH.Common.csproj">
-      <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
-      <Name>NWH.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.csproj">
-      <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
-      <Name>NWH.VehiclePhysics2</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.WheelController.csproj">
-      <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
-      <Name>NWH.WheelController</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

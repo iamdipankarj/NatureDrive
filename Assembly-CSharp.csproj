@@ -943,6 +943,10 @@
       <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
       <Name>Django.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="Django.VehiclePhysics2.csproj">
+      <Project>{B36BA0D8-322A-0960-D03C-CF2EDA317C15}</Project>
+      <Name>Django.VehiclePhysics2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

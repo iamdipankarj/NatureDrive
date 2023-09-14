@@ -4,24 +4,24 @@ using Django.Common.Vehicles;
 
 namespace Django.WheelController3D {
   public partial class WheelController {
-    [ShowInTelemetry]
+    
     public override float MotorTorque {
       get => motorTorque;
       set => motorTorque = value;
     }
 
-    [ShowInTelemetry]
+    
     public override float CounterTorque {
       get => counterTorque;
     }
 
-    [ShowInTelemetry]
+    
     public override float BrakeTorque {
       get => brakeTorque;
       set => brakeTorque = value;
     }
 
-    [ShowInTelemetry]
+    
     public override float SteerAngle {
       get => steerAngle;
       set => steerAngle = value;
@@ -57,7 +57,7 @@ namespace Django.WheelController3D {
     }
 
 
-    [ShowInTelemetry]
+    
     public override float RPM {
       get => wheel.rpm;
     }
@@ -70,7 +70,7 @@ namespace Django.WheelController3D {
       get => wheel.worldPosition;
     }
 
-    [ShowInTelemetry]
+    
     public override float Load {
       get => load;
     }
@@ -80,18 +80,18 @@ namespace Django.WheelController3D {
       set => loadRating = value < 0f ? 0f : value;
     }
 
-    [ShowInTelemetry]
+    
     public override float Camber {
       get => camber;
       set => camber = value < -16f ? -16f : value > 16f ? 16f : value;
     }
 
-    [ShowInTelemetry]
+    
     public override bool IsGrounded {
       get => _isGrounded;
     }
 
-    [ShowInTelemetry]
+    
     public override float Damage {
       get => _damage;
       set => _damage = value < 0f ? 0f : value > 1f ? 1f : value;
@@ -111,12 +111,12 @@ namespace Django.WheelController3D {
       }
     }
 
-    [ShowInTelemetry]
+    
     public override float SpringForce {
       get => spring.force;
     }
 
-    [ShowInTelemetry]
+    
     public override float SpringLength {
       get => spring.length;
     }
@@ -136,27 +136,27 @@ namespace Django.WheelController3D {
       set => damper.reboundRate = value < 0f ? 0f : value;
     } // TODO - finish this
 
-    [ShowInTelemetry]
+    
     public override float DamperForce {
       get => damper.force;
     }
 
-    [ShowInTelemetry]
+    
     public override float LongitudinalSlip {
       get => forwardFriction.slip;
     }
 
-    [ShowInTelemetry]
+    
     public override float LongitudinalSpeed {
       get => forwardFriction.speed;
     }
 
-    [ShowInTelemetry]
+    
     public override float LateralSlip {
       get => sideFriction.slip;
     }
 
-    [ShowInTelemetry]
+    
     public override float LateralSpeed {
       get => sideFriction.speed;
     }
