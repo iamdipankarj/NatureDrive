@@ -861,6 +861,10 @@
       <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
       <Name>Django.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="Django.WheelController.csproj">
+      <Project>{E117FB8E-41BA-5B73-9F30-580C815CF960}</Project>
+      <Name>Django.WheelController</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
