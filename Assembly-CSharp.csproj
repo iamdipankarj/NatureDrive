@@ -925,10 +925,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Solace.Common.csproj">
-      <Project>{467517EB-7E4C-1E96-E480-FCA852F1D3E8}</Project>
-      <Name>Solace.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
