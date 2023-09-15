@@ -73,11 +73,12 @@
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\DjangoVehicleController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelVehicleData.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\MSSteeringWheelInput.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\ForceFeedbackSettings.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />

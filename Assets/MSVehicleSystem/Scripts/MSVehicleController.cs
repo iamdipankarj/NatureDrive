@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 namespace MSVehicle {
   [RequireComponent(typeof(Rigidbody))]
   [DisallowMultipleComponent]
-  public class MSVehicleController : Solace.DjangoVehicleController {
+  public class MSVehicleController : MonoBehaviour {
     public Transform SkidMarksContainer;
 
     [Tooltip("If this variable is checked, the vehicle will automatically manage the gearshift.")]

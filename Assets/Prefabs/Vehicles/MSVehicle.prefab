@@ -603,7 +603,8 @@ GameObject:
   - component: {fileID: 3616433685239986800}
   - component: {fileID: 4479533102941750658}
   - component: {fileID: 2544329804019861930}
-  - component: {fileID: 2120587494028562285}
+  - component: {fileID: 4709726519182030555}
+  - component: {fileID: 287225363064188529}
   m_Layer: 1
   m_Name: MSVehicle
   m_TagString: Untagged
@@ -1341,9 +1342,9 @@ MonoBehaviour:
     keepRotated: 0
     rotationType: 1
     steeringWheelObject: {fileID: 8533458753741559323}
-    numberOfTurns: 0.75
+    numberOfTurns: 1.25
     invertRotation: 1
-    steeringAssist: 0.5
+    steeringAssist: 0
     steeringLimit: 0.3
     useLerp: 0
   _fuel:
@@ -1793,7 +1794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cockpitCamera: {fileID: 2701305170898128934}
   leftWheelCamera: {fileID: 8344599790654364206}
---- !u!114 &2120587494028562285
+--- !u!114 &4709726519182030555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1802,10 +1803,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 1220903671460710833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b59bf0476386a64d93e0c559a5cca06, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f92f8f5f53b2d740ba5a43c2f5c5e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overallCoeff: 1
+  frictionCoeff: 1
+  lowSpeedFrictionCoeff: 1
+  satCoeff: 1
+  centeringCoeff: 1
+--- !u!114 &287225363064188529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220903671460710833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625ab69281f072e45b2a924cfe1e696c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   steeringSensitivity: 1
+  maximumWheelForce: 100
+  overallEffectStrength: 1
+  smoothing: 0
+  wheelRotationRange: 540
+  linearizeSDKInput: 1
+  useDirectInput: 1
+  slipSATCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.9
+      outSlope: 25
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.07
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.16
+      value: 0.93
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSatForce: 80
+  slipMultiplier: 4.6
+  lowSpeedFriction: 70
+  friction: 16
+  centeringForceStrength: 60
+  centerPositionDrift: 0.4
+  axisResolution: 65536
+  steeringAxis: 0
+  throttleAxis: 1
+  throttleZeroToOne: 1
+  brakeAxis: 5
+  brakeZeroToOne: 1
+  clutchAxis: 2
+  clutchZeroToOne: 0
+  handbrakeAxis: 40
+  handbrakeZeroToOne: 1
 --- !u!1 &1581106656347680402
 GameObject:
   m_ObjectHideFlags: 0

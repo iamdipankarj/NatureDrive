@@ -1,17 +1,11 @@
-using EVP;
-using MSVehicle;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Solace {
-  public class SteeringWheelStandardInput : MonoBehaviour {
-    private VehicleStandardInput input;
-
-    public bool[] buttonDown = new bool[128];
-    public bool[] buttonPressed = new bool[128];
-    public bool[] buttonWasPressed = new bool[128];
+  public abstract class SteeringWheelStandardInput : MonoBehaviour {
+    private bool[] buttonDown = new bool[128];
+    private bool[] buttonPressed = new bool[128];
+    private bool[] buttonWasPressed = new bool[128];
 
     public enum Axis {
       XPosition,
@@ -89,6 +83,11 @@ namespace Solace {
     public bool linearizeSDKInput = true;
 
     /// <summary>
+    /// Should all steering filtering and smoothing be ignored?
+    /// </summary>
+    public bool useDirectInput = true;
+
+    /// <summary>
     /// Curve that shows how the self aligning torque acts in relation to wheel slip.
     /// Vertical axis is force coefficient, horizontal axis is slip.
     /// </summary>
@@ -137,159 +136,62 @@ namespace Solace {
     /// <summary>
     /// Axis resolution of the wheel's ADC.
     /// </summary>
-    public int axisResolution = 65536;
+    private int axisResolution = 65534;
+    private float minAxisResolution = -32767;
+    private float maxAxisResolution = 32767;
 
-    /// <summary>
-    /// Flips the sign on the steering input.
-    /// </summary>
-    public bool flipSteeringInput = false;
+    private bool flipSteeringInput = false;
+    private bool flipThrottleInput = false;
+    private bool flipBrakeInput = false;
+    private bool flipClutchInput = false;
+    private bool flipHandbrakeInput = false;
 
-    /// <summary>
-    /// Flips the sign on the throttle input.
-    /// </summary>
-    public bool flipThrottleInput = true;
-
-    /// <summary>
-    /// Flips the sign on the brake input.
-    /// </summary>
-    public bool flipBrakeInput = true;
-
-    /// <summary>
-    /// Flips the sign on the clutch input.
-    /// </summary>
-    public bool flipClutchInput = true;
-
-    /// <summary>
-    /// Flips the sign on the handbrake input.
-    /// </summary>
-    public bool flipHandbrakeInput = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for steering.
-    /// </summary>
     public Axis steeringAxis = Axis.XPosition;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for throttle.
-    /// </summary>
     public Axis throttleAxis = Axis.YPosition;
-
-    public bool throttleZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for braking.
-    /// </summary>
-    [UnityEngine.Tooltip("Determines which wheel axis will be used for braking.")]
     public Axis brakeAxis = Axis.ZRotation;
-
-    public bool brakeZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for clutch.
-    /// </summary>
     public Axis clutchAxis = Axis.ZPosition;
-
-    public bool clutchZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for steering.
-    /// If there is no analog axis for handbrake, handbrakeButton mapping can be used instead.
-    /// </summary>
     public Axis handbrakeAxis = Axis.None;
 
-    public bool handbrakeZeroToOne = true;
+    // Paddle Shift
+    private int shiftUpButton = 4;
+    private int shiftDownButton = 5;
+    private int altShiftUpButton = 4;
+    private int altShiftDownButton = 5;
 
-    /// <summary>
-    /// Primary shift up button.
-    /// </summary>
-    public int shiftUpButton = 12;
+    // Acc Buttons
+    private int squareButton = 1;
 
-    /// <summary>
-    /// Primary shift down button.
-    /// </summary>
-    public int shiftDownButton = 13;
-
-    /// <summary>
-    /// Alternative shift up button.
-    /// To be used when there is both a sequential stick shifter and paddles.
-    /// </summary>
-    public int altShiftUpButton = 4;
-
-    /// <summary>
-    /// Alternative shift down button.
-    /// To be used when there is both a sequential stick shifter and paddles.
-    /// </summary>
-    public int altShiftDownButton = 5;
-
-    /// <summary>
-    /// Button used to shift into reverse gear.
-    /// </summary>
-    public int shiftIntoReverseButton = -1;
-
-    /// <summary>
-    /// Button used to shift into neutral gear.
-    /// </summary>
-    public int shiftIntoNeutralButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 1st gear.
-    /// Set to -1 to disable.
-    /// </summary>
-
-    public int shiftInto1stButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 2nd gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    public int shiftInto2ndButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 3rd gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    public int shiftInto3rdButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 4th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    public int shiftInto4thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 5th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    public int shiftInto5thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 6th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    public int shiftInto6thButton = -1;
-
-    /// <summary>
-    /// Button used to trigger handbrake.
-    /// For analog input use handbrakeAxis mapping instead.
-    /// </summary>
-    public int handbrakeButton = -1;
+    // Gears
+    private int shiftIntoNeutralButton = -1;
+    private int shiftIntoReverseButton = 18;
+    private int shiftInto1stButton = 13;
+    private int shiftInto2ndButton = 14;
+    private int shiftInto3rdButton = 15;
+    private int shiftInto4thButton = 16;
+    private int shiftInto5thButton = 17;
+    private int shiftInto6thButton = 18;
+    private int handbrakeButton = 0;
 
     // Inputs
-    [SerializeField][Range(-1, 1)] private float _steeringInput;
-    [SerializeField][Range(0, 1)] private float _throttleInput;
-    [SerializeField][Range(0, 1)] private float _brakeInput;
-    [SerializeField][Range(0, 1)] private float _clutchInput;
-    [SerializeField][Range(0, 1)] private float _handbrakeInput = 0;
-    [SerializeField] private int _shiftIntoInput = -999;
-    [SerializeField] private bool _shiftUpInput = false;
-    [SerializeField] private bool _shiftDownInput = false;
+    [NonSerialized]
+    public float steeringInput;
+    [NonSerialized]
+    public float throttleInput;
+    [NonSerialized]
+    public float brakeInput;
+    [NonSerialized]
+    public float clutchInput;
+    [NonSerialized]
+    public float handbrakeInput = 0;
 
-    //Forces
-    [SerializeField][Range(0, 100)] private float _lowSpeedFrictionForce;
-    [SerializeField][Range(0, 100)] private float _totalForce = 0;
-    [SerializeField][Range(0, 100)] private float _satForce;
-    [SerializeField][Range(0, 100)] private float _frictionForce;
-    [SerializeField][Range(0, 100)] private float _centeringForce;
+    [NonSerialized]
+    public int shiftIntoInput = -999;
+    [NonSerialized]
+    public bool shiftUpInput = false;
+    [NonSerialized]
+    public bool shiftDownInput = false;
+    [NonSerialized]
+    public bool squareInput;
 
     // Steering forces from vehicle controller
     private float _centerPosition;
@@ -299,30 +201,16 @@ namespace Solace {
     private ForceFeedbackSettings _ffbSettings;
     private LogitechGSDK.LogiControllerPropertiesData _properties;
     private LogitechGSDK.DIJOYSTATE2ENGINES _wheelInput;
-    private float _totalForceVelocity;
-
-    // Vehicle-specific coefficients
-    private float _overallCoeff = 1f;
-    private float _frictionCoeff = 1f;
-    private float _lowSpeedFrictionCoeff = 1f;
-    private float _satCoeff = 1f;
-    private float _centeringCoeff = 1f;
 
     private void ResetInputsAndForces() {
-      _steeringInput = 0;
-      _throttleInput = 0;
-      _brakeInput = 0;
-      _clutchInput = 0;
-      _handbrakeInput = 0;
-      _shiftIntoInput = -999;
-      _shiftUpInput = false;
-      _shiftDownInput = false;
-      _lowSpeedFrictionForce = 0;
-      _totalForce = 0;
-      _satForce = 0;
-      _frictionForce = 0;
-      _centeringForce = 0;
-      _centerPosition = 0;
+      steeringInput = 0;
+      throttleInput = 0;
+      brakeInput = 0;
+      clutchInput = 0;
+      handbrakeInput = 0;
+      shiftIntoInput = -999;
+      shiftUpInput = false;
+      shiftDownInput = false;
     }
 
     /// <summary>
@@ -332,7 +220,91 @@ namespace Solace {
       get { return _steeringWheelConnected; }
     }
 
-    private float GetAxisValue(Axis axis, LogitechGSDK.DIJOYSTATE2ENGINES wheelState, bool zeroToOne) {
+    void SetVehicleInputs() {
+      // Shift Up
+      shiftUpInput = GetButtonDown(shiftUpButton) || GetButtonDown(altShiftUpButton);
+
+      // Shift Down
+      shiftDownInput = GetButtonDown(shiftDownButton) || GetButtonDown(altShiftDownButton);
+
+      shiftIntoInput = -999;
+
+      if (GetButtonDown(squareButton)) {
+        Debug.Log("Will switch camera");
+      }
+
+      // H-shifter
+      if (GetButtonPressed(shiftIntoReverseButton)) {
+        shiftIntoInput = -1;
+      } else if (GetButtonPressed(shiftIntoNeutralButton)) {
+        shiftIntoInput = 0;
+      } else if (GetButtonPressed(shiftInto1stButton)) {
+        shiftIntoInput = 1;
+      } else if (GetButtonPressed(shiftInto2ndButton)) {
+        shiftIntoInput = 2;
+      } else if (GetButtonPressed(shiftInto3rdButton)) {
+        shiftIntoInput = 3;
+      } else if (GetButtonPressed(shiftInto4thButton)) {
+        shiftIntoInput = 4;
+      } else if (GetButtonPressed(shiftInto5thButton)) {
+        shiftIntoInput = 5;
+      } else if (GetButtonPressed(shiftInto6thButton)) {
+        shiftIntoInput = 6;
+      }
+
+      // Handbrake
+      if (handbrakeAxis != Axis.None) {
+        handbrakeInput = GetAxisValue(handbrakeAxis, _wheelInput, true);
+        if (flipHandbrakeInput) handbrakeInput = -handbrakeInput;
+      } else {
+        handbrakeInput = GetButtonPressed(handbrakeButton) ? 1f : 0f;
+      }
+    }
+
+    void GetWheelInputs() {
+      _wheelInput = LogitechGSDK.LogiGetStateUnity(0);
+
+      // Steer angle
+      steeringInput = GetAxisValue(steeringAxis, _wheelInput, false) * steeringSensitivity;
+      if (flipSteeringInput) steeringInput = -steeringInput;
+      float steerDelta = steeringInput - _prevSteering;
+      _steerVelocity = steerDelta / Time.deltaTime;
+
+      // Throttle
+      throttleInput = GetAxisValue(throttleAxis, _wheelInput, true);
+      if (flipThrottleInput) throttleInput = -throttleInput;
+
+      // Brake
+      brakeInput = GetAxisValue(brakeAxis, _wheelInput, true);
+      if (flipBrakeInput) brakeInput = -brakeInput;
+
+      // Clutch
+      clutchInput = GetAxisValue(clutchAxis, _wheelInput, true);
+      if (flipClutchInput) clutchInput = -clutchInput;
+
+      // Buttons
+      for (int i = 0; i < 128; i++) {
+        buttonWasPressed[i] = buttonPressed[i];
+        buttonPressed[i] = _wheelInput.rgbButtons[i] == 128;
+        buttonDown[i] = !buttonWasPressed[i] && buttonPressed[i];
+      }
+    }
+
+    bool GetButtonPressed(int buttonIndex) {
+      if (buttonIndex < 0) {
+        return false;
+      }
+      return buttonPressed[buttonIndex];
+    }
+
+    bool GetButtonDown(int buttonIndex) {
+      if (buttonIndex < 0) {
+        return false;
+      }
+      return buttonDown[buttonIndex];
+    }
+
+    private float GetAxisValue(Axis axis, LogitechGSDK.DIJOYSTATE2ENGINES wheelState, bool zeroToOne, bool debug = false) {
       float rawValue = 0;
       switch (axis) {
         case Axis.XPosition:
@@ -463,8 +435,13 @@ namespace Solace {
       }
 
       float halfResolution = axisResolution / 2f;
+
       if (zeroToOne) {
-        return (rawValue - halfResolution) / axisResolution;
+        float finalValue = 1 - ((rawValue - minAxisResolution) / (maxAxisResolution - minAxisResolution));
+        if (debug) {
+          Debug.Log(finalValue);
+        }
+        return finalValue;
       } else {
         return rawValue / halfResolution;
       }
@@ -485,117 +462,29 @@ namespace Solace {
       LogitechGSDK.LogiSetPreferredControllerProperties(currentProperties);
     }
 
-    private void InitializeLogitech() {
+    public virtual void Initialize() {
       LogitechGSDK.LogiSteeringInitialize(false);
       UpdateWheelSettings();
     }
 
-    private void InitializeForceFeedbackSettings() {
-      _ffbSettings = GetComponent<ForceFeedbackSettings>();
-      if (_ffbSettings == null) {
-        _overallCoeff = 1f;
-        _frictionCoeff = 1f;
-        _lowSpeedFrictionCoeff = 1f;
-        _satCoeff = 1f;
-        _centeringCoeff = 1f;
+    protected void SW_Update() {
+      if (IsDeviceConnected) {
+        UpdateWheelSettings();
+        GetWheelInputs();
+        SetVehicleInputs();
       }
     }
 
-    private void UpdateForceFeedback() {
-      _overallCoeff = _ffbSettings.overallCoeff;
-      _frictionCoeff = _ffbSettings.frictionCoeff;
-      _lowSpeedFrictionCoeff = _ffbSettings.lowSpeedFrictionCoeff;
-      _satCoeff = _ffbSettings.satCoeff;
-      _centeringCoeff = _ffbSettings.centeringCoeff;
-    }
-
-    private void FixedUpdate() {
-      UpdateForceFeedback();
-      float newTotalForce = 0;
-
-      //if (WheelIsConnected && LogitechGSDK.LogiUpdate()) {
-      //  _steeringWheelConnected = true;
-
-      //  vehicleController.steering.useRawInput = useDirectInput;
-
-      //  _leftWheel = vehicleController.powertrain.wheels[0].wheelUAPI;
-      //  _rightWheel = vehicleController.powertrain.wheels[1].wheelUAPI;
-
-      //  // Self Aligning Torque
-      //  float leftFactor = _leftWheel.Load / 12000f * _leftWheel.FrictionPreset.BCDE.z;
-      //  float rightFactor = _rightWheel.Load / 12000f * _rightWheel.FrictionPreset.BCDE.z;
-      //  float combinedFactor = leftFactor + rightFactor;
-      //  float totalSlip = _leftWheel.LateralSlip * leftFactor + _rightWheel.LongitudinalSlip * rightFactor;
-      //  float absSlip = totalSlip < 0 ? -totalSlip : totalSlip;
-      //  float slipSign = totalSlip < 0 ? -1f : 1f;
-      //  _satForce = slipSATCurve.Evaluate(absSlip * slipMultiplier) * -slipSign * maxSatForce * combinedFactor * _satCoeff;
-      //  newTotalForce += Mathf.Lerp(0f, _satForce, vehicleController.Speed - 0.4f);
-
-      //  // Determine target center  position (changes with spring compression)
-      //  _centerPosition = ((_rightWheel.SpringLength / _rightWheel.SpringMaxLength) - (_leftWheel.SpringLength / _leftWheel.SpringMaxLength)) * centerPositionDrift;
-
-      //  // Calculate centering force
-      //  _centeringForce = (_steeringInput - _centerPosition) * centeringForceStrength * _centeringCoeff;
-      //  newTotalForce += _centeringForce;
-
-      //  // Low speed friction
-      //  _lowSpeedFrictionForce = Mathf.Lerp(lowSpeedFriction, 0, vehicleController.Speed - 0.2f) * _lowSpeedFrictionCoeff;
-
-      //  // Friction 
-      //  _frictionForce = friction * _frictionCoeff;
-
-      //  // Apply friction
-      //  LogitechGSDK.LogiPlayDamperForce(0, (int)(_lowSpeedFrictionForce + _frictionForce));
-
-      //  newTotalForce *= overallEffectStrength * _overallCoeff;
-      //  if (smoothing < 0.001f) {
-      //    _totalForce = newTotalForce;
-      //  } else {
-      //    _totalForce = Mathf.SmoothDamp(_totalForce, newTotalForce, ref _totalForceVelocity, smoothing);
-      //  }
-
-      //  AddForce(_totalForce);
-
-      //  _prevSteering = _steeringInput;
-      //} else {
-      //  vehicleController.steering.useRawInput = false;
-      //  _steeringWheelConnected = false;
-      //}
-    }
-
-    void Start() {
-      if (TryGetComponent<VehicleStandardInput>(out var comp)) {
-        input = comp;
-      } else {
-        Debug.LogWarning("VehicleStandardInput component not found in attached game object. Steering wheel input will not work.");
+    private bool IsDeviceConnected {
+      get {
+        return LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0);
       }
-      InitializeLogitech();
-      InitializeForceFeedbackSettings();
-    }
-
-    void Update() {
-      if (input != null) {
-        return;
-      }
-      if (!WheelIsConnected) {
-        return;
-      }
-      UpdateWheelSettings();
-    }
-
-    private bool WheelIsConnected {
-      get { return LogitechGSDK.LogiIsConnected(0); }
-    }
-
-    void AddForce(float force) {
-      LogitechGSDK.LogiPlayConstantForce(0, (int)force);
-    }
-
-    void ResetForce() {
-      LogitechGSDK.LogiStopConstantForce(0);
     }
 
     void OnApplicationQuit() {
+#if UNITY_EDITOR
+      Debug.Log("Steering Wheel Shutting down");
+#endif
       LogitechGSDK.LogiSteeringShutdown();
     }
 
