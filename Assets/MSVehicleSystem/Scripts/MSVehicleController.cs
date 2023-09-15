@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -125,7 +126,7 @@ namespace MSVehicle {
 
     float rpmTorqueFactor;
 
-    float fixedDeltaTime;
+    public float fixedDeltaTime;
 
     float rpmFactorSpeedometerModel1 = 0;
     float speedFactorSpeedometerModel1 = 0;
@@ -159,7 +160,7 @@ namespace MSVehicle {
     bool forwardTempSKid;
     bool forwardHandBrakeSKid;
 
-    Rigidbody ms_Rigidbody;
+    public Rigidbody ms_Rigidbody;
 
     [HideInInspector]
     public AudioSource engineSoundAUD;
@@ -538,10 +539,10 @@ namespace MSVehicle {
               if (Mathf.Clamp01(verticalInput) > 0.5f && _vehicleSettings.vehicleRPMValue < minimumRPM) {
                 float conditionRPM = (15.0f / averageWheelRadius);
                 if (existingTorque < 0.03f || mediumRPM < -conditionRPM) { // to currentGear >= 1 
-                  ms_Rigidbody.AddTorque(transform.right * ms_Rigidbody.mass * 0.5f, ForceMode.Impulse);
+                  ms_Rigidbody.AddTorque(0.5f * ms_Rigidbody.mass * transform.right, ForceMode.Impulse);
                   previousDelayStartEngine = _vehicleSettings.delayToStartTheEngine;
                   _vehicleSettings.delayToStartTheEngine = 2;
-                  StartCoroutine("StartEngineCoroutine", false);
+                  StartCoroutine(nameof(StartEngineCoroutine), false);
                 }
               }
             }
@@ -551,7 +552,7 @@ namespace MSVehicle {
 
       //turn on and turn off
       if (_vehicleState == ControlState.isNull && theEngineIsRunning) {
-        StartCoroutine("StartEngineCoroutine", false);
+        StartCoroutine(nameof(StartEngineCoroutine), false);
       }
       if (_vehicleState == ControlState.isPlayer) {
         float limit = 0.5f;
@@ -569,7 +570,7 @@ namespace MSVehicle {
               engineStartSoundAUD.PlayOneShot(engineStartSoundAUD.clip);
             }
             //
-            StartCoroutine("StartEngineCoroutine", true);
+            StartCoroutine(nameof(StartEngineCoroutine), true);
           }
         }
       }
@@ -603,18 +604,6 @@ namespace MSVehicle {
       VehicleRPMFunction();
       FuelManager();
       SpeedometerAndOthers();
-      //
-      if (_vehicleSettings.internalPlayerMesh) {
-        if (_vehicleState == ControlState.isPlayer) {
-          if (!_vehicleSettings.internalPlayerMesh.activeInHierarchy) {
-            _vehicleSettings.internalPlayerMesh.SetActive(true);
-          }
-        } else {
-          if (_vehicleSettings.internalPlayerMesh.activeInHierarchy) {
-            _vehicleSettings.internalPlayerMesh.SetActive(false);
-          }
-        }
-      }
     }
     void FixedUpdate() {
       CheckGroundedWheelsOnFixedUpdate();
@@ -2753,6 +2742,26 @@ namespace MSVehicle {
       }
     }
 
+    public float collisionTimeout = 0.8f;
+    public float lastCollisionTime = -1;
+    public Collision lastCollision;
+
+    public partial class VehicleCollisionEvent : UnityEvent<Collision> {
+      
+    }
+
+    public VehicleCollisionEvent OnCollision = new();
+
+    void HandleCollision(Collision collision) {
+      float timeSinceStartup = Time.realtimeSinceStartup;
+      if (timeSinceStartup < lastCollisionTime + collisionTimeout) {
+        return;
+      }
+      OnCollision.Invoke(collision);
+      lastCollision = collision;
+      lastCollisionTime = timeSinceStartup;
+    }
+
     void OnCollisionEnter(Collision collision) {
       if (collision.contacts.Length > 0) {
         if (collision.relativeVelocity.magnitude > 1) {
@@ -2761,6 +2770,7 @@ namespace MSVehicle {
             if (_sounds.collisionSounds.Length > 0) {
               beatsSoundAUD.clip = _sounds.collisionSounds[UnityEngine.Random.Range(0, _sounds.collisionSounds.Length)];
               beatsSoundAUD.PlayOneShot(beatsSoundAUD.clip);
+              HandleCollision(collision);
             }
           }
         }
@@ -2772,9 +2782,9 @@ namespace MSVehicle {
     public IEnumerator ChangeGears(int gear) {
       changinGears = true;
       if (gear == 1) {
-        lastKnownTorque = lastKnownTorque * 1.2f;
+        lastKnownTorque *= 1.2f;
       } else {
-        lastKnownTorque = lastKnownTorque * 0.8f;
+        lastKnownTorque *= 0.8f;
       }
       yield return new WaitForSeconds(_vehicleTorque.gearShiftTime);
       changinGears = false;

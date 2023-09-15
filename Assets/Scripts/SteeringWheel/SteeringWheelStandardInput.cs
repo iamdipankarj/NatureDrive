@@ -1,3 +1,4 @@
+using EVP;
 using System;
 using UnityEngine;
 
@@ -467,11 +468,88 @@ namespace Solace {
       UpdateWheelSettings();
     }
 
+    #region Force Feedback
+
+    [SerializeField][Range(0, 100)] private float _lowSpeedFrictionForce;
+    [SerializeField][Range(0, 100)] private float _totalForce = 0;
+    [SerializeField][Range(0, 100)] private float _satForce;
+    [SerializeField][Range(0, 100)] private float _frictionForce;
+    [SerializeField][Range(0, 100)] private float _centeringForce;
+
+    // Vehicle-specific coefficients
+    private float _overallCoeff = 1f;
+    private float _frictionCoeff = 1f;
+    private float _lowSpeedFrictionCoeff = 1f;
+    private float _satCoeff = 1f;
+    private float _centeringCoeff = 1f;
+    private float _totalForceVelocity;
+
+    private void SW_FFB(SteeringWheelVehicleData data) {
+      float newTotalForce = 0;
+
+      // Self Aligning Torque
+      float leftFactor = data.leftWheelLoad/ 12000f * data.leftWheelFrictionPresetZ;
+      float rightFactor = data.rightWheelLoad / 12000f * data.rightWheelFrictionPresetZ;
+      float combinedFactor = leftFactor + rightFactor;
+      float totalSlip = data.leftWheelLateralSlip * leftFactor + data.rightWheelLongitudinalSlip * rightFactor;
+      float absSlip = totalSlip < 0 ? -totalSlip : totalSlip;
+      float slipSign = totalSlip < 0 ? -1f : 1f;
+      _satForce = slipSATCurve.Evaluate(absSlip * slipMultiplier) * -slipSign * maxSatForce * combinedFactor * _satCoeff;
+      newTotalForce += Mathf.Lerp(0f, _satForce, data.vehicleSpeed - 0.4f);
+
+      // Determine target center  position (changes with spring compression)
+      _centerPosition = ((data.rightWheelSpringLength / data.rightWheelSpringMaxLength) - (data.leftWheelSpringLength / data.leftWheelSpringMaxLength)) * centerPositionDrift;
+
+      // Calculate centering force
+      _centeringForce = (steeringInput - _centerPosition) * centeringForceStrength * _centeringCoeff;
+      newTotalForce += _centeringForce;
+
+      // Low speed friction
+      _lowSpeedFrictionForce = Mathf.Lerp(lowSpeedFriction, 0, data.vehicleSpeed - 0.2f) * _lowSpeedFrictionCoeff;
+
+      // Friction 
+      _frictionForce = friction * _frictionCoeff;
+
+      // Apply friction
+      LogitechGSDK.LogiPlayDamperForce(0, (int)(_lowSpeedFrictionForce + _frictionForce));
+
+      newTotalForce *= overallEffectStrength * _overallCoeff;
+      if (smoothing < 0.001f) {
+        _totalForce = newTotalForce;
+      } else {
+        _totalForce = Mathf.SmoothDamp(_totalForce, newTotalForce, ref _totalForceVelocity, smoothing);
+      }
+
+      AddForce(_totalForce);
+
+      _prevSteering = steeringInput;
+    }
+
+    #endregion
+
+    public void PlayCollision(int strength) {
+      LogitechGSDK.LogiPlayFrontalCollisionForce(0, strength);
+    }
+
+    void AddForce(float force) {
+      LogitechGSDK.LogiPlayConstantForce(0, (int)force);
+    }
+
+    void ResetForce() {
+      LogitechGSDK.LogiStopConstantForce(0);
+    }
+
     protected void SW_Update() {
       if (IsDeviceConnected) {
         UpdateWheelSettings();
         GetWheelInputs();
         SetVehicleInputs();
+      }
+    }
+
+    protected void SW_FixedUpdate(SteeringWheelVehicleData data) {
+      if (IsDeviceConnected) {
+        SW_FFB(data);
       }
     }
 

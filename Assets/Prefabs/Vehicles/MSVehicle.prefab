@@ -1569,7 +1569,7 @@ MonoBehaviour:
     volumeOfTheEngineSound: 0.8
     engineSound: {fileID: 8300000, guid: f6b48cdf4f313e74499930b9ff7a4dcd, type: 3}
     engineSoundPosition: {fileID: 6160671910196582284}
-    engineStartSound: {fileID: 0}
+    engineStartSound: {fileID: 8300000, guid: bfb03fe6063145d4ca7285cc26d0c7ef, type: 3}
     blinkingSound: {fileID: 8300000, guid: 04603e04f2b7d4446a1cb9d516c84c69, type: 3}
     hornSound: {fileID: 8300000, guid: ff970aff0d56ce047a824f26af65adbc, type: 3}
     reverseSirenSound: {fileID: 0}
@@ -1704,6 +1704,8 @@ MonoBehaviour:
   horizontalInput: 0
   pitchAUDforRPM: 1
   previousDelayStartEngine: 1
+  fixedDeltaTime: 0
+  ms_Rigidbody: {fileID: 0}
   engineSoundAUD: {fileID: 0}
   engineStartSoundAUD: {fileID: 0}
   KMh: 0
@@ -1731,6 +1733,8 @@ MonoBehaviour:
   msvs_useExtraLights: 0
   msvs_useWarningOrFlashingLights: 0
   _vehicleState: 0
+  collisionTimeout: 0.8
+  lastCollisionTime: -1
 --- !u!114 &3616433685239986800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,16 +1882,16 @@ MonoBehaviour:
   friction: 16
   centeringForceStrength: 60
   centerPositionDrift: 0.4
-  axisResolution: 65536
   steeringAxis: 0
   throttleAxis: 1
-  throttleZeroToOne: 1
   brakeAxis: 5
-  brakeZeroToOne: 1
   clutchAxis: 2
-  clutchZeroToOne: 0
   handbrakeAxis: 40
-  handbrakeZeroToOne: 1
+  _lowSpeedFrictionForce: 0
+  _totalForce: 0
+  _satForce: 0
+  _frictionForce: 0
+  _centeringForce: 0
 --- !u!1 &1581106656347680402
 GameObject:
   m_ObjectHideFlags: 0

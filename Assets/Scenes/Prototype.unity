@@ -1651,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.554169
+      value: 0.55416894
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1659,11 +1659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8291468
+      value: 0.82914674
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.061165497
+      value: -0.061165504
       objectReference: {fileID: 0}
     - target: {fileID: 3405363503857725385, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_Name
@@ -2874,7 +2874,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 287225363064188529, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1220903671460710833, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_Name
@@ -2884,6 +2884,14 @@ PrefabInstance:
       propertyPath: SkidMarksContainer
       value: 
       objectReference: {fileID: 392126314}
+    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
+      propertyPath: _vehicleSettings.startOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989804080704241523, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
+      propertyPath: _vehicleSettings.delayToStartTheEngine
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4682524627559718531, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.47

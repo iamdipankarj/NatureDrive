@@ -24,6 +24,15 @@ namespace MSVehicle {
     }
 
     private void FixedUpdate() {
+      vehicleData.vehicleSpeed = vc.KMh;
+      SW_FixedUpdate(vehicleData);
+
+      if (vc != null) {
+        if (vc.lastCollisionTime + 0.3f > Time.realtimeSinceStartup) {
+          int strength = (int)(vc.lastCollision.impulse.magnitude / (vc.fixedDeltaTime * vc.ms_Rigidbody.mass * 5f));
+          base.PlayCollision(strength);
+        }
+      }
     }
   }
 }

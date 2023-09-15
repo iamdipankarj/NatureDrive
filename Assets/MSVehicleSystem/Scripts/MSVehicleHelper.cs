@@ -284,11 +284,6 @@ namespace MSVehicle {
     public float vehicleRPMValue;
     [HideInInspector]
     public AnimationCurve rpmCurve;
-
-    [Space(5)]
-    [Header("Player mesh")]
-    [Tooltip("If there is an object to represent the driver inside the vehicle, this object must be associated with this variable to be activated or deactivated automatically when someone is controlling the vehicle.")]
-    public GameObject internalPlayerMesh;
   }
 
   [Serializable]
