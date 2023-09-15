@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Checkpoint
+  - Vehicle
+  - CMFreeLook
   layers:
   - Default
   - TransparentFX

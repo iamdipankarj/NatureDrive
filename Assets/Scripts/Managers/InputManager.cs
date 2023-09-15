@@ -34,6 +34,10 @@ namespace Solace {
     public delegate void CinematicModeAction(bool isPressing);
     public static event CinematicModeAction DidUseCinematicMode;
 
+    // Camera Switch
+    public delegate void CameraSwitchAction();
+    public static event CameraSwitchAction DidSwitchCamera;
+
     // Input Device Events
     // Disconnect
     public delegate void DeviceDisconnectAction();
@@ -104,6 +108,10 @@ namespace Solace {
       DidUseCinematicMode?.Invoke(false);
     }
 
+    private void OnCameraSwitchPerformed(InputAction.CallbackContext context) {
+      DidSwitchCamera?.Invoke();
+    }
+
     private void InputSystemOnDeviceChange(InputDevice device, InputDeviceChange deviceChange) {
       if (deviceChange == InputDeviceChange.Removed || deviceChange == InputDeviceChange.Disconnected) {
         DidDeviceDisconnect?.Invoke();
@@ -121,6 +129,8 @@ namespace Solace {
       controls.Car.Steer.performed += OnVehicleSteerPerformed;
       controls.Car.Steer.canceled += OnVehicleSteerCanceled;
       controls.Car.Look.performed += OnVehicleLook;
+
+      controls.Car.SwitchCamera.performed += OnCameraSwitchPerformed;
 
       controls.Car.Throttle.performed += OnVehicleAccelerate;
       controls.Car.Throttle.canceled += OnVehicleAccelerateCanceled;
@@ -143,6 +153,8 @@ namespace Solace {
       controls.Car.Steer.performed -= OnVehicleSteerPerformed;
       controls.Car.Steer.canceled -= OnVehicleSteerCanceled;
       controls.Car.Look.performed -= OnVehicleLook;
+
+      controls.Car.SwitchCamera.performed -= OnCameraSwitchPerformed;
 
       controls.Car.Throttle.performed -= OnVehicleAccelerate;
       controls.Car.Throttle.canceled -= OnVehicleAccelerateCanceled;
