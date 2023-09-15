@@ -73,10 +73,12 @@
     <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\DjangoVehicleController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
+    <Compile Include="Assets\Scripts\SteeringWheel\ForceFeedbackSettings.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
     <Compile Include="Assets\ColorBlind\ColorBlindFilter.cs" />
@@ -115,11 +117,13 @@
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelStandardInput.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleCameraController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\GroundMaterialManager.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleHelper.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\EVP5\Scripts\Extra\RigidbodyImpulse.cs" />
     <Compile Include="Assets\Scripts\Managers\TagManager.cs" />

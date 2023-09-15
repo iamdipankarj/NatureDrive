@@ -603,6 +603,7 @@ GameObject:
   - component: {fileID: 3616433685239986800}
   - component: {fileID: 4479533102941750658}
   - component: {fileID: 2544329804019861930}
+  - component: {fileID: 2120587494028562285}
   m_Layer: 1
   m_Name: MSVehicle
   m_TagString: Untagged
@@ -1792,6 +1793,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cockpitCamera: {fileID: 2701305170898128934}
   leftWheelCamera: {fileID: 8344599790654364206}
+--- !u!114 &2120587494028562285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220903671460710833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b59bf0476386a64d93e0c559a5cca06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steeringSensitivity: 1
 --- !u!1 &1581106656347680402
 GameObject:
   m_ObjectHideFlags: 0
