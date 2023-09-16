@@ -95,7 +95,7 @@ public class TireMarksRenderer : MonoBehaviour
 
 		if (maxMarks < 10) maxMarks = 10;
 
-		// Initialize mark points array
+		// SW_Initialize mark points array
 
 		m_markPoints = new MarkPoint[maxMarks*2];
 		for (int i = 0, c = m_markPoints.Length; i < c; i++)
@@ -104,7 +104,7 @@ public class TireMarksRenderer : MonoBehaviour
 		m_markCount = 0;
 		m_markArraySize = m_markPoints.Length;
 
-		// Initialize the mesh source arrays.
+		// SW_Initialize the mesh source arrays.
 		// These will be edited and passed to the mesh filter in runtime.
 
 		m_vertices = new Vector3[maxMarks * 4];
@@ -137,7 +137,7 @@ public class TireMarksRenderer : MonoBehaviour
 			m_triangles[i * 6 + 4] = i * 4 + 3;
 			}
 
-		// Initialize the mesh
+		// SW_Initialize the mesh
 
 		m_mesh = new Mesh();
 		m_mesh.MarkDynamic();

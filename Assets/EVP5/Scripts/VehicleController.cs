@@ -311,7 +311,7 @@ namespace EVP {
       m_vehicleFrame = ComputeVehicleFrame();
       ConfigureCenterOfMass();
 
-      // Initialize wheel data
+      // SW_Initialize wheel data
 
       m_usesHandbrake = false;
 
@@ -363,7 +363,7 @@ namespace EVP {
         wheel.wheelCollider.ConfigureVehicleSubsteps(1000.0f, 1, 1);
       }
 
-      // Initialize other data
+      // SW_Initialize other data
 
       m_lastImpactedMaterial = new PhysicMaterial();  // A new reference to ensure cache missmatch at the first query
     }

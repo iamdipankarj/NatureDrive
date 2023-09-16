@@ -126,7 +126,7 @@ namespace Solace {
       // Hide Cursor
       CursorManager.LockCursor();
 
-      // Initialize the inputs
+      // SW_Initialize the inputs
       controller = GetComponent<R2VehicleInput>();
 
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this

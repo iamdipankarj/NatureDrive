@@ -463,7 +463,7 @@ namespace Solace {
       LogitechGSDK.LogiSetPreferredControllerProperties(currentProperties);
     }
 
-    public virtual void Initialize() {
+    protected void SW_Initialize() {
       LogitechGSDK.LogiSteeringInitialize(false);
       UpdateWheelSettings();
     }

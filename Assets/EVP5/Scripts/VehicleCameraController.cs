@@ -587,7 +587,7 @@ public class VehicleCameraController : MonoBehaviour
 		{
 		m_transform = GetComponent<Transform>();
 
-		// Initialize the array with the camera modes.
+		// SW_Initialize the array with the camera modes.
 		// Must be the same length as the Mode enum.
 
 		m_cameraModes = new CameraMode[]
@@ -595,7 +595,7 @@ public class VehicleCameraController : MonoBehaviour
 			attachTo, smoothFollow, mouseOrbit, lookAt, free
 			};
 
-		// Initialize all modes
+		// SW_Initialize all modes
 
 		foreach (CameraMode cam in m_cameraModes)
 			{

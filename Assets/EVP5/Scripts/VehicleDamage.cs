@@ -105,7 +105,7 @@ public class VehicleDamage : MonoBehaviour
 			m_originalNodeRotations[i] = nodes[i].transform.localRotation;
 			}
 
-		// Initialize damage levels
+		// SW_Initialize damage levels
 
 		m_repairing = false;
 		m_meshDamage = 0.0f;

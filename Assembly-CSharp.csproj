@@ -79,6 +79,7 @@
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLCD.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSSteeringWheelInput.cs" />
+    <Compile Include="Assets\Scripts\Vehicles\RumbleStandardInput.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\ForceFeedbackSettings.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
@@ -103,8 +104,8 @@
     <Compile Include="Assets\EVP5\Scripts\VehicleManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleStandardInput.cs" />
+    <Compile Include="Assets\MSVehicleSystem\Scripts\MSRumbleInput.cs" />
     <Compile Include="Assets\EVP5\Scripts\Ground Materials\TireMarksRenderer.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\RumbleInputController.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
     <Compile Include="Assets\EVP5\Scripts\Tools\CommonTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\VehicleDamage.cs" />
