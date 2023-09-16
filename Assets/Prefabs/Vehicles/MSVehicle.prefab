@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 2544329804019861930}
   - component: {fileID: 4709726519182030555}
   - component: {fileID: 287225363064188529}
+  - component: {fileID: 5248238990556179051}
   m_Layer: 1
   m_Name: MSVehicle
   m_TagString: Untagged
@@ -1324,7 +1325,7 @@ MonoBehaviour:
     startOn: 1
     startBraking: 0
     turnOnWhenAccelerating: 1
-    delayToStartTheEngine: 1.5
+    delayToStartTheEngine: 0.1
     engineDie: 1
     minVehicleRPM: 850
     maxVehicleRPM: 7000
@@ -1335,7 +1336,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    internalPlayerMesh: {fileID: 0}
   _steeringWheel:
     steeringWheelSpeed: 1.75
     maxAngle: 23
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220903671460710833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625ab69281f072e45b2a924cfe1e696c, type: 3}
   m_Name: 
@@ -1892,6 +1892,18 @@ MonoBehaviour:
   _satForce: 0
   _frictionForce: 0
   _centeringForce: 0
+--- !u!114 &5248238990556179051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220903671460710833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719dcf4e4e87e134ba16b5a0749ef21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581106656347680402
 GameObject:
   m_ObjectHideFlags: 0
