@@ -53,13 +53,6 @@ namespace NSVehicle
             }
 
             GUILayout.Space(15);
-            GUILayout.Label("Also, don't forget to join us at Discord:", EditorStyles.centeredGreyMiniLabel);
-            if (GUILayout.Button("Discord Server"))
-            {
-                Application.OpenURL(assetInfo.discordURL);
-            }
-
-            GUILayout.Space(15);
             GUILayout.Label("Don't have Discord? You can also contact us through:", EditorStyles.centeredGreyMiniLabel);
 
             if (GUILayout.Button("Email"))

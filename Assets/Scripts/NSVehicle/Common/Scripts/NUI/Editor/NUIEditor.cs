@@ -1,42 +1,40 @@
 #if UNITY_EDITOR
 using UnityEditor;
 
-namespace NSVehicle {
-  [CanEditMultipleObjects]
-  public class NUIEditor : Editor {
-    public NUIDrawer drawer = new NUIDrawer();
+using NSVehicle;
+public class NUIEditor : Editor {
+  public NUIDrawer drawer = new NUIDrawer();
 
 
-    public override void OnInspectorGUI() {
-      OnInspectorNUI();
+  public override void OnInspectorGUI() {
+    OnInspectorNUI();
+  }
+
+
+  public virtual bool OnInspectorNUI() {
+    if (drawer == null) {
+      drawer = new NUIDrawer();
     }
 
+    drawer.documentationBaseURL = GetDocumentationBaseURL();
 
-    public virtual bool OnInspectorNUI() {
-      if (drawer == null) {
-        drawer = new NUIDrawer();
-      }
-
-      drawer.documentationBaseURL = GetDocumentationBaseURL();
-
-      drawer.BeginEditor(serializedObject);
-      if (!drawer.Header(serializedObject.targetObject.GetType().Name)) {
-        drawer.EndEditor();
-        return false;
-      }
-
-      return true;
-    }
-
-
-    public virtual string GetDocumentationBaseURL() {
-      return "http://solacegame.com";
-    }
-
-
-    public override bool UseDefaultMargins() {
+    drawer.BeginEditor(serializedObject);
+    if (!drawer.Header(serializedObject.targetObject.GetType().Name)) {
+      drawer.EndEditor();
       return false;
     }
+
+    return true;
+  }
+
+
+  public virtual string GetDocumentationBaseURL() {
+    return "http://solacegame.com";
+  }
+
+
+  public override bool UseDefaultMargins() {
+    return false;
   }
 }
 
