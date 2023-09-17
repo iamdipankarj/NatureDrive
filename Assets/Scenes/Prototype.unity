@@ -2811,6 +2811,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 287225363064188529, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1220903671460710833, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_Name
       value: MSVehicle
@@ -2858,6 +2862,10 @@ PrefabInstance:
     - target: {fileID: 4682524627559718531, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248238990556179051, guid: 791170784397a66419eba9b4932e2f8f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

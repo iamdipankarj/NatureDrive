@@ -58,11 +58,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\Demo\Editor\RigidbodyFPSControllerEditor.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\InspectorTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\VehicleStandardInputInspector.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\NUIEditor.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\NUIPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\SerializedPropertyHelper.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\AssetInfo\Editor\CommonInitializationMethods.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\WheelController\Scripts\Editor\InitializationMethodsWC3D.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\NUIDrawer.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\Demo\Editor\DragObjectEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\AssetInfo\Editor\WelcomeMessageWindow.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\NUISettings.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\VehicleControllerInspector.cs" />
+    <Compile Include="Assets\Scripts\NSVehicle\Common\Scripts\NUI\Editor\EditorCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
