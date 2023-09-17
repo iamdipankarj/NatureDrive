@@ -29,7 +29,7 @@ namespace NSVehicle
         /// </summary>
         [Range(0.0f, 2f)]
         [FormerlySerializedAs("forceCoefficient")]
-        [UnityEngine.Tooltip("    Multiplies the Y value (grip) of the friction graph.\r\n    Formerly known as 'forceCoefficient'.")]
+        [Tooltip("Multiplies the Y value (grip) of the friction graph.\r\n    Formerly known as 'forceCoefficient'.")]
         public float grip = 1f;
 
 
@@ -39,7 +39,7 @@ namespace NSVehicle
         /// </summary>
         [Range(0.0f, 2f)]
         [FormerlySerializedAs("slipCoefficient")]
-        [UnityEngine.Tooltip("    Mutliplies the X value (slip) of the friction graph.\r\n    Formerly known as 'slipCoefficient'.")]
+        [Tooltip("Mutliplies the X value (slip) of the friction graph.\r\n    Formerly known as 'slipCoefficient'.")]
         public float stiffness = 1f;
 
 

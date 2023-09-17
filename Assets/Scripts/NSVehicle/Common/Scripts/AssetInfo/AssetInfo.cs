@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace NSVehicle {
-  [CreateAssetMenu(fileName = "AssetInfo", menuName = "NWH/AssetInfo", order = 0)]
+  [CreateAssetMenu(fileName = "AssetInfo", menuName = "NSVehicle/AssetInfo", order = 0)]
   public class AssetInfo : ScriptableObject {
     public string assetName = "Asset";
     public string version = "1.0";
@@ -9,9 +9,8 @@ namespace NSVehicle {
     public string changelogURL = "";
     public string quickStartURL = "";
     public string documentationURL = "";
-    public string discordURL = "https://discord.gg/59CQGEJ";
     public string forumURL = "";
-    public string emailURL = "mailto:arescec@gmail.com";
-    public string assetURL = "https://assetstore.unity.com/packages/tools/physics/nwh-vehicle-physics-2-166252";
+    public string emailURL = "iamdipankarj@gmail.com";
+    public string assetURL = "https://solacegame.com/";
   }
 }

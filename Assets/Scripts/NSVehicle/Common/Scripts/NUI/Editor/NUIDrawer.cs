@@ -20,9 +20,9 @@ namespace NSVehicle
             Editor,
         }
 
-        public string documentationBaseURL = "http://nwhvehiclephysics.com/doku.php/";
+        public string documentationBaseURL = "http://solacegame.com";
 
-        public Rect positionRect = new Rect(-1, -1, -1, -1);
+        public Rect positionRect = new(-1, -1, -1, -1);
         public SerializedObject serializedObject;
         public SerializedProperty serializedProperty;
         public float totalHeight;
@@ -81,7 +81,7 @@ namespace NSVehicle
         public static void SetTabIndex(string tabName, int value)
         {
             //EditorCache.SetCachedValue("tabIndex", value, tabName);
-            EditorPrefs.SetInt("NWH" + tabName, value);
+            EditorPrefs.SetInt("NSVehicle" + tabName, value);
         }
 
 
@@ -487,7 +487,7 @@ namespace NSVehicle
 
         public int GetTabIndex(string tabName)
         {
-            return EditorPrefs.GetInt("NWH" + tabName, 0);
+            return EditorPrefs.GetInt("NSVehicle" + tabName, 0);
         }
 
 

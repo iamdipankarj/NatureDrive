@@ -74,13 +74,13 @@ namespace NSVehicle {
     /// <summary>
     /// When the location is Near, the player can enter the vehicle.
     /// </summary>
-    [UnityEngine.Tooltip("When the location is Near, the player can enter the vehicle.")]
+    [Tooltip("When the location is Near, the player can enter the vehicle.")]
     public CharacterLocation location = CharacterLocation.OutOfRange;
 
     /// <summary>
     /// Should the player start inside the vehicle?
     /// </summary>
-    [UnityEngine.Tooltip("Should the player start inside the vehicle?")]
+    [Tooltip("Should the player start inside the vehicle?")]
     public bool startInVehicle = false;
 
     public UnityEvent onVehicleChanged = new UnityEvent();

@@ -23,7 +23,7 @@ namespace NSVehicle
 
         public virtual string GetDocumentationBaseURL()
         {
-            return "http://nwhvehiclephysics.com/doku.php/";
+            return "http://solacegame.com";
         }
 
 

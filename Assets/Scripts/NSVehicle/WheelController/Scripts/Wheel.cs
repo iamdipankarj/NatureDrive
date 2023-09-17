@@ -23,44 +23,44 @@ namespace NSVehicle
         /// Chached value for visual.transform to avoid overhead.
         /// Visual should have been a Transform from the start, but for backwards-compatibility it was left as a GameObject.
         /// </summary>
-        [UnityEngine.Tooltip("Chached value for visual.transform to avoid overhead.\r\nVisual should have been a Transform from the start, but for backwards-compatibility it was left as a GameObject.")]
+        [Tooltip("Chached value for visual.transform to avoid overhead.\r\nVisual should have been a Transform from the start, but for backwards-compatibility it was left as a GameObject.")]
         public Transform visualTransform;
 
         /// <summary>
         /// Object containing the wheel MeshColliders.
         /// </summary>
-        [UnityEngine.Tooltip("Object containing the wheel MeshColliders.")]
+        [Tooltip("Object containing the wheel MeshColliders.")]
         public GameObject colliderGO;
 
         /// <summary>
         /// Cached value of colliderGO.transform.
         /// </summary>
-        [UnityEngine.Tooltip("Cached value of colliderGO.transform.")]
+        [Tooltip("Cached value of colliderGO.transform.")]
         public Transform colliderTransform;
 
         /// <summary>
         /// Collider covering the top half of the wheel. 
         /// </summary>
-        [UnityEngine.Tooltip("Collider covering the top half of the wheel. ")]
+        [Tooltip("Collider covering the top half of the wheel. ")]
         public MeshCollider topMeshCollider;
 
         /// <summary>
         /// Collider covering the bottom half of the wheel. 
         /// Active only is cases of side collision, bottoming out and native friction.
         /// </summary>
-        [UnityEngine.Tooltip("Collider covering the bottom half of the wheel. \r\nActive only is cases of side collision, bottoming out and native friction.")]
+        [Tooltip("Collider covering the bottom half of the wheel. \r\nActive only is cases of side collision, bottoming out and native friction.")]
         public MeshCollider bottomMeshCollider;
 
         /// <summary>
         /// ID of the bottom collider.
         /// </summary>
-        [UnityEngine.Tooltip("ID of the bottom collider.")]
+        [Tooltip("ID of the bottom collider.")]
         public int bottomMeshColliderID;
 
         /// <summary>
         /// ID of the top collider.
         /// </summary>
-        [UnityEngine.Tooltip("ID of the top collider.")]
+        [Tooltip("ID of the top collider.")]
         public int topMeshColliderID;
 
         /// <summary>
@@ -168,21 +168,21 @@ namespace NSVehicle
         ///     Position of the wheel in the previous physics update in world coordinates.
         /// </summary>
         [NonSerialized]
-        [UnityEngine.Tooltip("    Position of the wheel in the previous physics update in world coordinates.")]
+        [Tooltip("Position of the wheel in the previous physics update in world coordinates.")]
         public Vector3 prevWorldPosition;
 
         /// <summary>
         ///     Position of the wheel relative to the WheelController transform.
         /// </summary>
         [NonSerialized]
-        [UnityEngine.Tooltip("    Position of the wheel relative to the WheelController transform.")]
+        [Tooltip("Position of the wheel relative to the WheelController transform.")]
         public Vector3 localPosition;
 
         /// <summary>
         ///     Angular velocity during the previus FixedUpdate().
         /// </summary>
         [NonSerialized]
-        [UnityEngine.Tooltip("    Angular velocity during the previus FixedUpdate().")]
+        [Tooltip("Angular velocity during the previus FixedUpdate().")]
         public float prevAngularVelocity;
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace NSVehicle
         /// Called when either radius or width of the wheel change.
         /// </summary>
         [NonSerialized]
-        [UnityEngine.Tooltip("Called when either radius or width of the wheel change.")]
+        [Tooltip("Called when either radius or width of the wheel change.")]
         public UnityEvent onWheelDimensionsChange = new UnityEvent();
 
 

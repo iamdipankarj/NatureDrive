@@ -19,7 +19,7 @@ namespace NSVehicle
         /// <summary>
         /// The state the spring is in.
         /// </summary>
-        [UnityEngine.Tooltip("The state the spring is in.")]
+        [Tooltip("The state the spring is in.")]
         public ExtensionState extensionState = ExtensionState.Normal;
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace NSVehicle
         /// <summary>
         ///     Length of the spring during the previous physics update.
         /// </summary>
-        [UnityEngine.Tooltip("    Length of the spring during the previous physics update.")]
+        [Tooltip("Length of the spring during the previous physics update.")]
         public float prevLength;
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace NSVehicle
         /// <summary>
         /// Velocity of the spring in the previous frame.
         /// </summary>
-        [UnityEngine.Tooltip("Velocity of the spring in the previous frame.")]
+        [Tooltip("Velocity of the spring in the previous frame.")]
         public float prevVelocity;
     }
 }

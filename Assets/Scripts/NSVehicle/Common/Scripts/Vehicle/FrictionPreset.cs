@@ -12,7 +12,7 @@ namespace NSVehicle
     ///     ScriptableObject holding friction settings for one surface type.
     /// </summary>
     [Serializable]
-    [CreateAssetMenu(fileName = "NWH Vehicle Physics 2", menuName = "NWH/Vehicle Physics 2/Friction Preset", order = 1)]
+    [CreateAssetMenu(fileName = "NSVehicle Vehicle Physics", menuName = "NSVehicle/Vehicle Physics/Friction Preset", order = 1)]
     public class FrictionPreset : ScriptableObject
     {
         public const int LUT_RESOLUTION = 1000;
@@ -26,7 +26,7 @@ namespace NSVehicle
         /// <summary>
         /// Slip at which the friction preset has highest friction.
         /// </summary>
-        [UnityEngine.Tooltip("Slip at which the friction preset has highest friction.")]
+        [Tooltip("Slip at which the friction preset has highest friction.")]
         public float peakSlip = 0.12f;
 
         [SerializeField]

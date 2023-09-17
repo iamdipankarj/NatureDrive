@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace NSVehicle {
   /// <summary>
-  ///     Base class for all NWH vehicles.
+  ///     Base class for all NSVehicle vehicles.
   /// </summary>
   [DisallowMultipleComponent]
   [RequireComponent(typeof(Rigidbody))]
@@ -12,7 +12,7 @@ namespace NSVehicle {
     /// <summary>
     ///     Cached value of vehicle rigidbody.
     /// </summary>
-    [UnityEngine.Tooltip("    Cached value of vehicle rigidbody.")]
+    [Tooltip("Cached value of vehicle rigidbody.")]
     [NonSerialized]
     public Rigidbody vehicleRigidbody;
 

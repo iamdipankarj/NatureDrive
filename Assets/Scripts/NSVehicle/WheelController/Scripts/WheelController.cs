@@ -52,8 +52,7 @@ namespace NSVehicle
         ///     Motor torque applied to the wheel in Nm.
         ///     Can be positive or negative.
         /// </summary>
-        [Tooltip(
-            "Motor torque applied to the wheel. Since NWH Vehicle Physics 2 the value is readonly and setting it will have no effect\r\nsince torque calculation is done inside powertrain solver.")]
+        [Tooltip("Motor torque applied to the wheel. Since NSVehicle Vehicle Physics 2 the value is readonly and setting it will have no effect\r\nsince torque calculation is done inside powertrain solver.")]
         private float motorTorque;
 
         /// <summary>

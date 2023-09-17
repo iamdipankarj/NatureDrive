@@ -5,7 +5,7 @@ namespace NSVehicle {
   public class InitializationMethodsNVP2 : CommonInitializationMethods {
     [InitializeOnLoadMethod]
     static void AddWC3DDefines() {
-      AddDefines("NWH_WC3D");
+      AddDefines("NSVehicle_WC3D");
     }
 
     [InitializeOnLoadMethod]
