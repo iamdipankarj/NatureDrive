@@ -11,7 +11,7 @@ namespace Solace {
     private float clampedSpeed = 0f;
     private System.Random random;
     private Coroutine RumbleCoroutine;
-    private bool isRumbleEnabled = false;
+    private bool isRumbleEnabled = true;
 
     public float GetRandomFloat(float minimum, float maximum) {
       return (float)(random.NextDouble() * (maximum - minimum) + minimum);
@@ -64,7 +64,6 @@ namespace Solace {
 
     protected void RMB_Initialize() {
       random = new();
-      isRumbleEnabled = SettingsManager.instance.GetVibrationEnabled();
       pad = Gamepad.current;
     }
 

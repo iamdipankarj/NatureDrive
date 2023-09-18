@@ -1,0 +1,16 @@
+{
+    "name": "EVP",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9f27e6e536098fc4e87bf7b8073b512a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -58,10 +58,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Input\RumbleStandardInput.cs" />
+    <Compile Include="Assets\Scripts\Input\PrometeoVehicleInput.cs" />
+    <Compile Include="Assets\Scripts\Input\VehicleStandardInput.cs" />
     <Compile Include="Assets\Scripts\Input\SolaceInputActions.cs" />
+    <Compile Include="Assets\Scripts\Input\InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Input\SolaceInput.asmdef" />
+    <None Include="Assets\Scripts\Input\Solace.Input.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
