@@ -111,6 +111,14 @@ namespace Solace {
     public delegate void ShiftInto6Action();
     public static event ShiftInto6Action DidShiftInto6;
 
+    // Shift to 7
+    public delegate void ShiftInto7Action();
+    public static event ShiftInto7Action DidShiftInto7;
+
+    // Shift to 8
+    public delegate void ShiftInto8Action();
+    public static event ShiftInto8Action DidShiftInto8;
+
     // Pause
     public delegate void PauseAction();
     public static event PauseAction DidPause;
@@ -249,6 +257,14 @@ namespace Solace {
       DidShiftInto6?.Invoke();
     }
 
+    private void OnShiftInto7(InputAction.CallbackContext context) {
+      DidShiftInto7?.Invoke();
+    }
+
+    private void OnShiftInto8(InputAction.CallbackContext context) {
+      DidShiftInto8?.Invoke();
+    }
+
     private void OnLeftBlinker(InputAction.CallbackContext context) {
       DidLeftBlinker?.Invoke();
     }
@@ -314,7 +330,7 @@ namespace Solace {
       controls.Car.HandBrake.performed += OnVehicleHandBrakePress;
       controls.Car.HandBrake.canceled += OnVehicleHandBrakeRelease;
 
-      controls.Car.EngineSrartStop.performed += OnVehicleStartStop;
+      controls.Car.EngineStartStop.performed += OnVehicleStartStop;
       controls.Car.Boost.performed += OnVehicleBoost;
       controls.Car.FlipOver.performed += OnVehicleFlipOver;
       controls.Car.CruiseControl.performed += OnCruiseControl;
@@ -332,6 +348,8 @@ namespace Solace {
       controls.Car.ShiftInto4.performed += OnShiftInto4;
       controls.Car.ShiftInto5.performed += OnShiftInto5;
       controls.Car.ShiftInto6.performed += OnShiftInto6;
+      controls.Car.ShiftInto7.performed += OnShiftInto7;
+      controls.Car.ShiftInto8.performed += OnShiftInto8;
 
       controls.Car.LeftBlinker.performed += OnLeftBlinker;
       controls.Car.RightBlinker.performed += OnRightBlinker;
@@ -366,7 +384,7 @@ namespace Solace {
       controls.Car.HandBrake.performed -= OnVehicleHandBrakePress;
       controls.Car.HandBrake.canceled -= OnVehicleHandBrakeRelease;
 
-      controls.Car.EngineSrartStop.performed -= OnVehicleStartStop;
+      controls.Car.EngineStartStop.performed -= OnVehicleStartStop;
       controls.Car.Boost.performed -= OnVehicleBoost;
       controls.Car.FlipOver.performed -= OnVehicleFlipOver;
       controls.Car.CruiseControl.performed -= OnCruiseControl;
@@ -384,6 +402,8 @@ namespace Solace {
       controls.Car.ShiftInto4.performed -= OnShiftInto4;
       controls.Car.ShiftInto5.performed -= OnShiftInto5;
       controls.Car.ShiftInto6.performed -= OnShiftInto6;
+      controls.Car.ShiftInto7.performed -= OnShiftInto7;
+      controls.Car.ShiftInto8.performed -= OnShiftInto8;
 
       controls.Car.LeftBlinker.performed -= OnLeftBlinker;
       controls.Car.RightBlinker.performed -= OnRightBlinker;

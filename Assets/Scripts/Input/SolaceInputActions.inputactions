@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "EngineSrartStop",
+                    "name": "EngineStartStop",
                     "type": "Button",
                     "id": "74857e3e-8c1e-47ea-af61-b5d382a25bf0",
                     "expectedControlType": "Button",
@@ -213,6 +213,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ShiftInto7",
+                    "type": "Button",
+                    "id": "76996fc1-b15b-4d57-9e9a-c033a932777b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShiftInto8",
+                    "type": "Button",
+                    "id": "b6c3f626-1caf-4b18-a4a4-aff25a84ae9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "FlipOver",
                     "type": "Button",
                     "id": "3310a7a8-d842-400e-8e8c-1620638bff5a",
@@ -252,6 +270,24 @@
                     "name": "HighBeamLights",
                     "type": "Button",
                     "id": "78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExtraLights",
+                    "type": "Button",
+                    "id": "fdeaed87-06b4-4d0c-8b24-e64148f7665d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TrailerAttachDetach",
+                    "type": "Button",
+                    "id": "f1df26b9-3772-45b8-8715-7bf375fc521f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1377,7 +1413,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "EngineSrartStop",
+                    "action": "EngineStartStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1388,7 +1424,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "EngineSrartStop",
+                    "action": "EngineStartStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1399,7 +1435,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "EngineSrartStop",
+                    "action": "EngineStartStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1410,7 +1446,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "EngineSrartStop",
+                    "action": "EngineStartStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1543,6 +1579,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "HighBeamLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0144152b-e363-4f3b-817f-e55ca7fd4b7e",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftInto7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9f80cef-a318-4c8e-9d22-bb210c00b687",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftInto7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39ee2e1c-692e-4100-9c8f-edf71a89fb3d",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftInto8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddbca50c-5d6b-4eaf-9ee2-c8b2acaa12fb",
+                    "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftInto8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b80c36ed-5b68-4b45-a984-f0a96bb56fdc",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtraLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88976b48-9d08-4f7f-9cbd-b690bb2e22c3",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrailerAttachDetach",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -73,7 +73,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""EngineSrartStop"",
+                    ""name"": ""EngineStartStop"",
                     ""type"": ""Button"",
                     ""id"": ""74857e3e-8c1e-47ea-af61-b5d382a25bf0"",
                     ""expectedControlType"": ""Button"",
@@ -235,6 +235,24 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ShiftInto7"",
+                    ""type"": ""Button"",
+                    ""id"": ""76996fc1-b15b-4d57-9e9a-c033a932777b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShiftInto8"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6c3f626-1caf-4b18-a4a4-aff25a84ae9b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""FlipOver"",
                     ""type"": ""Button"",
                     ""id"": ""3310a7a8-d842-400e-8e8c-1620638bff5a"",
@@ -274,6 +292,24 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""HighBeamLights"",
                     ""type"": ""Button"",
                     ""id"": ""78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExtraLights"",
+                    ""type"": ""Button"",
+                    ""id"": ""fdeaed87-06b4-4d0c-8b24-e64148f7665d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TrailerAttachDetach"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1df26b9-3772-45b8-8715-7bf375fc521f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1399,7 +1435,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""EngineSrartStop"",
+                    ""action"": ""EngineStartStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1410,7 +1446,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""EngineSrartStop"",
+                    ""action"": ""EngineStartStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1421,7 +1457,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""EngineSrartStop"",
+                    ""action"": ""EngineStartStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1432,7 +1468,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""EngineSrartStop"",
+                    ""action"": ""EngineStartStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1565,6 +1601,72 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HighBeamLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0144152b-e363-4f3b-817f-e55ca7fd4b7e"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftInto7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9f80cef-a318-4c8e-9d22-bb210c00b687"",
+                    ""path"": ""<Keyboard>/numpad7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftInto7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39ee2e1c-692e-4100-9c8f-edf71a89fb3d"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftInto8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ddbca50c-5d6b-4eaf-9ee2-c8b2acaa12fb"",
+                    ""path"": ""<Keyboard>/numpad8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShiftInto8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b80c36ed-5b68-4b45-a984-f0a96bb56fdc"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExtraLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88976b48-9d08-4f7f-9cbd-b690bb2e22c3"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TrailerAttachDetach"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1861,7 +1963,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car_Brakes = m_Car.FindAction("Brakes", throwIfNotFound: true);
         m_Car_Look = m_Car.FindAction("Look", throwIfNotFound: true);
         m_Car_HandBrake = m_Car.FindAction("HandBrake", throwIfNotFound: true);
-        m_Car_EngineSrartStop = m_Car.FindAction("EngineSrartStop", throwIfNotFound: true);
+        m_Car_EngineStartStop = m_Car.FindAction("EngineStartStop", throwIfNotFound: true);
         m_Car_Clutch = m_Car.FindAction("Clutch", throwIfNotFound: true);
         m_Car_SwitchCamera = m_Car.FindAction("SwitchCamera", throwIfNotFound: true);
         m_Car_CinematicMode = m_Car.FindAction("CinematicMode", throwIfNotFound: true);
@@ -1879,11 +1981,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car_ShiftInto4 = m_Car.FindAction("ShiftInto4", throwIfNotFound: true);
         m_Car_ShiftInto5 = m_Car.FindAction("ShiftInto5", throwIfNotFound: true);
         m_Car_ShiftInto6 = m_Car.FindAction("ShiftInto6", throwIfNotFound: true);
+        m_Car_ShiftInto7 = m_Car.FindAction("ShiftInto7", throwIfNotFound: true);
+        m_Car_ShiftInto8 = m_Car.FindAction("ShiftInto8", throwIfNotFound: true);
         m_Car_FlipOver = m_Car.FindAction("FlipOver", throwIfNotFound: true);
         m_Car_Boost = m_Car.FindAction("Boost", throwIfNotFound: true);
         m_Car_CruiseControl = m_Car.FindAction("CruiseControl", throwIfNotFound: true);
         m_Car_LowBeamLights = m_Car.FindAction("LowBeamLights", throwIfNotFound: true);
         m_Car_HighBeamLights = m_Car.FindAction("HighBeamLights", throwIfNotFound: true);
+        m_Car_ExtraLights = m_Car.FindAction("ExtraLights", throwIfNotFound: true);
+        m_Car_TrailerAttachDetach = m_Car.FindAction("TrailerAttachDetach", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -1959,7 +2065,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_Brakes;
     private readonly InputAction m_Car_Look;
     private readonly InputAction m_Car_HandBrake;
-    private readonly InputAction m_Car_EngineSrartStop;
+    private readonly InputAction m_Car_EngineStartStop;
     private readonly InputAction m_Car_Clutch;
     private readonly InputAction m_Car_SwitchCamera;
     private readonly InputAction m_Car_CinematicMode;
@@ -1977,11 +2083,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_ShiftInto4;
     private readonly InputAction m_Car_ShiftInto5;
     private readonly InputAction m_Car_ShiftInto6;
+    private readonly InputAction m_Car_ShiftInto7;
+    private readonly InputAction m_Car_ShiftInto8;
     private readonly InputAction m_Car_FlipOver;
     private readonly InputAction m_Car_Boost;
     private readonly InputAction m_Car_CruiseControl;
     private readonly InputAction m_Car_LowBeamLights;
     private readonly InputAction m_Car_HighBeamLights;
+    private readonly InputAction m_Car_ExtraLights;
+    private readonly InputAction m_Car_TrailerAttachDetach;
     public struct CarActions
     {
         private @SolaceInputActions m_Wrapper;
@@ -1991,7 +2101,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @Brakes => m_Wrapper.m_Car_Brakes;
         public InputAction @Look => m_Wrapper.m_Car_Look;
         public InputAction @HandBrake => m_Wrapper.m_Car_HandBrake;
-        public InputAction @EngineSrartStop => m_Wrapper.m_Car_EngineSrartStop;
+        public InputAction @EngineStartStop => m_Wrapper.m_Car_EngineStartStop;
         public InputAction @Clutch => m_Wrapper.m_Car_Clutch;
         public InputAction @SwitchCamera => m_Wrapper.m_Car_SwitchCamera;
         public InputAction @CinematicMode => m_Wrapper.m_Car_CinematicMode;
@@ -2009,11 +2119,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @ShiftInto4 => m_Wrapper.m_Car_ShiftInto4;
         public InputAction @ShiftInto5 => m_Wrapper.m_Car_ShiftInto5;
         public InputAction @ShiftInto6 => m_Wrapper.m_Car_ShiftInto6;
+        public InputAction @ShiftInto7 => m_Wrapper.m_Car_ShiftInto7;
+        public InputAction @ShiftInto8 => m_Wrapper.m_Car_ShiftInto8;
         public InputAction @FlipOver => m_Wrapper.m_Car_FlipOver;
         public InputAction @Boost => m_Wrapper.m_Car_Boost;
         public InputAction @CruiseControl => m_Wrapper.m_Car_CruiseControl;
         public InputAction @LowBeamLights => m_Wrapper.m_Car_LowBeamLights;
         public InputAction @HighBeamLights => m_Wrapper.m_Car_HighBeamLights;
+        public InputAction @ExtraLights => m_Wrapper.m_Car_ExtraLights;
+        public InputAction @TrailerAttachDetach => m_Wrapper.m_Car_TrailerAttachDetach;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2038,9 +2152,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @HandBrake.started += instance.OnHandBrake;
             @HandBrake.performed += instance.OnHandBrake;
             @HandBrake.canceled += instance.OnHandBrake;
-            @EngineSrartStop.started += instance.OnEngineSrartStop;
-            @EngineSrartStop.performed += instance.OnEngineSrartStop;
-            @EngineSrartStop.canceled += instance.OnEngineSrartStop;
+            @EngineStartStop.started += instance.OnEngineStartStop;
+            @EngineStartStop.performed += instance.OnEngineStartStop;
+            @EngineStartStop.canceled += instance.OnEngineStartStop;
             @Clutch.started += instance.OnClutch;
             @Clutch.performed += instance.OnClutch;
             @Clutch.canceled += instance.OnClutch;
@@ -2092,6 +2206,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @ShiftInto6.started += instance.OnShiftInto6;
             @ShiftInto6.performed += instance.OnShiftInto6;
             @ShiftInto6.canceled += instance.OnShiftInto6;
+            @ShiftInto7.started += instance.OnShiftInto7;
+            @ShiftInto7.performed += instance.OnShiftInto7;
+            @ShiftInto7.canceled += instance.OnShiftInto7;
+            @ShiftInto8.started += instance.OnShiftInto8;
+            @ShiftInto8.performed += instance.OnShiftInto8;
+            @ShiftInto8.canceled += instance.OnShiftInto8;
             @FlipOver.started += instance.OnFlipOver;
             @FlipOver.performed += instance.OnFlipOver;
             @FlipOver.canceled += instance.OnFlipOver;
@@ -2107,6 +2227,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @HighBeamLights.started += instance.OnHighBeamLights;
             @HighBeamLights.performed += instance.OnHighBeamLights;
             @HighBeamLights.canceled += instance.OnHighBeamLights;
+            @ExtraLights.started += instance.OnExtraLights;
+            @ExtraLights.performed += instance.OnExtraLights;
+            @ExtraLights.canceled += instance.OnExtraLights;
+            @TrailerAttachDetach.started += instance.OnTrailerAttachDetach;
+            @TrailerAttachDetach.performed += instance.OnTrailerAttachDetach;
+            @TrailerAttachDetach.canceled += instance.OnTrailerAttachDetach;
         }
 
         private void UnregisterCallbacks(ICarActions instance)
@@ -2126,9 +2252,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @HandBrake.started -= instance.OnHandBrake;
             @HandBrake.performed -= instance.OnHandBrake;
             @HandBrake.canceled -= instance.OnHandBrake;
-            @EngineSrartStop.started -= instance.OnEngineSrartStop;
-            @EngineSrartStop.performed -= instance.OnEngineSrartStop;
-            @EngineSrartStop.canceled -= instance.OnEngineSrartStop;
+            @EngineStartStop.started -= instance.OnEngineStartStop;
+            @EngineStartStop.performed -= instance.OnEngineStartStop;
+            @EngineStartStop.canceled -= instance.OnEngineStartStop;
             @Clutch.started -= instance.OnClutch;
             @Clutch.performed -= instance.OnClutch;
             @Clutch.canceled -= instance.OnClutch;
@@ -2180,6 +2306,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @ShiftInto6.started -= instance.OnShiftInto6;
             @ShiftInto6.performed -= instance.OnShiftInto6;
             @ShiftInto6.canceled -= instance.OnShiftInto6;
+            @ShiftInto7.started -= instance.OnShiftInto7;
+            @ShiftInto7.performed -= instance.OnShiftInto7;
+            @ShiftInto7.canceled -= instance.OnShiftInto7;
+            @ShiftInto8.started -= instance.OnShiftInto8;
+            @ShiftInto8.performed -= instance.OnShiftInto8;
+            @ShiftInto8.canceled -= instance.OnShiftInto8;
             @FlipOver.started -= instance.OnFlipOver;
             @FlipOver.performed -= instance.OnFlipOver;
             @FlipOver.canceled -= instance.OnFlipOver;
@@ -2195,6 +2327,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @HighBeamLights.started -= instance.OnHighBeamLights;
             @HighBeamLights.performed -= instance.OnHighBeamLights;
             @HighBeamLights.canceled -= instance.OnHighBeamLights;
+            @ExtraLights.started -= instance.OnExtraLights;
+            @ExtraLights.performed -= instance.OnExtraLights;
+            @ExtraLights.canceled -= instance.OnExtraLights;
+            @TrailerAttachDetach.started -= instance.OnTrailerAttachDetach;
+            @TrailerAttachDetach.performed -= instance.OnTrailerAttachDetach;
+            @TrailerAttachDetach.canceled -= instance.OnTrailerAttachDetach;
         }
 
         public void RemoveCallbacks(ICarActions instance)
@@ -2335,7 +2473,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnBrakes(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
-        void OnEngineSrartStop(InputAction.CallbackContext context);
+        void OnEngineStartStop(InputAction.CallbackContext context);
         void OnClutch(InputAction.CallbackContext context);
         void OnSwitchCamera(InputAction.CallbackContext context);
         void OnCinematicMode(InputAction.CallbackContext context);
@@ -2353,11 +2491,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnShiftInto4(InputAction.CallbackContext context);
         void OnShiftInto5(InputAction.CallbackContext context);
         void OnShiftInto6(InputAction.CallbackContext context);
+        void OnShiftInto7(InputAction.CallbackContext context);
+        void OnShiftInto8(InputAction.CallbackContext context);
         void OnFlipOver(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnCruiseControl(InputAction.CallbackContext context);
         void OnLowBeamLights(InputAction.CallbackContext context);
         void OnHighBeamLights(InputAction.CallbackContext context);
+        void OnExtraLights(InputAction.CallbackContext context);
+        void OnTrailerAttachDetach(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

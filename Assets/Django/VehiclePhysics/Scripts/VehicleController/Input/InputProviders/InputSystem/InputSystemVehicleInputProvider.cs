@@ -18,7 +18,7 @@ namespace Django.VehiclePhysics.Input {
     /// </summary>
     private const int H_SHIFTER_GEAR_COUNT = 10;
 
-    public static VehicleInputActions vehicleInputActions;
+    public static SolaceInputActions vehicleInputActions;
 
     /// <summary>
     ///     Should mouse be used for input?
@@ -35,30 +35,29 @@ namespace Django.VehiclePhysics.Input {
     private bool _horn;
     private bool _boost;
 
-
     public new void Awake() {
       base.Awake();
 
-      vehicleInputActions = new VehicleInputActions();
+      vehicleInputActions = new SolaceInputActions();
       vehicleInputActions.Enable();
 
       // Gear shift inputs.
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftIntoR1, 0);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto0, 1);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto1, 2);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto2, 3);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto3, 4);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto4, 5);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto5, 6);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto6, 7);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto7, 8);
-      SetupGearShiftInput(vehicleInputActions.VehicleControls.ShiftInto8, 9);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftIntoR1, 0);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto0, 1);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto1, 2);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto2, 3);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto3, 4);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto4, 5);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto5, 6);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto6, 7);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto7, 8);
+      SetupGearShiftInput(vehicleInputActions.Car.ShiftInto8, 9);
 
-      vehicleInputActions.VehicleControls.Horn.started += ctx => _horn = true;
-      vehicleInputActions.VehicleControls.Horn.canceled += ctx => _horn = false;
+      vehicleInputActions.Car.Horn.started += ctx => _horn = true;
+      vehicleInputActions.Car.Horn.canceled += ctx => _horn = false;
 
-      vehicleInputActions.VehicleControls.Boost.started += ctx => _boost = true;
-      vehicleInputActions.VehicleControls.Boost.canceled += ctx => _boost = false;
+      vehicleInputActions.Car.Boost.started += ctx => _boost = true;
+      vehicleInputActions.Car.Boost.canceled += ctx => _boost = false;
     }
 
     private void SetupGearShiftInput(InputAction gearShiftAction, int index) {
@@ -69,15 +68,15 @@ namespace Django.VehiclePhysics.Input {
     public void Update() {
       _throttle = mouseInput
                       ? Mathf.Clamp(GetMouseVertical(), 0f, 1f)
-                      : vehicleInputActions.VehicleControls.Throttle.ReadValue<float>();
+                      : vehicleInputActions.Car.Throttle.ReadValue<float>();
       _brakes = mouseInput
                     ? -Mathf.Clamp(GetMouseVertical(), -1f, 0f)
-                    : vehicleInputActions.VehicleControls.Brakes.ReadValue<float>();
+                    : vehicleInputActions.Car.Brakes.ReadValue<float>();
       _steering = mouseInput
                       ? Mathf.Clamp(GetMouseHorizontal(), -1f, 1f)
-                      : vehicleInputActions.VehicleControls.Steering.ReadValue<float>();
-      _clutch = vehicleInputActions.VehicleControls.Clutch.ReadValue<float>();
-      _handbrake = vehicleInputActions.VehicleControls.Handbrake.ReadValue<float>();
+                      : vehicleInputActions.Car.Steer.ReadValue<float>();
+      _clutch = vehicleInputActions.Car.Clutch.ReadValue<float>();
+      _handbrake = vehicleInputActions.Car.HandBrake.ReadValue<float>();
     }
 
 
@@ -117,22 +116,22 @@ namespace Django.VehiclePhysics.Input {
 
 
     public override bool EngineStartStop() {
-      return vehicleInputActions.VehicleControls.EngineStartStop.triggered;
+      return vehicleInputActions.Car.EngineStartStop.triggered;
     }
 
 
     public override bool ExtraLights() {
-      return vehicleInputActions.VehicleControls.ExtraLights.triggered;
+      return vehicleInputActions.Car.ExtraLights.triggered;
     }
 
 
     public override bool HighBeamLights() {
-      return vehicleInputActions.VehicleControls.HighBeamLights.triggered;
+      return vehicleInputActions.Car.HighBeamLights.triggered;
     }
 
 
     public override bool HazardLights() {
-      return vehicleInputActions.VehicleControls.HazardLights.triggered;
+      return vehicleInputActions.Car.HazardLights.triggered;
     }
 
 
@@ -142,27 +141,27 @@ namespace Django.VehiclePhysics.Input {
 
 
     public override bool LeftBlinker() {
-      return vehicleInputActions.VehicleControls.LeftBlinker.triggered;
+      return vehicleInputActions.Car.LeftBlinker.triggered;
     }
 
 
     public override bool LowBeamLights() {
-      return vehicleInputActions.VehicleControls.LowBeamLights.triggered;
+      return vehicleInputActions.Car.LowBeamLights.triggered;
     }
 
 
     public override bool RightBlinker() {
-      return vehicleInputActions.VehicleControls.RightBlinker.triggered;
+      return vehicleInputActions.Car.RightBlinker.triggered;
     }
 
 
     public override bool ShiftDown() {
-      return vehicleInputActions.VehicleControls.ShiftDown.triggered;
+      return vehicleInputActions.Car.ShiftDown.triggered;
     }
 
 
     public override bool ShiftUp() {
-      return vehicleInputActions.VehicleControls.ShiftUp.triggered;
+      return vehicleInputActions.Car.ShiftUp.triggered;
     }
 
 
@@ -192,12 +191,12 @@ namespace Django.VehiclePhysics.Input {
 
 
     public override bool TrailerAttachDetach() {
-      return vehicleInputActions.VehicleControls.TrailerAttachDetach.triggered;
+      return vehicleInputActions.Car.TrailerAttachDetach.triggered;
     }
 
 
     public override bool FlipOver() {
-      return vehicleInputActions.VehicleControls.FlipOver.triggered;
+      return vehicleInputActions.Car.FlipOver.triggered;
     }
 
 
@@ -207,7 +206,7 @@ namespace Django.VehiclePhysics.Input {
 
 
     public override bool CruiseControl() {
-      return vehicleInputActions.VehicleControls.CruiseControl.triggered;
+      return vehicleInputActions.Car.CruiseControl.triggered;
     }
 
 
