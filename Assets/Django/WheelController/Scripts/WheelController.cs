@@ -55,7 +55,7 @@ namespace Django.WheelController3D
         ///     Can be positive or negative.
         /// </summary>
         [Tooltip(
-            "Motor torque applied to the wheel. Since Django Vehicle Physics 2 the value is readonly and setting it will have no effect\r\nsince torque calculation is done inside powertrain solver.")]
+            "Motor torque applied to the wheel. Since Django Vehicle Physics the value is readonly and setting it will have no effect\r\nsince torque calculation is done inside powertrain solver.")]
         private float motorTorque;
 
         /// <summary>

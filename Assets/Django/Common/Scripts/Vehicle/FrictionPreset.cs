@@ -13,7 +13,7 @@ namespace Django.Common.Vehicles
     ///     ScriptableObject holding friction settings for one surface type.
     /// </summary>
     [Serializable]
-    [CreateAssetMenu(fileName = "Django Vehicle Physics 2", menuName = "Django/Vehicle Physics 2/Friction Preset", order = 1)]
+    [CreateAssetMenu(fileName = "Django Vehicle Physics", menuName = "Django/Vehicle Physics/Friction Preset", order = 1)]
     public class FrictionPreset : ScriptableObject
     {
         public const int LUT_RESOLUTION = 1000;
