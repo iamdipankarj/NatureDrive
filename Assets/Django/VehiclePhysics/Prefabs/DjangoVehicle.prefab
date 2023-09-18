@@ -7342,7 +7342,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    maximumSteerAngle: 25
+    maximumSteerAngle: 35
     returnToCenter: 1
     speedSensitiveSteeringCurve:
       serializedVersion: 2
@@ -7401,8 +7401,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    steeringWheel: {fileID: 0}
-    steeringWheelTurnRatio: 5
+    steeringWheel: {fileID: 6601637355092029095}
+    steeringWheelTurnRatio: -5
     angle: 0
     externallyAddedAngle: 0
   stateSettings: {fileID: 11400000, guid: 94d1ecbcc73e9e04dbc6108ca71dcab6, type: 2}
