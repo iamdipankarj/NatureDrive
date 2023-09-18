@@ -68,7 +68,6 @@
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Effects\Skidmarks\SkidmarkGenerator.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\Aerodynamics\AerodynamicsModuleWrapper.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Sound\BrakeHissComponent.cs" />
-    <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\VehicleController.Multiplayer.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\NOS\NOSModule.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\CruiseControl\CruiseControlModule.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Sound\EngineStartStopComponent.cs" />

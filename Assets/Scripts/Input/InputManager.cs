@@ -26,6 +26,62 @@ namespace Solace {
     public delegate void HandBrakeUseAction(bool isPressing);
     public static event HandBrakeUseAction DidUseHandBrake;
 
+    // Shift Up
+    public delegate void ShiftUpAction();
+    public static event ShiftUpAction DidShiftUp;
+
+    // Shift Down
+    public delegate void ShiftDownAction();
+    public static event ShiftDownAction DidShiftDown;
+
+    // Left Blinker
+    public delegate void LeftBlinkerAction();
+    public static event LeftBlinkerAction DidLeftBlinker;
+
+    // Right Blinker
+    public delegate void RightBlinkerAction();
+    public static event RightBlinkerAction DidRightBlinker;
+
+    // Hazard Light
+    public delegate void HazardLightAction();
+    public static event HazardLightAction DidHazardLight;
+
+    // Horn
+    public delegate void HornAction();
+    public static event HornAction DidHorn;
+
+    // Shift Reverse
+    public delegate void ShiftReverseAction();
+    public static event ShiftReverseAction DidShiftReverse;
+
+    // Shift Neutral
+    public delegate void ShiftNeutralAction();
+    public static event ShiftNeutralAction DidShift0;
+
+    // Shift to 1
+    public delegate void ShiftInto1Action();
+    public static event ShiftInto1Action DidShiftInto1;
+
+    // Shift to 2
+    public delegate void ShiftInto2Action();
+    public static event ShiftInto2Action DidShiftInto2;
+
+    // Shift to 3
+    public delegate void ShiftInto3Action();
+    public static event ShiftInto3Action DidShiftInto3;
+
+    // Shift to 4
+    public delegate void ShiftInto4Action();
+    public static event ShiftInto4Action DidShiftInto4;
+
+    // Shift to 5
+    public delegate void ShiftInto5Action();
+    public static event ShiftInto5Action DidShiftInto5;
+
+    // Shift to 6
+    public delegate void ShiftInto6Action();
+    public static event ShiftInto6Action DidShiftInto6;
+
     // Pause
     public delegate void PauseAction();
     public static event PauseAction DidPause;
@@ -100,6 +156,62 @@ namespace Solace {
       DidUseHandBrake?.Invoke(false);
     }
 
+    private void OnShiftUp(InputAction.CallbackContext context) {
+      DidShiftUp?.Invoke();
+    }
+
+    private void OnShiftDown(InputAction.CallbackContext context) {
+      DidShiftDown?.Invoke();
+    }
+
+    private void OnShiftReverse(InputAction.CallbackContext context) {
+      DidShiftReverse?.Invoke();
+    }
+
+    private void OnShiftInto0(InputAction.CallbackContext context) {
+      DidShift0?.Invoke();
+    }
+
+    private void OnShiftInto1(InputAction.CallbackContext context) {
+      DidShiftInto1?.Invoke();
+    }
+
+    private void OnShiftInto2(InputAction.CallbackContext context) {
+      DidShiftInto2?.Invoke();
+    }
+
+    private void OnShiftInto3(InputAction.CallbackContext context) {
+      DidShiftInto3?.Invoke();
+    }
+
+    private void OnShiftInto4(InputAction.CallbackContext context) {
+      DidShiftInto4?.Invoke();
+    }
+
+    private void OnShiftInto5(InputAction.CallbackContext context) {
+      DidShiftInto5?.Invoke();
+    }
+
+    private void OnShiftInto6(InputAction.CallbackContext context) {
+      DidShiftInto6?.Invoke();
+    }
+
+    private void OnLeftBlinker(InputAction.CallbackContext context) {
+      DidLeftBlinker?.Invoke();
+    }
+
+    private void OnRightBlinker(InputAction.CallbackContext context) {
+      DidRightBlinker?.Invoke();
+    }
+
+    private void OnHazardLights(InputAction.CallbackContext context) {
+      DidHazardLight?.Invoke();
+    }
+
+    private void OnHorn(InputAction.CallbackContext context) {
+      DidHorn?.Invoke();
+    }
+
     private void OnCinematicModeStart(InputAction.CallbackContext context) {
       DidUseCinematicMode?.Invoke(true);
     }
@@ -140,6 +252,23 @@ namespace Solace {
 
       controls.Car.HandBrake.performed += OnVehicleHandBrakePress;
       controls.Car.HandBrake.canceled += OnVehicleHandBrakeRelease;
+
+      controls.Car.ShiftUp.performed += OnShiftUp;
+      controls.Car.ShiftDown.performed += OnShiftDown;
+      controls.Car.ShiftIntoR1.performed += OnShiftReverse;
+      controls.Car.ShiftInto0.performed += OnShiftInto0;
+      controls.Car.ShiftInto1.performed += OnShiftInto1;
+      controls.Car.ShiftInto2.performed += OnShiftInto2;
+      controls.Car.ShiftInto3.performed += OnShiftInto3;
+      controls.Car.ShiftInto4.performed += OnShiftInto4;
+      controls.Car.ShiftInto5.performed += OnShiftInto5;
+      controls.Car.ShiftInto6.performed += OnShiftInto6;
+
+      controls.Car.LeftBlinker.performed += OnLeftBlinker;
+      controls.Car.RightBlinker.performed += OnRightBlinker;
+      controls.Car.HazardLights.performed += OnHazardLights;
+
+      controls.Car.Horn.performed += OnHorn;
 
       controls.UI.Pause.performed += OnPlayerPause;
       InputSystem.onDeviceChange += InputSystemOnDeviceChange;
