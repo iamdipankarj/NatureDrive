@@ -1,10 +1,8 @@
 {
-    "name": "Django.VehiclePhysics",
+    "name": "SolaceInput",
     "rootNamespace": "",
     "references": [
-        "GUID:5ee028cb3e2d0da479293618da65fe65",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:9f27e6e536098fc4e87bf7b8073b512a"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

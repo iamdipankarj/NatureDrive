@@ -873,6 +873,10 @@
       <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
       <Name>Django.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="SolaceInput.csproj">
+      <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
+      <Name>SolaceInput</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

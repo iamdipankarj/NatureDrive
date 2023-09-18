@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.Common", "Django.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{A21FC166-8E64-85D6-788A-83D70AADC3AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolaceInput", "SolaceInput.csproj", "{5B716A75-21FC-6EDE-4143-6E44072EECFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{A21FC166-8E64-85D6-788A-83D70AADC3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A21FC166-8E64-85D6-788A-83D70AADC3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A21FC166-8E64-85D6-788A-83D70AADC3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B716A75-21FC-6EDE-4143-6E44072EECFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B716A75-21FC-6EDE-4143-6E44072EECFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B716A75-21FC-6EDE-4143-6E44072EECFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B716A75-21FC-6EDE-4143-6E44072EECFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

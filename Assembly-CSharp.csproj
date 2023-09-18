@@ -117,7 +117,6 @@
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
-    <Compile Include="Assets\Scripts\Input\SolaceInputActions.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelStandardInput.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
@@ -947,6 +946,10 @@
     <ProjectReference Include="Django.Common.csproj">
       <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
       <Name>Django.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="SolaceInput.csproj">
+      <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
+      <Name>SolaceInput</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
