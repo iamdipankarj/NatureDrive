@@ -260,6 +260,24 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LowBeamLights"",
+                    ""type"": ""Button"",
+                    ""id"": ""101920a9-ce6f-4048-83dc-245a2735c63a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HighBeamLights"",
+                    ""type"": ""Button"",
+                    ""id"": ""78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1527,6 +1545,28 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""CruiseControl"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26aad1cc-5a5d-4244-90b5-f32bbd835770"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LowBeamLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c20f44b-3e69-404b-8ed8-ce96078f0f61"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HighBeamLights"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1842,6 +1882,8 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car_FlipOver = m_Car.FindAction("FlipOver", throwIfNotFound: true);
         m_Car_Boost = m_Car.FindAction("Boost", throwIfNotFound: true);
         m_Car_CruiseControl = m_Car.FindAction("CruiseControl", throwIfNotFound: true);
+        m_Car_LowBeamLights = m_Car.FindAction("LowBeamLights", throwIfNotFound: true);
+        m_Car_HighBeamLights = m_Car.FindAction("HighBeamLights", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -1938,6 +1980,8 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_FlipOver;
     private readonly InputAction m_Car_Boost;
     private readonly InputAction m_Car_CruiseControl;
+    private readonly InputAction m_Car_LowBeamLights;
+    private readonly InputAction m_Car_HighBeamLights;
     public struct CarActions
     {
         private @SolaceInputActions m_Wrapper;
@@ -1968,6 +2012,8 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @FlipOver => m_Wrapper.m_Car_FlipOver;
         public InputAction @Boost => m_Wrapper.m_Car_Boost;
         public InputAction @CruiseControl => m_Wrapper.m_Car_CruiseControl;
+        public InputAction @LowBeamLights => m_Wrapper.m_Car_LowBeamLights;
+        public InputAction @HighBeamLights => m_Wrapper.m_Car_HighBeamLights;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2055,6 +2101,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @CruiseControl.started += instance.OnCruiseControl;
             @CruiseControl.performed += instance.OnCruiseControl;
             @CruiseControl.canceled += instance.OnCruiseControl;
+            @LowBeamLights.started += instance.OnLowBeamLights;
+            @LowBeamLights.performed += instance.OnLowBeamLights;
+            @LowBeamLights.canceled += instance.OnLowBeamLights;
+            @HighBeamLights.started += instance.OnHighBeamLights;
+            @HighBeamLights.performed += instance.OnHighBeamLights;
+            @HighBeamLights.canceled += instance.OnHighBeamLights;
         }
 
         private void UnregisterCallbacks(ICarActions instance)
@@ -2137,6 +2189,12 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @CruiseControl.started -= instance.OnCruiseControl;
             @CruiseControl.performed -= instance.OnCruiseControl;
             @CruiseControl.canceled -= instance.OnCruiseControl;
+            @LowBeamLights.started -= instance.OnLowBeamLights;
+            @LowBeamLights.performed -= instance.OnLowBeamLights;
+            @LowBeamLights.canceled -= instance.OnLowBeamLights;
+            @HighBeamLights.started -= instance.OnHighBeamLights;
+            @HighBeamLights.performed -= instance.OnHighBeamLights;
+            @HighBeamLights.canceled -= instance.OnHighBeamLights;
         }
 
         public void RemoveCallbacks(ICarActions instance)
@@ -2298,6 +2356,8 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnFlipOver(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnCruiseControl(InputAction.CallbackContext context);
+        void OnLowBeamLights(InputAction.CallbackContext context);
+        void OnHighBeamLights(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

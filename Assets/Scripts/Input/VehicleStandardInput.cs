@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static Solace.InputManager;
 
 namespace Solace {
   public abstract class VehicleStandardInput : MonoBehaviour {
@@ -36,6 +35,12 @@ namespace Solace {
 
     [NonSerialized]
     public bool horn = false;
+
+    [NonSerialized]
+    public bool lowBeamLight = false;
+
+    [NonSerialized]
+    public bool highBeamLight = false;
 
     [NonSerialized]
     public bool boost = false;
@@ -91,6 +96,14 @@ namespace Solace {
       flipOver = !flipOver;
     }
 
+    private void OnLowBeamLight() {
+      lowBeamLight = !lowBeamLight;
+    }
+
+    private void OnHighBeamLight() {
+      highBeamLight = !highBeamLight;
+    }
+
     private void OnEnable() {
       InputManager.DidThrottle += OnThrottle;
       InputManager.DidBrake += OnBrake;
@@ -104,6 +117,8 @@ namespace Solace {
       InputManager.DidHorn += OnHorn;
       InputManager.DidBoost += OnBoost;
       InputManager.DidFlipOver += OnFlipOver;
+      InputManager.DidLowBeamLight += OnLowBeamLight;
+      InputManager.DidHighBeamLight += OnHighBeamLight;
     }
 
     private void OnDisable() {
@@ -119,6 +134,8 @@ namespace Solace {
       InputManager.DidHorn -= OnHorn;
       InputManager.DidBoost -= OnBoost;
       InputManager.DidFlipOver -= OnFlipOver;
+      InputManager.DidLowBeamLight -= OnLowBeamLight;
+      InputManager.DidHighBeamLight -= OnHighBeamLight;
     }
   }
 }

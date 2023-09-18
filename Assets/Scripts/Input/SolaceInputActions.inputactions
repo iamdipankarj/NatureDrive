@@ -238,6 +238,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LowBeamLights",
+                    "type": "Button",
+                    "id": "101920a9-ce6f-4048-83dc-245a2735c63a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HighBeamLights",
+                    "type": "Button",
+                    "id": "78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1505,6 +1523,28 @@
                     "action": "CruiseControl",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "26aad1cc-5a5d-4244-90b5-f32bbd835770",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowBeamLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c20f44b-3e69-404b-8ed8-ce96078f0f61",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighBeamLights",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

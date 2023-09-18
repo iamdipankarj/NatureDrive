@@ -43,6 +43,14 @@ namespace Solace {
     public delegate void RightBlinkerAction();
     public static event RightBlinkerAction DidRightBlinker;
 
+    // Low Beam Lights
+    public delegate void LowBeamLightsAction();
+    public static event LowBeamLightsAction DidLowBeamLight;
+
+    // High Beam Lights
+    public delegate void HighBeamLightsAction();
+    public static event HighBeamLightsAction DidHighBeamLight;
+
     // Hazard Light
     public delegate void HazardLightAction();
     public static event HazardLightAction DidHazardLight;
@@ -253,6 +261,14 @@ namespace Solace {
       DidHazardLight?.Invoke();
     }
 
+    private void OnLowBeamLight(InputAction.CallbackContext context) {
+      DidLowBeamLight?.Invoke();
+    }
+
+    private void OnHighBeamLight(InputAction.CallbackContext context) {
+      DidHighBeamLight?.Invoke();
+    }
+
     private void OnHorn(InputAction.CallbackContext context) {
       DidHorn?.Invoke();
     }
@@ -321,6 +337,9 @@ namespace Solace {
       controls.Car.RightBlinker.performed += OnRightBlinker;
       controls.Car.HazardLights.performed += OnHazardLights;
 
+      controls.Car.LowBeamLights.performed += OnLowBeamLight;
+      controls.Car.HighBeamLights.performed += OnHighBeamLight;
+
       controls.Car.Horn.performed += OnHorn;
 
       controls.UI.Pause.performed += OnPlayerPause;
@@ -369,6 +388,9 @@ namespace Solace {
       controls.Car.LeftBlinker.performed -= OnLeftBlinker;
       controls.Car.RightBlinker.performed -= OnRightBlinker;
       controls.Car.HazardLights.performed -= OnHazardLights;
+
+      controls.Car.LowBeamLights.performed -= OnLowBeamLight;
+      controls.Car.HighBeamLights.performed -= OnHighBeamLight;
 
       controls.Car.Horn.performed -= OnHorn;
 
