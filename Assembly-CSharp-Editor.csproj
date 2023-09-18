@@ -60,9 +60,19 @@
   <ItemGroup>
     <Compile Include="Assets\EVP5\Scripts\Editor\InspectorTools.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\VehicleStandardInputInspector.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\Demo\Editor\RigidbodyFPSControllerEditor.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\EditorCache.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\SerializedPropertyHelper.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\NUIEditor.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\NUIDrawer.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\AssetInfo\Editor\CommonInitializationMethods.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\AssetInfo\Editor\WelcomeMessageWindow.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\NUIPropertyDrawer.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\Demo\Editor\DragObjectEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
     <Compile Include="Assets\EVP5\Scripts\Editor\VehicleControllerInspector.cs" />
+    <Compile Include="Assets\Django\Common\Scripts\NUI\Editor\NUISettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
