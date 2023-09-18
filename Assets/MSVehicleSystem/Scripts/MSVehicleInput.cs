@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using Solace;
 
 namespace MSVehicle {
   [Serializable]
@@ -52,7 +53,7 @@ namespace MSVehicle {
     public KeyCode nitro = KeyCode.G;
   }
 
-  public class MSVehicleInput : Solace.VehicleStandardInput {
+  public class MSVehicleInput : VehicleStandardInput {
     [Tooltip("Here you can configure the vehicle controls, choose the desired inputs and also, deactivate the unwanted ones.")]
     public Controls controls;
 

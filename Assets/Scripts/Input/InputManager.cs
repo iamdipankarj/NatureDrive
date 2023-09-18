@@ -1,6 +1,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using System;
+using static Solace.InputManager;
 
 namespace Solace {
   public class InputManager : MonoBehaviour {
@@ -55,12 +56,20 @@ namespace Solace {
     public static event EngineStartStopAction DidEngineStartStop;
 
     // Clutch
-    public delegate void ClutchAction(bool isPressing);
+    public delegate void ClutchAction(float delta);
     public static event ClutchAction DidClutch;
 
-    // Clutch
+    // Boost
     public delegate void BoostAction();
     public static event BoostAction DidBoost;
+
+    // Flip Over
+    public delegate void FlipOverAction();
+    public static event FlipOverAction DidFlipOver;
+
+    // Cruise Control
+    public delegate void CruiseControl();
+    public static event CruiseControl DidCruiseControl;
 
     // Shift Reverse
     public delegate void ShiftReverseAction();
@@ -144,11 +153,11 @@ namespace Solace {
       DidSteer?.Invoke(0f);
     }
 
-    private void OnVehicleAccelerate(InputAction.CallbackContext context) {
+    private void OnVehicleThrottle(InputAction.CallbackContext context) {
       DidThrottle?.Invoke(context.ReadValue<float>());
     }
 
-    private void OnVehicleAccelerateCanceled(InputAction.CallbackContext context) {
+    private void OnVehicleThrottleCanceled(InputAction.CallbackContext context) {
       DidThrottle?.Invoke(0f);
     }
 
@@ -184,12 +193,20 @@ namespace Solace {
       DidBoost?.Invoke();
     }
 
+    private void OnVehicleFlipOver(InputAction.CallbackContext context) {
+      DidFlipOver?.Invoke();
+    }
+
+    private void OnCruiseControl(InputAction.CallbackContext context) {
+      DidCruiseControl?.Invoke();
+    }
+
     private void OnVehicleClutchPress(InputAction.CallbackContext context) {
-      DidClutch?.Invoke(true);
+      DidClutch?.Invoke(context.ReadValue<float>());
     }
 
     private void OnVehicleClutchRelease(InputAction.CallbackContext context) {
-      DidClutch?.Invoke(false);
+      DidClutch?.Invoke(0f);
     }
 
     private void OnShiftReverse(InputAction.CallbackContext context) {
@@ -272,8 +289,8 @@ namespace Solace {
 
       controls.Car.SwitchCamera.performed += OnCameraSwitchPerformed;
 
-      controls.Car.Throttle.performed += OnVehicleAccelerate;
-      controls.Car.Throttle.canceled += OnVehicleAccelerateCanceled;
+      controls.Car.Throttle.performed += OnVehicleThrottle;
+      controls.Car.Throttle.canceled += OnVehicleThrottleCanceled;
 
       controls.Car.Brakes.performed += OnVehicleBrake;
       controls.Car.Brakes.canceled += OnVehicleBrakeCanceled;
@@ -283,6 +300,8 @@ namespace Solace {
 
       controls.Car.EngineSrartStop.performed += OnVehicleStartStop;
       controls.Car.Boost.performed += OnVehicleBoost;
+      controls.Car.FlipOver.performed += OnVehicleFlipOver;
+      controls.Car.CruiseControl.performed += OnCruiseControl;
 
       controls.Car.Clutch.performed += OnVehicleClutchPress;
       controls.Car.Clutch.canceled += OnVehicleClutchRelease;
@@ -319,8 +338,8 @@ namespace Solace {
 
       controls.Car.SwitchCamera.performed -= OnCameraSwitchPerformed;
 
-      controls.Car.Throttle.performed -= OnVehicleAccelerate;
-      controls.Car.Throttle.canceled -= OnVehicleAccelerateCanceled;
+      controls.Car.Throttle.performed -= OnVehicleThrottle;
+      controls.Car.Throttle.canceled -= OnVehicleThrottleCanceled;
 
       controls.Car.Brakes.performed -= OnVehicleBrake;
       controls.Car.Brakes.canceled -= OnVehicleBrakeCanceled;
@@ -330,6 +349,8 @@ namespace Solace {
 
       controls.Car.EngineSrartStop.performed -= OnVehicleStartStop;
       controls.Car.Boost.performed -= OnVehicleBoost;
+      controls.Car.FlipOver.performed -= OnVehicleFlipOver;
+      controls.Car.CruiseControl.performed -= OnCruiseControl;
 
       controls.Car.Clutch.performed -= OnVehicleClutchPress;
       controls.Car.Clutch.canceled -= OnVehicleClutchRelease;

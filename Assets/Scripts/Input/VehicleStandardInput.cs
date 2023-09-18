@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static Solace.InputManager;
 
 namespace Solace {
   public abstract class VehicleStandardInput : MonoBehaviour {
@@ -14,6 +15,33 @@ namespace Solace {
 
     [NonSerialized]
     public bool handbrakeInput;
+
+    [NonSerialized]
+    public bool engineStartStop = false;
+
+    [NonSerialized]
+    public float clutch = 0;
+
+    [NonSerialized]
+    public bool shiftUp = false;
+
+    [NonSerialized]
+    public bool shiftDown = false;
+
+    [NonSerialized]
+    public int shiftInto = 0;
+
+    [NonSerialized]
+    public bool cruiseControl = false;
+
+    [NonSerialized]
+    public bool horn = false;
+
+    [NonSerialized]
+    public bool boost = false;
+
+    [NonSerialized]
+    public bool flipOver = false;
 
     private void OnThrottle(float delta) {
       throttleInput = delta;
@@ -31,11 +59,51 @@ namespace Solace {
       brakeInput = delta;
     }
 
+    private void OnEngineStartStop() {
+      engineStartStop = !engineStartStop;
+    }
+
+    private void OnClutch(float delta) {
+      clutch = delta;
+    }
+
+    private void OnShiftUp() {
+      shiftUp = !shiftUp;
+    }
+
+    private void OnShiftDown() {
+      shiftDown = !shiftDown;
+    }
+
+    private void OnCruiseControl() {
+      cruiseControl = !cruiseControl;
+    }
+
+    private void OnHorn() {
+      horn = !horn;
+    }
+
+    private void OnBoost() {
+      boost = !boost;
+    }
+
+    private void OnFlipOver() {
+      flipOver = !flipOver;
+    }
+
     private void OnEnable() {
       InputManager.DidThrottle += OnThrottle;
       InputManager.DidBrake += OnBrake;
       InputManager.DidSteer += OnSteer;
       InputManager.DidUseHandBrake += OnHandBrake;
+      InputManager.DidEngineStartStop += OnEngineStartStop;
+      InputManager.DidClutch += OnClutch;
+      InputManager.DidShiftUp += OnShiftUp;
+      InputManager.DidShiftDown += OnShiftDown;
+      InputManager.DidCruiseControl += OnCruiseControl;
+      InputManager.DidHorn += OnHorn;
+      InputManager.DidBoost += OnBoost;
+      InputManager.DidFlipOver += OnFlipOver;
     }
 
     private void OnDisable() {
@@ -43,6 +111,14 @@ namespace Solace {
       InputManager.DidBrake -= OnBrake;
       InputManager.DidSteer -= OnSteer;
       InputManager.DidUseHandBrake -= OnHandBrake;
+      InputManager.DidEngineStartStop -= OnEngineStartStop;
+      InputManager.DidClutch -= OnClutch;
+      InputManager.DidShiftUp -= OnShiftUp;
+      InputManager.DidShiftDown -= OnShiftDown;
+      InputManager.DidCruiseControl -= OnCruiseControl;
+      InputManager.DidHorn -= OnHorn;
+      InputManager.DidBoost -= OnBoost;
+      InputManager.DidFlipOver -= OnFlipOver;
     }
   }
 }
