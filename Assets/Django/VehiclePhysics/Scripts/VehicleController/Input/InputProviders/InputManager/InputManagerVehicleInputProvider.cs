@@ -18,7 +18,7 @@ namespace Django.VehiclePhysics.Input
         /// <summary>
         ///     Should mouse be used for input?
         /// </summary>
-        [Tooltip("    Should mouse be used for input?")]
+        [Tooltip("Should mouse be used for input?")]
         public bool mouseInput;
 
         /// <summary>

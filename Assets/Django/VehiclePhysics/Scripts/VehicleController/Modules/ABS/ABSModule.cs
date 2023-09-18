@@ -20,19 +20,19 @@ namespace Django.VehiclePhysics.Modules.ABS
         /// <summary>
         ///     Called each frame while ABS is a active.
         /// </summary>
-        [Tooltip("    Called each frame while ABS is a active.")]
+        [Tooltip("Called each frame while ABS is a active.")]
         public UnityEvent absActivated = new UnityEvent();
 
         /// <summary>
         ///     Is ABS currently active?
         /// </summary>
-        [Tooltip("    Is ABS currently active?")]
+        [Tooltip("Is ABS currently active?")]
         public bool active;
 
         /// <summary>
         ///     ABS will not work below this speed.
         /// </summary>
-        [Tooltip("    ABS will not work below this speed.")]
+        [Tooltip("ABS will not work below this speed.")]
         public float lowerSpeedThreshold = 1f;
 
         /// <summary>

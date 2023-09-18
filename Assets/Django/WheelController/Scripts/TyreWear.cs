@@ -21,45 +21,45 @@ namespace Django.WheelController3D
         /// <summary>
         /// Wear rate coefficient. Unitless.
         /// </summary>
-        [UnityEngine.Tooltip("Wear rate coefficient. Unitless.")]
+        [Tooltip("Wear rate coefficient. Unitless.")]
         public float wearRate = 0.01f;
 
         /// <summary>
         /// Grip coefficient at the 100% wear level.
         /// </summary>
-        [UnityEngine.Tooltip("Grip coefficient at the 100% wear level.")]
+        [Tooltip("Grip coefficient at the 100% wear level.")]
         public float maxGripReduction = 0.4f;
 
         /// <summary>
         /// The effect of load on the tire wear.
         /// </summary>
-        [UnityEngine.Tooltip("The effect of load on the tire wear.")]
+        [Tooltip("The effect of load on the tire wear.")]
         public float loadWearContribution = 1f;
 
         /// <summary>
         /// Wear coefficient for lateral slip.
         /// </summary>
-        [UnityEngine.Tooltip("Wear coefficient for lateral slip.")]
+        [Tooltip("Wear coefficient for lateral slip.")]
         public float lateralSlipWearContribution = 1f;
 
         /// <summary>
         /// Wear coefficient for longitudinal slip.
         /// </summary>
-        [UnityEngine.Tooltip("Wear coefficient for longitudinal slip.")]
+        [Tooltip("Wear coefficient for longitudinal slip.")]
         public float longitudinalSlipWearContribution = 1f;
 
         /// <summary>
         /// Coroutine update frequency in seconds.
         /// </summary>
         [Range(0.01f, 0.5f)]
-        [UnityEngine.Tooltip("Coroutine update frequency in seconds.")]
+        [Tooltip("Coroutine update frequency in seconds.")]
         public float updateRate = 0.1f;
 
         /// <summary>
         /// Current tire wear. 0 = no wear, 1 = fully worn.
         /// </summary>
         [Range(0f, 1f)]
-        [UnityEngine.Tooltip("Current tire wear. 0 = no wear, 1 = fully worn.")]
+        [Tooltip("Current tire wear. 0 = no wear, 1 = fully worn.")]
         public float wear;
 
 

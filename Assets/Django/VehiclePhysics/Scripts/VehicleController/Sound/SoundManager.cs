@@ -24,43 +24,43 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     Sound of engine idling.
         /// </summary>
-        [Tooltip("    Sound of engine idling.")]
+        [Tooltip("Sound of engine idling.")]
         public EngineRunningComponent engineRunningComponent = new EngineRunningComponent();
 
         /// <summary>
         ///     Engine start / stop component. First clip is for starting and second one is for stopping.
         /// </summary>
-        [Tooltip("    Engine start / stop component. First clip is for starting and second one is for stopping.")]
+        [Tooltip("Engine start / stop component. First clip is for starting and second one is for stopping.")]
         public EngineStartStopComponent engineStartStopComponent = new EngineStartStopComponent();
 
         /// <summary>
         /// Sound of the engine cooling fan. Can also be used to add additional sound layers to the engine instead.
         /// </summary>
-        [UnityEngine.Tooltip("Sound of the engine cooling fan. Can also be used to add additional sound layers to the engine instead.")]
+        [Tooltip("Sound of the engine cooling fan. Can also be used to add additional sound layers to the engine instead.")]
         public EngineFanComponent engineFanComponent = new EngineFanComponent();
 
         /// <summary>
         /// Sound of the engine popping on throttle release.
         /// </summary>
-        [UnityEngine.Tooltip("Sound of the engine popping on throttle release.")]
+        [Tooltip("Sound of the engine popping on throttle release.")]
         public ExhaustPopComponent exhaustPopComponent = new ExhaustPopComponent();
 
         /// <summary>
         ///     Sound from changing gears. Supports multiple clips.
         /// </summary>
-        [Tooltip("    Sound from changing gears. Supports multiple clips.")]
+        [Tooltip("Sound from changing gears. Supports multiple clips.")]
         public GearChangeComponent gearChangeComponent = new GearChangeComponent();
 
         /// <summary>
         ///     Transmission whine from straight cut gears or just a noisy gearbox.
         /// </summary>
-        [Tooltip("    Transmission whine from straight cut gears or just a noisy gearbox.")]
+        [Tooltip("Transmission whine from straight cut gears or just a noisy gearbox.")]
         public TransmissionWhineComponent transmissionWhineComponent = new TransmissionWhineComponent();
 
         /// <summary>
         ///     Sound of turbo's wastegate. Supports multiple clips.
         /// </summary>
-        [Tooltip("    Sound of turbo's wastegate. Supports multiple clips.")]
+        [Tooltip("Sound of turbo's wastegate. Supports multiple clips.")]
         public TurboFlutterComponent turboFlutterComponent = new TurboFlutterComponent();
 
         /// <summary>
@@ -74,19 +74,19 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     Sound produced by wheel skidding over a surface. Tire squeal.
         /// </summary>
-        [Tooltip("    Sound produced by wheel skidding over a surface. Tire squeal.")]
+        [Tooltip("Sound produced by wheel skidding over a surface. Tire squeal.")]
         public WheelSkidComponent wheelSkidComponent = new WheelSkidComponent();
 
         /// <summary>
         ///     Sound produced by wheel rolling over a surface. Tire hum.
         /// </summary>
-        [Tooltip("    Sound produced by wheel rolling over a surface. Tire hum.")]
+        [Tooltip("Sound produced by wheel rolling over a surface. Tire hum.")]
         public WheelTireNoiseComponent wheelTireNoiseComponent = new WheelTireNoiseComponent();
 
         /// <summary>
         ///     Sound from wheels hitting ground and/or obstracles. Supports multiple clips.
         /// </summary>
-        [Tooltip("    Sound from wheels hitting ground and/or obstracles. Supports multiple clips.")]
+        [Tooltip("Sound from wheels hitting ground and/or obstracles. Supports multiple clips.")]
         public SuspensionBumpComponent suspensionBumpComponent = new SuspensionBumpComponent();
 
         /// <summary>
@@ -100,25 +100,25 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     Sound of air brakes releasing air. Supports multiple clips.
         /// </summary>
-        [Tooltip("    Sound of air brakes releasing air. Supports multiple clips.")]
+        [Tooltip("Sound of air brakes releasing air. Supports multiple clips.")]
         public AirBrakeComponent airBrakeComponent = new AirBrakeComponent();
 
         /// <summary>
         ///     Sound of vehicle hitting other objects. Supports multiple clips.
         /// </summary>
-        [Tooltip("    Sound of vehicle hitting other objects. Supports multiple clips.")]
+        [Tooltip("Sound of vehicle hitting other objects. Supports multiple clips.")]
         public CrashComponent crashComponent = new CrashComponent();
 
         /// <summary>
         ///     Horn sound.
         /// </summary>
-        [UnityEngine.Tooltip("    Horn sound.")]
+        [Tooltip("Horn sound.")]
         public HornComponent hornComponent = new HornComponent();
 
         /// <summary>
         ///     Reverse beep used as warning on most commercial vehicles.
         /// </summary>
-        [UnityEngine.Tooltip("    Reverse beep used as warning on most commercial vehicles.")]
+        [Tooltip("Reverse beep used as warning on most commercial vehicles.")]
         public ReverseBeepComponent reverseBeepComponent = new ReverseBeepComponent();
 
 
@@ -136,31 +136,31 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     Main mixer group, affecting all other groups.
         /// </summary>
-        [UnityEngine.Tooltip("    Main mixer group, affecting all other groups.")]
+        [Tooltip("Main mixer group, affecting all other groups.")]
         public AudioMixerGroup masterGroup;
 
         /// <summary>
         ///     Mixer group for all engine sounds.
         /// </summary>
-        [UnityEngine.Tooltip("    Mixer group for all engine sounds.")]
+        [Tooltip("Mixer group for all engine sounds.")]
         public AudioMixerGroup engineMixerGroup;
 
         /// <summary>
         /// Mixer group for everything related to the transmission.
         /// </summary>
-        [UnityEngine.Tooltip("Mixer group for everything related to the transmission.")]
+        [Tooltip("Mixer group for everything related to the transmission.")]
         public AudioMixerGroup transmissionMixerGroup;
 
         /// <summary>
         ///     Mixer group for misc sounds.
         /// </summary>
-        [UnityEngine.Tooltip("    Mixer group for misc sounds.")]
+        [Tooltip("Mixer group for misc sounds.")]
         public AudioMixerGroup otherMixerGroup;
 
         /// <summary>
         ///     Mixer group for sounds caused by wheel interaction with the surface.
         /// </summary>
-        [UnityEngine.Tooltip("    Mixer group for sounds caused by wheel interaction with the surface.")]
+        [Tooltip("Mixer group for sounds caused by wheel interaction with the surface.")]
         public AudioMixerGroup surfaceNoiseMixerGroup;
 
 
@@ -171,31 +171,31 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     GameObject containing all the engine audio sources.
         /// </summary>
-        [Tooltip("    GameObject containing all the engine audio sources.")]
+        [Tooltip("GameObject containing all the engine audio sources.")]
         public GameObject engineSourceGO;
 
         /// <summary>
         ///     GameObject containing all the crash audio sources.
         /// </summary>
-        [Tooltip("    GameObject containing all the crash audio sources.")]
+        [Tooltip("GameObject containing all the crash audio sources.")]
         public GameObject crashSourceGO;
 
         /// <summary>
         ///     GameObject containing all other audio sources.
         /// </summary>
-        [Tooltip("    GameObject containing all other audio sources.")]
+        [Tooltip("GameObject containing all other audio sources.")]
         public GameObject otherSourceGO;
 
         /// <summary>
         ///     GameObject containing all the exhaust audio sources.
         /// </summary>
-        [Tooltip("    GameObject containing all the exhaust audio sources.")]
+        [Tooltip("GameObject containing all the exhaust audio sources.")]
         public GameObject exhaustSourceGO;
 
         /// <summary>
         ///     GameObject containing all transmission audio sources.
         /// </summary>
-        [Tooltip("    GameObject containing all transmission audio sources.")]
+        [Tooltip("GameObject containing all transmission audio sources.")]
         public GameObject transmissionSourceGO;
 
 
@@ -213,13 +213,13 @@ namespace Django.VehiclePhysics.Sound
         /// <summary>
         ///     Sound attenuation inside vehicle.
         /// </summary>
-        [Tooltip("    Sound attenuation inside vehicle.")]
+        [Tooltip("Sound attenuation inside vehicle.")]
         public float interiorAttenuation = -5f;
 
         /// <summary>
         ///     Frequencies above this frequency will be attenuated.
         /// </summary>
-        [UnityEngine.Tooltip("    Frequencies above this frequency will be attenuated.")]
+        [Tooltip("Frequencies above this frequency will be attenuated.")]
         public float lowPassFrequency = 1700f;
 
         /// <summary>
@@ -227,20 +227,20 @@ namespace Django.VehiclePhysics.Sound
         ///     after the low pass frequency.
         /// </summary>
         [Range(0.01f, 10f)]
-        [UnityEngine.Tooltip("    Determines the slope of the low pass filter, i.e. how fast the frequencies will drop off \r\n    after the low pass frequency.")]
+        [Tooltip("Determines the slope of the low pass filter, i.e. how fast the frequencies will drop off \r\n    after the low pass frequency.")]
         public float lowPassQ = 0.5f;
 
         /// <summary>
         /// Intensity of doppler effect on vehicle audio sources.
         /// </summary>
-        [UnityEngine.Tooltip("Intensity of doppler effect on vehicle audio sources.")]
+        [Tooltip("Intensity of doppler effect on vehicle audio sources.")]
         public float dopplerLevel = 0f;
 
         /// <summary>
         ///     Spatial blend of all audio sources. Can not be changed at runtime.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Spatial blend of all audio sources. Can not be changed at runtime.")]
+        [Tooltip("Spatial blend of all audio sources. Can not be changed at runtime.")]
         public float spatialBlend = 0.6f;
 
         private float _originalAttenuation;

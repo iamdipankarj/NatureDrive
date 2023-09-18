@@ -96,7 +96,7 @@ namespace Django.VehiclePhysics.Powertrain
         ///     Event that gets triggered when transmission shifts down.
         /// </summary>
         [SerializeField]
-        [Tooltip("    Event that gets triggered when transmission shifts down.")]
+        [Tooltip("Event that gets triggered when transmission shifts down.")]
         public UnityEvent onDownshift = new UnityEvent();
 
 
@@ -104,7 +104,7 @@ namespace Django.VehiclePhysics.Powertrain
         ///     Event that gets triggered when transmission shifts (up or down).
         /// </summary>
         [SerializeField]
-        [Tooltip("    Event that gets triggered when transmission shifts (up or down).")]
+        [Tooltip("Event that gets triggered when transmission shifts (up or down).")]
         public UnityEvent onShift = new UnityEvent();
 
 
@@ -112,14 +112,14 @@ namespace Django.VehiclePhysics.Powertrain
         ///     Event that gets triggered when transmission shifts up.
         /// </summary>
         [SerializeField]
-        [Tooltip("    Event that gets triggered when transmission shifts up.")]
+        [Tooltip("Event that gets triggered when transmission shifts up.")]
         public UnityEvent onUpshift = new UnityEvent();
 
 
         /// <summary>
         ///     Time after shifting in which shifting can not be done again.
         /// </summary>
-        [Tooltip("    Time after shifting in which shifting can not be done again.")]
+        [Tooltip("Time after shifting in which shifting can not be done again.")]
         public float postShiftBan = 0.5f;
 
 
@@ -136,7 +136,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// </summary>
         [FormerlySerializedAs("automaticTransmissionReverseType")]
         [FormerlySerializedAs("reverseType")]
-        [Tooltip("    Behavior when switching from neutral to forward or reverse gear.")]
+        [Tooltip("Behavior when switching from neutral to forward or reverse gear.")]
         public AutomaticTransmissionDNRShiftType automaticTransmissionDNRShiftType = AutomaticTransmissionDNRShiftType.Auto;
         
         
@@ -155,7 +155,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// <summary>
         ///     Time it takes transmission to shift between gears.
         /// </summary>
-        [Tooltip("    Time it takes transmission to shift between gears.")]
+        [Tooltip("Time it takes transmission to shift between gears.")]
         [ShowInSettings("Shift Duration", 0.001f, 0.5f, 0.05f)]
         public float shiftDuration = 0.2f;
 
@@ -173,14 +173,14 @@ namespace Django.VehiclePhysics.Powertrain
         /// <summary>
         ///     If enabled shifting when in manual transmission will be instant, ignoring post shift ban.
         /// </summary>
-        [Tooltip("    If enabled shifting when in manual transmission will be instant, ignoring post shift ban.")]
+        [Tooltip("If enabled shifting when in manual transmission will be instant, ignoring post shift ban.")]
         public bool ignorePostShiftBanInManual = true;
 
 
         /// <summary>
         ///     If enabled transmission will adjust both shift up and down points to match current load.
         /// </summary>
-        [Tooltip("    If enabled transmission will adjust both shift up and down points to match current load.")]
+        [Tooltip("If enabled transmission will adjust both shift up and down points to match current load.")]
         [ShowInSettings("Variable Shift Point")]
         public bool variableShiftPoint = true;
 
@@ -188,7 +188,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// <summary>
         /// Current gear ratio.
         /// </summary>
-        [UnityEngine.Tooltip("Current gear ratio.")]
+        [Tooltip("Current gear ratio.")]
         [ShowInTelemetry]
         public float currentGearRatio;
 
@@ -303,7 +303,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// Has no effect on manual transmission.
         /// </summary>
         [ShowInSettings("Sequential")]
-        [UnityEngine.Tooltip("Is the automatic gearbox sequential?\r\nHas no effect on manual transmission.")]
+        [Tooltip("Is the automatic gearbox sequential?\r\nHas no effect on manual transmission.")]
         public bool isSequential = false;
 
         public bool allowUpshiftGearSkipping;

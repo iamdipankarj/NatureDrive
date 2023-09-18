@@ -20,13 +20,13 @@ namespace Django.VehiclePhysics.Modules.Fuel
         /// <summary>
         ///     Current amount of fuel in liters.
         /// </summary>
-        [Tooltip("     Current amount of fuel in liters.")]
+        [Tooltip(" Current amount of fuel in liters.")]
         public float amount = 50f;
 
         /// <summary>
         ///     Fuel capacity in liters.
         /// </summary>
-        [Tooltip("    Fuel capacity in liters.")]
+        [Tooltip("Fuel capacity in liters.")]
         public float capacity = 50f;
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Django.VehiclePhysics.Modules.Fuel
         /// <summary>
         ///     Consumption when idling indicated in percentage of max consumption. 0.05f = 5% out of maximum.
         /// </summary>
-        [Tooltip("    Consumption when idling indicated in percentage of max consumption. 0.05f = 5% out of maximum.")]
+        [Tooltip("Consumption when idling indicated in percentage of max consumption. 0.05f = 5% out of maximum.")]
         public float idleConsumption = 0.1f;
 
         public float maxConsumptionPerHour = 20f;
@@ -54,7 +54,7 @@ namespace Django.VehiclePhysics.Modules.Fuel
         /// <summary>
         ///     Called when vehicle runs out of fuel.
         /// </summary>
-        [Tooltip("    Called when vehicle runs out of fuel.")]
+        [Tooltip("Called when vehicle runs out of fuel.")]
         public UnityEvent onOutOfFuel;
 
         private float _consumptionThisFrame;

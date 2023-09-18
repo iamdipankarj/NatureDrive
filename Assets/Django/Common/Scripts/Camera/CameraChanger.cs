@@ -20,13 +20,13 @@ namespace Django.Common.Cameras {
     /// <summary>
     ///     If true vehicleCameras list will be filled through cameraTag.
     /// </summary>
-    [Tooltip("    If true vehicleCameras list will be filled through cameraTag.")]
+    [Tooltip("If true vehicleCameras list will be filled through cameraTag.")]
     public bool autoFindCameras = true;
 
     /// <summary>
     ///     Index of the camera from vehicle cameras list that will be active first.
     /// </summary>
-    [Tooltip("    Index of the camera from vehicle cameras list that will be active first.")]
+    [Tooltip("Index of the camera from vehicle cameras list that will be active first.")]
     public int currentCameraIndex;
 
     /// <summary>

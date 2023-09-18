@@ -29,13 +29,13 @@ namespace Django.VehiclePhysics.Modules.SpeedLimiter
         /// <summary>
         ///     Speed limit above which the throttle will be cut.
         /// </summary>
-        [Tooltip("    Speed limit above which the throttle will be cut.")]
+        [Tooltip("Speed limit above which the throttle will be cut.")]
         public float speedLimit;
 
         /// <summary>
         ///     Units which will be used for speed limiter. Defaults to m/s.
         /// </summary>
-        [Tooltip("    Units which will be used for speed limiter. Defaults to m/s.")]
+        [Tooltip("Units which will be used for speed limiter. Defaults to m/s.")]
         public SpeedUnits speedUnits;
 
 

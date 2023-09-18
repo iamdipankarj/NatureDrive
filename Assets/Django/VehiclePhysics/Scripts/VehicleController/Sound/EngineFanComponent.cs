@@ -35,14 +35,14 @@ namespace Django.VehiclePhysics.Sound.SoundComponents
         /// <summary>
         /// Starting sound pitch at idle RPM.
         /// </summary>
-        [UnityEngine.Tooltip("Starting sound pitch at idle RPM.")]
+        [Tooltip("Starting sound pitch at idle RPM.")]
         public float basePitch = 1f;
 
         /// <summary>
         /// Pitch range, redline pitch equals basePitch + pitchRange.
         /// </summary>
         [Range(0, 4)]
-        [UnityEngine.Tooltip("Pitch range, redline pitch equals basePitch + pitchRange.")]
+        [Tooltip("Pitch range, redline pitch equals basePitch + pitchRange.")]
         public float pitchRange = 0.5f;
 
         public override bool InitLoop

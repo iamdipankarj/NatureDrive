@@ -36,7 +36,7 @@ namespace Django.VehiclePhysics.Effects
         /// <summary>
         ///     When skidmark alpha value is below this value skidmark mesh will not be generated.
         /// </summary>
-        [Tooltip("    When skidmark alpha value is below this value skidmark mesh will not be generated.")]
+        [Tooltip("When skidmark alpha value is below this value skidmark mesh will not be generated.")]
         public float lowerIntensityThreshold = 0.05f;
 
         /// <summary>
@@ -49,32 +49,32 @@ namespace Django.VehiclePhysics.Effects
         /// <summary>
         /// Total number of skidmark mesh triangles per wheel before the oldest skidmark section gets destroyed.
         /// </summary>
-        [UnityEngine.Tooltip("Total number of skidmark mesh triangles per wheel before the oldest skidmark section gets destroyed.")]
+        [Tooltip("Total number of skidmark mesh triangles per wheel before the oldest skidmark section gets destroyed.")]
         public int maxTotalTris = 1440;
 
         /// <summary>
         ///     Max skidmark texture alpha.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Max skidmark texture alpha.")]
+        [Tooltip("Max skidmark texture alpha.")]
         public float maxSkidmarkAlpha = 0.6f;
 
         /// <summary>
         ///     Distance from the last skidmark section needed to generate a new one.
         /// </summary>
-        [Tooltip("    Distance from the last skidmark section needed to generate a new one.")]
+        [Tooltip("Distance from the last skidmark section needed to generate a new one.")]
         public float minDistance = 0.12f;
 
         /// <summary>
         ///     Skidmarks get deleted when distance from the parent vehicle is higher than this.
         /// </summary>
-        [UnityEngine.Tooltip("    Skidmarks get deleted when distance from the parent vehicle is higher than this.")]
+        [Tooltip("Skidmarks get deleted when distance from the parent vehicle is higher than this.")]
         public float skidmarkDestroyDistance = 100f;
 
         /// <summary>
         ///     Time after which the skidmark will get destroyed. Set to 0 to disable.
         /// </summary>
-        [UnityEngine.Tooltip("    Time after which the skidmark will get destroyed. Set to 0 to disable.")]
+        [Tooltip("Time after which the skidmark will get destroyed. Set to 0 to disable.")]
         public float skidmarkDestroyTime = 0f;
 
         /// <summary>
@@ -88,13 +88,13 @@ namespace Django.VehiclePhysics.Effects
         /// <summary>
         /// Game object that contains all the skidmark objects.
         /// </summary>
-        [UnityEngine.Tooltip("Game object that contains all the skidmark objects.")]
+        [Tooltip("Game object that contains all the skidmark objects.")]
         public GameObject skidmarkContainer;
 
         /// <summary>
         /// Material that will be used if no material is assigned to current surface or current surface is null.
         /// </summary>
-        [UnityEngine.Tooltip("Material that will be used if no material is assigned to current surface or current surface is null.")]
+        [Tooltip("Material that will be used if no material is assigned to current surface or current surface is null.")]
         public Material fallbackMaterial;
 
         private int _prevWheelCount;

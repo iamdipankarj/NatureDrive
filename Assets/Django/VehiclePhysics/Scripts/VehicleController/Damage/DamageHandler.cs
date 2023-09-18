@@ -41,40 +41,40 @@ namespace Django.VehiclePhysics.Damage
         /// <summary>
         ///     How much new collisions add to the 'damage' value. Does not affect mesh deformation strength.
         /// </summary>
-        [Tooltip("    How much new collisions add to the 'damage' value. Does not affect mesh deformation strength.")]
+        [Tooltip("How much new collisions add to the 'damage' value. Does not affect mesh deformation strength.")]
         public float damageIntensity = 1f;
 
         /// <summary>
         ///     Deceleration magnitude needed to trigger damage.
         /// </summary>
-        [Tooltip("    Deceleration magnitude needed to trigger damage.")]
+        [Tooltip("Deceleration magnitude needed to trigger damage.")]
         public float decelerationThreshold = 200f;
 
         /// <summary>
         ///     Objects that have a tag that is on this list will not have their meshes deformed on collision.
         /// </summary>
-        [Tooltip("    Objects that have a tag that is on this list will not have their meshes deformed on collision.")]
+        [Tooltip("Objects that have a tag that is on this list will not have their meshes deformed on collision.")]
         public List<string> deformationIgnoreTags = new List<string> { "Wheel", };
 
         /// <summary>
         ///     Radius is which vertices will be deformed.
         /// </summary>
         [Range(0, 2)]
-        [Tooltip("    Radius is which vertices will be deformed.")]
+        [Tooltip("Radius is which vertices will be deformed.")]
         public float deformationRadius = 0.4f;
 
         /// <summary>
         ///     Adds noise to the mesh deformation. 0 will result in smooth mesh.
         /// </summary>
         [Range(0.001f, 0.5f)]
-        [Tooltip("    Adds noise to the mesh deformation. 0 will result in smooth mesh.")]
+        [Tooltip("Adds noise to the mesh deformation. 0 will result in smooth mesh.")]
         public float deformationRandomness = 0.01f;
 
         /// <summary>
         ///     Determines how much vertices will be deformed for given collision strength.
         /// </summary>
         [Range(0.1f, 5f)]
-        [Tooltip("    Determines how much vertices will be deformed for given collision strength.")]
+        [Tooltip("Determines how much vertices will be deformed for given collision strength.")]
         public float deformationStrength = 0.5f;
 
         /// <summary>
@@ -88,13 +88,13 @@ namespace Django.VehiclePhysics.Damage
         /// <summary>
         ///     Should meshes be deformed upon collision?
         /// </summary>
-        [Tooltip("    Should meshes be deformed upon collision?")]
+        [Tooltip("Should meshes be deformed upon collision?")]
         public bool meshDeform = true;
 
         /// <summary>
         ///     Called when a collision happens.
         /// </summary>
-        [Tooltip("    Called when a collision happens.")]
+        [Tooltip("Called when a collision happens.")]
         public VehicleCollisionEvent OnCollision = new VehicleCollisionEvent();
 
         public List<ParticleSystem> smokeParticleSystems = new List<ParticleSystem>();
@@ -102,19 +102,19 @@ namespace Django.VehiclePhysics.Damage
         /// <summary>
         ///     Should damage affect vehicle performance (steering, power, etc.)?
         /// </summary>
-        [Tooltip("    Should damage affect vehicle performance (steering, power, etc.)?")]
+        [Tooltip("Should damage affect vehicle performance (steering, power, etc.)?")]
         public bool visualOnly = false;
 
         /// <summary>
         ///     Collision data for the latest collision. Null if no collision yet happened.
         /// </summary>
-        [Tooltip("    Collision data for the latest collision. Null if no collision yet happened.")]
+        [Tooltip("Collision data for the latest collision. Null if no collision yet happened.")]
         public Collision lastCollision;
 
         /// <summary>
         ///     Time since startup to the latest collision.
         /// </summary>
-        [Tooltip("    Time since startup to the latest collision.")]
+        [Tooltip("Time since startup to the latest collision.")]
         public float lastCollisionTime = -1;
 
         private Queue<VehicleCollision> _collisionEvents = new Queue<VehicleCollision>();
@@ -433,13 +433,13 @@ namespace Django.VehiclePhysics.Damage
             /// <summary>
             ///     Collision data for the collision event.
             /// </summary>
-            [Tooltip("    Collision data for the collision event.")]
+            [Tooltip("Collision data for the collision event.")]
             public Collision collision;
 
             /// <summary>
             ///     Magnitude of the decekeration vector at the moment of impact.
             /// </summary>
-            [Tooltip("    Magnitude of the decekeration vector at the moment of impact.")]
+            [Tooltip("Magnitude of the decekeration vector at the moment of impact.")]
             public float decelerationMagnitude;
 
             /// <summary>

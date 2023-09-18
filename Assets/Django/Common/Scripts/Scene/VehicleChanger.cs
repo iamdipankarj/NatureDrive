@@ -25,7 +25,7 @@ namespace Django.Common.SceneManagement
         /// <summary>
         ///     Index of the current vehicle in vehicles list.
         /// </summary>
-        [Tooltip("    Index of the current vehicle in vehicles list.")]
+        [Tooltip("Index of the current vehicle in vehicles list.")]
         public int activeVehicleIndex = 0;
 
         /// <summary>
@@ -53,14 +53,14 @@ namespace Django.Common.SceneManagement
         /// <summary>
         ///     Game object representing a character. Can also be another vehicle.
         /// </summary>
-        [Tooltip("    Game object representing a character. Can also be another vehicle.")]
+        [Tooltip("Game object representing a character. Can also be another vehicle.")]
         public GameObject characterObject;
 
         /// <summary>
         ///     Maximum distance at which the character will be able to enter the vehicle.
         /// </summary>
         [Range(0.2f, 3f)]
-        [Tooltip("    Maximum distance at which the character will be able to enter the vehicle.")]
+        [Tooltip("Maximum distance at which the character will be able to enter the vehicle.")]
         public float enterDistance = 2f;
 
         /// <summary>
@@ -74,19 +74,19 @@ namespace Django.Common.SceneManagement
         /// <summary>
         ///     Maximum speed at which the character will be able to enter / exit the vehicle.
         /// </summary>
-        [Tooltip("    Maximum speed at which the character will be able to enter / exit the vehicle.")]
+        [Tooltip("Maximum speed at which the character will be able to enter / exit the vehicle.")]
         public float maxEnterExitVehicleSpeed = 2f;
 
         /// <summary>
         /// When the location is Near, the player can enter the vehicle.
         /// </summary>
-        [UnityEngine.Tooltip("When the location is Near, the player can enter the vehicle.")]
+        [Tooltip("When the location is Near, the player can enter the vehicle.")]
         public CharacterLocation location = CharacterLocation.OutOfRange;
 
         /// <summary>
         /// Should the player start inside the vehicle?
         /// </summary>
-        [UnityEngine.Tooltip("Should the player start inside the vehicle?")]
+        [Tooltip("Should the player start inside the vehicle?")]
         public bool startInVehicle = false;
 
         public UnityEvent onVehicleChanged = new UnityEvent();

@@ -33,13 +33,13 @@ namespace Django.VehiclePhysics.VehicleGUI
         /// <summary>
         ///     Color of the ''Image'' when the light is off. Black by default.
         /// </summary>
-        [Tooltip("    Color of the ''Image'' when the light is off. Black by default.")]
+        [Tooltip("Color of the ''Image'' when the light is off. Black by default.")]
         public Color offColor = Color.black;
 
         /// <summary>
         ///     Color of the ''Image'' when the light is on. White by default.
         /// </summary>
-        [Tooltip("    Color of the ''Image'' when the light is on. White by default.")]
+        [Tooltip("Color of the ''Image'' when the light is on. White by default.")]
         public Color onColor = Color.white;
 
         private bool _active;

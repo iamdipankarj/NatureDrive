@@ -18,7 +18,7 @@ namespace Django.VehiclePhysics.Modules.AirSteer
         /// Torque applied around the Y axis to steer the vehicle while in the air (nose left/right).
         /// Activated with steering input.
         /// </summary>
-        [UnityEngine.Tooltip("Torque applied around the Y axis to steer the vehicle while in the air (nose left/right).\r\nActivated with steering input.")]
+        [Tooltip("Torque applied around the Y axis to steer the vehicle while in the air (nose left/right).\r\nActivated with steering input.")]
         public float yawTorque = 10000f;
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Django.VehiclePhysics.Modules.AirSteer
         /// Torque from the changes in the wheel angular velocity will get applied independently of this setting
         /// by the WheelController.
         /// </summary>
-        [UnityEngine.Tooltip("Torque applied around the X axis to steer the vehicle while in the air (nose up, down).\r\nActivated with throttle / brake input.\r\nTorque from the changes in the wheel angular velocity will get applied independently of this setting\r\nby the WheelController.")]
+        [Tooltip("Torque applied around the X axis to steer the vehicle while in the air (nose up, down).\r\nActivated with throttle / brake input.\r\nTorque from the changes in the wheel angular velocity will get applied independently of this setting\r\nby the WheelController.")]
         public float pitchTorque = 10000f;
 
 

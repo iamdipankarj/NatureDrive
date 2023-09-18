@@ -20,52 +20,52 @@ namespace Django.VehiclePhysics.Effects
         ///     Rear lights that will light up when brake is pressed. Always red.
         /// </summary>
         [FormerlySerializedAs("stopLights")]
-        [Tooltip("    Rear lights that will light up when brake is pressed. Always red.")]
+        [Tooltip("Rear lights that will light up when brake is pressed. Always red.")]
         public VehicleLight brakeLights = new VehicleLight();
 
         /// <summary>
         ///     Can be used for any type of special lights, e.g. beacons.
         /// </summary>
-        [Tooltip("    Can be used for any type of special lights, e.g. beacons.")]
+        [Tooltip("Can be used for any type of special lights, e.g. beacons.")]
         public VehicleLight extraLights = new VehicleLight();
 
         /// <summary>
         ///     High (full) beam lights.
         /// </summary>
         [FormerlySerializedAs("fullBeams")]
-        [Tooltip("    High (full) beam lights.")]
+        [Tooltip("High (full) beam lights.")]
         public VehicleLight highBeamLights = new VehicleLight();
 
         /// <summary>
         ///     Blinkers on the left side of the vehicle.
         /// </summary>
-        [Tooltip("    Blinkers on the left side of the vehicle.")]
+        [Tooltip("Blinkers on the left side of the vehicle.")]
         public VehicleLight leftBlinkers = new VehicleLight();
 
         /// <summary>
         ///     Low beam lights.
         /// </summary>
         [FormerlySerializedAs("headLights")]
-        [Tooltip("    Low beam lights.")]
+        [Tooltip("Low beam lights.")]
         public VehicleLight lowBeamLights = new VehicleLight();
 
         /// <summary>
         ///     Rear Lights that will light up when vehicle is in reverse gear(s). Usually white.
         /// </summary>
-        [Tooltip("    Rear Lights that will light up when vehicle is in reverse gear(s). Usually white.")]
+        [Tooltip("Rear Lights that will light up when vehicle is in reverse gear(s). Usually white.")]
         public VehicleLight reverseLights = new VehicleLight();
 
         /// <summary>
         ///     Blinkers on the right side of the vehicle.
         /// </summary>
-        [Tooltip("    Blinkers on the right side of the vehicle.")]
+        [Tooltip("Blinkers on the right side of the vehicle.")]
         public VehicleLight rightBlinkers = new VehicleLight();
 
         /// <summary>
         ///     Rear Lights that will light up when headlights are on. Always red.
         /// </summary>
         [FormerlySerializedAs("rearLights")]
-        [Tooltip("    Rear Lights that will light up when headlights are on. Always red.")]
+        [Tooltip("Rear Lights that will light up when headlights are on. Always red.")]
         public VehicleLight tailLights = new VehicleLight();
 
         private bool _hazardLightsOn;

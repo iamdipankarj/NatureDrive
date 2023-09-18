@@ -66,7 +66,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// </summary>
         [SerializeField]
         [Range(0, 1)]
-        [Tooltip("    Torque bias between left (A) and right (B) output in [0,1] range.")]
+        [Tooltip("Torque bias between left (A) and right (B) output in [0,1] range.")]
         [ShowInTelemetry]
         [ShowInSettings("Bias A/B", 0f, 1f, 0.1f)]
         public float biasAB = 0.5f;
@@ -94,7 +94,7 @@ namespace Django.VehiclePhysics.Powertrain
         [Range(0, 1)]
         [ShowInTelemetry]
         [ShowInSettings("Power Ramp", 0f, 1f, 0.1f)]
-        [UnityEngine.Tooltip("Stiffness of the LSD differential under acceleration.")]
+        [Tooltip("Stiffness of the LSD differential under acceleration.")]
         public float powerRamp = 1f;
 
 
@@ -153,7 +153,7 @@ namespace Django.VehiclePhysics.Powertrain
         ///     Slip torque of limited slip differentials.
         /// </summary>
         [SerializeField]
-        [Tooltip("    Slip torque of limited slip differentials.")]
+        [Tooltip("Slip torque of limited slip differentials.")]
         [ShowInTelemetry]
         [ShowInSettings("LSD Slip Tq", 0f, 2000f, 100f)]
         public float slipTorque = 400f;
@@ -162,7 +162,7 @@ namespace Django.VehiclePhysics.Powertrain
         /// <summary>
         /// Function delegate that will be used to split the torque between output(A) and outputB.
         /// </summary>
-        [UnityEngine.Tooltip("Function delegate that will be used to split the torque between output(A) and outputB.")]
+        [Tooltip("Function delegate that will be used to split the torque between output(A) and outputB.")]
         public SplitTorque splitTorqueDelegate;
 
 

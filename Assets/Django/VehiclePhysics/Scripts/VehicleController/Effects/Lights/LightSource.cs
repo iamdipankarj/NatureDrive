@@ -25,7 +25,7 @@ namespace Django.VehiclePhysics.Effects
         ///     Color of the emitted light.
         /// </summary>
         [ColorUsage(true, true)]
-        [Tooltip("    Color of the emitted light.")]
+        [Tooltip("Color of the emitted light.")]
         public Color emissionColor;
 
         /// <summary>
@@ -47,13 +47,13 @@ namespace Django.VehiclePhysics.Effects
         /// <summary>
         ///     If your mesh has more than one material set this number to the index of required material.
         /// </summary>
-        [Tooltip("    If your mesh has more than one material set this number to the index of required material.")]
+        [Tooltip("If your mesh has more than one material set this number to the index of required material.")]
         public int rendererMaterialIndex;
 
         /// <summary>
         ///     Type of the light.
         /// </summary>
-        [Tooltip("    Type of the light.")]
+        [Tooltip("Type of the light.")]
         public LightType type;
 
         /// <summary>

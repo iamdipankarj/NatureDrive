@@ -23,7 +23,7 @@ namespace Django.VehiclePhysics.Modules.FlipOver
         /// <summary>
         /// Determines how the vehicle will be flipped over. 
         /// </summary>
-        [UnityEngine.Tooltip("Determines how the vehicle will be flipped over. ")]
+        [Tooltip("Determines how the vehicle will be flipped over. ")]
         public FlipOverType flipOverType = FlipOverType.Instant;
 
         public FlipOverActivation flipOverActivation = FlipOverActivation.Manual;
@@ -31,26 +31,26 @@ namespace Django.VehiclePhysics.Modules.FlipOver
         /// <summary>
         ///     Minimum angle that the vehicle needs to be at for it to be detected as flipped over.
         /// </summary>
-        [Tooltip("    Minimum angle that the vehicle needs to be at for it to be detected as flipped over.")]
+        [Tooltip("Minimum angle that the vehicle needs to be at for it to be detected as flipped over.")]
         public float allowedAngle = 70f;
 
         /// <summary>
         /// If using instant (not gradual) flip over this value will be applied to the transform.y position to prevent rotating
         /// the object to a position that is underground.
         /// </summary>
-        [UnityEngine.Tooltip("If using instant (not gradual) flip over this value will be applied to the transform.y position to prevent rotating\r\nthe object to a position that is underground.")]
+        [Tooltip("If using instant (not gradual) flip over this value will be applied to the transform.y position to prevent rotating\r\nthe object to a position that is underground.")]
         public float instantFlipOverVerticalOffset = 1f;
 
         /// <summary>
         ///     Is the vehicle flipped over?
         /// </summary>
-        [Tooltip("    Is the vehicle flipped over?")]
+        [Tooltip("Is the vehicle flipped over?")]
         public bool flippedOver;
 
         /// <summary>
         ///     Flip over detection will be disabled if velocity is above this value [m/s].
         /// </summary>
-        [Tooltip("    Flip over detection will be disabled if velocity is above this value [m/s].")]
+        [Tooltip("Flip over detection will be disabled if velocity is above this value [m/s].")]
         public float maxDetectionSpeed = 0.6f;
 
         /// <summary>

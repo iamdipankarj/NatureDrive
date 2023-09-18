@@ -62,21 +62,21 @@ namespace Django.VehiclePhysics.Input
         ///     Active steer devices.
         /// </summary>
         [FormerlySerializedAs("horizontalInputType")]
-        [Tooltip("    Active steer devices.")]
+        [Tooltip("Active steer devices.")]
         public HorizontalAxisType steeringInputType = HorizontalAxisType.SteeringWheel;
 
 
         /// <summary>
         ///     Steering wheel script. Optional and not needed if SteeringWheel option is not used.
         /// </summary>
-        [Tooltip("    Steering wheel script. Optional and not needed if SteeringWheel option is not used.")]
+        [Tooltip("Steering wheel script. Optional and not needed if SteeringWheel option is not used.")]
         public SteeringWheel steeringWheel;
 
 
         /// <summary>
         ///     Higher value will result in higher steer angle for same tilt.
         /// </summary>
-        [Tooltip("    Higher value will result in higher steer angle for same tilt.")]
+        [Tooltip("Higher value will result in higher steer angle for same tilt.")]
         public float tiltSensitivity = 1.5f;
 
         public MobileInputButton trailerAttachDetachButton;
@@ -84,7 +84,7 @@ namespace Django.VehiclePhysics.Input
         /// <summary>
         ///     Active steer devices.
         /// </summary>
-        [Tooltip("    Active steer devices.")]
+        [Tooltip("Active steer devices.")]
         public VerticalAxisType verticalInputType = VerticalAxisType.Button;
 
 

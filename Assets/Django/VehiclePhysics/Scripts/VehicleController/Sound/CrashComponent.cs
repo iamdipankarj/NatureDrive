@@ -47,7 +47,7 @@ namespace Django.VehiclePhysics.Sound.SoundComponents
         ///     Higher values result in collisions getting louder for the given collision velocity magnitude.
         /// </summary>
         [Range(0, 5)]
-        [Tooltip("    Higher values result in collisions getting louder for the given collision velocity magnitude.")]
+        [Tooltip("Higher values result in collisions getting louder for the given collision velocity magnitude.")]
         public float velocityMagnitudeEffect = 1f;
 
 

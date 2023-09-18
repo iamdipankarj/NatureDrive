@@ -19,7 +19,7 @@ namespace Django.VehiclePhysics.GroundDetection
         /// <summary>
         ///     Name of the surface map. For display purposes only.
         /// </summary>
-        [Tooltip("    Name of the surface map. For display purposes only.")]
+        [Tooltip("Name of the surface map. For display purposes only.")]
         public string name;
 
         public SurfacePreset surfacePreset;
@@ -27,7 +27,7 @@ namespace Django.VehiclePhysics.GroundDetection
         /// <summary>
         ///     Objects with tags in this list will be recognized as this type of surface.
         /// </summary>
-        [Tooltip("    Objects with tags in this list will be recognized as this type of surface.")]
+        [Tooltip("Objects with tags in this list will be recognized as this type of surface.")]
         public List<string> tags = new List<string>();
 
         /// <summary>

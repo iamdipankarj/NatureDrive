@@ -21,13 +21,13 @@ namespace Django.Common.Vehicles
         /// <summary>
         ///     B, C, D and E parameters of short version of Pacejka's magic formula.
         /// </summary>
-        [Tooltip("    B, C, D and E parameters of short version of Pacejka's magic formula.")]
+        [Tooltip("B, C, D and E parameters of short version of Pacejka's magic formula.")]
         public Vector4 BCDE;
 
         /// <summary>
         /// Slip at which the friction preset has highest friction.
         /// </summary>
-        [UnityEngine.Tooltip("Slip at which the friction preset has highest friction.")]
+        [Tooltip("Slip at which the friction preset has highest friction.")]
         public float peakSlip = 0.12f;
 
         [SerializeField]

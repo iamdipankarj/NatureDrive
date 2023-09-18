@@ -16,7 +16,7 @@ namespace Django.VehiclePhysics
         /// <summary>
         ///     Contains info about component's state.
         /// </summary>
-        [Tooltip("    Contains info about component's state.")]
+        [Tooltip("Contains info about component's state.")]
         [NonSerialized]
         public StateDefinition state = new StateDefinition();
 

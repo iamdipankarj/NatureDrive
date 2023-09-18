@@ -38,11 +38,11 @@ namespace Django.VehiclePhysics.SetupWizard
         }
 
         // General
-        [UnityEngine.Tooltip("General")]
+        [Tooltip("General")]
         public VehicleType vehicleType = VehicleType.Car;
 
         // Physical properties
-        [UnityEngine.Tooltip("Physical properties")]
+        [Tooltip("Physical properties")]
         public float mass = 1500f;
         public float width = 1.8f;
         public float length = 4.5f;
@@ -50,16 +50,16 @@ namespace Django.VehiclePhysics.SetupWizard
 
         // Engine
         [Range(10, 600)]
-        [UnityEngine.Tooltip("Engine")]
+        [Tooltip("Engine")]
         public float enginePower = 110f;
         public float engineMaxRPM = 6000f;
 
         // Transmission
-        [UnityEngine.Tooltip("Transmission")]
+        [Tooltip("Transmission")]
         public float transmissionGearing = 1f;
 
         // Drivetrain
-        [UnityEngine.Tooltip("Drivetrain")]
+        [Tooltip("Drivetrain")]
         public DrivetrainConfiguration drivetrainConfiguration = DrivetrainConfiguration.RWD;
 
         // Suspension

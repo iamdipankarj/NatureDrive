@@ -17,7 +17,7 @@ namespace Django.WheelController3D
         /// Curve representing spring compression on X-axis and 
         /// camber angle on Y-axis.
         /// </summary>
-        [UnityEngine.Tooltip("Curve representing spring compression on X-axis and \r\ncamber angle on Y-axis.")]
+        [Tooltip("Curve representing spring compression on X-axis and \r\ncamber angle on Y-axis.")]
         public AnimationCurve camberCurve;
 
         private WheelController _wc;

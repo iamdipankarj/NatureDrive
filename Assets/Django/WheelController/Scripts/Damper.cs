@@ -65,7 +65,7 @@ namespace Django.WheelController3D
         /// <summary>
         ///     Current damper force.
         /// </summary>
-        [Tooltip("    Current damper force.")]
+        [Tooltip("Current damper force.")]
         public float force;
 
 

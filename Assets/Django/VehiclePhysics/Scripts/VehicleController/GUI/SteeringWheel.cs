@@ -15,13 +15,13 @@ namespace Django.VehiclePhysics.VehicleGUI
         /// <summary>
         ///     Maximum angle that the steering wheel can be turned to towards either side in degrees.
         /// </summary>
-        [Tooltip("    Maximum angle that the steering wheel can be turned to towards either side in degrees.")]
+        [Tooltip("Maximum angle that the steering wheel can be turned to towards either side in degrees.")]
         public float maximumSteeringAngle = 200f;
 
         /// <summary>
         ///     Speed at which wheel is returned to center in degrees per second.
         /// </summary>
-        [Tooltip("    Speed at which wheel is returned to center in degrees per second.")]
+        [Tooltip("Speed at which wheel is returned to center in degrees per second.")]
         public float returnToCenterSpeed = 400f;
 
         public Graphic steeringWheelGraphic;

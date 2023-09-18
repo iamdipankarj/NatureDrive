@@ -35,7 +35,7 @@ namespace Django.VehiclePhysics.Sound.SoundComponents
         ///     Pitch range that will be added to the base pitch depending on turbos's RPM.
         /// </summary>
         [Range(0, 5)]
-        [Tooltip("    Pitch range that will be added to the base pitch depending on turbos's RPM.")]
+        [Tooltip("Pitch range that will be added to the base pitch depending on turbos's RPM.")]
         public float pitchRange = 0.9f;
 
         public override bool InitLoop

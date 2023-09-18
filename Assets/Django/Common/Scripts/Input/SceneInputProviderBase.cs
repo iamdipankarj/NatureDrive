@@ -10,13 +10,13 @@ namespace Django.Common.Input
         /// <summary>
         ///     If true a button press will be required to unlock camera rotation.
         /// </summary>
-        [UnityEngine.Tooltip("    If true a button press will be required to unlock camera rotation.")]
+        [Tooltip("If true a button press will be required to unlock camera rotation.")]
         public bool requireCameraRotationModifier = true;
 
         /// <summary>
         ///     If true a button press will be required to unlock camera panning.
         /// </summary>
-        [UnityEngine.Tooltip("    If true a button press will be required to unlock camera panning.")]
+        [Tooltip("If true a button press will be required to unlock camera panning.")]
         public bool requireCameraPanningModifier = true;
 
 
