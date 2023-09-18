@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Reverse",
+                    "name": "Brakes",
                     "type": "Value",
                     "id": "ee6ae4a1-1517-4033-b9f5-1f9c922b7ab4",
                     "expectedControlType": "",
@@ -45,6 +45,24 @@
                     "name": "HandBrake",
                     "type": "Button",
                     "id": "ee7182bf-4e4d-4c9d-a3e0-79c24b5bb61f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EngineSrartStop",
+                    "type": "Button",
+                    "id": "74857e3e-8c1e-47ea-af61-b5d382a25bf0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Clutch",
+                    "type": "Button",
+                    "id": "6074d677-c603-4e50-a643-e602b2c20625",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -207,6 +225,15 @@
                     "name": "Boost",
                     "type": "Button",
                     "id": "85039153-43a5-4566-bea0-8612853bb4e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CruiseControl",
+                    "type": "Button",
+                    "id": "a0e5d42d-c4c5-490c-8ba6-4a2f19b4a57f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -573,7 +600,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reverse",
+                    "action": "Brakes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -584,7 +611,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reverse",
+                    "action": "Brakes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -595,7 +622,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reverse",
+                    "action": "Brakes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -606,7 +633,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reverse",
+                    "action": "Brakes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -617,7 +644,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reverse",
+                    "action": "Brakes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1291,6 +1318,193 @@
                     "action": "Boost",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8fdfa47-28e9-4949-93b9-971e06a633de",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clutch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e500ba1-785a-4159-965a-35015aeead0c",
+                    "path": "<DualShockGamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clutch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bcd43d15-6db1-478e-a6fb-f816908228fe",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clutch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ecc12ebf-44cb-4520-a979-a1a4e39b5fdc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EngineSrartStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc2cf444-7f6a-4fd1-82ab-c9dc4c057ed8",
+                    "path": "<DualShockGamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EngineSrartStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc1688b4-9b35-4eee-abd3-a541a9bd9f94",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EngineSrartStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73ac734c-dbed-4069-9780-ff9566eb1886",
+                    "path": "<XInputController>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EngineSrartStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24d53e2d-7cdd-43de-8abd-82b3e783b00e",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "810a9f7c-9fab-4248-9c0d-a9ccce186d3f",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "f45424ee-059b-4cdb-a2ee-ace79e04f178",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "2e58f59a-77c2-4eaa-84e4-a36f28a16d84",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "0ca1dc0f-79a3-4f3e-b9c2-ebd4beb037de",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "2e8707ce-ea74-4e90-a874-0e75833928bc",
+                    "path": "<DualShockGamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "f9019887-dffe-4f64-8574-e167d439662e",
+                    "path": "<DualShockGamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "dfabdd15-f137-4b96-8420-f29ff0eff63d",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "bf6e8b2f-7e62-48bd-ac34-6ccbf23df184",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "783fa66a-ec37-4836-a321-2ebef7312945",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CruiseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

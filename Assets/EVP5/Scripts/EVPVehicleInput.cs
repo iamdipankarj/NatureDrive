@@ -15,7 +15,7 @@ namespace Solace {
       float steerInput = Mathf.Clamp(base.steerInput, -1.0f, 1.0f);
       bool handbrakeInput = base.handbrakeInput;
       float forwardInput = Mathf.Clamp01(base.throttleInput);
-      float reverseInput = Mathf.Clamp01(base.reverseInput);
+      float reverseInput = Mathf.Clamp01(base.brakeInput);
 
       float minSpeed = 0.1f;
       float minInput = 0.1f;

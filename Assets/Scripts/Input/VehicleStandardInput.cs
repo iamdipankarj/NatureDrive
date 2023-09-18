@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Solace {
@@ -12,7 +10,7 @@ namespace Solace {
     public float steerInput;
 
     [NonSerialized]
-    public float reverseInput;
+    public float brakeInput;
 
     [NonSerialized]
     public bool handbrakeInput;
@@ -29,20 +27,20 @@ namespace Solace {
       handbrakeInput = isPressing;
     }
 
-    private void OnReverse(float delta) {
-      reverseInput = delta;
+    private void OnBrake(float delta) {
+      brakeInput = delta;
     }
 
     private void OnEnable() {
       InputManager.DidThrottle += OnThrottle;
-      InputManager.DidReverse += OnReverse;
+      InputManager.DidBrake += OnBrake;
       InputManager.DidSteer += OnSteer;
       InputManager.DidUseHandBrake += OnHandBrake;
     }
 
     private void OnDisable() {
       InputManager.DidThrottle -= OnThrottle;
-      InputManager.DidReverse -= OnReverse;
+      InputManager.DidBrake -= OnBrake;
       InputManager.DidSteer -= OnSteer;
       InputManager.DidUseHandBrake -= OnHandBrake;
     }

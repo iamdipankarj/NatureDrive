@@ -19,8 +19,8 @@ namespace Solace {
     public static event ThrottleAction DidThrottle;
 
     // Reverse
-    public delegate void ReverseAction(float delta);
-    public static event ReverseAction DidReverse;
+    public delegate void BrakeAction(float delta);
+    public static event BrakeAction DidBrake;
 
     // Hand Brake Use
     public delegate void HandBrakeUseAction(bool isPressing);
@@ -49,6 +49,18 @@ namespace Solace {
     // Horn
     public delegate void HornAction();
     public static event HornAction DidHorn;
+
+    // Engine Start/Stop
+    public delegate void EngineStartStopAction();
+    public static event EngineStartStopAction DidEngineStartStop;
+
+    // Clutch
+    public delegate void ClutchAction(bool isPressing);
+    public static event ClutchAction DidClutch;
+
+    // Clutch
+    public delegate void BoostAction();
+    public static event BoostAction DidBoost;
 
     // Shift Reverse
     public delegate void ShiftReverseAction();
@@ -140,12 +152,12 @@ namespace Solace {
       DidThrottle?.Invoke(0f);
     }
 
-    private void OnVehicleReverse(InputAction.CallbackContext context) {
-      DidReverse?.Invoke(context.ReadValue<float>());
+    private void OnVehicleBrake(InputAction.CallbackContext context) {
+      DidBrake?.Invoke(context.ReadValue<float>());
     }
 
-    private void OnVehicleReverseCanceled(InputAction.CallbackContext context) {
-      DidReverse?.Invoke(0f);
+    private void OnVehicleBrakeCanceled(InputAction.CallbackContext context) {
+      DidBrake?.Invoke(0f);
     }
 
     private void OnVehicleHandBrakePress(InputAction.CallbackContext context) {
@@ -162,6 +174,22 @@ namespace Solace {
 
     private void OnShiftDown(InputAction.CallbackContext context) {
       DidShiftDown?.Invoke();
+    }
+
+    private void OnVehicleStartStop(InputAction.CallbackContext context) {
+      DidEngineStartStop?.Invoke();
+    }
+
+    private void OnVehicleBoost(InputAction.CallbackContext context) {
+      DidBoost?.Invoke();
+    }
+
+    private void OnVehicleClutchPress(InputAction.CallbackContext context) {
+      DidClutch?.Invoke(true);
+    }
+
+    private void OnVehicleClutchRelease(InputAction.CallbackContext context) {
+      DidClutch?.Invoke(false);
     }
 
     private void OnShiftReverse(InputAction.CallbackContext context) {
@@ -247,11 +275,17 @@ namespace Solace {
       controls.Car.Throttle.performed += OnVehicleAccelerate;
       controls.Car.Throttle.canceled += OnVehicleAccelerateCanceled;
 
-      controls.Car.Reverse.performed += OnVehicleReverse;
-      controls.Car.Reverse.canceled += OnVehicleReverseCanceled;
+      controls.Car.Brakes.performed += OnVehicleBrake;
+      controls.Car.Brakes.canceled += OnVehicleBrakeCanceled;
 
       controls.Car.HandBrake.performed += OnVehicleHandBrakePress;
       controls.Car.HandBrake.canceled += OnVehicleHandBrakeRelease;
+
+      controls.Car.EngineSrartStop.performed += OnVehicleStartStop;
+      controls.Car.Boost.performed += OnVehicleBoost;
+
+      controls.Car.Clutch.performed += OnVehicleClutchPress;
+      controls.Car.Clutch.canceled += OnVehicleClutchRelease;
 
       controls.Car.ShiftUp.performed += OnShiftUp;
       controls.Car.ShiftDown.performed += OnShiftDown;
@@ -288,11 +322,34 @@ namespace Solace {
       controls.Car.Throttle.performed -= OnVehicleAccelerate;
       controls.Car.Throttle.canceled -= OnVehicleAccelerateCanceled;
 
-      controls.Car.Reverse.performed -= OnVehicleReverse;
-      controls.Car.Reverse.canceled -= OnVehicleReverseCanceled;
+      controls.Car.Brakes.performed -= OnVehicleBrake;
+      controls.Car.Brakes.canceled -= OnVehicleBrakeCanceled;
 
       controls.Car.HandBrake.performed -= OnVehicleHandBrakePress;
       controls.Car.HandBrake.canceled -= OnVehicleHandBrakeRelease;
+
+      controls.Car.EngineSrartStop.performed -= OnVehicleStartStop;
+      controls.Car.Boost.performed -= OnVehicleBoost;
+
+      controls.Car.Clutch.performed -= OnVehicleClutchPress;
+      controls.Car.Clutch.canceled -= OnVehicleClutchRelease;
+
+      controls.Car.ShiftUp.performed -= OnShiftUp;
+      controls.Car.ShiftDown.performed -= OnShiftDown;
+      controls.Car.ShiftIntoR1.performed -= OnShiftReverse;
+      controls.Car.ShiftInto0.performed -= OnShiftInto0;
+      controls.Car.ShiftInto1.performed -= OnShiftInto1;
+      controls.Car.ShiftInto2.performed -= OnShiftInto2;
+      controls.Car.ShiftInto3.performed -= OnShiftInto3;
+      controls.Car.ShiftInto4.performed -= OnShiftInto4;
+      controls.Car.ShiftInto5.performed -= OnShiftInto5;
+      controls.Car.ShiftInto6.performed -= OnShiftInto6;
+
+      controls.Car.LeftBlinker.performed -= OnLeftBlinker;
+      controls.Car.RightBlinker.performed -= OnRightBlinker;
+      controls.Car.HazardLights.performed -= OnHazardLights;
+
+      controls.Car.Horn.performed -= OnHorn;
 
       controls.UI.Pause.performed -= OnPlayerPause;
       InputSystem.onDeviceChange -= InputSystemOnDeviceChange;

@@ -79,7 +79,7 @@ namespace MSVehicle {
 
     void SetCurrentVehicleInputs() {
       if (vc._vehicleState == MSVehicleController.ControlState.isPlayer) {
-        vc.verticalInput = Mathf.Clamp(base.throttleInput - base.reverseInput, -1, 1);
+        vc.verticalInput = Mathf.Clamp(base.throttleInput - base.brakeInput, -1, 1);
         vc.horizontalInput = Mathf.Clamp(base.steerInput, -1, 1);
         //gears
         //input manual or automatic gears

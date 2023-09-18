@@ -20,7 +20,7 @@ namespace MSVehicle {
       SW_Update();
       input.steerInput = base.steeringInput;
       input.throttleInput = base.throttleInput;
-      input.reverseInput = base.brakeInput;
+      input.brakeInput = base.brakeInput;
     }
 
     private void FixedUpdate() {

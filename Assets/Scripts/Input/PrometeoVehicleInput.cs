@@ -64,7 +64,7 @@ namespace Solace {
 
     private void Update() {
       OnAccelerateForward(base.throttleInput);
-      OnAccelerateBackward(base.reverseInput);
+      OnAccelerateBackward(base.brakeInput);
       OnSteer(base.steerInput);
       OnHandBrake(base.handbrakeInput);
     }
