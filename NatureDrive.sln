@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.VehiclePhysics", "Django.VehiclePhysics.csproj", "{2F4967C8-D283-129F-66EE-5D8A84259898}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{775C7372-6916-AC22-C763-72CC2172FF04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.WheelController", "Django.WheelController.csproj", "{E117FB8E-41BA-5B73-9F30-580C815CF960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.VehiclePhysics.SetupWizard", "Django.VehiclePhysics.SetupWizard.csproj", "{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.Common", "Django.Common.csproj", "{4EAAD4CE-B173-E720-2718-995D7B4E030C}"
 EndProject
@@ -15,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F4967C8-D283-129F-66EE-5D8A84259898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4967C8-D283-129F-66EE-5D8A84259898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4967C8-D283-129F-66EE-5D8A84259898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4967C8-D283-129F-66EE-5D8A84259898}.Release|Any CPU.Build.0 = Release|Any CPU
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,6 +31,10 @@ Global
 		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Release|Any CPU.ActiveCfg = Release|Any CPU

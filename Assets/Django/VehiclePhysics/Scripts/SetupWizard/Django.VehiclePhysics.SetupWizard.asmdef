@@ -1,0 +1,18 @@
+{
+    "name": "Django.VehiclePhysics.SetupWizard",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5ee028cb3e2d0da479293618da65fe65",
+        "GUID:3aa3784a3a9f46a41aebddbe83854f15",
+        "GUID:cf35f8960c7e8f24ea75f53273fa06d2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
