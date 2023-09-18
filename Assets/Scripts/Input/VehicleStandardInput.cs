@@ -28,6 +28,15 @@ namespace Solace {
     public bool shiftDown = false;
 
     [NonSerialized]
+    public bool leftBlinker = false;
+
+    [NonSerialized]
+    public bool rightBlinker = false;
+
+    [NonSerialized]
+    public bool hazardLights = false;
+
+    [NonSerialized]
     public int shiftInto = 0;
 
     [NonSerialized]
@@ -104,11 +113,23 @@ namespace Solace {
       highBeamLight = !highBeamLight;
     }
 
+    private void OnLeftBlinker() {
+      leftBlinker = !leftBlinker;
+    }
+
+    private void OnRightBlinker() {
+      rightBlinker = !rightBlinker;
+    }
+
+    private void OnHazardLight() {
+      hazardLights = !hazardLights;
+    }
+
     private void OnEnable() {
       InputManager.DidThrottle += OnThrottle;
       InputManager.DidBrake += OnBrake;
       InputManager.DidSteer += OnSteer;
-      InputManager.DidUseHandBrake += OnHandBrake;
+      InputManager.DidHandBrake += OnHandBrake;
       InputManager.DidEngineStartStop += OnEngineStartStop;
       InputManager.DidClutch += OnClutch;
       InputManager.DidShiftUp += OnShiftUp;
@@ -119,13 +140,16 @@ namespace Solace {
       InputManager.DidFlipOver += OnFlipOver;
       InputManager.DidLowBeamLight += OnLowBeamLight;
       InputManager.DidHighBeamLight += OnHighBeamLight;
+      InputManager.DidLeftBlinker += OnLeftBlinker;
+      InputManager.DidRightBlinker += OnRightBlinker;
+      InputManager.DidHazardLight += OnHazardLight;
     }
 
     private void OnDisable() {
       InputManager.DidThrottle -= OnThrottle;
       InputManager.DidBrake -= OnBrake;
       InputManager.DidSteer -= OnSteer;
-      InputManager.DidUseHandBrake -= OnHandBrake;
+      InputManager.DidHandBrake -= OnHandBrake;
       InputManager.DidEngineStartStop -= OnEngineStartStop;
       InputManager.DidClutch -= OnClutch;
       InputManager.DidShiftUp -= OnShiftUp;
@@ -136,6 +160,9 @@ namespace Solace {
       InputManager.DidFlipOver -= OnFlipOver;
       InputManager.DidLowBeamLight -= OnLowBeamLight;
       InputManager.DidHighBeamLight -= OnHighBeamLight;
+      InputManager.DidLeftBlinker -= OnLeftBlinker;
+      InputManager.DidRightBlinker -= OnRightBlinker;
+      InputManager.DidHazardLight -= OnHazardLight;
     }
   }
 }

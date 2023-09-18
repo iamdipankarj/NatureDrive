@@ -24,8 +24,8 @@ namespace Solace {
     public static event BrakeAction DidBrake;
 
     // Hand Brake Use
-    public delegate void HandBrakeUseAction(bool isPressing);
-    public static event HandBrakeUseAction DidUseHandBrake;
+    public delegate void HandBrakeAction(bool isPressing);
+    public static event HandBrakeAction DidHandBrake;
 
     // Shift Up
     public delegate void ShiftUpAction();
@@ -178,11 +178,11 @@ namespace Solace {
     }
 
     private void OnVehicleHandBrakePress(InputAction.CallbackContext context) {
-      DidUseHandBrake?.Invoke(true);
+      DidHandBrake?.Invoke(true);
     }
 
     private void OnVehicleHandBrakeRelease(InputAction.CallbackContext context) {
-      DidUseHandBrake?.Invoke(false);
+      DidHandBrake?.Invoke(false);
     }
 
     private void OnShiftUp(InputAction.CallbackContext context) {
