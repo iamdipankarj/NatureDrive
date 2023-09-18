@@ -1,0 +1,16 @@
+{
+    "name": "Django.WheelController",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5ee028cb3e2d0da479293618da65fe65"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

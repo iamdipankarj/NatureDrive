@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{775C7372-6916-AC22-C763-72CC2172FF04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.WheelController", "Django.WheelController.csproj", "{E117FB8E-41BA-5B73-9F30-580C815CF960}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Django.Common", "Django.Common.csproj", "{4EAAD4CE-B173-E720-2718-995D7B4E030C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{A21FC166-8E64-85D6-788A-83D70AADC3AE}"
@@ -17,6 +19,10 @@ Global
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{775C7372-6916-AC22-C763-72CC2172FF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E117FB8E-41BA-5B73-9F30-580C815CF960}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EAAD4CE-B173-E720-2718-995D7B4E030C}.Release|Any CPU.ActiveCfg = Release|Any CPU
