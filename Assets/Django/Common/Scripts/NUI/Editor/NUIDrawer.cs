@@ -500,7 +500,7 @@ namespace Django.NUI
                 tex = Resources.Load(resourcesPath) as Texture2D;
                 if (tex == null)
                 {
-                    Debug.LogError($"{resourcesPath} not found or not Texture2D.");
+                    //Debug.LogError($"{resourcesPath} not found or not Texture2D.");
                 }
                 else
                 {

@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6d3949f1d79d54abfc5f71eace5eec, type: 3}
-  m_Name: MotorcycleGearingProfile
+  m_Script: {fileID: 11500000, guid: 28f0f4846627ac64f9a76dd2975c7cbe, type: 3}
+  m_Name: DefaultGroundDetectionPreset
   m_EditorClassIdentifier: 
-  forwardGears:
-  - 2.23
-  - 1.625
-  - 1.235
-  - 1
-  - 0.826
-  reverseGears:
-  - -2.5
+  particlePrefab: {fileID: 0}
+  chunkPrefab: {fileID: 0}
+  fallbackSurfacePreset: {fileID: 11400000, guid: 1557d5e520194664793ecc1c8a50822d, type: 2}
+  surfaceMaps: []

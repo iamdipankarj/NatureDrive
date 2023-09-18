@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90f906b9548134aabb44ed2f3ae6eb, type: 3}
+  m_Name: FallbackSurfacePreset
+  m_EditorClassIdentifier: 
+  particleType: 0
+  particleColor: {r: 0.9, g: 0.9, b: 0.9, a: 0.9}
+  maxParticleEmissionRateOverDistance: 0.36
+  particleSize: 1
+  emitParticles: 1
+  emitChunks: 0
+  maxChunkEmissionRateOverDistance: 1
+  chunkLifeDistance: 3
+  maxChunkLifetime: 0.5
+  particleMaxAlpha: 0.8
+  maxParticleLifetime: 3.5
+  particleLifeDistance: 10
+  frictionPreset: {fileID: 0}
+  rollingResistanceMaxMultiplier: 1
+  name: Fallback/Default
+  skidSoundClip: {fileID: 0}
+  playSkidSounds: 1
+  skidSoundPitch: 1
+  skidSoundVolume: 0.3
+  slipFactor: 0.5
+  slipSensitiveSurfaceSound: 0
+  playSurfaceSounds: 1
+  surfaceSoundClip: {fileID: 0}
+  surfaceSoundPitch: 1
+  surfaceSoundVolume: 0.3
+  drawSkidmarks: 1
+  skidmarkMaterial: {fileID: 0}
+  skidmarkBaseIntensity: 0.5

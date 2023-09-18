@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b50ba7583e916499a6227e58a3473c, type: 3}
+  m_Name: DefaultStateSettings
+  m_EditorClassIdentifier: 
+  definitions:
+  - fullName: Django.VehiclePhysics.Brakes
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.EffectManager
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.ExhaustFlash
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.ExhaustSmoke
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.LightsMananger
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.SkidmarkManager
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Effects.SurfaceParticleManager
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.GroundDetection.GroundDetection
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Input.VehicleInputHandler
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.ABS.ABSModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Aerodynamics.AerodynamicsModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.AirSteer.AirSteerModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.ArcadeModule.ArcadeModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.CruiseControl.CruiseControlModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.ESC.ESCModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.FlipOver.FlipOverModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Fuel.FuelModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Metrics.MetricsModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.ModuleManager
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.ModuleTemplate.ModuleTemplate
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.MotorcycleModule.MotorcycleModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.NOS.NOSSoundComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.NOSModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Rigging.RiggingModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.SpeedLimiter.SpeedLimiterModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.TCS.TCSModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Trailer.TrailerHitchModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Modules.Trailer.TrailerModule
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.ClutchComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.DifferentialComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.EngineComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.Powertrain
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.TransmissionComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Powertrain.WheelComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.AirBrakeComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.BlinkerComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.CrashComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.EngineFanComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.EngineRunningComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.EngineStartStopComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.ExhaustPopComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.GearChangeComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.HornComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.ReverseBeepComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.SuspensionBumpComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.TransmissionWhineComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.TurboFlutterComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.TurboWhistleComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.WheelSkidComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundComponents.WheelTireNoiseComponent
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Sound.SoundManager
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  - fullName: Django.VehiclePhysics.Steering
+    isEnabled: 1
+    initialized: 0
+    lodIndex: -1
+  LODs:
+  - {fileID: 11400000, guid: f7a3e85211cbb8641804e50d99cfde1f, type: 2}
+  - {fileID: 11400000, guid: b2f480b705ab20e4199ac55c9d04a6dd, type: 2}
+  - {fileID: 11400000, guid: 68aac9a14c1a2fa40b9fe903997d68cd, type: 2}
