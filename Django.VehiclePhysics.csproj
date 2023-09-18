@@ -82,7 +82,6 @@
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\NOS\NOSSoundComponent.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Sound\GearChangeComponent.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Input\InputProviders\InputSystem\InputSystemVehicleInputProvider.cs" />
-    <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Input\DjangoVehicleInput.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\AssetSpecific\NUI\Editor\NVP_NUIPropertyDrawer.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Input\VehicleInputProviderBase.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Sound\ExhaustPopComponent.cs" />

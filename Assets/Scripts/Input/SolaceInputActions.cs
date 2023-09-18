@@ -702,7 +702,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c645d2f1-a9dc-4223-8141-70c0f88d54e3"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
