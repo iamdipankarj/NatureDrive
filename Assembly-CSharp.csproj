@@ -70,7 +70,6 @@
     <Compile Include="Assets\Logitech SDK\LogitechGSDK.cs" />
     <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
-    <Compile Include="Assets\SolaceInputActions.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
@@ -118,6 +117,7 @@
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
+    <Compile Include="Assets\Scripts\Input\SolaceInputActions.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelStandardInput.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
