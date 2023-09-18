@@ -258,18 +258,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LowBeamLights",
+                    "name": "HighBeamLights",
                     "type": "Button",
-                    "id": "101920a9-ce6f-4048-83dc-245a2735c63a",
+                    "id": "78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HighBeamLights",
+                    "name": "LowBeamLights",
                     "type": "Button",
-                    "id": "78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523",
+                    "id": "101920a9-ce6f-4048-83dc-245a2735c63a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -288,6 +288,15 @@
                     "name": "TrailerAttachDetach",
                     "type": "Button",
                     "id": "f1df26b9-3772-45b8-8715-7bf375fc521f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GearToggle",
+                    "type": "Button",
+                    "id": "344a7fa6-e99a-4e0f-b2d1-0964ba555dc0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -716,7 +725,7 @@
                 {
                     "name": "",
                     "id": "c645d2f1-a9dc-4223-8141-70c0f88d54e3",
-                    "path": "<Keyboard>/o",
+                    "path": "<Keyboard>/alt",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1563,22 +1572,11 @@
                 {
                     "name": "",
                     "id": "26aad1cc-5a5d-4244-90b5-f32bbd835770",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LowBeamLights",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c20f44b-3e69-404b-8ed8-ce96078f0f61",
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HighBeamLights",
+                    "action": "LowBeamLights",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1645,6 +1643,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "TrailerAttachDetach",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a6d913cf-219b-4304-9930-71e28072a560",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GearToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c20f44b-3e69-404b-8ed8-ce96078f0f61",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighBeamLights",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

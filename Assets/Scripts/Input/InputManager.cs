@@ -28,11 +28,11 @@ namespace Solace {
     public static event HandBrakeAction DidHandBrake;
 
     // Shift Up
-    public delegate void ShiftUpAction();
+    public delegate void ShiftUpAction(bool isPressed);
     public static event ShiftUpAction DidShiftUp;
 
     // Shift Down
-    public delegate void ShiftDownAction();
+    public delegate void ShiftDownAction(bool isPressed);
     public static event ShiftDownAction DidShiftDown;
 
     // Left Blinker
@@ -56,12 +56,20 @@ namespace Solace {
     public static event HazardLightAction DidHazardLight;
 
     // Horn
-    public delegate void HornAction();
+    public delegate void HornAction(bool isPressing);
     public static event HornAction DidHorn;
 
     // Engine Start/Stop
     public delegate void EngineStartStopAction();
     public static event EngineStartStopAction DidEngineStartStop;
+
+    // Engine Start/Stop
+    public delegate void GearToggleAction();
+    public static event GearToggleAction DidToggleGearSystem;
+
+    // Extra Lights
+    public delegate void ExtraLightsAction();
+    public static event ExtraLightsAction DidExtraLight;
 
     // Clutch
     public delegate void ClutchAction(float delta);
@@ -194,11 +202,19 @@ namespace Solace {
     }
 
     private void OnShiftUp(InputAction.CallbackContext context) {
-      DidShiftUp?.Invoke();
+      DidShiftUp?.Invoke(true);
+    }
+
+    private void OnShiftUpCanceled(InputAction.CallbackContext context) {
+      DidShiftUp?.Invoke(false);
     }
 
     private void OnShiftDown(InputAction.CallbackContext context) {
-      DidShiftDown?.Invoke();
+      DidShiftDown?.Invoke(true);
+    }
+
+    private void OnShiftDownCanceled(InputAction.CallbackContext context) {
+      DidShiftDown?.Invoke(false);
     }
 
     private void OnVehicleStartStop(InputAction.CallbackContext context) {
@@ -215,6 +231,14 @@ namespace Solace {
 
     private void OnCruiseControl(InputAction.CallbackContext context) {
       DidCruiseControl?.Invoke();
+    }
+
+    private void OnGearToggle(InputAction.CallbackContext context) {
+      DidToggleGearSystem?.Invoke();
+    }
+
+    private void OnExtraLights(InputAction.CallbackContext context) {
+      DidExtraLight?.Invoke();
     }
 
     private void OnVehicleClutchPress(InputAction.CallbackContext context) {
@@ -286,7 +310,11 @@ namespace Solace {
     }
 
     private void OnHorn(InputAction.CallbackContext context) {
-      DidHorn?.Invoke();
+      DidHorn?.Invoke(true);
+    }
+
+    private void OnHornCanceled(InputAction.CallbackContext context) {
+      DidHorn?.Invoke(false);
     }
 
     private void OnCinematicModeStart(InputAction.CallbackContext context) {
@@ -334,12 +362,18 @@ namespace Solace {
       controls.Car.Boost.performed += OnVehicleBoost;
       controls.Car.FlipOver.performed += OnVehicleFlipOver;
       controls.Car.CruiseControl.performed += OnCruiseControl;
+      controls.Car.GearToggle.performed += OnGearToggle;
+      controls.Car.ExtraLights.performed += OnExtraLights;
 
       controls.Car.Clutch.performed += OnVehicleClutchPress;
       controls.Car.Clutch.canceled += OnVehicleClutchRelease;
 
       controls.Car.ShiftUp.performed += OnShiftUp;
+      controls.Car.ShiftUp.canceled += OnShiftUpCanceled;
+
       controls.Car.ShiftDown.performed += OnShiftDown;
+      controls.Car.ShiftDown.canceled += OnShiftDownCanceled;
+
       controls.Car.ShiftIntoR1.performed += OnShiftReverse;
       controls.Car.ShiftInto0.performed += OnShiftInto0;
       controls.Car.ShiftInto1.performed += OnShiftInto1;
@@ -359,6 +393,7 @@ namespace Solace {
       controls.Car.HighBeamLights.performed += OnHighBeamLight;
 
       controls.Car.Horn.performed += OnHorn;
+      controls.Car.Horn.canceled += OnHornCanceled;
 
       controls.UI.Pause.performed += OnPlayerPause;
       InputSystem.onDeviceChange += InputSystemOnDeviceChange;
@@ -388,12 +423,18 @@ namespace Solace {
       controls.Car.Boost.performed -= OnVehicleBoost;
       controls.Car.FlipOver.performed -= OnVehicleFlipOver;
       controls.Car.CruiseControl.performed -= OnCruiseControl;
+      controls.Car.GearToggle.performed -= OnGearToggle;
+      controls.Car.ExtraLights.performed -= OnExtraLights;
 
       controls.Car.Clutch.performed -= OnVehicleClutchPress;
       controls.Car.Clutch.canceled -= OnVehicleClutchRelease;
 
       controls.Car.ShiftUp.performed -= OnShiftUp;
+      controls.Car.ShiftUp.canceled -= OnShiftUpCanceled;
+
       controls.Car.ShiftDown.performed -= OnShiftDown;
+      controls.Car.ShiftDown.canceled -= OnShiftDownCanceled;
+
       controls.Car.ShiftIntoR1.performed -= OnShiftReverse;
       controls.Car.ShiftInto0.performed -= OnShiftInto0;
       controls.Car.ShiftInto1.performed -= OnShiftInto1;
@@ -413,6 +454,7 @@ namespace Solace {
       controls.Car.HighBeamLights.performed -= OnHighBeamLight;
 
       controls.Car.Horn.performed -= OnHorn;
+      controls.Car.Horn.canceled -= OnHornCanceled;
 
       controls.UI.Pause.performed -= OnPlayerPause;
       InputSystem.onDeviceChange -= InputSystemOnDeviceChange;

@@ -103,16 +103,16 @@ namespace MSVehicle {
 
         //up and down gear
         if (!vc.automaticGears) {
-          if (Input.GetKeyDown(controls.increasedGear) && vc.currentGear < vc._vehicleTorque.numberOfGears && !vc.changinGears) {
+          if (base.shiftUp && vc.currentGear < vc._vehicleTorque.numberOfGears && !vc.changinGears) {
             vc.StartCoroutine(nameof(vc.ChangeGears), vc.currentGear + 1);
           }
-          if (Input.GetKeyDown(controls.decreasedGear) && vc.currentGear > -1 && !vc.changinGears) {
+          if (base.shiftDown && vc.currentGear > -1 && !vc.changinGears) {
             vc.StartCoroutine(nameof(vc.ChangeGears), vc.currentGear - 1);
           }
         }
 
         //horn input
-        if (Input.GetKeyDown(controls.hornInput)) {
+        if (base.horn) {
           vc.hornIsOn = true;
         }
 
@@ -165,25 +165,18 @@ namespace MSVehicle {
         }
 
         //LIGHTS
-        //main lights
-        if (Input.GetKeyDown(controls.mainLightsInput)) {
-          if (!vc.lowLightOn && !vc.highLightOn) {
-            vc.lowLightOn = true;
-            vc.brakeLightsIntensity = 0.5f;
-          } else if (vc.lowLightOn && !vc.highLightOn) {
-            vc.lowLightOn = false;
-            vc.highLightOn = true;
-            vc.brakeLightsIntensity = 0.5f;
-          } else if (!vc.lowLightOn && vc.highLightOn) {
-            vc.lowLightOn = false;
-            vc.highLightOn = false;
-            vc.brakeLightsIntensity = 0.0f;
-          }
+
+        vc.highLightOn = base.highBeamLight;
+        vc.lowLightOn = base.lowBeamLight;
+
+        if (!vc.lowLightOn && !vc.highLightOn) {
+          vc.brakeLightsIntensity = 0.5f;
+        } else if (vc.lowLightOn && !vc.highLightOn) {
+          vc.brakeLightsIntensity = 0.5f;
+        } else if (!vc.lowLightOn && vc.highLightOn) {
+          vc.brakeLightsIntensity = 0.0f;
         }
-        //head lights
-        if (Input.GetKeyDown(controls.headlightsInput)) {
-          vc.headlightsOn = !vc.headlightsOn;
-        }
+
         //flashesRightAlert
         if (Input.GetKeyDown(controls.flashesRightAlert) && !vc.rightBlinkersOn && !vc.alertOn) {
           vc.rightBlinkersOn = true;
@@ -194,6 +187,7 @@ namespace MSVehicle {
           vc.leftBlinkersOn = false;
           vc.disableBlinkers1 = false;
         }
+
         //flashesLeftAlert
         if (Input.GetKeyDown(controls.flashesLeftAlert) && !vc.leftBlinkersOn && !vc.alertOn) {
           vc.rightBlinkersOn = false;
@@ -204,20 +198,14 @@ namespace MSVehicle {
           vc.leftBlinkersOn = false;
           vc.disableBlinkers1 = false;
         }
+
         //alertOn
-        if (Input.GetKeyDown(controls.warningLightsInput)) {
-          if (vc.alertOn) {
-            vc.alertOn = false;
-            vc.rightBlinkersOn = vc.leftBlinkersOn = false;
-          } else {
-            vc.alertOn = true;
-            vc.rightBlinkersOn = vc.leftBlinkersOn = true;
-          }
-        }
+        vc.alertOn = base.hazardLights;
+        vc.rightBlinkersOn = vc.alertOn;
+        vc.leftBlinkersOn = vc.alertOn;
+
         //extraLightsOn
-        if (Input.GetKeyDown(controls.extraLightsInput)) {
-          vc.extraLightsOn = !vc.extraLightsOn;
-        }
+        vc.extraLightsOn = base.extraLight;
       }
     }
   }

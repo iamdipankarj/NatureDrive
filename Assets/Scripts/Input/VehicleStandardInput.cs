@@ -19,6 +19,9 @@ namespace Solace {
     public bool engineStartStop = false;
 
     [NonSerialized]
+    public bool toggleGearInput = false;
+
+    [NonSerialized]
     public float clutch = 0;
 
     [NonSerialized]
@@ -52,6 +55,9 @@ namespace Solace {
     public bool highBeamLight = false;
 
     [NonSerialized]
+    public bool extraLight = false;
+
+    [NonSerialized]
     public bool boost = false;
 
     [NonSerialized]
@@ -77,24 +83,28 @@ namespace Solace {
       engineStartStop = !engineStartStop;
     }
 
+    private void OnExtraLight() {
+      extraLight = !extraLight;
+    }
+
     private void OnClutch(float delta) {
       clutch = delta;
     }
 
-    private void OnShiftUp() {
-      shiftUp = !shiftUp;
+    private void OnShiftUp(bool isPressed) {
+      shiftUp = isPressed;
     }
 
-    private void OnShiftDown() {
-      shiftDown = !shiftDown;
+    private void OnShiftDown(bool isPressed) {
+      shiftDown = isPressed;
     }
 
     private void OnCruiseControl() {
       cruiseControl = !cruiseControl;
     }
 
-    private void OnHorn() {
-      horn = !horn;
+    private void OnHorn(bool isPressing) {
+      horn = isPressing;
     }
 
     private void OnBoost() {
@@ -125,6 +135,10 @@ namespace Solace {
       hazardLights = !hazardLights;
     }
 
+    private void OnGearToggle() {
+      toggleGearInput = !toggleGearInput;
+    }
+
     private void OnEnable() {
       InputManager.DidThrottle += OnThrottle;
       InputManager.DidBrake += OnBrake;
@@ -143,6 +157,8 @@ namespace Solace {
       InputManager.DidLeftBlinker += OnLeftBlinker;
       InputManager.DidRightBlinker += OnRightBlinker;
       InputManager.DidHazardLight += OnHazardLight;
+      InputManager.DidToggleGearSystem += OnGearToggle;
+      InputManager.DidExtraLight += OnExtraLight;
     }
 
     private void OnDisable() {
@@ -163,6 +179,8 @@ namespace Solace {
       InputManager.DidLeftBlinker -= OnLeftBlinker;
       InputManager.DidRightBlinker -= OnRightBlinker;
       InputManager.DidHazardLight -= OnHazardLight;
+      InputManager.DidToggleGearSystem -= OnGearToggle;
+      InputManager.DidExtraLight -= OnExtraLight;
     }
   }
 }

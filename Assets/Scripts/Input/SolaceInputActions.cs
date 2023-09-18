@@ -280,18 +280,18 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LowBeamLights"",
+                    ""name"": ""HighBeamLights"",
                     ""type"": ""Button"",
-                    ""id"": ""101920a9-ce6f-4048-83dc-245a2735c63a"",
+                    ""id"": ""78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HighBeamLights"",
+                    ""name"": ""LowBeamLights"",
                     ""type"": ""Button"",
-                    ""id"": ""78ca8a7c-c4ac-4f8a-b35c-bd7b01e09523"",
+                    ""id"": ""101920a9-ce6f-4048-83dc-245a2735c63a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -310,6 +310,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""TrailerAttachDetach"",
                     ""type"": ""Button"",
                     ""id"": ""f1df26b9-3772-45b8-8715-7bf375fc521f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GearToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""344a7fa6-e99a-4e0f-b2d1-0964ba555dc0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -738,7 +747,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c645d2f1-a9dc-4223-8141-70c0f88d54e3"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1585,22 +1594,11 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""26aad1cc-5a5d-4244-90b5-f32bbd835770"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LowBeamLights"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c20f44b-3e69-404b-8ed8-ce96078f0f61"",
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HighBeamLights"",
+                    ""action"": ""LowBeamLights"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1667,6 +1665,28 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TrailerAttachDetach"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6d913cf-219b-4304-9930-71e28072a560"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GearToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c20f44b-3e69-404b-8ed8-ce96078f0f61"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HighBeamLights"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1986,10 +2006,11 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Car_FlipOver = m_Car.FindAction("FlipOver", throwIfNotFound: true);
         m_Car_Boost = m_Car.FindAction("Boost", throwIfNotFound: true);
         m_Car_CruiseControl = m_Car.FindAction("CruiseControl", throwIfNotFound: true);
-        m_Car_LowBeamLights = m_Car.FindAction("LowBeamLights", throwIfNotFound: true);
         m_Car_HighBeamLights = m_Car.FindAction("HighBeamLights", throwIfNotFound: true);
+        m_Car_LowBeamLights = m_Car.FindAction("LowBeamLights", throwIfNotFound: true);
         m_Car_ExtraLights = m_Car.FindAction("ExtraLights", throwIfNotFound: true);
         m_Car_TrailerAttachDetach = m_Car.FindAction("TrailerAttachDetach", throwIfNotFound: true);
+        m_Car_GearToggle = m_Car.FindAction("GearToggle", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -2088,10 +2109,11 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Car_FlipOver;
     private readonly InputAction m_Car_Boost;
     private readonly InputAction m_Car_CruiseControl;
-    private readonly InputAction m_Car_LowBeamLights;
     private readonly InputAction m_Car_HighBeamLights;
+    private readonly InputAction m_Car_LowBeamLights;
     private readonly InputAction m_Car_ExtraLights;
     private readonly InputAction m_Car_TrailerAttachDetach;
+    private readonly InputAction m_Car_GearToggle;
     public struct CarActions
     {
         private @SolaceInputActions m_Wrapper;
@@ -2124,10 +2146,11 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @FlipOver => m_Wrapper.m_Car_FlipOver;
         public InputAction @Boost => m_Wrapper.m_Car_Boost;
         public InputAction @CruiseControl => m_Wrapper.m_Car_CruiseControl;
-        public InputAction @LowBeamLights => m_Wrapper.m_Car_LowBeamLights;
         public InputAction @HighBeamLights => m_Wrapper.m_Car_HighBeamLights;
+        public InputAction @LowBeamLights => m_Wrapper.m_Car_LowBeamLights;
         public InputAction @ExtraLights => m_Wrapper.m_Car_ExtraLights;
         public InputAction @TrailerAttachDetach => m_Wrapper.m_Car_TrailerAttachDetach;
+        public InputAction @GearToggle => m_Wrapper.m_Car_GearToggle;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2221,18 +2244,21 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @CruiseControl.started += instance.OnCruiseControl;
             @CruiseControl.performed += instance.OnCruiseControl;
             @CruiseControl.canceled += instance.OnCruiseControl;
-            @LowBeamLights.started += instance.OnLowBeamLights;
-            @LowBeamLights.performed += instance.OnLowBeamLights;
-            @LowBeamLights.canceled += instance.OnLowBeamLights;
             @HighBeamLights.started += instance.OnHighBeamLights;
             @HighBeamLights.performed += instance.OnHighBeamLights;
             @HighBeamLights.canceled += instance.OnHighBeamLights;
+            @LowBeamLights.started += instance.OnLowBeamLights;
+            @LowBeamLights.performed += instance.OnLowBeamLights;
+            @LowBeamLights.canceled += instance.OnLowBeamLights;
             @ExtraLights.started += instance.OnExtraLights;
             @ExtraLights.performed += instance.OnExtraLights;
             @ExtraLights.canceled += instance.OnExtraLights;
             @TrailerAttachDetach.started += instance.OnTrailerAttachDetach;
             @TrailerAttachDetach.performed += instance.OnTrailerAttachDetach;
             @TrailerAttachDetach.canceled += instance.OnTrailerAttachDetach;
+            @GearToggle.started += instance.OnGearToggle;
+            @GearToggle.performed += instance.OnGearToggle;
+            @GearToggle.canceled += instance.OnGearToggle;
         }
 
         private void UnregisterCallbacks(ICarActions instance)
@@ -2321,18 +2347,21 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @CruiseControl.started -= instance.OnCruiseControl;
             @CruiseControl.performed -= instance.OnCruiseControl;
             @CruiseControl.canceled -= instance.OnCruiseControl;
-            @LowBeamLights.started -= instance.OnLowBeamLights;
-            @LowBeamLights.performed -= instance.OnLowBeamLights;
-            @LowBeamLights.canceled -= instance.OnLowBeamLights;
             @HighBeamLights.started -= instance.OnHighBeamLights;
             @HighBeamLights.performed -= instance.OnHighBeamLights;
             @HighBeamLights.canceled -= instance.OnHighBeamLights;
+            @LowBeamLights.started -= instance.OnLowBeamLights;
+            @LowBeamLights.performed -= instance.OnLowBeamLights;
+            @LowBeamLights.canceled -= instance.OnLowBeamLights;
             @ExtraLights.started -= instance.OnExtraLights;
             @ExtraLights.performed -= instance.OnExtraLights;
             @ExtraLights.canceled -= instance.OnExtraLights;
             @TrailerAttachDetach.started -= instance.OnTrailerAttachDetach;
             @TrailerAttachDetach.performed -= instance.OnTrailerAttachDetach;
             @TrailerAttachDetach.canceled -= instance.OnTrailerAttachDetach;
+            @GearToggle.started -= instance.OnGearToggle;
+            @GearToggle.performed -= instance.OnGearToggle;
+            @GearToggle.canceled -= instance.OnGearToggle;
         }
 
         public void RemoveCallbacks(ICarActions instance)
@@ -2496,10 +2525,11 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnFlipOver(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnCruiseControl(InputAction.CallbackContext context);
-        void OnLowBeamLights(InputAction.CallbackContext context);
         void OnHighBeamLights(InputAction.CallbackContext context);
+        void OnLowBeamLights(InputAction.CallbackContext context);
         void OnExtraLights(InputAction.CallbackContext context);
         void OnTrailerAttachDetach(InputAction.CallbackContext context);
+        void OnGearToggle(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

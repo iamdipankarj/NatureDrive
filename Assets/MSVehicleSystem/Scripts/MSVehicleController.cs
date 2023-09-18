@@ -220,7 +220,6 @@ namespace MSVehicle {
 
     [HideInInspector]
     public float KMh;
-    [HideInInspector]
     public int currentGear;
     [HideInInspector]
     public bool handBrakeTrue;
@@ -2597,7 +2596,7 @@ namespace MSVehicle {
         if (_sounds.hornSound) { // hornIsOn
           if (hornIsOn && !hornSoundAUD.isPlaying) {
             hornSoundAUD.PlayOneShot(hornSoundAUD.clip);
-            StartCoroutine("TimeHornSound");
+            StartCoroutine(nameof(TimeHornSound));
           }
         }
 
@@ -2715,8 +2714,6 @@ namespace MSVehicle {
       yield return new WaitForSeconds(hornSoundAUD.clip.length);
       hornIsOn = false;
     }
-
-
 
     public IEnumerator StartEngineCoroutine(bool startEngine) {
       if (startEngine) {
