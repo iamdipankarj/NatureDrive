@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6a691257bd4757a68ed5d4c5c385b2, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3e1f4f24cc6e2428a5f255e477c160, type: 3}
   m_Name: CompactCarPreset
   m_EditorClassIdentifier: 
   vehicleType: 0
   mass: 1300
   width: 1.8
-  length: 4.1
+  length: 4.5
   height: 1.4
   enginePower: 60
   engineMaxRPM: 5200
   transmissionGearing: 1.189
-  drivetrainConfiguration: 1
+  drivetrainConfiguration: 2
   suspensionTravelCoeff: 0.94
   suspensionStiffnessCoeff: 0.852

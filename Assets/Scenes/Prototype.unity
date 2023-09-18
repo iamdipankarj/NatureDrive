@@ -1655,15 +1655,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04648797
+      value: 0.046487965
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7768904
+      value: 0.77689046
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.057762127
+      value: -0.05776214
       objectReference: {fileID: 0}
     - target: {fileID: 3405363503857725385, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_Name
@@ -1863,11 +1863,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50007592c37499644b072212915e5f3e, type: 3}
---- !u!1 &1220903671753742344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3494641647120096373, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
-  m_PrefabInstance: {fileID: 7505507313692696596}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1594564783624489031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2411,24 +2406,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2615209630424034310, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
   m_PrefabInstance: {fileID: 7505507313692696596}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4682524627263541051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220903671753742344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8209684713b27b24c9616491af27c8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addCamera: 1
-  wheelControllerType: 0
-  addCharacterEnterExitPoints: 1
-  wheelGameObjects: []
-  removeWizardOnComplete: 1
-  preset: {fileID: 0}
 --- !u!1001 &5869682511439339544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2586,10 +2563,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3494641647120096373, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4682524627263541051}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
 --- !u!1001 &8035930090879903600
 PrefabInstance:
