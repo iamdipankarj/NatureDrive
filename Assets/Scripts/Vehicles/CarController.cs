@@ -8,7 +8,7 @@ namespace Solace {
     public static event CarSpeedUIAction DidUpdateCarSpeed;
 
     // Inputs
-    private R2VehicleInput controller;
+    private PrometeoVehicleInput controller;
 
     //[Header("CAR SETUP")]
     [Space(10)]
@@ -127,7 +127,7 @@ namespace Solace {
       CursorManager.LockCursor();
 
       // SW_Initialize the inputs
-      controller = GetComponent<R2VehicleInput>();
+      controller = GetComponent<PrometeoVehicleInput>();
 
       //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
       //gameObject. Also, we define the center of mass of the car with the Vector3 given
@@ -282,8 +282,7 @@ namespace Solace {
           if (!tireScreechSound.isPlaying) {
             tireScreechSound.Play();
           }
-        }
-        else if ((!isDrifting) && (!isTractionLocked || Mathf.Abs(carSpeed) < 12f)) {
+        } else if ((!isDrifting) && (!isTractionLocked || Mathf.Abs(carSpeed) < 12f)) {
           tireScreechSound.Stop();
         }
       }
@@ -317,8 +316,7 @@ namespace Solace {
     public void ResetSteeringAngle() {
       if (steeringAxis < 0f) {
         steeringAxis += Time.deltaTime * 10f * steeringSpeed;
-      }
-      else if (steeringAxis > 0f) {
+      } else if (steeringAxis > 0f) {
         steeringAxis -= (Time.deltaTime * 10f * steeringSpeed);
       }
       if (Mathf.Abs(frontLeftCollider.steerAngle) < 1f) {
@@ -355,8 +353,7 @@ namespace Solace {
       if (Mathf.Abs(localVelocityX) > 2.5f) {
         isDrifting = true;
         DriftCarPS();
-      }
-      else {
+      } else {
         isDrifting = false;
         DriftCarPS();
       }
@@ -370,8 +367,7 @@ namespace Solace {
       //is safe to apply positive torque to go forward.
       if (localVelocityZ < -1f) {
         Brakes();
-      }
-      else {
+      } else {
         if (Mathf.RoundToInt(carSpeed) < maxSpeed) {
           //@SolaceBlock add stick delta multiplier
           //Apply positive torque in all wheels to go forward if maxSpeed has not been reached.
@@ -383,8 +379,7 @@ namespace Solace {
           rearLeftCollider.motorTorque = (accelerationMultiplier * controller.forwardAccelerateDelta * 50f) * throttleAxis;
           rearRightCollider.brakeTorque = 0;
           rearRightCollider.motorTorque = (accelerationMultiplier * controller.forwardAccelerateDelta * 50f) * throttleAxis;
-        }
-        else {
+        } else {
           // If the maxSpeed has been reached, then stop applying torque to the wheels.
           // IMPORTANT: The maxSpeed variable should be considered as an approximation; the speed of the car
           // could be a bit higher than expected.
@@ -403,8 +398,7 @@ namespace Solace {
       if (Mathf.Abs(localVelocityX) > 2.5f) {
         isDrifting = true;
         DriftCarPS();
-      }
-      else {
+      } else {
         isDrifting = false;
         DriftCarPS();
       }
@@ -418,8 +412,7 @@ namespace Solace {
       //is safe to apply negative torque to go reverse.
       if (localVelocityZ > 1f) {
         Brakes();
-      }
-      else {
+      } else {
         if (Mathf.Abs(Mathf.RoundToInt(carSpeed)) < maxReverseSpeed) {
           //Apply negative torque in all wheels to go in reverse if maxReverseSpeed has not been reached.
           frontLeftCollider.brakeTorque = 0;
@@ -430,8 +423,7 @@ namespace Solace {
           rearLeftCollider.motorTorque = (accelerationMultiplier * controller.backwardAccelerateDelta * 50f) * throttleAxis;
           rearRightCollider.brakeTorque = 0;
           rearRightCollider.motorTorque = (accelerationMultiplier * controller.backwardAccelerateDelta * 50f) * throttleAxis;
-        }
-        else {
+        } else {
           //If the maxReverseSpeed has been reached, then stop applying torque to the wheels.
           // IMPORTANT: The maxReverseSpeed variable should be considered as an approximation; the speed of the car
           // could be a bit higher than expected.
@@ -458,8 +450,7 @@ namespace Solace {
       if (Mathf.Abs(localVelocityX) > 2.5f) {
         isDrifting = true;
         DriftCarPS();
-      }
-      else {
+      } else {
         isDrifting = false;
         DriftCarPS();
       }
@@ -467,8 +458,7 @@ namespace Solace {
       if (throttleAxis != 0f) {
         if (throttleAxis > 0f) {
           throttleAxis -= (Time.deltaTime * 10f);
-        }
-        else if (throttleAxis < 0f) {
+        } else if (throttleAxis < 0f) {
           throttleAxis += (Time.deltaTime * 10f);
         }
         if (Mathf.Abs(throttleAxis) < 0.15f) {
@@ -518,8 +508,7 @@ namespace Solace {
       //3f, it means that the car lost its traction, then the car will start emitting particle systems.
       if (Mathf.Abs(localVelocityX) > 2.5f) {
         isDrifting = true;
-      }
-      else {
+      } else {
         isDrifting = false;
       }
       //If the 'driftingAxis' value is not 1f, it means that the wheels have not reach their maximum drifting
@@ -553,8 +542,7 @@ namespace Solace {
         if (isDrifting) {
           RLWParticleSystem.Play();
           RRWParticleSystem.Play();
-        }
-        else if (!isDrifting) {
+        } else if (!isDrifting) {
           RLWParticleSystem.Stop();
           RRWParticleSystem.Stop();
         }
@@ -562,13 +550,11 @@ namespace Solace {
         if ((isTractionLocked || Mathf.Abs(localVelocityX) > 5f) && Mathf.Abs(carSpeed) > 12f) {
           RLWTireSkid.emitting = true;
           RRWTireSkid.emitting = true;
-        }
-        else {
+        } else {
           RLWTireSkid.emitting = false;
           RRWTireSkid.emitting = false;
         }
-      }
-      else if (!useEffects) {
+      } else if (!useEffects) {
         if (RLWParticleSystem != null) {
           RLWParticleSystem.Stop();
         }
@@ -610,8 +596,7 @@ namespace Solace {
 
         Invoke(nameof(RecoverTraction), Time.deltaTime);
 
-      }
-      else if (FLwheelFriction.extremumSlip < FLWextremumSlip) {
+      } else if (FLwheelFriction.extremumSlip < FLWextremumSlip) {
         FLwheelFriction.extremumSlip = FLWextremumSlip;
         frontLeftCollider.sidewaysFriction = FLwheelFriction;
 

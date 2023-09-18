@@ -4,7 +4,7 @@ namespace Solace {
   /// <summary>
   /// Input Controller for EVP based vehicles.
   /// </summary>
-  public class L2VehicleInput : VehicleStandardInput {
+  public class EVPVehicleInput : VehicleStandardInput {
     private EVP.VehicleController target;
 
     private void Start() {

@@ -5,7 +5,7 @@ namespace Solace {
   /// <summary>
   /// Input Controller for Promoteo based vehicles
   /// </summary>
-  public class R2VehicleInput : VehicleStandardInput {
+  public class PrometeoVehicleInput : VehicleStandardInput {
     [NonSerialized]
     public bool isAcceleratingForward;
     [NonSerialized]

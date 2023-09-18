@@ -792,13 +792,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 598404947}
+  - component: {fileID: 598404948}
   m_Layer: 0
   m_Name: InputProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &598404947
 Transform:
   m_ObjectHideFlags: 0
@@ -814,6 +815,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &598404948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598404946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2722eb1689c52164099e3f941a6a9287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseInput: 0
 --- !u!1001 &696401977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1700,15 +1714,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04648797
+      value: 0.046487965
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7768904
+      value: 0.77689046
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.057762127
+      value: -0.05776214
       objectReference: {fileID: 0}
     - target: {fileID: 3405363503857725385, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_Name
@@ -2539,6 +2553,10 @@ PrefabInstance:
     - target: {fileID: 3494641647120096373, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
       propertyPath: m_Name
       value: DjangoVehicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494641647120096373, guid: 683c5935343bf4f4f93dc533eb625721, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
