@@ -76,6 +76,7 @@
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSSteeringWheelInput.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\ForceFeedbackSettings.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />

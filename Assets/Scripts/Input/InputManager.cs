@@ -148,6 +148,30 @@ namespace Solace {
     public delegate void DeviceReconnectAction();
     public static event DeviceReconnectAction DidDeviceReconnect;
 
+    // Player
+    // Jump
+    public delegate void JumpAction(bool value);
+    public static event JumpAction DidJump;
+
+    // Move
+    public delegate void MoveAction(Vector2 delta);
+    public static event MoveAction DidMove;
+
+    // Look
+    public delegate void PlayerLookAction(Vector2 delta);
+    public static event PlayerLookAction DidPlayerLook;
+
+    // Sprint
+    public delegate void SprintAction(bool value);
+    public static event SprintAction DidSprint;
+
+    // Pickup
+    public delegate void InteractAction();
+    public static event InteractAction DidInteract;
+
+    public delegate void FocusAction(bool value);
+    public static event FocusAction DidFocus;
+
     private SolaceInputActions controls;
 
     private void Awake() {
@@ -400,6 +424,63 @@ namespace Solace {
 
       controls.Car.CinematicMode.performed += OnCinematicModeStart;
       controls.Car.CinematicMode.canceled += OnCinematicModeCanceled;
+
+      // Player
+      controls.Player.Move.performed += OnPlayerMovePerformed;
+      controls.Player.Move.canceled += OnPlayerMoveCanceled;
+
+      controls.Player.Look.performed += OnPlayerLook;
+
+      controls.Player.Jump.performed += OnPlayerJumpPerformed;
+      controls.Player.Jump.canceled += OnPlayerJumpCanceled;
+
+      controls.Player.Sprint.started += OnPlayerSprintstarted;
+      controls.Player.Sprint.canceled += OnPlayerSprintCanceled;
+
+      controls.Player.Focus.started += OnPlayerFocusStarted;
+      controls.Player.Focus.canceled += OnPlayerFocusCancled;
+
+      controls.Player.Interact.performed += OnPlayerInteract;
+    }
+
+    private void OnPlayerMovePerformed(InputAction.CallbackContext context) {
+      DidMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerMoveCanceled(InputAction.CallbackContext context) {
+      DidMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerLook(InputAction.CallbackContext context) {
+      DidPlayerLook?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerJumpPerformed(InputAction.CallbackContext context) {
+      DidJump?.Invoke(true);
+    }
+
+    private void OnPlayerJumpCanceled(InputAction.CallbackContext context) {
+      DidJump?.Invoke(false);
+    }
+
+    private void OnPlayerSprintstarted(InputAction.CallbackContext context) {
+      DidSprint?.Invoke(true);
+    }
+
+    private void OnPlayerSprintCanceled(InputAction.CallbackContext context) {
+      DidSprint?.Invoke(false);
+    }
+
+    private void OnPlayerFocusStarted(InputAction.CallbackContext context) {
+      DidFocus?.Invoke(true);
+    }
+
+    private void OnPlayerFocusCancled(InputAction.CallbackContext context) {
+      DidFocus?.Invoke(false);
+    }
+
+    private void OnPlayerInteract(InputAction.CallbackContext context) {
+      DidInteract?.Invoke();
     }
 
     private void OnDisable() {
@@ -461,6 +542,23 @@ namespace Solace {
 
       controls.Car.CinematicMode.performed -= OnCinematicModeStart;
       controls.Car.CinematicMode.canceled -= OnCinematicModeCanceled;
+
+      // Player
+      controls.Player.Move.performed -= OnPlayerMovePerformed;
+      controls.Player.Move.canceled -= OnPlayerMoveCanceled;
+
+      controls.Player.Look.performed -= OnPlayerLook;
+
+      controls.Player.Jump.performed -= OnPlayerJumpPerformed;
+      controls.Player.Jump.canceled -= OnPlayerJumpCanceled;
+
+      controls.Player.Sprint.started -= OnPlayerSprintstarted;
+      controls.Player.Sprint.canceled -= OnPlayerSprintCanceled;
+
+      controls.Player.Focus.started -= OnPlayerFocusStarted;
+      controls.Player.Focus.canceled -= OnPlayerFocusCancled;
+
+      controls.Player.Interact.performed -= OnPlayerInteract;
     }
   }
 }

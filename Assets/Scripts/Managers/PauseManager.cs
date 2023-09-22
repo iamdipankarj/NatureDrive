@@ -34,7 +34,6 @@ namespace Solace {
 
     private void PauseGame() {
       InputSystem.PauseHaptics();
-      AudioListener.pause = true;
       content.gameObject.SetActive(true);
       CursorManager.UnlockCursor();
       isPaused = true;
@@ -55,7 +54,6 @@ namespace Solace {
 
     private void ResumeGame() {
       InputSystem.ResumeHaptics();
-      AudioListener.pause = false;
       content.gameObject.SetActive(false);
       CursorManager.LockCursor();
       isPaused = false;
