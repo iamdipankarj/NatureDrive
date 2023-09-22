@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,6 +24,13 @@ namespace Solace {
 
     CharacterController characterController;
     public Vector3 moveDirection = Vector3.zero;
+
+    private Vector3 reticulePostion = new(0.5f, 0.5f, 0f);
+    private float pickupRange = 10f;
+    [SerializeField] private LayerMask pickupMask;
+    private bool shouldPickUp = false;
+    private Rigidbody currentObject = null;
+    [SerializeField] private Transform pickupTarget;
 
     private void OnPlayerJump(bool didJump) {
       isJumping = didJump;
@@ -56,6 +64,30 @@ namespace Solace {
 
       // Apply the push
       body.velocity = pushPower * pushDir;
+    }
+
+    private void OnPlayerInteract() {
+      Ray rayOrigin = Camera.main.ViewportPointToRay(reticulePostion);
+      if (Physics.Raycast(rayOrigin, out RaycastHit hitInfo, pickupRange, pickupMask)) {
+        shouldPickUp = !shouldPickUp;
+        if (currentObject != null) {
+          currentObject.useGravity = true;
+          currentObject = null;
+          return;
+        }
+        if (shouldPickUp) {
+          currentObject = hitInfo.rigidbody;
+          currentObject.useGravity = false;
+        }
+      }
+    }
+
+    private void FixedUpdate() {
+      if (currentObject != null) {
+        Vector3 directionPoint = pickupTarget.position - currentObject.position;
+        float distanceToPoint = directionPoint.magnitude;
+        currentObject.velocity = 12f * distanceToPoint * directionPoint;
+      }
     }
 
     void Update() {
@@ -97,12 +129,14 @@ namespace Solace {
       InputManager.DidMove += OnPlayerMove;
       InputManager.DidSprint += OnPlayerSprint;
       InputManager.DidJump += OnPlayerJump;
+      InputManager.DidInteract += OnPlayerInteract;
     }
 
     private void OnDisable() {
       InputManager.DidMove -= OnPlayerMove;
       InputManager.DidSprint -= OnPlayerSprint;
       InputManager.DidJump -= OnPlayerJump;
+      InputManager.DidInteract -= OnPlayerInteract;
     }
 
     void Start() {
