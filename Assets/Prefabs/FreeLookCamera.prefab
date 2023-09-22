@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 7256555094727091641}
   m_Layer: 0
   m_Name: FreeLookCamera
-  m_TagString: Untagged
+  m_TagString: CMFreeLook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5111413754376926
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901062171677527597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0744888, y: 0.117636055, z: -0.008849114, w: 0.9902196}
+  m_LocalRotation: {x: -0.019913966, y: 0.9584921, z: -0.06918739, w: -0.27587956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -570,7 +570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221483927985720703}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11040931, y: 0.117237, z: -0.013116401, w: 0.9868603}
+  m_LocalRotation: {x: -0.029922137, y: 0.9553463, z: -0.10395889, w: -0.27497414}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -776,7 +776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015284003431218494}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09244056, y: 0.11745614, z: -0.010981742, w: 0.98870534}
+  m_LocalRotation: {x: -0.024915555, y: 0.9570792, z: -0.08656443, w: -0.2754729}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

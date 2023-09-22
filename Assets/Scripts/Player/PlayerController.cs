@@ -11,26 +11,26 @@ namespace Solace {
     private const float jumpSpeed = 8.0f;
     private const float gravity = 20.0f;
 
+    public bool canPushObjects = false;
+
     private Vector2 moveDelta;
 
+    [NonSerialized]
     public bool isGrounded;
+    [NonSerialized]
     public bool isRunning;
+    [NonSerialized]
     private bool isJumping;
 
     private Transform cameraTransform;
 
+    [NonSerialized]
     public Vector2 velocity = Vector2.zero;
     private const float pushPower = 10.0f;
 
-    CharacterController characterController;
+    private CharacterController characterController;
+    [NonSerialized]
     public Vector3 moveDirection = Vector3.zero;
-
-    private Vector3 reticulePostion = new(0.5f, 0.5f, 0f);
-    private float pickupRange = 10f;
-    [SerializeField] private LayerMask pickupMask;
-    private bool shouldPickUp = false;
-    private Rigidbody currentObject = null;
-    [SerializeField] private Transform pickupTarget;
 
     private void OnPlayerJump(bool didJump) {
       isJumping = didJump;
@@ -45,48 +45,26 @@ namespace Solace {
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
-      Rigidbody body = hit.collider.attachedRigidbody;
+      if (canPushObjects) {
+        Rigidbody body = hit.collider.attachedRigidbody;
 
-      // no rigidbody
-      if (body == null || body.isKinematic)
-        return;
-
-      // We dont want to push objects below us
-      if (hit.moveDirection.y < -0.3f)
-        return;
-
-      // Calculate push direction from move direction,
-      // we only push objects to the sides never up and down
-      Vector3 pushDir = new(hit.moveDirection.x, 0, hit.moveDirection.z);
-
-      // If you know how fast your character is trying to move,
-      // then you can also multiply the push velocity by that.
-
-      // Apply the push
-      body.velocity = pushPower * pushDir;
-    }
-
-    private void OnPlayerInteract() {
-      Ray rayOrigin = Camera.main.ViewportPointToRay(reticulePostion);
-      if (Physics.Raycast(rayOrigin, out RaycastHit hitInfo, pickupRange, pickupMask)) {
-        shouldPickUp = !shouldPickUp;
-        if (currentObject != null) {
-          currentObject.useGravity = true;
-          currentObject = null;
+        // no rigidbody
+        if (body == null || body.isKinematic)
           return;
-        }
-        if (shouldPickUp) {
-          currentObject = hitInfo.rigidbody;
-          currentObject.useGravity = false;
-        }
-      }
-    }
 
-    private void FixedUpdate() {
-      if (currentObject != null) {
-        Vector3 directionPoint = pickupTarget.position - currentObject.position;
-        float distanceToPoint = directionPoint.magnitude;
-        currentObject.velocity = 12f * distanceToPoint * directionPoint;
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3f)
+          return;
+
+        // Calculate push direction from move direction,
+        // we only push objects to the sides never up and down
+        Vector3 pushDir = new(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        // If you know how fast your character is trying to move,
+        // then you can also multiply the push velocity by that.
+
+        // Apply the push
+        body.velocity = pushPower * pushDir;
       }
     }
 
@@ -129,14 +107,12 @@ namespace Solace {
       InputManager.DidMove += OnPlayerMove;
       InputManager.DidSprint += OnPlayerSprint;
       InputManager.DidJump += OnPlayerJump;
-      InputManager.DidInteract += OnPlayerInteract;
     }
 
     private void OnDisable() {
       InputManager.DidMove -= OnPlayerMove;
       InputManager.DidSprint -= OnPlayerSprint;
       InputManager.DidJump -= OnPlayerJump;
-      InputManager.DidInteract -= OnPlayerInteract;
     }
 
     void Start() {

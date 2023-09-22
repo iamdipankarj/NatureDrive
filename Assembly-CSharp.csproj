@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerVehicleEnter.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\IDataService.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechGKey.cs" />
@@ -99,12 +100,12 @@
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelStandardInput.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
-    <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleHelper.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
+    <Compile Include="Assets\Scripts\VehicleCameraManager.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\Scripts\Player\CurveControlledBob.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />

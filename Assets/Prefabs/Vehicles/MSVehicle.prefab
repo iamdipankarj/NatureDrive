@@ -602,7 +602,6 @@ GameObject:
   - component: {fileID: 2989804080704241523}
   - component: {fileID: 3616433685239986800}
   - component: {fileID: 4479533102941750658}
-  - component: {fileID: 2544329804019861930}
   - component: {fileID: 4709726519182030555}
   - component: {fileID: 287225363064188529}
   - component: {fileID: 5248238990556179051}
@@ -1784,20 +1783,6 @@ MonoBehaviour:
     switchingCameras: 99
     changeSuspensionHeight: 105
     nitro: 103
---- !u!114 &2544329804019861930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220903671460710833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 061a0a02ef20f4e4fb34de6626af97c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cockpitCamera: {fileID: 2701305170898128934}
-  leftWheelCamera: {fileID: 8344599790654364206}
 --- !u!114 &4709726519182030555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,7 +1884,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220903671460710833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 719dcf4e4e87e134ba16b5a0749ef21e, type: 3}
   m_Name: 
@@ -2038,6 +2023,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5026688590698912803}
+  - component: {fileID: 6809032038734698311}
   m_Layer: 1
   m_Name: Cameras
   m_TagString: Untagged
@@ -2062,6 +2048,20 @@ Transform:
   - {fileID: 9119058420006127086}
   m_Father: {fileID: 4682524627559718531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6809032038734698311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023976348033689598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061a0a02ef20f4e4fb34de6626af97c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cockpitCamera: {fileID: 2701305170898128934}
+  leftWheelCamera: {fileID: 8344599790654364206}
 --- !u!1 &2141905264390941821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,7 +2546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8614590958410247132}
   m_Layer: 1
-  m_Name: CockpitObject
+  m_Name: CockpitTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16036,19 +16036,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5956018
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3363907
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6351495
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.35872692
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

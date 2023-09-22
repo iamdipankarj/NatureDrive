@@ -139,6 +139,10 @@ namespace Solace {
     public delegate void CameraSwitchAction();
     public static event CameraSwitchAction DidSwitchCamera;
 
+    // Enter Vehicle Action
+    public delegate void EnterVehicleAction();
+    public static event EnterVehicleAction DidEnterVehicle;
+
     // Input Device Events
     // Disconnect
     public delegate void DeviceDisconnectAction();
@@ -362,6 +366,50 @@ namespace Solace {
       }
     }
 
+    private void OnPlayerMovePerformed(InputAction.CallbackContext context) {
+      DidMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerMoveCanceled(InputAction.CallbackContext context) {
+      DidMove?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerLook(InputAction.CallbackContext context) {
+      DidPlayerLook?.Invoke(context.ReadValue<Vector2>());
+    }
+
+    private void OnPlayerJumpPerformed(InputAction.CallbackContext context) {
+      DidJump?.Invoke(true);
+    }
+
+    private void OnPlayerJumpCanceled(InputAction.CallbackContext context) {
+      DidJump?.Invoke(false);
+    }
+
+    private void OnPlayerSprintstarted(InputAction.CallbackContext context) {
+      DidSprint?.Invoke(true);
+    }
+
+    private void OnPlayerSprintCanceled(InputAction.CallbackContext context) {
+      DidSprint?.Invoke(false);
+    }
+
+    private void OnPlayerFocusStarted(InputAction.CallbackContext context) {
+      DidFocus?.Invoke(true);
+    }
+
+    private void OnPlayerFocusCancled(InputAction.CallbackContext context) {
+      DidFocus?.Invoke(false);
+    }
+
+    private void OnPlayerInteract(InputAction.CallbackContext context) {
+      DidInteract?.Invoke();
+    }
+
+    private void OnEnterVehicle(InputAction.CallbackContext context) {
+      DidEnterVehicle?.Invoke();
+    }
+
     private void OnEnable() {
       controls.Enable();
     }
@@ -441,46 +489,7 @@ namespace Solace {
       controls.Player.Focus.canceled += OnPlayerFocusCancled;
 
       controls.Player.Interact.performed += OnPlayerInteract;
-    }
-
-    private void OnPlayerMovePerformed(InputAction.CallbackContext context) {
-      DidMove?.Invoke(context.ReadValue<Vector2>());
-    }
-
-    private void OnPlayerMoveCanceled(InputAction.CallbackContext context) {
-      DidMove?.Invoke(context.ReadValue<Vector2>());
-    }
-
-    private void OnPlayerLook(InputAction.CallbackContext context) {
-      DidPlayerLook?.Invoke(context.ReadValue<Vector2>());
-    }
-
-    private void OnPlayerJumpPerformed(InputAction.CallbackContext context) {
-      DidJump?.Invoke(true);
-    }
-
-    private void OnPlayerJumpCanceled(InputAction.CallbackContext context) {
-      DidJump?.Invoke(false);
-    }
-
-    private void OnPlayerSprintstarted(InputAction.CallbackContext context) {
-      DidSprint?.Invoke(true);
-    }
-
-    private void OnPlayerSprintCanceled(InputAction.CallbackContext context) {
-      DidSprint?.Invoke(false);
-    }
-
-    private void OnPlayerFocusStarted(InputAction.CallbackContext context) {
-      DidFocus?.Invoke(true);
-    }
-
-    private void OnPlayerFocusCancled(InputAction.CallbackContext context) {
-      DidFocus?.Invoke(false);
-    }
-
-    private void OnPlayerInteract(InputAction.CallbackContext context) {
-      DidInteract?.Invoke();
+      controls.Player.EnterVehicle.performed += OnEnterVehicle;
     }
 
     private void OnDisable() {
@@ -559,6 +568,7 @@ namespace Solace {
       controls.Player.Focus.canceled -= OnPlayerFocusCancled;
 
       controls.Player.Interact.performed -= OnPlayerInteract;
+      controls.Player.EnterVehicle.performed -= OnEnterVehicle;
     }
   }
 }

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 namespace Solace {
-  public class CameraManager : MonoBehaviour {
+  public class VehicleCameraManager : MonoBehaviour {
     [NonSerialized]
     private CinemachineFreeLook freeLookCamera;
     [SerializeField]
@@ -27,6 +27,10 @@ namespace Solace {
       cameras[0] = freeLookCamera;
       cameras[1] = cockpitCamera;
       cameras[2] = leftWheelCamera;
+    }
+
+    public void SetFreeLookCamera(CinemachineFreeLook cam) {
+      cameras[0] = cam;
     }
 
     private void OnCameraSwitch() {

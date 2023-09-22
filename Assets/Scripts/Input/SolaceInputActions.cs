@@ -1980,6 +1980,15 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnterVehicle"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c22e412-4fb2-4385-a44e-e26a8eaef072"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -2312,6 +2321,50 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Focus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efcbee6b-7eb4-44f6-81e7-3fd97e75a06e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterVehicle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8a44444-e068-4f25-8c56-63180205a878"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterVehicle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf616b6a-03b0-4298-bb01-573eace37951"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterVehicle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97272b3e-74cc-48b4-8afa-0bd2b0939692"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterVehicle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -2367,6 +2420,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Focus = m_Player.FindAction("Focus", throwIfNotFound: true);
+        m_Player_EnterVehicle = m_Player.FindAction("EnterVehicle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -2806,6 +2860,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Focus;
+    private readonly InputAction m_Player_EnterVehicle;
     public struct PlayerActions
     {
         private @SolaceInputActions m_Wrapper;
@@ -2816,6 +2871,7 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Focus => m_Wrapper.m_Player_Focus;
+        public InputAction @EnterVehicle => m_Wrapper.m_Player_EnterVehicle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2843,6 +2899,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Focus.started += instance.OnFocus;
             @Focus.performed += instance.OnFocus;
             @Focus.canceled += instance.OnFocus;
+            @EnterVehicle.started += instance.OnEnterVehicle;
+            @EnterVehicle.performed += instance.OnEnterVehicle;
+            @EnterVehicle.canceled += instance.OnEnterVehicle;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -2865,6 +2924,9 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
             @Focus.started -= instance.OnFocus;
             @Focus.performed -= instance.OnFocus;
             @Focus.canceled -= instance.OnFocus;
+            @EnterVehicle.started -= instance.OnEnterVehicle;
+            @EnterVehicle.performed -= instance.OnEnterVehicle;
+            @EnterVehicle.canceled -= instance.OnEnterVehicle;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -2933,5 +2995,6 @@ public partial class @SolaceInputActions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnFocus(InputAction.CallbackContext context);
+        void OnEnterVehicle(InputAction.CallbackContext context);
     }
 }

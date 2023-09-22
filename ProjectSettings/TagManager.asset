@@ -8,6 +8,7 @@ TagManager:
   - Vehicle
   - CMFreeLook
   - Prop
+  - CMPovCamera
   layers:
   - Default
   - TransparentFX
