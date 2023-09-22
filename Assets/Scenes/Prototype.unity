@@ -2088,38 +2088,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_VerticalAxis.m_MaxSpeed
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_VerticalAxis.m_AccelTime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_VerticalAxis.m_DecelTime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_VerticalAxis.m_SpeedMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_HorizontalAxis.m_MaxSpeed
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_HorizontalAxis.m_AccelTime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_HorizontalAxis.m_DecelTime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5343262848218528805, guid: ec45532f58022974e8905b2220fa7229, type: 3}
-      propertyPath: m_HorizontalAxis.m_SpeedMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6634297997641934747, guid: ec45532f58022974e8905b2220fa7229, type: 3}
       propertyPath: m_Follow
       value: 

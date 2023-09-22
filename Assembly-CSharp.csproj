@@ -81,6 +81,7 @@
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
+    <Compile Include="Assets\Scripts\Player\LerpControlledBob.cs" />
     <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechArxControl.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\VersionManager.cs" />
@@ -104,7 +105,9 @@
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechSteeringWheel.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
+    <Compile Include="Assets\Scripts\Player\CurveControlledBob.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
+    <Compile Include="Assets\Scripts\Player\CinemachinePOVExtension.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\GasStation.cs" />
     <Compile Include="Assets\Logitech SDK\Script Sample\LogitechLed.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
     <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_CustomWind.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
+    <Compile Include="Assets\Scripts\Player\HeadBob.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
     <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_Utils.cs" />
