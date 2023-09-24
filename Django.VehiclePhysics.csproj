@@ -89,8 +89,8 @@
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\GroundDetection\GroundDetection.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Powertrain\DifferentialComponent.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\ModuleManager\ModuleWrapper.cs" />
-    <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Effects\SurfaceParticles\SurfaceParticleManager.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\Trailer\TrailerHitchModuleWrapper.cs" />
+    <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Effects\SurfaceParticles\SurfaceParticleManager.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\ModuleTemplate\ModuleTemplate.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\GroundDetection\SurfacePreset.cs" />
     <Compile Include="Assets\Django\VehiclePhysics\Scripts\VehicleController\Modules\TCS\TCSModule.cs" />
