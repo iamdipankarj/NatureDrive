@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Solace {
   /// <summary>
-  /// Input Controller for EVP based vehicles.
+  /// Input Controller for ESP based vehicles.
   /// </summary>
-  public class EVPVehicleInput : VehicleStandardInput {
-    private EVP.VehicleController target;
+  public class ESPVehicleInput : VehicleStandardInput {
+    private ESP.VehicleController target;
 
     private void Start() {
-      target = GetComponent<EVP.VehicleController>();
+      target = GetComponent<ESP.VehicleController>();
     }
 
     private void FixedUpdate() {

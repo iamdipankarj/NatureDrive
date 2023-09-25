@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ae35930f538c9c543a0ad2c1dadbf278, type: 2}
     - target: {fileID: 2838079212377193807, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 7416
+      value: 7419
       objectReference: {fileID: 0}
     - target: {fileID: 2989245942607720259, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_Name
@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ae35930f538c9c543a0ad2c1dadbf278, type: 2}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.89233
+      value: 15.455757
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00010037422
+      value: -0.0001001358
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.141346
+      value: 0.000923872
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70,17 +70,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6729776150396534820, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 3766
+      value: 3769
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182913672677566078, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182913672677566078, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.13063917
       objectReference: {fileID: 0}
     - target: {fileID: 8154952061500770553, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 3766
+      value: 3769
       objectReference: {fileID: 0}
     - target: {fileID: 8773351474465936555, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 70fbdebb2d832e14693e5bf3bba34280, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 441437769169413832, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+    - {fileID: 8355525343547595142, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

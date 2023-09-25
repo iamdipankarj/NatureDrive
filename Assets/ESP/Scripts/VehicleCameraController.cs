@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System;
 
-namespace EVP
+namespace ESP
 {
 
 // TO-DO: raise to Serializable and add a common property "Mode Key" for each mode

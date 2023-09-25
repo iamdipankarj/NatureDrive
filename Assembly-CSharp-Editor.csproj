@@ -885,9 +885,9 @@
       <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
       <Name>Solace.Managers</Name>
     </ProjectReference>
-    <ProjectReference Include="EVP.csproj">
-      <Project>{563A8AB0-B785-EC03-29C7-8C536DE5C53B}</Project>
-      <Name>EVP</Name>
+    <ProjectReference Include="ESP.csproj">
+      <Project>{A27ADEDC-1B7B-F7A3-34BF-86C82A16FD3B}</Project>
+      <Name>ESP</Name>
     </ProjectReference>
     <ProjectReference Include="Solace.ColorBlind.csproj">
       <Project>{C45BDC20-DEE9-9B2D-3A12-AD5562DCBF6A}</Project>

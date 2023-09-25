@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EVP {
+namespace ESP {
   [Serializable]
   public class Wheel {
     public WheelCollider wheelCollider;
@@ -749,7 +749,7 @@ namespace EVP {
       }
 
       // Combine throttle and brake inputs. There can be only one.
-      // (Not really - EVP uses this simplication. Vehicle Physics Pro (VPP) combines
+      // (Not really - ESP uses this simplication. Vehicle Physics Pro (VPP) combines
       // throttle and brake in the physically correct way, which is WAY more complex)
 
       float absThrottleInput = Mathf.Abs(wheelThrottleInput);
