@@ -8,25 +8,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2838079212377193807, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
-      propertyPath: m_Mesh
+    - target: {fileID: 1831551126985832431, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 2100000, guid: 3b2150baa75143643aaa4d89a2c557ed, type: 2}
+    - target: {fileID: 2147263973776310647, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b2150baa75143643aaa4d89a2c557ed, type: 2}
+    - target: {fileID: 2838079212377193807, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_VersionIndex
+      value: 7416
       objectReference: {fileID: 0}
     - target: {fileID: 2989245942607720259, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_Name
-      value: RetroSportsCar
+      value: RetroSportsWhite
       objectReference: {fileID: 0}
+    - target: {fileID: 4870648159287742049, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b2150baa75143643aaa4d89a2c557ed, type: 2}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 16.214966
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00010108948
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.182655
       objectReference: {fileID: 0}
     - target: {fileID: 4958192492777017662, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57,13 +69,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729776150396534820, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_VersionIndex
+      value: 3766
       objectReference: {fileID: 0}
     - target: {fileID: 8154952061500770553, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_VersionIndex
+      value: 3766
       objectReference: {fileID: 0}
+    - target: {fileID: 8773351474465936555, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b2150baa75143643aaa4d89a2c557ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
