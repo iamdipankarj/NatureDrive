@@ -118,14 +118,14 @@ namespace MSVehicle {
     [Tooltip("Here you will adjust the friction of the wheels in relation to torque and slippage.")]
     public WheelFrictionClass defaultFriction;
     [Space(10)]
-    [Tooltip("The front right wheel collider must be associated with this variable")]
-    public WheelClass rightFrontWheel;
     [Tooltip("The front left wheel collider must be associated with this variable")]
     public WheelClass leftFrontWheel;
-    [Tooltip("The rear right wheel collider should be associated with this variable")]
-    public WheelClass rightRearWheel;
+    [Tooltip("The front right wheel collider must be associated with this variable")]
+    public WheelClass rightFrontWheel;
     [Tooltip("The rear left wheel collider should be associated with this variable")]
     public WheelClass leftRearWheel;
+    [Tooltip("The rear right wheel collider should be associated with this variable")]
+    public WheelClass rightRearWheel;
     [Tooltip("Extra wheel colliders must be associated with this class.")]
     public WheelClass[] extraWheels;
   }
