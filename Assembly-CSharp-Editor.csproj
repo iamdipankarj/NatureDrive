@@ -58,10 +58,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
     <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_DetailsEnum.cs" />
     <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_ShaderGUI.cs" />
     <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_AdvancedEdgeFluttering.cs" />
-    <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -737,20 +737,56 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
       <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
@@ -761,17 +797,11 @@
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Localization.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
+    <Reference Include="Unity.Localization">
+      <HintPath>Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Localization">
-      <HintPath>Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -785,20 +815,8 @@
     <Reference Include="UnityEditor.CacheServer">
       <HintPath>Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
@@ -812,26 +830,17 @@
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Addressables.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -839,20 +848,11 @@
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
@@ -873,6 +873,18 @@
       <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
       <Name>SolaceInput</Name>
     </ProjectReference>
+    <ProjectReference Include="NWH.VehiclePhysics2.csproj">
+      <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
+      <Name>NWH.VehiclePhysics2</Name>
+    </ProjectReference>
+    <ProjectReference Include="NWH.VehiclePhysics2.SetupWizard.csproj">
+      <Project>{258A6EFB-1A99-C5EB-E3FD-6D380BED91DE}</Project>
+      <Name>NWH.VehiclePhysics2.SetupWizard</Name>
+    </ProjectReference>
+    <ProjectReference Include="NWH.WheelController.csproj">
+      <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
+      <Name>NWH.WheelController</Name>
+    </ProjectReference>
     <ProjectReference Include="Solace.Managers.csproj">
       <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
       <Name>Solace.Managers</Name>
@@ -888,6 +900,10 @@
     <ProjectReference Include="RoadArchitect.csproj">
       <Project>{00898FDD-9757-D0F3-A5D9-957D88F6DACE}</Project>
       <Name>RoadArchitect</Name>
+    </ProjectReference>
+    <ProjectReference Include="NWH.Common.csproj">
+      <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
+      <Name>NWH.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

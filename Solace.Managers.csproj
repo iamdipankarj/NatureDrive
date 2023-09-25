@@ -60,12 +60,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
     <Compile Include="Assets\Scripts\Managers\NotificationManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ColorManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TagManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\RumbleManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\Managers\VehicleManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
   </ItemGroup>
