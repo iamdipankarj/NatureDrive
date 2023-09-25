@@ -388,8 +388,7 @@ namespace ESP {
         foreach (WheelData wd in m_wheelData) {
           UpdateSteering(wd);
         }
-      }
-      else
+      } else
       if (wheelUpdateRate == UpdateRate.OnUpdate || wheelPositionMode == PositionMode.Accurate) {
         bool needDisableColliders = m_rigidbody.interpolation != RigidbodyInterpolation.None
           && wheelPositionMode == PositionMode.Accurate;
@@ -590,8 +589,7 @@ namespace ESP {
         //Solace Fix: Change the steering angle with lerp so that it doesn't feel jittery.
         wd.steerAngle = Mathf.Lerp(wd.steerAngle, m_steerAngle, Time.deltaTime * 8f);
         if (wd.positionRatio < 0.5f) wd.steerAngle = -wd.steerAngle;
-      }
-      else {
+      } else {
         wd.steerAngle = 0.0f;
       }
 
@@ -631,8 +629,7 @@ namespace ESP {
         wd.suspensionCompression = 1.0f - (-wd.transform.InverseTransformPoint(wd.hit.point).y - wd.collider.radius) / wd.collider.suspensionDistance;
         if (wd.hit.force < 0.0f) wd.hit.force = 0.0f;
         wd.downforce = wd.hit.force;
-      }
-      else {
+      } else {
         wd.suspensionCompression = 0.0f;
         wd.downforce = 0.0f;
       }
@@ -688,16 +685,14 @@ namespace ESP {
         if (upNormal > 0.000001f) {
           Vector3 downForceUp = Vector3.up * wd.hit.force / upNormal;
           surfaceForce = downForceUp - Vector3.Project(downForceUp, wd.hit.normal);
-        }
-        else {
+        } else {
           surfaceForce = Vector3.up * 100000.0f;
         }
 
         localSurfaceForce.y = Vector3.Dot(wd.hit.forwardDir, surfaceForce);
         localSurfaceForce.x = Vector3.Dot(wd.hit.sidewaysDir, surfaceForce);
         localSurfaceForce *= surfaceForceRatio;
-      }
-      else {
+      } else {
         localSurfaceForce = Vector2.zero;
       }
 
@@ -736,13 +731,11 @@ namespace ESP {
           ComputeBrakeValues(wd, handbrakeMode, maxHandbrakeSlip, maxHandbrakeRatio, out wheelBrakeSlip, out wheelBrakeRatio);
         else
           ComputeBrakeValues(wd, brakeMode, maxBrakeSlip, maxBrakeRatio, out wheelBrakeSlip, out wheelBrakeRatio);
-      }
-      else
+      } else
       if (wd.wheel.brake) {
         wheelBrakeInput = brakeInput;
         ComputeBrakeValues(wd, brakeMode, maxBrakeSlip, maxBrakeRatio, out wheelBrakeSlip, out wheelBrakeRatio);
-      }
-      else
+      } else
       if (wd.wheel.handbrake) {
         wheelBrakeInput = handbrakeInput;
         ComputeBrakeValues(wd, handbrakeMode, maxHandbrakeSlip, maxHandbrakeRatio, out wheelBrakeSlip, out wheelBrakeRatio);
@@ -758,8 +751,7 @@ namespace ESP {
       if (combinedInput >= 0) {
         wd.finalInput = combinedInput * Mathf.Sign(wheelThrottleInput);
         wd.isBraking = false;
-      }
-      else {
+      } else {
         wd.finalInput = -combinedInput;
         wd.isBraking = true;
       }
@@ -770,8 +762,7 @@ namespace ESP {
 
       if (wd.isBraking) {
         demandedForce = wd.finalInput * GetRampBalancedValue(maxBrakeForce, brakeBalance, wd.positionRatio);
-      }
-      else {
+      } else {
         float balancedDriveForce = GetRampBalancedValue(maxDriveForce, driveBalance, wd.positionRatio);
         demandedForce = ComputeDriveForce(wd.finalInput * balancedDriveForce, balancedDriveForce, wd.grounded);
       }
@@ -802,8 +793,7 @@ namespace ESP {
         if (wd.groundMaterial != null) {
           groundGrip = wd.groundMaterial.grip;
           groundDrag = wd.groundMaterial.drag;
-        }
-        else {
+        } else {
           groundGrip = defaultGroundGrip;
           groundDrag = defaultGroundDrag;
         }
@@ -820,8 +810,7 @@ namespace ESP {
         if (wd.isBraking) {
           float wheelMaxBrakeSlip = Mathf.Max(Mathf.Abs(wd.localVelocity.y * wheelBrakeRatio), wheelBrakeSlip);
           minSlipY = Mathf.Clamp(Mathf.Abs(demandedForce * wd.tireSlip.x) / forceMagnitude, 0.0f, wheelMaxBrakeSlip);
-        }
-        else {
+        } else {
           minSlipY = Mathf.Min(Mathf.Abs(demandedForce * wd.tireSlip.x) / forceMagnitude, wheelMaxDriveSlip);
           if (demandedForce != 0.0f && minSlipY < 0.1f) minSlipY = 0.1f;
         }
@@ -843,16 +832,14 @@ namespace ESP {
         if (wd.isBraking) {
           float maxFy = Mathf.Min(wd.rawTireForce.y, demandedForce);
           wd.tireForce.y = Mathf.Clamp(wd.localRigForce.y, -maxFy, +maxFy);
-        }
-        else {
+        } else {
           wd.tireForce.y = Mathf.Clamp(demandedForce, -wd.rawTireForce.y, +wd.rawTireForce.y);
         }
 
         // Drag force as for the surface resistance
 
         wd.dragForce = -(forceMagnitude * wd.localVelocity.magnitude * groundDrag * 0.001f) * wd.localVelocity;
-      }
-      else {
+      } else {
         wd.tireSlip = Vector2.zero;
         wd.tireForce = Vector2.zero;
         wd.dragForce = Vector2.zero;
@@ -930,8 +917,7 @@ namespace ESP {
         float sx = tireSlip.x * localVelocity.x / h;
         float sy = tireSlip.y;
         return Mathf.Sqrt(sx * sx + sy * sy);
-      }
-      else {
+      } else {
         return tireSlip.magnitude;
       }
     }
@@ -953,14 +939,12 @@ namespace ESP {
       if (absSpeed < speedLimit) {
         if (m_speed < 0.0f && demandedForce > 0.0f || m_speed > 0.0f && demandedForce < 0.0f) {
           // Do not clamp the drive force that opposes the speed direction
-        }
-        else {
+        } else {
           maxForce *= CommonTools.BiasedLerp(1.0f - absSpeed / speedLimit, forceCurveShape, m_forceBiasCtx);
         }
 
         return Mathf.Clamp(demandedForce, -maxForce, +maxForce);
-      }
-      else {
+      } else {
         float opposingForce = maxForce * Mathf.Max(1.0f - absSpeed / speedLimit, -1.0f) * Mathf.Sign(m_speed);
 
         if (m_speed < 0.0f && demandedForce > 0.0f || m_speed > 0.0f && demandedForce < 0.0f) {
@@ -981,8 +965,7 @@ namespace ESP {
       if (mode == BrakeMode.Slip) {
         brakeSlip = maxSlip;
         brakeRatio = 1.0f;
-      }
-      else {
+      } else {
         brakeSlip = Mathf.Abs(wd.localVelocity.y);
         brakeRatio = maxRatio;
       }
@@ -1017,8 +1000,7 @@ namespace ESP {
           elongation = wd.collider.suspensionDistance * (1.0f - wd.suspensionCompression) + wd.collider.radius * 0.05f;
           wd.rayHit.point = wd.hit.point;
           wd.rayHit.normal = wd.hit.normal;
-        }
-        else {
+        } else {
 #if UNITY_52_OR_GREATER
 				  bool collided = Physics.Raycast(wd.origin, -wd.transform.up, out wd.rayHit, (wd.collider.suspensionDistance + wd.collider.radius), Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
 #else
@@ -1032,12 +1014,10 @@ namespace ESP {
               elongation = wd.collider.suspensionDistance * (1.0f - wd.suspensionCompression) + wd.collider.radius * 0.05f;
               wd.rayHit.point = wd.hit.point;
               wd.rayHit.normal = wd.hit.normal;
-            }
-            else {
+            } else {
               elongation = wd.rayHit.distance - wd.collider.radius * 0.95f;
             }
-          }
-          else {
+          } else {
             elongation = wd.collider.suspensionDistance + wd.collider.radius * 0.05f;
           }
         }
@@ -1049,7 +1029,7 @@ namespace ESP {
         if (wd.wheel.caliperTransform != null) {
           wd.wheel.caliperTransform.gameObject.SetActive(true);
 
-          
+
           // Rotation due to steering (Y)
           wd.wheel.caliperTransform.SetPositionAndRotation(wheelPosition, wd.transform.rotation * Quaternion.Euler(0.0f, wd.steerAngle, 0.0f));
         }
@@ -1061,14 +1041,12 @@ namespace ESP {
             // Wheel is child of caliper. Only local wheel spin is required.
 
             wd.wheel.wheelTransform.localRotation = Quaternion.Euler(wd.angularPosition * Mathf.Rad2Deg, 0.0f, 0.0f);
-          }
-          else {
+          } else {
             // Wheel is not child of caliper. Apply full position & rotation
             wd.wheel.wheelTransform.SetPositionAndRotation(wheelPosition, wd.transform.rotation * Quaternion.Euler(wd.angularPosition * Mathf.Rad2Deg, wd.steerAngle, 0.0f));
           }
         }
-      }
-      else {
+      } else {
         wd.rayHit.point = wd.hit.point;
         wd.rayHit.normal = wd.hit.normal;
       }
@@ -1216,8 +1194,7 @@ namespace ESP {
           && wd.rawTireForce.x >= Mathf.Abs(wd.localRigForce.x) || m_usesHandbrake && handbrakeInput > 0.1f)
         ) {
         wd.collider.motorTorque = 0.0f;
-      }
-      else {
+      } else {
         wd.collider.motorTorque = 0.00001f;
       }
     }
@@ -1277,8 +1254,7 @@ namespace ESP {
             frontPos += wheelPos;
             frontWidth += axleWidth;
             frontCount++;
-          }
-          else {
+          } else {
             rearPos += wheelPos;
             rearWidth += axleWidth;
             rearCount++;
@@ -1297,8 +1273,7 @@ namespace ESP {
       if (rearCount > 0) {
         rearPos = rearPos / rearCount;
         rearWidth = rearWidth / rearCount;
-      }
-      else {
+      } else {
         rearPos = frontPos;
         rearWidth = frontWidth;
       }
@@ -1332,8 +1307,7 @@ namespace ESP {
 
         if (m_rigidbody.centerOfMass != CoM)
           m_rigidbody.centerOfMass = CoM;
-      }
-      else {
+      } else {
         if (centerOfMassTransform != null) {
           Vector3 CoM = m_transform.InverseTransformPoint(centerOfMassTransform.position);
 
@@ -1459,8 +1433,7 @@ namespace ESP {
 
           if (showCollisionGizmos)
             Debug.DrawLine(contact.point, contact.point + CommonTools.Lin2Log(v), Color.red);
-        }
-        else if (dragRatio < impactThreeshold) {
+        } else if (dragRatio < impactThreeshold) {
           // Drag
 
           dragCount++;
@@ -1550,8 +1523,7 @@ namespace ESP {
         m_localDragPosition = Vector3.Lerp(m_localDragPosition, dragPosition, 10.0f * Time.deltaTime);
         m_localDragVelocity = Vector3.Lerp(m_localDragVelocity, dragVelocity, 20.0f * Time.deltaTime);
         m_localDragHardness = dragHardness;
-      }
-      else {
+      } else {
         m_localDragVelocity = Vector3.Lerp(m_localDragVelocity, Vector3.zero, 10.0f * Time.deltaTime);
       }
 
