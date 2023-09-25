@@ -921,14 +921,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Django.VehiclePhysics.SetupWizard.csproj">
-      <Project>{E6D8FFD6-3D68-4816-1478-E3FC93B42E99}</Project>
-      <Name>Django.VehiclePhysics.SetupWizard</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.VehiclePhysics.csproj">
-      <Project>{2F4967C8-D283-129F-66EE-5D8A84259898}</Project>
-      <Name>Django.VehiclePhysics</Name>
-    </ProjectReference>
     <ProjectReference Include="SolaceInput.csproj">
       <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
       <Name>SolaceInput</Name>
@@ -948,14 +940,6 @@
     <ProjectReference Include="RoadArchitect.csproj">
       <Project>{00898FDD-9757-D0F3-A5D9-957D88F6DACE}</Project>
       <Name>RoadArchitect</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.WheelController.csproj">
-      <Project>{E117FB8E-41BA-5B73-9F30-580C815CF960}</Project>
-      <Name>Django.WheelController</Name>
-    </ProjectReference>
-    <ProjectReference Include="Django.Common.csproj">
-      <Project>{4EAAD4CE-B173-E720-2718-995D7B4E030C}</Project>
-      <Name>Django.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
