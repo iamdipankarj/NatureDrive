@@ -59,10 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Input\RumbleStandardInput.cs" />
-    <Compile Include="Assets\Scripts\Input\InputManager.cs" />
     <Compile Include="Assets\Scripts\Input\PrometeoVehicleInput.cs" />
     <Compile Include="Assets\Scripts\Input\VehicleStandardInput.cs" />
     <Compile Include="Assets\Scripts\Input\SolaceInputActions.cs" />
+    <Compile Include="Assets\Scripts\Input\InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Input\Solace.Input.asmdef" />

@@ -58,20 +58,20 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\NWH\WheelController\Scripts\Friction.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\WheelController.cs" />
+    <Compile Include="Assets\NWH\WheelController\Scripts\WheelController.Debug.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\Damper.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\Editor\InitializationMethodsWC3D.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\WheelHit.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\WheelControllerManager.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\TyreWear.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\GroundDetectionBase.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\Friction.cs" />
-    <Compile Include="Assets\NWH\WheelController\Scripts\WheelController.Debug.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\Wheel.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\WheelControllerUtility.cs" />
+    <Compile Include="Assets\NWH\WheelController\Scripts\WheelHit.cs" />
+    <Compile Include="Assets\NWH\WheelController\Scripts\WheelControllerManager.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\WheelController.UAPI.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\CamberController.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\Spring.cs" />
+    <Compile Include="Assets\NWH\WheelController\Scripts\TyreWear.cs" />
+    <Compile Include="Assets\NWH\WheelController\Scripts\GroundDetectionBase.cs" />
     <Compile Include="Assets\NWH\WheelController\Scripts\StandardGroundDetection.cs" />
   </ItemGroup>
   <ItemGroup>

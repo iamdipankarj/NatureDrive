@@ -58,26 +58,26 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ESP\Scripts\VehicleTelemetry.cs" />
+    <Compile Include="Assets\ESP\Scripts\Tools\SceneTools.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleRandomInput.cs" />
+    <Compile Include="Assets\ESP\Scripts\Extra\VehicleNitro.cs" />
+    <Compile Include="Assets\ESP\Scripts\Tools\TextureCanvas.cs" />
     <Compile Include="Assets\ESP\Scripts\Ground Materials\GroundMaterialManager.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleTireEffects.cs" />
+    <Compile Include="Assets\ESP\Scripts\ESPVehicleInput.cs" />
+    <Compile Include="Assets\ESP\Scripts\VehicleDamage.cs" />
     <Compile Include="Assets\ESP\Scripts\Tools\CommonTools.cs" />
+    <Compile Include="Assets\ESP\Scripts\Editor\VehicleControllerInspector.cs" />
     <Compile Include="Assets\ESP\Scripts\Ground Materials\TireParticleEmitter.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleAudio.cs" />
     <Compile Include="Assets\ESP\Scripts\Ground Materials\TireMarksRenderer.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleCameraController.cs" />
-    <Compile Include="Assets\ESP\Scripts\VehicleViewConfig.cs" />
-    <Compile Include="Assets\ESP\Scripts\Extra\RigidbodyPause.cs" />
-    <Compile Include="Assets\ESP\Scripts\VehicleTelemetry.cs" />
-    <Compile Include="Assets\ESP\Scripts\Tools\SceneTools.cs" />
-    <Compile Include="Assets\ESP\Scripts\Extra\VehicleNitro.cs" />
-    <Compile Include="Assets\ESP\Scripts\Tools\TextureCanvas.cs" />
-    <Compile Include="Assets\ESP\Scripts\ESPVehicleInput.cs" />
-    <Compile Include="Assets\ESP\Scripts\VehicleDamage.cs" />
-    <Compile Include="Assets\ESP\Scripts\Editor\VehicleControllerInspector.cs" />
     <Compile Include="Assets\ESP\Scripts\Extra\RigidbodyImpulse.cs" />
     <Compile Include="Assets\ESP\Scripts\Editor\InspectorTools.cs" />
+    <Compile Include="Assets\ESP\Scripts\VehicleViewConfig.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleController.cs" />
+    <Compile Include="Assets\ESP\Scripts\Extra\RigidbodyPause.cs" />
     <Compile Include="Assets\ESP\Scripts\VehicleVisualEffects.cs" />
     <Compile Include="Assets\ESP\Scripts\Extra\FollowHeading.cs" />
   </ItemGroup>
