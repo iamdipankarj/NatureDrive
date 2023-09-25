@@ -4725,11 +4725,6 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!4 &589139619 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2113850592974915657, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
-  m_PrefabInstance: {fileID: 1881665982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &598404946
 GameObject:
   m_ObjectHideFlags: 0
@@ -10058,34 +10053,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1176153177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1810976268889237553, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
-  m_PrefabInstance: {fileID: 1881665982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1176153183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8400629235426563660, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
   m_PrefabInstance: {fileID: 1881665982}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1176153188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176153177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e716af2fc4e2ff443b55f2492761cd23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steeringWheel: {fileID: 589139619}
-  degreesOfRotation: 420
-  brakesRenderer: {fileID: 0}
-  brakesMaterialIndex: 0
-  brakesOnMaterial: {fileID: 0}
-  brakesOffMaterial: {fileID: 0}
 --- !u!1001 &1187842890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13988,7 +13960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.038698763
+      value: 0.038698778
       objectReference: {fileID: 0}
     - target: {fileID: 3405363503857725385, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_Name
@@ -15632,10 +15604,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1329594295}
-    - target: {fileID: 7742423013059771499, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7872003845590550358, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -15691,10 +15659,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1810976268889237553, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1176153188}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fab70cb07312c43a9374d5b59cbf0c, type: 3}
 --- !u!1 &1895330666
 GameObject:

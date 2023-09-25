@@ -964,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2838079212377193807, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 7425
+      value: 7428
       objectReference: {fileID: 0}
     - target: {fileID: 2989245942607720259, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_Name
@@ -1098,9 +1098,13 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6568661406002690841, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6729776150396534820, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 3775
+      value: 3778
       objectReference: {fileID: 0}
     - target: {fileID: 7182913672677566078, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1120,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154952061500770553, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_VersionIndex
-      value: 3775
+      value: 3778
       objectReference: {fileID: 0}
     - target: {fileID: 8550236445133024000, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1179,6 +1183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2989245942607720259, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3993860605575861872}
+    - targetCorrespondingSourceObject: {fileID: 2989245942607720259, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7222884189025461049}
   m_SourcePrefab: {fileID: 100100000, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
 --- !u!146 &323809566318435792 stripped
 WheelCollider:
@@ -1421,6 +1428,29 @@ MonoBehaviour:
   minIntensityTime: 0.5
   maxIntensityTime: 6
   limitIntensityTime: 10
+--- !u!114 &7222884189025461049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810976268889237553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e716af2fc4e2ff443b55f2492761cd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steeringWheel: {fileID: 2113850592974915657}
+  degreesOfRotation: 420
+  brakesRenderer: {fileID: 0}
+  brakesMaterialIndex: 0
+  brakesOnMaterial: {fileID: 0}
+  brakesOffMaterial: {fileID: 0}
+--- !u!4 &2113850592974915657 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3247071007560945467, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
+  m_PrefabInstance: {fileID: 3484112700129609586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5198043596005404492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8681012735301019710, guid: 7bc4f138e2553b24b9bbc738e7ecef32, type: 3}
