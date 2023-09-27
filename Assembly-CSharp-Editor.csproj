@@ -58,9 +58,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_DetailsEnum.cs" />
-    <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_ShaderGUI.cs" />
-    <Compile Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\Editor\CTI_AdvancedEdgeFluttering.cs" />
     <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
   </ItemGroup>
@@ -869,10 +866,6 @@
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="NWH.WheelController.csproj">
-      <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
-      <Name>NWH.WheelController</Name>
-    </ProjectReference>
     <ProjectReference Include="SolaceInput.csproj">
       <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
       <Name>SolaceInput</Name>
@@ -880,10 +873,6 @@
     <ProjectReference Include="Solace.Managers.csproj">
       <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
       <Name>Solace.Managers</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.csproj">
-      <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
-      <Name>NWH.VehiclePhysics2</Name>
     </ProjectReference>
     <ProjectReference Include="ESP.csproj">
       <Project>{A27ADEDC-1B7B-F7A3-34BF-86C82A16FD3B}</Project>
@@ -893,17 +882,9 @@
       <Project>{C45BDC20-DEE9-9B2D-3A12-AD5562DCBF6A}</Project>
       <Name>Solace.ColorBlind</Name>
     </ProjectReference>
-    <ProjectReference Include="NWH.VehiclePhysics2.SetupWizard.csproj">
-      <Project>{258A6EFB-1A99-C5EB-E3FD-6D380BED91DE}</Project>
-      <Name>NWH.VehiclePhysics2.SetupWizard</Name>
-    </ProjectReference>
     <ProjectReference Include="RoadArchitect.csproj">
       <Project>{00898FDD-9757-D0F3-A5D9-957D88F6DACE}</Project>
       <Name>RoadArchitect</Name>
-    </ProjectReference>
-    <ProjectReference Include="NWH.Common.csproj">
-      <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
-      <Name>NWH.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

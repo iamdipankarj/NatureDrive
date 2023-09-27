@@ -526,17 +526,6 @@
                 },
                 {
                     "name": "",
-                    "id": "99a2a82a-31ca-4e5e-8788-c92cfb312b27",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Throttle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "80189d67-fd6f-4e3f-b2d7-b7ec5bb05e8f",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
