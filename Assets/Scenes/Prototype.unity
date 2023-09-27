@@ -1481,6 +1481,67 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &304110467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3642226
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04508713
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.622637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483048943, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839213817483406287, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_Name
+      value: Niva
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797597658463978886, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
 --- !u!134 &311520024
 PhysicMaterial:
   m_ObjectHideFlags: 0
@@ -12922,14 +12983,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 694497013}
-    - target: {fileID: 1969997159243354560, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.807
-      objectReference: {fileID: 0}
-    - target: {fileID: 1969997159243354560, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.067
-      objectReference: {fileID: 0}
     - target: {fileID: 4000725285556651574, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
       propertyPath: m_Name
       value: AmericanPickUpTruck
@@ -12942,78 +12995,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 694497013}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.lowBeamLights.lightSources.Array.data[1].light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.lowBeamLights.lightSources.Array.data[2].light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.highBeamLights.lightSources.Array.data[0].light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.highBeamLights.lightSources.Array.data[1].light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.tailLights.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.tailLights.lightSources.Array.data[1].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.brakeLights.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.brakeLights.lightSources.Array.data[1].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.leftBlinkers.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.leftBlinkers.lightSources.Array.data[1].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.leftBlinkers.lightSources.Array.data[2].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.leftBlinkers.lightSources.Array.data[3].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.lowBeamLights.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.reverseLights.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.rightBlinkers.lightSources.Array.data[0].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.rightBlinkers.lightSources.Array.data[1].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.rightBlinkers.lightSources.Array.data[2].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-      propertyPath: effectsManager.lightsManager.rightBlinkers.lightSources.Array.data[3].meshRenderer
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7751156567919799337, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.08
@@ -13054,15 +13035,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7199090269083280231, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    - {fileID: 2315295186620027172, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    - {fileID: 8817741594626642560, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    - {fileID: 812137511215216133, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    - {fileID: 318118859048756177, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    - {fileID: 8786083269123683382, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 3283965402090329836, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ac29460a88bb745b6d9e4c53fd0798, type: 3}
@@ -13394,3 +13368,4 @@ SceneRoots:
   - {fileID: 1538495902}
   - {fileID: 1864877430}
   - {fileID: 517183968}
+  - {fileID: 304110467}
