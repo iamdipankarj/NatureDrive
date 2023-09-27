@@ -58,21 +58,41 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Rewired\Integration\UnityUI\Editor\UnityUISetup.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\HardwareJoystickMapInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\ControllerDataFilesInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\DepthOfFieldEditor.cs" />
+    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Editor\CustomToggleInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
+    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Editor\CustomButtonInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\UnityEditorBridge.cs" />
+    <Compile Include="Assets\Rewired\Extras\TouchControls\Scripts\Editor\MenuCommands.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\BloomEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
+    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Editor\ControlMapperInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\UserDataStore_PlayerPrefsInspector.cs" />
     <Compile Include="Assets\Scripts\Editor\SolacePlayStateManager.cs" />
+    <Compile Include="Assets\Rewired\Integration\UnityUI\Editor\RewiredStandaloneInputModuleInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\InitializerInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\InputManagerInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\HardwareJoystickTemplateMapInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\EdgeDetectionEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\TonemappingEditor.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\PlayerControllerInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\SunShaftsEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
+    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Editor\CustomSliderInspector.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\CustomInspector_External.cs" />
+    <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\PlayerMouseInspector.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Rewired\Internal\Libraries\Editor\Rewired_Editor.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -339,6 +359,9 @@
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
+    <Reference Include="Rewired_Editor">
+      <HintPath>Assets\Rewired\Internal\Libraries\Editor\Rewired_Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -350,6 +373,12 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Windows">
+      <HintPath>Assets\Rewired\Internal\Libraries\Runtime\Rewired_Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>Assets\Rewired\Internal\Libraries\Runtime\Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -879,6 +908,10 @@
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityFFB.Runtime.csproj">
+      <Project>{844412B3-9B27-BC0A-3A02-111187EC3749}</Project>
+      <Name>UnityFFB.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="NWH.WheelController.csproj">
       <Project>{6D47DE76-98B6-969C-7612-22015A691C03}</Project>
       <Name>NWH.WheelController</Name>
@@ -902,10 +935,6 @@
     <ProjectReference Include="Solace.ColorBlind.csproj">
       <Project>{C45BDC20-DEE9-9B2D-3A12-AD5562DCBF6A}</Project>
       <Name>Solace.ColorBlind</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityFFB.Runtime.csproj">
-      <Project>{844412B3-9B27-BC0A-3A02-111187EC3749}</Project>
-      <Name>UnityFFB.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="NWH.VehiclePhysics2.SetupWizard.csproj">
       <Project>{258A6EFB-1A99-C5EB-E3FD-6D380BED91DE}</Project>
