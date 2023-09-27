@@ -58,11 +58,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\WinErrors.cs">
-      <Link>Runtime\WinErrors.cs</Link>
-    </Compile>
     <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFB.cs">
       <Link>Runtime\UnityFFB.cs</Link>
+    </Compile>
+    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\WinErrors.cs">
+      <Link>Runtime\WinErrors.cs</Link>
     </Compile>
     <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFBNative.cs">
       <Link>Runtime\UnityFFBNative.cs</Link>
