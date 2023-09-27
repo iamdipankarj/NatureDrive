@@ -87,10 +87,12 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTilt\Scripts\CustomControllersTiltDemo.cs" />
+    <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\ControllerTemplates\ControllerTemplates.cs" />
+    <Compile Include="Assets\AZURE Nature\Scripts\MoveController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\PlayerPointerEventData.cs" />
@@ -231,6 +233,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\Logitech SDK\LogitechLcdEnginesWrapper.dll" />
+    <None Include="Assets\AZURE Nature\Shaders\AN_Vegetation.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
@@ -277,6 +280,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
+    <None Include="Assets\AZURE Nature\Shaders\AN_Surface.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
@@ -284,6 +288,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
+    <None Include="Assets\AZURE Nature\Documentation\Readme.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Rewired\Documentation\licences.txt" />
@@ -315,6 +320,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
     <None Include="Assets\Rewired\Internal\Libraries\Runtime\Rewired_Android.dll" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
+    <None Include="Assets\AZURE Nature\Shaders\AN_Water.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\NWH\Common\Resources\NWH\Fonts\Inconsolata\OFL.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />

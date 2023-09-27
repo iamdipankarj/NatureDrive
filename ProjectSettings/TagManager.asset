@@ -9,6 +9,9 @@ TagManager:
   - CMFreeLook
   - Prop
   - CMPovCamera
+  - Wheel
+  - EnterExitPoint
+  - Road
   layers:
   - Default
   - TransparentFX
