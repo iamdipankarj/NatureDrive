@@ -434,6 +434,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "One Modifier",
+                    "id": "f8360ba8-c01d-4020-974c-89ff7b7cf949",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "4ff986fa-05f1-4c73-b621-d85cc6d8e427",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "eee254be-3153-42a2-9ba5-7a128ba90503",
+                    "path": "<XInputController>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "81844531-f08f-4aa7-8e3f-26f755bc62f3",
                     "path": "<Keyboard>/minus",
