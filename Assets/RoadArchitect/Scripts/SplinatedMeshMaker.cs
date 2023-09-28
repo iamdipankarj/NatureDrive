@@ -805,11 +805,13 @@ namespace RoadArchitect.Splination
 
                 if (EndCapStartString != null && EndCapStartString.Length > 0)
                 {
-                    _SMM.EndCapStart = EngineIntegration.LoadAssetFromPath<GameObject>(EndCapStartString);
+                    // @Solace-fix
+                    //_SMM.EndCapStart = EngineIntegration.LoadAssetFromPath<GameObject>(EndCapStartString);
                 }
                 if (EndCapEndString != null && EndCapEndString.Length > 0)
                 {
-                    _SMM.EndCapEnd = EngineIntegration.LoadAssetFromPath<GameObject>(EndCapEndString);
+                    // @Solace-fix
+                    //_SMM.EndCapEnd = EngineIntegration.LoadAssetFromPath<GameObject>(EndCapEndString);
                 }
 
                 _SMM.isEndCapCustomMatchStart = isEndCapCustomMatchStart;
@@ -2483,105 +2485,106 @@ namespace RoadArchitect.Splination
                     }
                 }
 
-
+                //@solace-fix
                 //Ending push down:
-                if (isStartDown)
-                {
-                    tFloat1 = mMaxHeight * 1.05f;
-                    if (isStartTypeDownOverriden)
-                    {
-                        tFloat1 = startTypeDownOverride;
-                    }
-                    if (j == 0)
-                    {
-                        for (int index = 0; index < MinCount; index++)
-                        {
-                            tIntBuffer1 = MinVectorIndices[index];
-                            tVerts[vManuver + tIntBuffer1].y -= tFloat1;
-                        }
+                //if (isStartDown)
+                //{
+                //    tFloat1 = mMaxHeight * 1.05f;
+                //    if (isStartTypeDownOverriden)
+                //    {
+                //        tFloat1 = startTypeDownOverride;
+                //    }
+                //    if (j == 0)
+                //    {
+                //        for (int index = 0; index < MinCount; index++)
+                //        {
+                //            tIntBuffer1 = MinVectorIndices[index];
+                //            tVerts[vManuver + tIntBuffer1].y -= tFloat1;
+                //        }
 
-                        float tTotalDistDown = 0f;
-                        Vector3 pVect1 = default(Vector3);
-                        Vector3 pVect2 = default(Vector3);
-                        foreach (KeyValuePair<int, int> KVP in MatchingIndices)
-                        {
-                            pVect1 = tVerts[vManuver + KVP.Key];
-                            pVect2 = tVerts[vManuver + KVP.Value];
-                            tTotalDistDown = Vector3.Distance(pVect1, pVect2);
-                            break;
-                        }
+                //        float tTotalDistDown = 0f;
+                //        Vector3 pVect1 = default(Vector3);
+                //        Vector3 pVect2 = default(Vector3);
+                //        foreach (KeyValuePair<int, int> KVP in MatchingIndices)
+                //        {
+                //            pVect1 = tVerts[vManuver + KVP.Key];
+                //            pVect2 = tVerts[vManuver + KVP.Value];
+                //            tTotalDistDown = Vector3.Distance(pVect1, pVect2);
+                //            break;
+                //        }
 
-                        for (int index = 0; index < MiddleCount; index++)
-                        {
-                            tIntBuffer1 = MiddleVectorIndicies[index];
-                            float tDistTo1 = Vector3.Distance(tVerts[vManuver + tIntBuffer1], pVect1);
-                            tVerts[vManuver + tIntBuffer1].y -= (tFloat1 * (tDistTo1 / tTotalDistDown));
-                        }
+                //        for (int index = 0; index < MiddleCount; index++)
+                //        {
+                //            tIntBuffer1 = MiddleVectorIndicies[index];
+                //            float tDistTo1 = Vector3.Distance(tVerts[vManuver + tIntBuffer1], pVect1);
+                //            tVerts[vManuver + tIntBuffer1].y -= (tFloat1 * (tDistTo1 / tTotalDistDown));
+                //        }
 
-                        if (CollisionType == CollisionTypeEnum.SimpleMeshTriangle)
-                        {
-                            cVerts[0 + (j * 3)].y -= tFloat1;
-                            cVerts[1 + (j * 3)].y -= tFloat1;
-                            cVerts[2 + (j * 3)].y -= tFloat1;
-                        }
-                        else if (CollisionType == CollisionTypeEnum.SimpleMeshTrapezoid)
-                        {
-                            cVerts[0 + (j * 4)].y -= tFloat1;
-                            cVerts[1 + (j * 4)].y -= tFloat1;
-                            cVerts[2 + (j * 4)].y -= tFloat1;
-                            cVerts[3 + (j * 4)].y -= tFloat1;
-                        }
-                    }
-                }
+                //        if (CollisionType == CollisionTypeEnum.SimpleMeshTriangle)
+                //        {
+                //            cVerts[0 + (j * 3)].y -= tFloat1;
+                //            cVerts[1 + (j * 3)].y -= tFloat1;
+                //            cVerts[2 + (j * 3)].y -= tFloat1;
+                //        }
+                //        else if (CollisionType == CollisionTypeEnum.SimpleMeshTrapezoid)
+                //        {
+                //            cVerts[0 + (j * 4)].y -= tFloat1;
+                //            cVerts[1 + (j * 4)].y -= tFloat1;
+                //            cVerts[2 + (j * 4)].y -= tFloat1;
+                //            cVerts[3 + (j * 4)].y -= tFloat1;
+                //        }
+                //    }
+                //}
 
-                if (isEndDown)
-                {
-                    tFloat1 = mMaxHeight * 1.05f;
-                    if (isEndTypeDownOverriden)
-                    {
-                        tFloat1 = endTypeDownOverride;
-                    }
-                    if (j == (MeshCount - 1))
-                    {
-                        for (int index = 0; index < MaxCount; index++)
-                        {
-                            tIntBuffer1 = MaxVectorIndices[index];
-                            tVerts[vManuver + tIntBuffer1].y -= tFloat1;
-                        }
+                //@solace-fix
+                //if (isEndDown)
+                //{
+                //    tFloat1 = mMaxHeight * 1.05f;
+                //    if (isEndTypeDownOverriden)
+                //    {
+                //        tFloat1 = endTypeDownOverride;
+                //    }
+                //    if (j == (MeshCount - 1))
+                //    {
+                //        for (int index = 0; index < MaxCount; index++)
+                //        {
+                //            tIntBuffer1 = MaxVectorIndices[index];
+                //            tVerts[vManuver + tIntBuffer1].y -= tFloat1;
+                //        }
 
-                        float tTotalDistDown = 0f;
-                        Vector3 pVect1 = default(Vector3);
-                        Vector3 pVect2 = default(Vector3);
-                        foreach (KeyValuePair<int, int> KVP in MatchingIndices)
-                        {
-                            pVect1 = tVerts[vManuver + KVP.Key];
-                            pVect2 = tVerts[vManuver + KVP.Value];
-                            tTotalDistDown = Vector3.Distance(pVect1, pVect2);
-                            break;
-                        }
+                //        float tTotalDistDown = 0f;
+                //        Vector3 pVect1 = default(Vector3);
+                //        Vector3 pVect2 = default(Vector3);
+                //        foreach (KeyValuePair<int, int> KVP in MatchingIndices)
+                //        {
+                //            pVect1 = tVerts[vManuver + KVP.Key];
+                //            pVect2 = tVerts[vManuver + KVP.Value];
+                //            tTotalDistDown = Vector3.Distance(pVect1, pVect2);
+                //            break;
+                //        }
 
-                        for (int i = 0; i < MiddleCount; i++)
-                        {
-                            tIntBuffer1 = MiddleVectorIndicies[i];
-                            float tDistTo1 = Vector3.Distance(tVerts[vManuver + tIntBuffer1], pVect2);
-                            tVerts[vManuver + tIntBuffer1].y -= (tFloat1 * (tDistTo1 / tTotalDistDown));
-                        }
+                //        for (int i = 0; i < MiddleCount; i++)
+                //        {
+                //            tIntBuffer1 = MiddleVectorIndicies[i];
+                //            float tDistTo1 = Vector3.Distance(tVerts[vManuver + tIntBuffer1], pVect2);
+                //            tVerts[vManuver + tIntBuffer1].y -= (tFloat1 * (tDistTo1 / tTotalDistDown));
+                //        }
 
-                        if (CollisionType == CollisionTypeEnum.SimpleMeshTriangle)
-                        {
-                            cVerts[0 + ((j + 1) * 3)].y -= tFloat1;
-                            cVerts[1 + ((j + 1) * 3)].y -= tFloat1;
-                            cVerts[2 + ((j + 1) * 3)].y -= tFloat1;
-                        }
-                        else if (CollisionType == CollisionTypeEnum.SimpleMeshTrapezoid)
-                        {
-                            cVerts[0 + ((j + 1) * 4)].y -= tFloat1;
-                            cVerts[1 + ((j + 1) * 4)].y -= tFloat1;
-                            cVerts[2 + ((j + 1) * 4)].y -= tFloat1;
-                            cVerts[3 + ((j + 1) * 4)].y -= tFloat1;
-                        }
-                    }
-                }
+                //        if (CollisionType == CollisionTypeEnum.SimpleMeshTriangle)
+                //        {
+                //            cVerts[0 + ((j + 1) * 3)].y -= tFloat1;
+                //            cVerts[1 + ((j + 1) * 3)].y -= tFloat1;
+                //            cVerts[2 + ((j + 1) * 3)].y -= tFloat1;
+                //        }
+                //        else if (CollisionType == CollisionTypeEnum.SimpleMeshTrapezoid)
+                //        {
+                //            cVerts[0 + ((j + 1) * 4)].y -= tFloat1;
+                //            cVerts[1 + ((j + 1) * 4)].y -= tFloat1;
+                //            cVerts[2 + ((j + 1) * 4)].y -= tFloat1;
+                //            cVerts[3 + ((j + 1) * 4)].y -= tFloat1;
+                //        }
+                //    }
+                //}
 
                 //Ending objects:
                 if (j == 0 && EndCapStartObj != null)

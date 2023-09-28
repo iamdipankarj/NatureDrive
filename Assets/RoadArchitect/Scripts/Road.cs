@@ -75,9 +75,9 @@ namespace RoadArchitect
         public float clearTreesDistance = 30f;
         public float clearTreesDistanceHeight = 50f;
 
-        public bool isHeightModificationEnabled = true;
-        public bool isDetailModificationEnabled = true;
-        public bool isTreeModificationEnabled = true;
+        public bool isHeightModificationEnabled = false;
+        public bool isDetailModificationEnabled = false;
+        public bool isTreeModificationEnabled = false;
 
         public bool isSavingTerrainHistoryOnDisk = true;
         public float magnitudeThreshold = 300f;
