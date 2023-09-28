@@ -23,7 +23,7 @@ namespace NWH.VehiclePhysics2.Modules.ArcadeModule
         /// Torque that will be applied to the Rigidbody to try and reach the steering angle,
         /// irrelevant of the tire slip. Also works in air.
         /// </summary>
-        [UnityEngine.Tooltip("Torque that will be applied to the Rigidbody to try and reach the steering angle,\r\nirrelevant of the tire slip. Also works in air.")]
+        [Tooltip("Torque that will be applied to the Rigidbody to try and reach the steering angle,\r\nirrelevant of the tire slip. Also works in air.")]
         public float artificialSteerStrength = 1f;
 
         // Drift assist
@@ -31,27 +31,27 @@ namespace NWH.VehiclePhysics2.Modules.ArcadeModule
         /// <summary>
         /// Strength of drift assist.
         /// </summary>
-        [UnityEngine.Tooltip("Strength of drift assist.")]
+        [Tooltip("Strength of drift assist.")]
         public float driftAssistStrength = 1f;
 
         /// <summary>
         /// angle that the vehicle will attempt to hold when drifting.
         /// Force is applied if the angle goes over this value. If the angle is below the drift angle, no force is applied.
         /// </summary>
-        [UnityEngine.Tooltip("angle that the vehicle will attempt to hold when drifting.\r\nForce is applied if the angle goes over this value. If the angle is below the drift angle, no force is applied.")]
+        [Tooltip("angle that the vehicle will attempt to hold when drifting.\r\nForce is applied if the angle goes over this value. If the angle is below the drift angle, no force is applied.")]
         public float targetDriftAngle = 45f;
 
         /// <summary>
         /// angle that will be added to targetDriftAngle based on the steering input.
         /// If the vehicle is drifting and there is steering input, drift angle will increase.
         /// </summary>
-        [UnityEngine.Tooltip("angle that will be added to targetDriftAngle based on the steering input.\r\nIf the vehicle is drifting and there is steering input, drift angle will increase.")]
+        [Tooltip("angle that will be added to targetDriftAngle based on the steering input.\r\nIf the vehicle is drifting and there is steering input, drift angle will increase.")]
         public float steerAngleContribution = 10f;
 
         /// <summary>
         /// Maximum force that will be applied to the rear axle to keep the vehicle at or below the target drift angle.
         /// </summary>
-        [UnityEngine.Tooltip("Maximum force that will be applied to the rear axle to keep the vehicle at or below the target drift angle.")]
+        [Tooltip("Maximum force that will be applied to the rear axle to keep the vehicle at or below the target drift angle.")]
         public float maxDriftAssistForce = 800f;
 
         private float _driftAngle;

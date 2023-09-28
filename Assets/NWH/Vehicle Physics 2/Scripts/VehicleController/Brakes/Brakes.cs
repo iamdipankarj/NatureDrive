@@ -42,7 +42,7 @@ namespace NWH.VehiclePhysics2
         ///     Set to 0 to disable braking off-throttle.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Strength of off-throttle braking in percentage [0 to 1] of max braking torque.")]
+        [Tooltip("Strength of off-throttle braking in percentage [0 to 1] of max braking torque.")]
         public float brakeOffThrottleIntensity = 0f;
 
 
@@ -60,7 +60,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     Should brakes be applied when vehicle is disabled?
         /// </summary>
-        [Tooltip("    Should brakes be applied when vehicle is disabled?")]
+        [Tooltip("Should brakes be applied when vehicle is disabled?")]
         [FormerlySerializedAs("brakeWhileAsleep")]
         [ShowInSettings("Brake While Disabled")]
         public bool brakeWhileDisabled = true;
@@ -69,7 +69,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     If true vehicle will break when in neutral and no throttle is applied.
         /// </summary>
-        [Tooltip("    If true vehicle will break when in neutral and no throttle is applied.")]
+        [Tooltip("If true vehicle will break when in neutral and no throttle is applied.")]
         [ShowInSettings("Brake While Idle")]
         public bool brakeWhileIdle = true;
 
@@ -77,7 +77,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         /// Should the vehicle apply brakes when the movement direction is opposite of input direction?
         /// </summary>
-        [UnityEngine.Tooltip("Should the vehicle apply brakes when the movement direction is opposite of input direction?")]
+        [Tooltip("Should the vehicle apply brakes when the movement direction is opposite of input direction?")]
         public bool brakeOnReverseDirection;
 
         /// <summary>
@@ -107,21 +107,21 @@ namespace NWH.VehiclePhysics2
         ///     Higher smoothing will result in brakes being applied more gradually.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Higher smoothing will result in brakes being applied more gradually.")]
+        [Tooltip("Higher smoothing will result in brakes being applied more gradually.")]
         public float actuationTime = 0.1f;
 
 
         /// <summary>
         ///     Called each time brakes are activated.
         /// </summary>
-        [Tooltip("    Called each time brakes are activated.")]
+        [Tooltip("Called each time brakes are activated.")]
         public UnityEvent onBrakesActivate = new UnityEvent();
 
 
         /// <summary>
         ///     Called each time brakes are released.
         /// </summary>
-        [Tooltip("    Called each time brakes are released.")]
+        [Tooltip("Called each time brakes are released.")]
         public UnityEvent onBrakesDeactivate = new UnityEvent();
 
 

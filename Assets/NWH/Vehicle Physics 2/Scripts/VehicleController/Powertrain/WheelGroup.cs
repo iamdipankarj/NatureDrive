@@ -24,7 +24,7 @@ namespace NWH.VehiclePhysics2.Powertrain.Wheel
         ///     Should Ackerman steering angle be added to the axle?
         ///     angle is auto-calculated.
         /// </summary>
-        [UnityEngine.Tooltip("    Should Ackerman steering angle be added to the axle?\r\n    angle is auto-calculated.")]
+        [Tooltip("Should Ackerman steering angle be added to the axle?\r\n    angle is auto-calculated.")]
         [ShowInSettings("Add Ackerman")]
         public bool addAckerman = true;
 
@@ -54,7 +54,7 @@ namespace NWH.VehiclePhysics2.Powertrain.Wheel
         ///     If set to 1 axle will receive full brake torque when handbrake is used.
         /// </summary>
         [Range(0f, 2f)]
-        [Tooltip("    If set to 1 axle will receive full brake torque when handbrake is used.")]
+        [Tooltip("If set to 1 axle will receive full brake torque when handbrake is used.")]
         [ShowInSettings("Brake Coeff.", 0f, 1f, 0.1f)]
         public float handbrakeCoefficient;
 
@@ -68,7 +68,7 @@ namespace NWH.VehiclePhysics2.Powertrain.Wheel
         /// <summary>
         ///     Track width of the axle. 0 if wheel count is not 2.
         /// </summary>
-        [Tooltip("    Track width of the axle. 0 if wheel count is not 2.")]
+        [Tooltip("Track width of the axle. 0 if wheel count is not 2.")]
         public float trackWidth;
 
 

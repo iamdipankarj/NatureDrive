@@ -21,7 +21,7 @@ namespace NWH.VehiclePhysics2.Modules.ESC
         ///     Intensity of stability control.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Intensity of stability control.")]
+        [Tooltip("Intensity of stability control.")]
         public float intensity = 0.4f;
 
         /// <summary>

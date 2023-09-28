@@ -53,7 +53,7 @@ namespace NWH.VehiclePhysics2.Modules.Trailer
         /// <summary>
         ///     Should the trailer input states be reset when trailer is detached?
         /// </summary>
-        [Tooltip("    Should the trailer input states be reset when trailer is detached?")]
+        [Tooltip("Should the trailer input states be reset when trailer is detached?")]
         public bool resetInputStatesOnDetach = true;
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace NWH.VehiclePhysics2.Modules.Trailer
         /// <summary>
         ///     Object that will be disabled when trailer is attached and disabled when trailer is detached.
         /// </summary>
-        [Tooltip("    Object that will be disabled when trailer is attached and disabled when trailer is detached.")]
+        [Tooltip("Object that will be disabled when trailer is attached and disabled when trailer is detached.")]
         public GameObject trailerStand;
 
         [NonSerialized]

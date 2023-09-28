@@ -45,7 +45,7 @@ namespace NWH.VehiclePhysics2.Modules.Aerodynamics
         ///     Also used for reverse.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Coefficient of drag of the vehicle's frontal profile.\r\n    Also used for reverse.")]
+        [Tooltip("Coefficient of drag of the vehicle's frontal profile.\r\n    Also used for reverse.")]
         public float frontalCd = 0.35f;
 
         /// <summary>
@@ -60,19 +60,19 @@ namespace NWH.VehiclePhysics2.Modules.Aerodynamics
         ///     Coefficient of drag of the vehicle's side profile.
         /// </summary>
         [Range(0f, 2f)]
-        [Tooltip("    Coefficient of drag of the vehicle's side profile.")]
+        [Tooltip("Coefficient of drag of the vehicle's side profile.")]
         public float sideCd = 1.05f;
 
         /// <summary>
         ///     Should downforce be calculated?
         /// </summary>
-        [Tooltip("    Should downforce be calculated?")]
+        [Tooltip("Should downforce be calculated?")]
         public bool simulateDownforce;
 
         /// <summary>
         ///     Should drag be calculated?
         /// </summary>
-        [Tooltip("    Should drag be calculated?")]
+        [Tooltip("Should drag be calculated?")]
         public bool simulateDrag = true;
 
         private float _forwardSpeed;

@@ -14,25 +14,25 @@ namespace NWH.VehiclePhysics2.Modules.Rigging
         /// <summary>
         ///     Should the object be positioned between two points. Also affects position besides rotation.
         /// </summary>
-        [Tooltip("    Should the object be positioned between two points. Also affects position besides rotation.")]
+        [Tooltip("Should the object be positioned between two points. Also affects position besides rotation.")]
         public bool doubleSided;
 
         /// <summary>
         ///     Should the object be rotated to look at the target?
         /// </summary>
-        [Tooltip("    Should the object be rotated to look at the target?")]
+        [Tooltip("Should the object be rotated to look at the target?")]
         public bool lookAtTarget = true;
 
         /// <summary>
         ///     Should the object be stretched between pivot and target?
         /// </summary>
-        [Tooltip("    Should the object be stretched between pivot and target?")]
+        [Tooltip("Should the object be stretched between pivot and target?")]
         public bool stretchToTarget = true;
 
         /// <summary>
         ///     The transform that represents the lookAtTarget and stretch target.
         /// </summary>
-        [Tooltip("    The transform that represents the lookAtTarget and stretch target.")]
+        [Tooltip("The transform that represents the lookAtTarget and stretch target.")]
         public Transform targetTransform;
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace NWH.VehiclePhysics2.Modules.Rigging
         /// <summary>
         ///     The transform that represents the bone.
         /// </summary>
-        [Tooltip("    The transform that represents the bone.")]
+        [Tooltip("The transform that represents the bone.")]
         public Transform thisTransform;
 
         private float _initDistance;

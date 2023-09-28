@@ -30,7 +30,7 @@ namespace NWH.VehiclePhysics2.Powertrain
             ///     Should forced induction be used?
             /// </summary>
             [ShowInTelemetry]
-            [Tooltip("    Should forced induction be used?")]
+            [Tooltip("Should forced induction be used?")]
             [ShowInSettings("Enabled")]
             public bool useForcedInduction = true;
 
@@ -41,14 +41,14 @@ namespace NWH.VehiclePhysics2.Powertrain
             /// </summary>
             [Range(0, 1)]
             [ShowInTelemetry]
-            [Tooltip("    Boost value as percentage in 0 to 1 range. Unitless.\r\n    Can be used for boost gauges.")]
+            [Tooltip("Boost value as percentage in 0 to 1 range. Unitless.\r\n    Can be used for boost gauges.")]
             public float boost;
 
 
             /// <summary>
             ///     Type of forced induction.
             /// </summary>
-            [Tooltip("    Type of forced induction.")]
+            [Tooltip("Type of forced induction.")]
             public ForcedInductionType forcedInductionType = ForcedInductionType.Turbocharger;
 
 
@@ -92,7 +92,7 @@ namespace NWH.VehiclePhysics2.Powertrain
             ///     Flag for sound effects.
             ///     Paramter is the boost value at the time of release.
             /// </summary>
-            [Tooltip("    Flag for sound effects.")]
+            [Tooltip("Flag for sound effects.")]
             public UnityEvent<float> onWastegateRelease = new UnityEvent<float>();
 
             private float _boostVelocity;

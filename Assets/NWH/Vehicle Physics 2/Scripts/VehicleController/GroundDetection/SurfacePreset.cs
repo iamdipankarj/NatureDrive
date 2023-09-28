@@ -41,70 +41,70 @@ namespace NWH.VehiclePhysics2.GroundDetection
         /// </summary>
         /// SurfacePreset
         [FormerlySerializedAs("dustColor")]
-        [Tooltip("    Color of generated particles on this surface type.")]
+        [Tooltip("Color of generated particles on this surface type.")]
         public Color particleColor = new Color(0.9f, 0.9f, 0.9f, 0.9f);
 
         /// <summary>
         ///     Maximum amount of particles emitted over distance.
         /// </summary>
         [Range(0, 2)]
-        [Tooltip("    Maximum amount of particles emitted over distance.")]
+        [Tooltip("Maximum amount of particles emitted over distance.")]
         public float maxParticleEmissionRateOverDistance = 0.36f;
 
         /// <summary>
         ///     Initial size of the emitted particles.
         /// </summary>
-        [Tooltip("    Initial size of the emitted particles.")]
+        [Tooltip("Initial size of the emitted particles.")]
         public float particleSize = 1f;
 
         /// <summary>
         ///     Should the particles be emitted on this surface type?
         /// </summary>
-        [Tooltip("    Should the particles be emitted on this surface type?")]
+        [Tooltip("Should the particles be emitted on this surface type?")]
         public bool emitParticles = true;
 
         /// <summary>
         ///     Should dirt chunks / stones be thrown behind the wheel on this surface type?
         /// </summary>
-        [Tooltip("    Should dirt chunks / stones be thrown behind the wheel on this surface type?")]
+        [Tooltip("Should dirt chunks / stones be thrown behind the wheel on this surface type?")]
         public bool emitChunks;
 
         /// <summary>
         ///     Maximum amount of chunks emitted over distance.
         /// </summary>
-        [Tooltip("    Maximum amount of chunks emitted over distance.")]
+        [Tooltip("Maximum amount of chunks emitted over distance.")]
         public float maxChunkEmissionRateOverDistance = 1f;
 
         /// <summary>
         ///     Determines maximum distance from the wheel that the chunk can stay alive.
         /// </summary>
-        [Tooltip("    Determines maximum distance from the wheel that the chunk can stay alive.")]
+        [Tooltip("Determines maximum distance from the wheel that the chunk can stay alive.")]
         public float chunkLifeDistance = 3f;
 
         /// <summary>
         ///     Maximum life time of an emitted chunk.
         /// </summary>
         [FormerlySerializedAs("maxChunkLifeTime")]
-        [Tooltip("    Maximum life time of an emitted chunk.")]
+        [Tooltip("Maximum life time of an emitted chunk.")]
         public float maxChunkLifetime = 0.5f;
 
         /// <summary>
         ///     Maximum alpha value start color of an emitted particle can achieve.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Maximum alpha value start color of an emitted particle can achieve.")]
+        [Tooltip("Maximum alpha value start color of an emitted particle can achieve.")]
         public float particleMaxAlpha = 0.8f;
 
         /// <summary>
         ///     Maximum particle start lifetime.
         /// </summary>
-        [Tooltip("    Maximum particle start lifetime.")]
+        [Tooltip("Maximum particle start lifetime.")]
         public float maxParticleLifetime = 3.5f;
 
         /// <summary>
         ///     Maximum distance from the vehicle a particle can achieve.
         /// </summary>
-        [Tooltip("    Maximum distance from the vehicle a particle can achieve.")]
+        [Tooltip("Maximum distance from the vehicle a particle can achieve.")]
         public float particleLifeDistance = 10f;
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace NWH.VehiclePhysics2.GroundDetection
         /// Useful for surfaces such as sand where the wheel digs into the material.
         /// </summary>
         [Range(1f, 50f)]
-        [UnityEngine.Tooltip("Multiplies the rolling resistance of the WheelUAPI by this value based on the load on the tire.\r\nUseful for surfaces such as sand where the wheel digs into the material.")]
+        [Tooltip("Multiplies the rolling resistance of the WheelUAPI by this value based on the load on the tire.\r\nUseful for surfaces such as sand where the wheel digs into the material.")]
         public float rollingResistanceMaxMultiplier = 1f;
 
         /// <summary>
@@ -132,25 +132,25 @@ namespace NWH.VehiclePhysics2.GroundDetection
         /// <summary>
         ///     AudioClip used for wheel skidding sound effect.
         /// </summary>
-        [Tooltip("    AudioClip used for wheel skidding sound effect.")]
+        [Tooltip("AudioClip used for wheel skidding sound effect.")]
         public AudioClip skidSoundClip;
 
         /// <summary>
         ///     Should tire skid sounds be played for this surface type?
         /// </summary>
-        [Tooltip("    Should tire skid sounds be played for this surface type?")]
+        [Tooltip("Should tire skid sounds be played for this surface type?")]
         public bool playSkidSounds = true;
 
         /// <summary>
         ///     Sound pitch of wheel skidding over the surface.
         /// </summary>
-        [Tooltip("    Sound pitch of wheel skidding over the surface.")]
+        [Tooltip("Sound pitch of wheel skidding over the surface.")]
         public float skidSoundPitch = 1f;
 
         /// <summary>
         ///     Sound volume of wheel skidding over the surface.
         /// </summary>
-        [Tooltip("    Sound volume of wheel skidding over the surface.")]
+        [Tooltip("Sound volume of wheel skidding over the surface.")]
         public float skidSoundVolume = 0.3f;
 
         [Range(0, 1)]
@@ -168,37 +168,37 @@ namespace NWH.VehiclePhysics2.GroundDetection
         /// <summary>
         ///     Should tire rolling over the surface sound be played for this surface type?
         /// </summary>
-        [Tooltip("    Should tire rolling over the surface sound be played for this surface type?")]
+        [Tooltip("Should tire rolling over the surface sound be played for this surface type?")]
         public bool playSurfaceSounds = true;
 
         /// <summary>
         ///     AudioClip used for wheel rolling sound effect.
         /// </summary>
-        [Tooltip("    AudioClip used for wheel rolling sound effect.")]
+        [Tooltip("AudioClip used for wheel rolling sound effect.")]
         public AudioClip surfaceSoundClip;
 
         /// <summary>
         ///     Sound pitch of wheel rolling over the surface.
         /// </summary>
-        [Tooltip("    Sound pitch of wheel rolling over the surface.")]
+        [Tooltip("Sound pitch of wheel rolling over the surface.")]
         public float surfaceSoundPitch = 1f;
 
         /// <summary>
         ///     Sound volume of wheel rolling over the surface.
         /// </summary>
-        [Tooltip("    Sound volume of wheel rolling over the surface.")]
+        [Tooltip("Sound volume of wheel rolling over the surface.")]
         public float surfaceSoundVolume = 0.3f;
 
         /// <summary>
         ///     Should skid/thread marks be drawn on this surface?
         /// </summary>
-        [Tooltip("    Should skid/thread marks be drawn on this surface?")]
+        [Tooltip("Should skid/thread marks be drawn on this surface?")]
         public bool drawSkidmarks = true;
 
         /// <summary>
         ///     Material used for skid/thread marks on this type of surface.
         /// </summary>
-        [Tooltip("    Material used for skid/thread marks on this type of surface.")]
+        [Tooltip("Material used for skid/thread marks on this type of surface.")]
         public Material skidmarkMaterial;
 
         /// <summary>

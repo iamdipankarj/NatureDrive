@@ -25,7 +25,7 @@ namespace NWH.VehiclePhysics2.Input
         ///     Disable to manually set the input through external scripts, i.e. AI controller.
         /// </summary>
         [FormerlySerializedAs("autoSettable")]
-        [UnityEngine.Tooltip("    When enabled input will be auto-retrieved from the InputProviders present in the scene.\r\n Disable to manualy set the input through external scripts, i.e. AI controller.")]
+        [Tooltip("When enabled input will be auto-retrieved from the InputProviders present in the scene.\r\n Disable to manualy set the input through external scripts, i.e. AI controller.")]
         public bool autoSetInput = true;
 
 
@@ -41,7 +41,7 @@ namespace NWH.VehiclePhysics2.Input
         /// <summary>
         ///     Swaps throttle and brake axes when vehicle is in reverse.
         /// </summary>
-        [Tooltip("    Swaps throttle and brake axes when vehicle is in reverse.")]
+        [Tooltip("Swaps throttle and brake axes when vehicle is in reverse.")]
         [ShowInSettings("Swap Input In R")]
         public bool swapInputInReverse = true;
 

@@ -24,43 +24,43 @@ namespace NWH.VehiclePhysics2.Modules.CruiseControl
         /// <summary>
         ///     Derivative gain of PID controller.
         /// </summary>
-        [Tooltip("    Derivative gain of PID controller.")]
+        [Tooltip("Derivative gain of PID controller.")]
         public float Kd = 0.1f;
 
         /// <summary>
         ///     Integral gain of PID controller.
         /// </summary>
-        [Tooltip("    Integral gain of PID controller.")]
+        [Tooltip("Integral gain of PID controller.")]
         public float Ki = 0.25f;
 
         /// <summary>
         ///     Proportional gain of PID controller.
         /// </summary>
-        [Tooltip("    Proportional gain of PID controller.")]
+        [Tooltip("Proportional gain of PID controller.")]
         public float Kp = 0.5f;
 
         /// <summary>
         ///     Should the speed be set automatically when the module is enabled?
         /// </summary>
-        [Tooltip("    Should the speed be set automatically when the module is enabled?")]
+        [Tooltip("Should the speed be set automatically when the module is enabled?")]
         public bool setTargetSpeedOnEnable;
 
         /// <summary>
         ///     If true cruise control will be disabled if brakes are activated.
         /// </summary>
-        [Tooltip("    If true cruise control will be disabled if brakes are activated.")]
+        [Tooltip("If true cruise control will be disabled if brakes are activated.")]
         public bool deactivateOnBrake;
 
         /// <summary>
         ///  If true brakes will be applied when speeding.
         /// </summary>
-        [UnityEngine.Tooltip(" If true brakes will be applied when speeding.")]
+        [Tooltip(" If true brakes will be applied when speeding.")]
         public bool applyBrakesWhenSpeeding = true;
 
         /// <summary>
         ///     The speed the vehicle will try to hold.
         /// </summary>
-        [Tooltip("    The speed the vehicle will try to hold.")]
+        [Tooltip("The speed the vehicle will try to hold.")]
         public float targetSpeed;
 
         private float _e;

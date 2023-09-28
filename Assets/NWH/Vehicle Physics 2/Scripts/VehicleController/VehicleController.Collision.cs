@@ -14,7 +14,7 @@ namespace NWH.VehiclePhysics2
         /// <summary>
         ///     Called when a collision happens.
         /// </summary>
-        [Tooltip("    Called when a collision happens.")]
+        [Tooltip("Called when a collision happens.")]
         public UnityEvent<Collision> onCollision = new UnityEvent<Collision>();
 
 

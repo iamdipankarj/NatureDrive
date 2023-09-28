@@ -18,31 +18,31 @@ namespace NWH.VehiclePhysics2.Effects
         /// <summary>
         ///     Distance at which the GameObject will be destroyed.
         /// </summary>
-        [Tooltip("    Distance at which the GameObject will be destroyed.")]
+        [Tooltip("Distance at which the GameObject will be destroyed.")]
         public float distanceThreshold = 100f;
 
         /// <summary>
         /// Time after which the GameObject will be destroyed.
         /// </summary>
-        [UnityEngine.Tooltip("Time after which the GameObject will be destroyed.")]
+        [Tooltip("Time after which the GameObject will be destroyed.")]
         public float timeThreshold = 20f;
 
         /// <summary>
         /// True if the skidmark is still the currently active skidmark
         /// </summary>
-        [UnityEngine.Tooltip("True if the skidmark is still the currently active skidmark")]
+        [Tooltip("True if the skidmark is still the currently active skidmark")]
         public bool skidmarkIsBeingUsed;
 
         /// <summary>
         ///     Transform to which the object belongs to.
         /// </summary>
-        [Tooltip("    Transform to which the object belongs to.")]
+        [Tooltip("Transform to which the object belongs to.")]
         public Transform targetTransform;
 
         /// <summary>
         /// Set to true to trigger the fade out and destroy even with the next check.
         /// </summary>
-        [UnityEngine.Tooltip("Set to true to trigger the fade out and destroy even with the next check.")]
+        [Tooltip("Set to true to trigger the fade out and destroy even with the next check.")]
         public bool destroyFlag = false;
 
         private float _fadeOutTimer;

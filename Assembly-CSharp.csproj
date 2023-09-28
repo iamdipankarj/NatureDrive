@@ -86,6 +86,7 @@
     <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTilt\Scripts\CustomControllersTiltDemo.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\Player\FPSController.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
@@ -112,7 +113,6 @@
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\PlayerPointerEventHandlerExample.cs" />
-    <Compile Include="Assets\Scripts\SolaceUtils.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredStandaloneInputModule.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Classes.cs" />
@@ -132,6 +132,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
     <Compile Include="Assets\Scripts\VehicleCameraManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\RewiredUtils.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Scripts\Player\CinemachinePOVExtension.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputRow.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelStandardInput.cs" />
+    <Compile Include="Assets\Scripts\Test Scripts\SteeringWheelTest.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredEventSystem.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_WindowManager.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ICustomSelectable.cs" />

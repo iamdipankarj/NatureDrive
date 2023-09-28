@@ -51,20 +51,20 @@ namespace NWH.VehiclePhysics2.Sound.SoundComponents
         ///     Volume range between transmission being under no load (baseVolume) or full load (baseVolume + volumeRange).
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Volume coefficient when transmission is not under load.")]
+        [Tooltip("Volume coefficient when transmission is not under load.")]
         public float volumeRange = 0.2f;
 
         /// <summary>
         ///     Starting pitch value.
         /// </summary>
-        [UnityEngine.Tooltip("    Starting pitch value.")]
+        [Tooltip("Starting pitch value.")]
         public float basePitch = 0.2f;
 
         /// <summary>
         ///     Pitch range that will be added to the base pitch depending on transmission state.
         /// </summary>
         [Range(0f, 5f)]
-        [Tooltip("    Pitch range that will be added to the base pitch depending on transmission state.")]
+        [Tooltip("Pitch range that will be added to the base pitch depending on transmission state.")]
         public float pitchRange = 0.7f;
 
 

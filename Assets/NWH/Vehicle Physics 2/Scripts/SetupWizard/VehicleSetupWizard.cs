@@ -39,7 +39,7 @@ namespace NWH.VehiclePhysics2.SetupWizard
         /// <summary>
         ///     Should a default vehicle camera and camera changer be added?
         /// </summary>
-        [Tooltip("    Should a default vehicle camera and camera changer be added?")]
+        [Tooltip("Should a default vehicle camera and camera changer be added?")]
         public bool addCamera = true;
 
 
@@ -48,13 +48,13 @@ namespace NWH.VehiclePhysics2.SetupWizard
         /// <summary>
         ///     Should character enter/exit points be added?
         /// </summary>
-        [Tooltip("    Should character enter/exit points be added?")]
+        [Tooltip("Should character enter/exit points be added?")]
         public bool addCharacterEnterExitPoints = true;
 
         /// <summary>
         ///     Wheel GameObjects in order: front-left, front-right, rear-left, rear-right, etc.
         /// </summary>
-        [Tooltip("    Wheel GameObjects in order: front-left, front-right, rear-left, rear-right, etc.")]
+        [Tooltip("Wheel GameObjects in order: front-left, front-right, rear-left, rear-right, etc.")]
         public List<GameObject> wheelGameObjects = new List<GameObject>();
 
         public bool removeWizardOnComplete = true;

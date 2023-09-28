@@ -22,144 +22,144 @@ namespace NWH.Common.Cameras
         /// Camera POV type. First person camera will invert controls.
         /// Zoom is not available in 1st person.
         /// </summary>
-        [UnityEngine.Tooltip("Camera POV type. First person camera will invert controls.\r\nZoom is not available in 1st person.")]
+        [Tooltip("Camera POV type. First person camera will invert controls.\r\nZoom is not available in 1st person.")]
         public POVType povType = POVType.ThirdPerson;
 
         /// <summary>
         ///     Can the camera be rotated by the user?
         /// </summary>
-        [UnityEngine.Tooltip("    Can the camera be rotated by the user?")]
+        [Tooltip("Can the camera be rotated by the user?")]
         public bool allowRotation = true;
 
         /// <summary>
         ///     Can the camera be panned by the user?
         /// </summary>
-        [UnityEngine.Tooltip("    Can the camera be panned by the user?")]
+        [Tooltip("Can the camera be panned by the user?")]
         public bool allowPanning = true;
 
         /// <summary>
         ///     Distance from target at which camera will be positioned. Might vary depending on smoothing.
         /// </summary>
         [Range(0, 100f)]
-        [Tooltip("    Distance from target at which camera will be positioned. Might vary depending on smoothing.")]
+        [Tooltip("Distance from target at which camera will be positioned. Might vary depending on smoothing.")]
         public float distance = 5f;
 
         /// <summary>
         ///     If true the camera will rotate with the vehicle along the X and Y axis.
         /// </summary>
         [FormerlySerializedAs("followTargetsRotation")]
-        [UnityEngine.Tooltip("    If true the camera will rotate with the vehicle along the X and Y axis.")]
+        [Tooltip("If true the camera will rotate with the vehicle along the X and Y axis.")]
         public bool followTargetPitchAndYaw = true;
 
         /// <summary>
         ///     If true the camera will rotate with the vehicle along the Z axis.
         /// </summary>
-        [UnityEngine.Tooltip("    If true the camera will rotate with the vehicle along the Z axis.")]
+        [Tooltip("If true the camera will rotate with the vehicle along the Z axis.")]
         public bool followTargetRoll = false;
 
         /// <summary>
         ///     Maximum distance that will be reached when zooming out.
         /// </summary>
         [Range(0, 100f)]
-        [Tooltip("    Maximum distance that will be reached when zooming out.")]
+        [Tooltip("Maximum distance that will be reached when zooming out.")]
         public float maxDistance = 13.0f;
 
         /// <summary>
         ///     Minimum distance that will be reached when zooming in.
         /// </summary>
         [Range(0, 100f)]
-        [Tooltip("    Minimum distance that will be reached when zooming in.")]
+        [Tooltip("Minimum distance that will be reached when zooming in.")]
         public float minDistance = 3.0f;
 
         /// <summary>
         ///     Sensitivity of the middle mouse button / wheel.
         /// </summary>
         [Range(0, 15)]
-        [Tooltip("    Sensitivity of the middle mouse button / wheel.")]
+        [Tooltip("Sensitivity of the middle mouse button / wheel.")]
         public float zoomSensitivity = 1f;
 
         /// <summary>
         ///     Smoothing of the camera rotation.
         /// </summary>
         [Range(0, 1)]
-        [Tooltip("    Smoothing of the camera rotation.")]
+        [Tooltip("Smoothing of the camera rotation.")]
         public float rotationSmoothing = 0.02f;
 
         /// <summary>
         ///     Maximum vertical angle the camera can achieve.
         /// </summary>
         [Range(-90, 90)]
-        [UnityEngine.Tooltip("    Maximum vertical angle the camera can achieve.")]
+        [Tooltip("Maximum vertical angle the camera can achieve.")]
         public float verticalMaxAngle = 80.0f;
 
         /// <summary>
         ///     Minimum vertical angle the camera can achieve.
         /// </summary>
         [Range(-90, 90)]
-        [UnityEngine.Tooltip("    Minimum vertical angle the camera can achieve.")]
+        [Tooltip("Minimum vertical angle the camera can achieve.")]
         public float verticalMinAngle = -40.0f;
 
         /// <summary>
         ///     Sensitivity of rotation input.
         /// </summary>
-        [UnityEngine.Tooltip("    Sensitivity of rotation input.")]
+        [Tooltip("Sensitivity of rotation input.")]
         public Vector2 rotationSensitivity = new Vector2(3f, 3f);
 
         /// <summary>
         ///     Sensitivity of panning input.
         /// </summary>
-        [UnityEngine.Tooltip("    Sensitivity of panning input.")]
+        [Tooltip("Sensitivity of panning input.")]
         public Vector2 panningSensitivity = new Vector2(0.06f, 0.06f);
 
         /// <summary>
         ///     Initial rotation around the X axis (up/down)
         /// </summary>
-        [UnityEngine.Tooltip("    Initial rotation around the X axis (up/down)")]
+        [Tooltip("Initial rotation around the X axis (up/down)")]
         public float initXRotation;
 
         /// <summary>
         ///     Initial rotation around the Y axis (left/right)
         /// </summary>
-        [UnityEngine.Tooltip("    Initial rotation around the Y axis (left/right)")]
+        [Tooltip("Initial rotation around the Y axis (left/right)")]
         public float initYRotation;
 
         /// <summary>
         ///     Look position offset from the target center.
         /// </summary>
-        [UnityEngine.Tooltip("    Look position offset from the target center.")]
+        [Tooltip("Look position offset from the target center.")]
         public Vector3 targetPositionOffset = Vector3.zero;
 
         /// <summary>
         /// Should camera movement on acceleration be used?
         /// </summary>
-        [UnityEngine.Tooltip("Should camera movement on acceleration be used?")]
+        [Tooltip("Should camera movement on acceleration be used?")]
         public bool useShake = true;
 
         /// <summary>
         ///     Maximum head movement from the initial position.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Maximum head movement from the initial position.")]
+        [Tooltip("Maximum head movement from the initial position.")]
         public float shakeMaxOffset = 0.2f;
 
         /// <summary>
         ///     How much will the head move around for the given g-force.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    How much will the head move around for the given g-force.")]
+        [Tooltip("How much will the head move around for the given g-force.")]
         public float shakeIntensity = 0.125f;
 
         /// <summary>
         ///     Smoothing of the head movement.
         /// </summary>
         [Range(0f, 1f)]
-        [Tooltip("    Smoothing of the head movement.")]
+        [Tooltip("Smoothing of the head movement.")]
         public float shakeSmoothing = 0.3f;
 
         /// <summary>
         ///     Movement intensity per axis. Set to 0 to disable movement on that axis or negative to reverse it.
         /// </summary>
-        [UnityEngine.Tooltip("    Movement intensity per axis. Set to 0 to disable movement on that axis or negative to reverse it.")]
+        [Tooltip("Movement intensity per axis. Set to 0 to disable movement on that axis or negative to reverse it.")]
         public Vector3 shakeAxisIntensity = new Vector3(1f, 0.5f, 1f);
 
         private Vector3 _lookDir;
