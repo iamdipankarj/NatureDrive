@@ -983,22 +983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Niva
       objectReference: {fileID: 0}
-    - target: {fileID: 3797597658095680318, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
-      propertyPath: sideFriction.grip
-      value: 1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797597658095680318, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
-      propertyPath: sideFriction.stiffness
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797597658797889170, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
-      propertyPath: sideFriction.grip
-      value: 1.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797597658797889170, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
-      propertyPath: sideFriction.stiffness
-      value: 0.53
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

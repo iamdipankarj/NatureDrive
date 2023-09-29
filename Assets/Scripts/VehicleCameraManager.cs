@@ -1,6 +1,7 @@
 using Cinemachine;
 using System;
 using UnityEngine;
+using Rewired;
 
 namespace Solace {
   public class VehicleCameraManager : MonoBehaviour {
@@ -11,9 +12,16 @@ namespace Solace {
     [SerializeField]
     private CinemachineVirtualCamera leftWheelCamera;
 
+    // Rewired
+    private Player player;
+
     private CinemachineVirtualCameraBase[] cameras = new CinemachineVirtualCameraBase[3];
     private int selectedCameraIndex = 0;
     private int previousCameraIndex;
+
+    private void Awake() {
+      player = ReInput.players.GetPlayer(0);
+    }
 
     void Start() {
       GameObject cameraObj = GameObject.FindWithTag(TagManager.FREELOOK);
@@ -46,6 +54,9 @@ namespace Solace {
       if (previousCameraIndex != selectedCameraIndex) {
         SelectCamera();
       }
+      if (player.GetButtonDown(RewiredUtils.SwitchCamera)) {
+        OnCameraSwitch();
+      }
     }
 
     private void SelectCamera() {
@@ -60,12 +71,12 @@ namespace Solace {
       }
     }
 
-    private void OnEnable() {
-      InputManager.DidSwitchCamera += OnCameraSwitch;
-    }
+    //private void OnEnable() {
+    //  InputManager.DidSwitchCamera += OnCameraSwitch;
+    //}
 
-    private void OnDisable() {
-      InputManager.DidSwitchCamera -= OnCameraSwitch;
-    }
+    //private void OnDisable() {
+    //  InputManager.DidSwitchCamera -= OnCameraSwitch;
+    //}
   }
 }
