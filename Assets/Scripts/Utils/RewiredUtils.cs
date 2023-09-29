@@ -24,9 +24,14 @@ namespace Solace {
     public static string LeftBlinker = "LeftBlinker";
     public static string RightBlinker = "RightBlinker";
     public static string HazardLights = "HazardLights";
+    public static string ExtraLights = "ExtraLights";
     public static string Horn = "Horn";
     public static string FlipOver = "FlipOver";
     public static string CruiseControl = "CruiseControl";
+    public static string Boost = "Boost";
+    public static string TrailerAttachDetach = "TrailerAttachDetach";
+    public static string LowBeamLights = "LowBeamLights";
+    public static string HighBeamLights = "HighBeamLights";
     public static string EngineStartStop = "EngineStartStop";
   }
 }

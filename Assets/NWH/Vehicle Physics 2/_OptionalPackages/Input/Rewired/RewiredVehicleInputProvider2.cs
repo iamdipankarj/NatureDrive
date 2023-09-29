@@ -83,15 +83,15 @@ namespace NWH.VehiclePhysics2.Input {
     }
 
     public override bool ExtraLights() {
-      return player.GetButtonDown("ExtraLights");
+      return player.GetButtonDown(RewiredUtils.ExtraLights);
     }
 
     public override bool HighBeamLights() {
-      return player.GetButtonDown("HighBeamLights");
+      return player.GetButtonDown(RewiredUtils.HighBeamLights);
     }
 
     public override bool HazardLights() {
-      return player.GetButtonDown("HazardLights");
+      return player.GetButtonDown(RewiredUtils.HazardLights);
     }
 
     public override bool Horn() {
@@ -103,7 +103,7 @@ namespace NWH.VehiclePhysics2.Input {
     }
 
     public override bool LowBeamLights() {
-      return player.GetButtonDown("LowBeamLights");
+      return player.GetButtonDown(RewiredUtils.LowBeamLights);
     }
 
     public override bool RightBlinker() {
@@ -140,19 +140,19 @@ namespace NWH.VehiclePhysics2.Input {
     }
 
     public override bool TrailerAttachDetach() {
-      return player.GetButtonDown("TrailerAttachDetach");
+      return player.GetButtonDown(RewiredUtils.TrailerAttachDetach);
     }
 
     public override bool FlipOver() {
-      return player.GetButtonDown("FlipOver");
+      return player.GetButtonDown(RewiredUtils.FlipOver);
     }
 
     public override bool Boost() {
-      return player.GetButton("Boost");
+      return player.GetButton(RewiredUtils.Boost);
     }
 
     public override bool CruiseControl() {
-      return player.GetButtonDown("CruiseControl");
+      return player.GetButtonDown(RewiredUtils.CruiseControl);
     }
   }
 }

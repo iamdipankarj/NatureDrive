@@ -73,6 +73,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\BloomEditor.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\AntialiasingEditor.cs" />
+    <Compile Include="Assets\Rewired\Integration\Cinemachine\Editor\RewiredCinemachineBridgeInspector.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Editor\ControlMapperInspector.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Editor\CustomInspectors\UserDataStore_PlayerPrefsInspector.cs" />

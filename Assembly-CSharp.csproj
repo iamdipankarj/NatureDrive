@@ -186,6 +186,7 @@
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\TouchJoystickExample.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputFieldInfo.cs" />
     <Compile Include="Assets\Scripts\UI\AutoReSelecter.cs" />
+    <Compile Include="Assets\Rewired\Integration\Cinemachine\RewiredCinemachineBridge.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIImageHelper.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
