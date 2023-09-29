@@ -734,6 +734,60 @@ MonoBehaviour:
   throttlePad: {fileID: 1785058180}
   breakPad: {fileID: 764485641}
   clutchPad: {fileID: 1701133444}
+--- !u!1 &1734455817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734455819}
+  - component: {fileID: 1734455818}
+  m_Layer: 0
+  m_Name: FFBManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1734455818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734455817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f49ce4473689741ab5b0e0d6831749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnAwake: 1
+  autoSelectFirstDevice: 1
+  disableAutoCenter: 1
+  addConstantForce: 1
+  addSpringForce: 0
+  force: 50
+  sensitivity: 50
+  axisDirections: 
+  devices: []
+  axes: []
+--- !u!4 &1734455819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734455817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1785058176
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,3 +989,4 @@ SceneRoots:
   - {fileID: 1716869467}
   - {fileID: 244640788}
   - {fileID: 317714481}
+  - {fileID: 1734455819}
