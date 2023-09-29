@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 using System.Text;
 using System.Collections.Generic;
 using Rewired;
+using Solace;
 
 namespace NWH.VehiclePhysics2.Input {
   /// <summary>
@@ -15,54 +16,6 @@ namespace NWH.VehiclePhysics2.Input {
     /// Rewired Player
     /// </summary>
     private Player player;
-
-    public bool[] buttonDown = new bool[128];
-    public bool[] buttonPressed = new bool[128];
-    public bool[] buttonWasPressed = new bool[128];
-
-    public enum Axis {
-      XPosition,
-      YPosition,
-      ZPosition,
-      XRotatation,
-      YRotation,
-      ZRotation,
-      rglSlider0,
-      rglSlider1,
-      rglSlider2,
-      rglSlider3,
-      rglASlider0,
-      rglASlider1,
-      rglASlider2,
-      rglASlider3,
-      rglFSlider0,
-      rglFSlider1,
-      rglFSlider2,
-      rglFSlider3,
-      rglVSlider0,
-      rglVSlider1,
-      rglVSlider2,
-      rglVSlider3,
-      lArx,
-      lAry,
-      lArz,
-      lAx,
-      lAy,
-      lAz,
-      lFRx,
-      lFRy,
-      lFRz,
-      lFx,
-      lFy,
-      lFz,
-      lVRx,
-      lVRy,
-      lVRz,
-      lVx,
-      lVy,
-      lVz,
-      None
-    }
 
     /// <summary>
     /// Should all steering filtering and smoothing be ignored?
@@ -113,6 +66,7 @@ namespace NWH.VehiclePhysics2.Input {
     /// </summary>
     [FormerlySerializedAs("wheelRange")]
     [Tooltip("Range of rotation of the wheel in degrees. Most wheels are capable of 900 degrees\r\nbut this will be too slow for most games (except for truck simulators).\r\n540 is usually used in sim racing.")]
+    [Range(450, 900)]
     public int wheelRotationRange = 540;
 
     /// <summary>
@@ -126,7 +80,7 @@ namespace NWH.VehiclePhysics2.Input {
     /// Vertical axis is force coefficient, horizontal axis is slip.
     /// </summary>
     [Tooltip("Curve that shows how the self aligning torque acts in relation to wheel slip.\r\nVertical axis is force coefficient, horizontal axis is slip.")]
-    public AnimationCurve slipSATCurve = new AnimationCurve(
+    public AnimationCurve slipSATCurve = new(
       new Keyframe(0, 0, -0.9f, 25f),
       new Keyframe(0.07f, 1),
       new Keyframe(0.16f, 0.93f, -1f, -1f),
@@ -173,188 +127,34 @@ namespace NWH.VehiclePhysics2.Input {
     [Range(0, 1)] public float centerPositionDrift = 0.4f;
 
     /// <summary>
-    /// Axis resolution of the wheel's ADC.
-    /// </summary>
-    [Tooltip("Axis resolution of the wheel's ADC.")]
-    public int axisResolution = 65536;
-
-    /// <summary>
     /// Flips the sign on the steering input.
     /// </summary>
     [Tooltip("Flips the sign on the steering input.")]
-    public bool flipSteeringInput = false;
+    private bool flipSteeringInput = false;
 
     /// <summary>
     /// Flips the sign on the throttle input.
     /// </summary>
     [Tooltip("Flips the sign on the throttle input.")]
-    public bool flipThrottleInput = true;
+    private bool flipThrottleInput = false;
 
     /// <summary>
     /// Flips the sign on the brake input.
     /// </summary>
     [Tooltip("Flips the sign on the brake input.")]
-    public bool flipBrakeInput = true;
+    private bool flipBrakeInput = false;
 
     /// <summary>
     /// Flips the sign on the clutch input.
     /// </summary>
     [Tooltip("Flips the sign on the clutch input.")]
-    public bool flipClutchInput = true;
+    private bool flipClutchInput = false;
 
     /// <summary>
     /// Flips the sign on the handbrake input.
     /// </summary>
     [Tooltip("Flips the sign on the handbrake input.")]
-    public bool flipHandbrakeInput = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for steering.
-    /// </summary>
-    [Tooltip("Determines which wheel axis will be used for steering.")]
-    public Axis steeringAxis = Axis.XPosition;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for throttle.
-    /// </summary>
-    [Tooltip("Determines which wheel axis will be used for throttle.")]
-    public Axis throttleAxis = Axis.YPosition;
-
-    public bool throttleZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for braking.
-    /// </summary>
-    [Tooltip("Determines which wheel axis will be used for braking.")]
-    public Axis brakeAxis = Axis.ZRotation;
-
-    public bool brakeZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for clutch.
-    /// </summary>
-    [Tooltip("Determines which wheel axis will be used for clutch.")]
-    public Axis clutchAxis = Axis.ZPosition;
-
-    public bool clutchZeroToOne = true;
-
-    /// <summary>
-    /// Determines which wheel axis will be used for steering.
-    /// If there is no analog axis for handbrake, handbrakeButton mapping can be used instead.
-    /// </summary>
-    [Tooltip("Determines which wheel axis will be used for steering.\r\nIf there is no analog axis for handbrake, handbrakeButton mapping can be used instead.")]
-    public Axis handbrakeAxis = Axis.None;
-
-    public bool handbrakeZeroToOne = true;
-
-    /// <summary>
-    /// Primary shift up button.
-    /// </summary>
-    [Tooltip("Primary shift up button.")]
-    public int shiftUpButton = 12;
-
-    /// <summary>
-    /// Primary shift down button.
-    /// </summary>
-    [Tooltip("Primary shift down button.")]
-    public int shiftDownButton = 13;
-
-    /// <summary>
-    /// Alternative shift up button.
-    /// To be used when there is both a sequential stick shifter and paddles.
-    /// </summary>
-    [Tooltip("Alternative shift up button.\r\nTo be used when there is both a sequential stick shifter and paddles.")]
-    public int altShiftUpButton = 4;
-
-    /// <summary>
-    /// Alternative shift down button.
-    /// To be used when there is both a sequential stick shifter and paddles.
-    /// </summary>
-    [Tooltip("Alternative shift down button.\r\nTo be used when there is both a sequential stick shifter and paddles.")]
-    public int altShiftDownButton = 5;
-
-    /// <summary>
-    /// Button used to shift into reverse gear.
-    /// </summary>
-    [Tooltip("Button used to shift into reverse gear.")]
-    public int shiftIntoReverseButton = -1;
-
-    /// <summary>
-    /// Button used to shift into neutral gear.
-    /// </summary>
-    [Tooltip("Button used to shift into neutral gear.")]
-    public int shiftIntoNeutralButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 1st gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 1st gear. Set to -1 to disable.")]
-
-    public int shiftInto1stButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 2nd gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 2nd gear. Set to -1 to disable.")]
-    public int shiftInto2ndButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 3rd gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 3rd gear. Set to -1 to disable.")]
-    public int shiftInto3rdButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 4th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 4th gear. Set to -1 to disable.")]
-    public int shiftInto4thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 5th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 5th gear. Set to -1 to disable.")]
-    public int shiftInto5thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 6th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 6th gear. Set to -1 to disable.")]
-    public int shiftInto6thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 7th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 7th gear. Set to -1 to disable.")]
-    public int shiftInto7thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 8th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 8th gear. Set to -1 to disable.")]
-    public int shiftInto8thButton = -1;
-
-    /// <summary>
-    /// Button used to shift into 9th gear.
-    /// Set to -1 to disable.
-    /// </summary>
-    [Tooltip("Button used to shift into 9th gear. Set to -1 to disable.")]
-    public int shiftInto9thButton = -1;
-
-    /// <summary>
-    /// Button used to trigger handbrake.
-    /// For analog input use handbrakeAxis mapping instead.
-    /// </summary>
-    [Tooltip("Button used to trigger handbrake.\r\nFor analog input use handbrakeAxis mapping instead.")]
-    public int handbrakeButton = -1;
+    private bool flipHandbrakeInput = false;
 
     /// <summary>
     /// Index of the input device that should be used. 
@@ -383,14 +183,14 @@ namespace NWH.VehiclePhysics2.Input {
 
 
     // Inputs
-    [SerializeField][Range(-1, 1)] private float _steeringInput;
-    [SerializeField][Range(0, 1)] private float _throttleInput;
-    [SerializeField][Range(0, 1)] private float _brakeInput;
-    [SerializeField][Range(0, 1)] private float _clutchInput;
-    [SerializeField][Range(0, 1)] private float _handbrakeInput = 0;
-    [SerializeField] private int _shiftIntoInput = -999;
-    [SerializeField] private bool _shiftUpInput = false;
-    [SerializeField] private bool _shiftDownInput = false;
+    private float _steeringInput;
+    private float _throttleInput;
+    private float _brakeInput;
+    private float _clutchInput;
+    private float _handbrakeInput = 0;
+    private int _shiftIntoInput = -999;
+    private bool _shiftUpInput = false;
+    private bool _shiftDownInput = false;
     public float throttleDeadzone = 0.02f;
     public float brakeDeadzone = 0.02f;
     public float clutchDeadzone = 0.02f;
@@ -398,15 +198,15 @@ namespace NWH.VehiclePhysics2.Input {
     public float steeringDeadzone = 0.00f;
 
     //Forces
-    [SerializeField][Range(0, 100)] private float _lowSpeedFrictionForce;
-    [SerializeField][Range(0, 100)] private float _totalForce = 0;
-    [SerializeField][Range(0, 100)] private float _satForce;
-    [SerializeField][Range(0, 100)] private float _frictionForce;
-    [SerializeField][Range(0, 100)] private float _centeringForce;
+    private float _lowSpeedFrictionForce;
+    private float _totalForce = 0;
+    private float _satForce;
+    private float _frictionForce;
+    private float _centeringForce;
 
     private float _centerPosition;
     private float _prevSteering;
-    private float _steerVelocity;
+
     private ForceFeedbackSettings _ffbSettings;
     private WheelUAPI _leftWheel;
     private WheelUAPI _rightWheel;
@@ -430,9 +230,6 @@ namespace NWH.VehiclePhysics2.Input {
 
     void Start() {
       LogitechGSDK.LogiSteeringInitialize(false);
-      buttonDown = new bool[128];
-      buttonWasPressed = new bool[128];
-      buttonPressed = new bool[128];
       _inputDeviceName = new StringBuilder(256);
     }
 
@@ -633,9 +430,6 @@ namespace NWH.VehiclePhysics2.Input {
       LogitechGSDK.LogiGetFriendlyProductName(index, deviceName, 256);
     }
 
-
-
-
     private bool WheelIsConnected {
       get { return LogitechGSDK.LogiIsConnected(deviceIndex); }
     }
@@ -648,44 +442,42 @@ namespace NWH.VehiclePhysics2.Input {
 
     void SetVehicleInputs() {
       // Shift Up
-      _shiftUpInput = GetButtonDown(shiftUpButton) || GetButtonDown(altShiftUpButton);
+      _shiftUpInput = player.GetButtonDown(RewiredUtils.ShiftUp);
 
       // Shift Down
-      _shiftDownInput = GetButtonDown(shiftDownButton) || GetButtonDown(altShiftDownButton);
+      _shiftDownInput = player.GetButtonDown(RewiredUtils.ShiftDown);
 
       _shiftIntoInput = hShifterUse34asDR ? 0 : -999;
-      if (hShifterUse34asDR && (GetButtonPressed(shiftInto3rdButton) || GetButtonPressed(shiftInto4thButton))) {
-        if (GetButtonPressed(shiftInto3rdButton)) {
+      if (hShifterUse34asDR && (player.GetButtonDown(RewiredUtils.ShiftInto3) || player.GetButtonDown(RewiredUtils.ShiftInto4))) {
+        if (player.GetButtonDown(RewiredUtils.ShiftInto3)) {
           _shiftIntoInput = 1;
-        } else if (GetButtonPressed(shiftInto4thButton)) {
+        } else if (player.GetButtonDown(RewiredUtils.ShiftInto4)) {
           _shiftIntoInput = -1;
         } else {
           _shiftIntoInput = 0;
         }
       } else {
         // H-shifter
-        if (GetButtonPressed(shiftIntoReverseButton)) {
+        if (player.GetButton(RewiredUtils.ShiftIntoR1)) {
           _shiftIntoInput = -1;
-        } else if (GetButtonPressed(shiftIntoNeutralButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto0)) {
           _shiftIntoInput = 0;
-        } else if (GetButtonPressed(shiftInto1stButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto1)) {
           _shiftIntoInput = 1;
-        } else if (GetButtonPressed(shiftInto2ndButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto2)) {
           _shiftIntoInput = 2;
-        } else if (GetButtonPressed(shiftInto3rdButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto3)) {
           _shiftIntoInput = 3;
-        } else if (GetButtonPressed(shiftInto4thButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto4)) {
           _shiftIntoInput = 4;
-        } else if (GetButtonPressed(shiftInto5thButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto5)) {
           _shiftIntoInput = 5;
-        } else if (GetButtonPressed(shiftInto6thButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto6)) {
           _shiftIntoInput = 6;
-        } else if (GetButtonPressed(shiftInto7thButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto7)) {
           _shiftIntoInput = 7;
-        } else if (GetButtonPressed(shiftInto8thButton)) {
+        } else if (player.GetButton(RewiredUtils.ShiftInto8)) {
           _shiftIntoInput = 8;
-        } else if (GetButtonPressed(shiftInto9thButton)) {
-          _shiftIntoInput = 9;
         }
       }
     }
@@ -694,196 +486,32 @@ namespace NWH.VehiclePhysics2.Input {
       _wheelInput = LogitechGSDK.LogiGetStateUnity(deviceIndex);
 
       // Steer angle
-      _steeringInput = GetAxisValue(steeringAxis, _wheelInput, false) * steeringSensitivity;
+      _steeringInput = player.GetAxis(RewiredUtils.Steering) * steeringSensitivity;
       if (flipSteeringInput) _steeringInput = -_steeringInput;
       float steerDelta = _steeringInput - _prevSteering;
-      _steerVelocity = steerDelta / Time.deltaTime;
       if (_steeringInput < steeringDeadzone && _steeringInput > -steeringDeadzone) {
         _steeringInput = 0f;
       }
 
       // Throttle
-      _throttleInput = GetAxisValue(throttleAxis, _wheelInput, throttleZeroToOne);
+      _throttleInput = player.GetAxis(RewiredUtils.Throttle);
       if (flipThrottleInput) _throttleInput = -_throttleInput;
       if (_throttleInput < throttleDeadzone) _throttleInput = 0f;
 
       // Brake
-      _brakeInput = GetAxisValue(brakeAxis, _wheelInput, brakeZeroToOne);
+      _brakeInput = player.GetAxis(RewiredUtils.Brake);
       if (flipBrakeInput) _brakeInput = -_brakeInput;
       if (_brakeInput < brakeDeadzone) _brakeInput = 0f;
 
       // Clutch
-      _clutchInput = GetAxisValue(clutchAxis, _wheelInput, clutchZeroToOne);
+      _clutchInput = player.GetAxis(RewiredUtils.Clutch);
       if (flipClutchInput) _clutchInput = -_clutchInput;
       if (_clutchInput < clutchDeadzone) _clutchInput = 0f;
 
       // Handbrake
-      if (handbrakeAxis != Axis.None) {
-        _handbrakeInput = GetAxisValue(handbrakeAxis, _wheelInput, handbrakeZeroToOne);
-        if (flipHandbrakeInput) _handbrakeInput = -_handbrakeInput;
-      } else {
-        _handbrakeInput = GetButtonPressed(handbrakeButton) ? 1f : 0f;
-      }
+      _handbrakeInput = player.GetButton(RewiredUtils.HandBrake) ? 1f : 0f;
+      if (flipHandbrakeInput) _handbrakeInput = -_handbrakeInput;
       if (_handbrakeInput < handbrakeDeadzone) _handbrakeInput = 0f;
-
-      // Buttons
-      for (int i = 0; i < 128; i++) {
-        buttonWasPressed[i] = buttonPressed[i];
-        buttonPressed[i] = _wheelInput.rgbButtons[i] == 128;
-        buttonDown[i] = !buttonWasPressed[i] && buttonPressed[i];
-      }
-    }
-
-    bool GetButtonPressed(int buttonIndex) {
-      if (buttonIndex < 0) {
-        return false;
-      }
-      return buttonPressed[buttonIndex];
-    }
-
-    bool GetButtonDown(int buttonIndex) {
-      if (buttonIndex < 0) {
-        return false;
-      }
-      return buttonDown[buttonIndex];
-    }
-
-    float GetAxisValue(Axis axis, LogitechGSDK.DIJOYSTATE2ENGINES wheelState, bool zeroToOne) {
-      float rawValue = 0;
-      switch (axis) {
-        case Axis.XPosition:
-          rawValue = wheelState.lX;
-          break;
-        case Axis.YPosition:
-          rawValue = wheelState.lY;
-          break;
-        case Axis.ZPosition:
-          rawValue = wheelState.lZ;
-          break;
-        case Axis.XRotatation:
-          rawValue = wheelState.lRx;
-          break;
-        case Axis.YRotation:
-          rawValue = wheelState.lRy;
-          break;
-        case Axis.ZRotation:
-          rawValue = wheelState.lRz;
-          break;
-        case Axis.rglSlider0:
-          rawValue = wheelState.rglSlider[0];
-          break;
-        case Axis.rglSlider1:
-          rawValue = wheelState.rglSlider[1];
-          break;
-        case Axis.rglSlider2:
-          rawValue = wheelState.rglSlider[2];
-          break;
-        case Axis.rglSlider3:
-          rawValue = wheelState.rglSlider[3];
-          break;
-        case Axis.rglASlider0:
-          rawValue = wheelState.rglASlider[0];
-          break;
-        case Axis.rglASlider1:
-          rawValue = wheelState.rglASlider[1];
-          break;
-        case Axis.rglASlider2:
-          rawValue = wheelState.rglASlider[2];
-          break;
-        case Axis.rglASlider3:
-          rawValue = wheelState.rglASlider[3];
-          break;
-        case Axis.rglFSlider0:
-          rawValue = wheelState.rglFSlider[0];
-          break;
-        case Axis.rglFSlider1:
-          rawValue = wheelState.rglFSlider[1];
-          break;
-        case Axis.rglFSlider2:
-          rawValue = wheelState.rglFSlider[2];
-          break;
-        case Axis.rglFSlider3:
-          rawValue = wheelState.rglFSlider[3];
-          break;
-        case Axis.rglVSlider0:
-          rawValue = wheelState.rglVSlider[0];
-          break;
-        case Axis.rglVSlider1:
-          rawValue = wheelState.rglVSlider[1];
-          break;
-        case Axis.rglVSlider2:
-          rawValue = wheelState.rglVSlider[2];
-          break;
-        case Axis.rglVSlider3:
-          rawValue = wheelState.rglVSlider[3];
-          break;
-        case Axis.lArx:
-          rawValue = wheelState.lARx;
-          break;
-        case Axis.lAry:
-          rawValue = wheelState.lARy;
-          break;
-        case Axis.lArz:
-          rawValue = wheelState.lARz;
-          break;
-        case Axis.lAx:
-          rawValue = wheelState.lAX;
-          break;
-        case Axis.lAy:
-          rawValue = wheelState.lAY;
-          break;
-        case Axis.lAz:
-          rawValue = wheelState.lAZ;
-          break;
-        case Axis.lFRx:
-          rawValue = wheelState.lFRx;
-          break;
-        case Axis.lFRy:
-          rawValue = wheelState.lFRy;
-          break;
-        case Axis.lFRz:
-          rawValue = wheelState.lFRz;
-          break;
-        case Axis.lFx:
-          rawValue = wheelState.lFX;
-          break;
-        case Axis.lFy:
-          rawValue = wheelState.lFY;
-          break;
-        case Axis.lFz:
-          rawValue = wheelState.lFZ;
-          break;
-        case Axis.lVRx:
-          rawValue = wheelState.lVRx;
-          break;
-        case Axis.lVRy:
-          rawValue = wheelState.lVRy;
-          break;
-        case Axis.lVRz:
-          rawValue = wheelState.lVRz;
-          break;
-        case Axis.lVx:
-          rawValue = wheelState.lVX;
-          break;
-        case Axis.lVy:
-          rawValue = wheelState.lVY;
-          break;
-        case Axis.lVz:
-          rawValue = wheelState.lVZ;
-          break;
-        case Axis.None:
-          break;
-        default:
-          rawValue = 0;
-          break;
-      }
-
-      float halfResolution = axisResolution / 2f;
-      if (zeroToOne) {
-        return (rawValue - halfResolution) / axisResolution;
-      } else {
-        return rawValue / halfResolution;
-      }
     }
 
     void AddForce(float force) {
