@@ -210,7 +210,6 @@ namespace NWH.VehiclePhysics2.Input {
     private ForceFeedbackSettings _ffbSettings;
     private WheelUAPI _leftWheel;
     private WheelUAPI _rightWheel;
-    private LogitechGSDK.DIJOYSTATE2ENGINES _wheelInput;
     private float _totalForceVelocity;
 
     // Vehicle-specific coefficients
@@ -483,12 +482,9 @@ namespace NWH.VehiclePhysics2.Input {
     }
 
     void GetWheelInputs() {
-      _wheelInput = LogitechGSDK.LogiGetStateUnity(deviceIndex);
-
       // Steer angle
       _steeringInput = player.GetAxis(RewiredUtils.Steering) * steeringSensitivity;
       if (flipSteeringInput) _steeringInput = -_steeringInput;
-      float steerDelta = _steeringInput - _prevSteering;
       if (_steeringInput < steeringDeadzone && _steeringInput > -steeringDeadzone) {
         _steeringInput = 0f;
       }
