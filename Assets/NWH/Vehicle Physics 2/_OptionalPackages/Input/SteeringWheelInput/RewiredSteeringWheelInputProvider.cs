@@ -3,11 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System.Text;
 using System.Collections.Generic;
-
-#if UNITY_EDITOR
-using NWH.NUI;
-using UnityEditor;
-#endif
+using Rewired;
 
 namespace NWH.VehiclePhysics2.Input {
   /// <summary>
@@ -15,6 +11,11 @@ namespace NWH.VehiclePhysics2.Input {
   /// Also calculates force feedback.
   /// </summary>
   public class RewiredSteeringWheelInputProvider : VehicleInputProviderBase {
+    /// <summary>
+    /// Rewired Player
+    /// </summary>
+    private Player player;
+
     public bool[] buttonDown = new bool[128];
     public bool[] buttonPressed = new bool[128];
     public bool[] buttonWasPressed = new bool[128];
@@ -422,23 +423,18 @@ namespace NWH.VehiclePhysics2.Input {
     // Input detection
     StringBuilder _inputDeviceName;
 
-
     public override void Awake() {
       base.Awake();
-
-      Vehicle.onActiveVehicleChanged.AddListener(HandleActiveVehicleChange);
+      player = ReInput.players.GetPlayer(0);
     }
-
 
     void Start() {
       LogitechGSDK.LogiSteeringInitialize(false);
-
       buttonDown = new bool[128];
       buttonWasPressed = new bool[128];
       buttonPressed = new bool[128];
       _inputDeviceName = new StringBuilder(256);
     }
-
 
     private void Update() {
       // This has to run in Update() as the devices do not get detected by the LogitechSDK until after Start()
@@ -458,7 +454,6 @@ namespace NWH.VehiclePhysics2.Input {
       GetWheelInputs();
       SetVehicleInputs();
     }
-
 
     void FixedUpdate() {
       if (deviceIndex < 0) {
@@ -539,8 +534,6 @@ namespace NWH.VehiclePhysics2.Input {
       }
     }
 
-
-
     public override void OnDestroy() {
       base.OnDestroy();
 
@@ -564,14 +557,13 @@ namespace NWH.VehiclePhysics2.Input {
 
 
     private void Reset() {
-      slipSATCurve = new AnimationCurve(
-          new Keyframe(0, 0, -0.9f, 25f),
-          new Keyframe(0.07f, 1),
-          new Keyframe(0.16f, 0.93f, -1f, -1f),
-          new Keyframe(1f, 0.2f)
+      slipSATCurve = new(
+        new Keyframe(0, 0, -0.9f, 25f),
+        new Keyframe(0.07f, 1),
+        new Keyframe(0.16f, 0.93f, -1f, -1f),
+        new Keyframe(1f, 0.2f)
       );
     }
-
 
     void InitializeWheel() {
       if (deviceIndex < 0) return;
@@ -588,7 +580,6 @@ namespace NWH.VehiclePhysics2.Input {
       currentProperties.wheelRange = wheelRotationRange;
       LogitechGSDK.LogiSetPreferredControllerProperties(currentProperties);
     }
-
 
     public int FindDeviceIndex() {
       for (int i = 0; i < 16; i++) {
@@ -633,7 +624,6 @@ namespace NWH.VehiclePhysics2.Input {
       return -1;
     }
 
-
     public void GetDeviceName(int index, ref StringBuilder deviceName) {
       if (index < 0) {
         Debug.Log("No device selected / found.");
@@ -650,40 +640,18 @@ namespace NWH.VehiclePhysics2.Input {
       get { return LogitechGSDK.LogiIsConnected(deviceIndex); }
     }
 
-
-
-
-
     private void HandleCollision(Collision collision) {
       int strength = (int)(collision.impulse.magnitude /
                (vehicleController.fixedDeltaTime * vehicleController.vehicleRigidbody.mass * 5f));
       LogitechGSDK.LogiPlayFrontalCollisionForce(deviceIndex, strength);
     }
 
-
-    private void HandleActiveVehicleChange(Vehicle previousVehicle, Vehicle currentVehicle) {
-      VehicleController previousVehicleController = previousVehicle as VehicleController;
-      if (previousVehicleController != null) {
-        previousVehicleController.onCollision.RemoveListener(HandleCollision);
-      }
-
-      VehicleController currentVehicleController = currentVehicle as VehicleController;
-      if (currentVehicleController != null) {
-        vehicleController = currentVehicleController;
-        currentVehicleController.onCollision.AddListener(HandleCollision);
-      }
-    }
-
-
-
     void SetVehicleInputs() {
       // Shift Up
-      _shiftUpInput = GetButtonDown(shiftUpButton) ||
-                                               GetButtonDown(altShiftUpButton);
+      _shiftUpInput = GetButtonDown(shiftUpButton) || GetButtonDown(altShiftUpButton);
 
       // Shift Down
-      _shiftDownInput = GetButtonDown(shiftDownButton) ||
-                                               GetButtonDown(altShiftDownButton);
+      _shiftDownInput = GetButtonDown(shiftDownButton) || GetButtonDown(altShiftDownButton);
 
       _shiftIntoInput = hShifterUse34asDR ? 0 : -999;
       if (hShifterUse34asDR && (GetButtonPressed(shiftInto3rdButton) || GetButtonPressed(shiftInto4thButton))) {
@@ -721,7 +689,6 @@ namespace NWH.VehiclePhysics2.Input {
         }
       }
     }
-
 
     void GetWheelInputs() {
       _wheelInput = LogitechGSDK.LogiGetStateUnity(deviceIndex);
@@ -767,24 +734,19 @@ namespace NWH.VehiclePhysics2.Input {
       }
     }
 
-
     bool GetButtonPressed(int buttonIndex) {
       if (buttonIndex < 0) {
         return false;
       }
-
       return buttonPressed[buttonIndex];
     }
-
 
     bool GetButtonDown(int buttonIndex) {
       if (buttonIndex < 0) {
         return false;
       }
-
       return buttonDown[buttonIndex];
     }
-
 
     float GetAxisValue(Axis axis, LogitechGSDK.DIJOYSTATE2ENGINES wheelState, bool zeroToOne) {
       float rawValue = 0;
@@ -909,6 +871,8 @@ namespace NWH.VehiclePhysics2.Input {
         case Axis.lVz:
           rawValue = wheelState.lVZ;
           break;
+        case Axis.None:
+          break;
         default:
           rawValue = 0;
           break;
@@ -922,118 +886,95 @@ namespace NWH.VehiclePhysics2.Input {
       }
     }
 
-
     void AddForce(float force) {
       if (deviceIndex < 0) return;
       LogitechGSDK.LogiPlayConstantForce(deviceIndex, (int)force);
     }
-
 
     void ResetForce() {
       if (deviceIndex < 0) return;
       LogitechGSDK.LogiStopConstantForce(deviceIndex);
     }
 
-
     void OnApplicationQuit() {
       LogitechGSDK.LogiSteeringShutdown();
     }
-
 
     public override bool EngineStartStop() {
       return false;
     }
 
-
     public override float Clutch() {
       return _clutchInput;
     }
-
 
     public override bool ExtraLights() {
       return false;
     }
 
-
     public override bool HighBeamLights() {
       return false;
     }
-
 
     public override float Handbrake() {
       return _handbrakeInput;
     }
 
-
     public override bool HazardLights() {
       return false;
     }
-
 
     public override float Brakes() {
       return _brakeInput;
     }
 
-
     public override float Steering() {
       return _steeringInput;
     }
-
 
     public override bool Horn() {
       return false;
     }
 
-
     public override bool LeftBlinker() {
       return false;
     }
-
 
     public override bool LowBeamLights() {
       return false;
     }
 
-
     public override bool RightBlinker() {
       return false;
     }
-
 
     public override bool ShiftDown() {
       return _shiftDownInput;
     }
 
-
     public override int ShiftInto() {
       return _shiftIntoInput;
     }
-
 
     public override bool ShiftUp() {
       return _shiftUpInput;
     }
 
-
     public override bool TrailerAttachDetach() {
       return false;
     }
-
 
     public override float Throttle() {
       return _throttleInput;
     }
 
-
     public override bool FlipOver() {
       return false;
     }
 
-
     public override bool Boost() {
       return false;
     }
-
 
     public override bool CruiseControl() {
       return false;
