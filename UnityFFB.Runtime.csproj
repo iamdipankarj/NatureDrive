@@ -58,26 +58,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFB.cs">
-      <Link>Runtime\UnityFFB.cs</Link>
-    </Compile>
-    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\WinErrors.cs">
-      <Link>Runtime\WinErrors.cs</Link>
-    </Compile>
-    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFBNative.cs">
-      <Link>Runtime\UnityFFBNative.cs</Link>
-    </Compile>
-    <Compile Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFBTypes.cs">
-      <Link>Runtime\UnityFFBTypes.cs</Link>
-    </Compile>
+    <Compile Include="Assets\UnityFFB\Runtime\UnityFFBNative.cs" />
+    <Compile Include="Assets\UnityFFB\Runtime\UnityFFBTypes.cs" />
+    <Compile Include="Assets\UnityFFB\Runtime\UnityFFB.cs" />
+    <Compile Include="Assets\UnityFFB\Runtime\WinErrors.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\projects\Github Packages\unity-ffb\Runtime\UnityFFB.Runtime.asmdef">
-      <Link>Runtime\UnityFFB.Runtime.asmdef</Link>
-    </None>
-    <None Include="D:\projects\Github Packages\unity-ffb\Runtime\Plugins\x86_64\UNITYFFB.dll">
-      <Link>Runtime\Plugins\x86_64\UNITYFFB.dll</Link>
-    </None>
+    <None Include="Assets\UnityFFB\Runtime\Plugins\x86_64\UNITYFFB.dll" />
+    <None Include="Assets\UnityFFB\Runtime\UnityFFB.Runtime.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

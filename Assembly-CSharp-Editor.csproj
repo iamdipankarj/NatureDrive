@@ -870,11 +870,11 @@
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
@@ -908,6 +908,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{775C7372-6916-AC22-C763-72CC2172FF04}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityFFB.Runtime.csproj">
+      <Project>{844412B3-9B27-BC0A-3A02-111187EC3749}</Project>
+      <Name>UnityFFB.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="SolaceInput.csproj">
       <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
@@ -944,10 +948,6 @@
     <ProjectReference Include="Solace.Managers.csproj">
       <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
       <Name>Solace.Managers</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityFFB.Runtime.csproj">
-      <Project>{844412B3-9B27-BC0A-3A02-111187EC3749}</Project>
-      <Name>UnityFFB.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="ESP.csproj">
       <Project>{A27ADEDC-1B7B-F7A3-34BF-86C82A16FD3B}</Project>

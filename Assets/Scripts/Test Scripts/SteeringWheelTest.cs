@@ -91,7 +91,7 @@ namespace Solace {
         currentGear = 0;
       }
 
-      Debug.Log($"Current Gear: {currentGear}");
+      //Debug.Log($"Current Gear: {currentGear}");
 
       float steerAxis = player.GetAxis(RewiredUtils.Steering);
       float wheelAngle = steerAxis * steeringWheelTurnRatio * wheelRotationRange;
