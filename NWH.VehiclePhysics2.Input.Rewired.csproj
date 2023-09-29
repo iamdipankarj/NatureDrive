@@ -749,6 +749,10 @@
       <Project>{0798EB35-BEF6-3B81-2B6E-6FDB0642C900}</Project>
       <Name>Solace.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="LogitechSDK.csproj">
+      <Project>{E8218622-B101-F0A8-3743-1D1D3C909918}</Project>
+      <Name>LogitechSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

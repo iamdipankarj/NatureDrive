@@ -983,6 +983,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Niva
       objectReference: {fileID: 0}
+    - target: {fileID: 3797597658181258192, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: sideFriction.grip
+      value: 1.491
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797597658181258192, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: sideFriction.stiffness
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797597658546703703, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: sideFriction.grip
+      value: 1.455
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797597658546703703, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+      propertyPath: sideFriction.stiffness
+      value: 0.482
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9872,7 +9888,7 @@ PrefabInstance:
       objectReference: {fileID: 1886371942}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.42977712
+      value: -0.42977715
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9880,11 +9896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9015629
+      value: 0.901563
       objectReference: {fileID: 0}
     - target: {fileID: 2888017144333335093, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.044915903
+      value: -0.0449159
       objectReference: {fileID: 0}
     - target: {fileID: 3405363503857725385, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_Name
@@ -9916,7 +9932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.037009012
+      value: -0.037009005
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -9924,7 +9940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.07763551
+      value: -0.07763548
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13613,6 +13629,174 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1637610524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637610525}
+  - component: {fileID: 1637610526}
+  m_Layer: 0
+  m_Name: SteeringWheelInputProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637610525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637610524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 371.91968, y: 0.13505441, z: 303.54858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1637610526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637610524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a8722ec616c9f4893c259dd9f64b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonDown: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  buttonPressed: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  buttonWasPressed: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  steeringSensitivity: 1
+  hShifterUse34asDR: 0
+  vehicleController: {fileID: 1652205675}
+  maximumWheelForce: 100
+  overallEffectStrength: 1
+  smoothing: 0
+  wheelRotationRange: 540
+  linearizeSDKInput: 1
+  slipSATCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.9
+      outSlope: 25
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.07
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.16
+      value: 0.93
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSatForce: 80
+  slipMultiplier: 4.6
+  lowSpeedFriction: 70
+  friction: 16
+  centeringForceStrength: 60
+  centerPositionDrift: 0.4
+  axisResolution: 65536
+  flipSteeringInput: 0
+  flipThrottleInput: 1
+  flipBrakeInput: 1
+  flipClutchInput: 1
+  flipHandbrakeInput: 1
+  steeringAxis: 0
+  throttleAxis: 1
+  throttleZeroToOne: 1
+  brakeAxis: 5
+  brakeZeroToOne: 1
+  clutchAxis: 2
+  clutchZeroToOne: 1
+  handbrakeAxis: 40
+  handbrakeZeroToOne: 1
+  shiftUpButton: 12
+  shiftDownButton: 13
+  altShiftUpButton: 4
+  altShiftDownButton: 5
+  shiftIntoReverseButton: -1
+  shiftIntoNeutralButton: -1
+  shiftInto1stButton: -1
+  shiftInto2ndButton: -1
+  shiftInto3rdButton: -1
+  shiftInto4thButton: -1
+  shiftInto5thButton: -1
+  shiftInto6thButton: -1
+  shiftInto7thButton: -1
+  shiftInto8thButton: -1
+  shiftInto9thButton: -1
+  handbrakeButton: -1
+  deviceIndex: -1
+  onlyFFBDevices: 1
+  deviceNameContainsWhitelist: []
+  showDeviceDebugInfo: 1
+  foundDevicesDebugString: ---
+  _steeringInput: 0
+  _throttleInput: 0
+  _brakeInput: 0
+  _clutchInput: 0
+  _handbrakeInput: 0
+  _shiftIntoInput: -999
+  _shiftUpInput: 0
+  _shiftDownInput: 0
+  throttleDeadzone: 0.02
+  brakeDeadzone: 0.02
+  clutchDeadzone: 0.02
+  handbrakeDeadzone: 0.02
+  steeringDeadzone: 0
+  _lowSpeedFrictionForce: 0
+  _totalForce: 0
+  _satForce: 0
+  _frictionForce: 0
+  _centeringForce: 0
+--- !u!114 &1652205675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1839213816031006162, guid: 858cc54b36ffeff478f53c58eef2b16c, type: 3}
+  m_PrefabInstance: {fileID: 131721142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef33320c8b07754cbbcaa651106e4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1668843784
 Mesh:
   m_ObjectHideFlags: 0
@@ -16598,3 +16782,4 @@ SceneRoots:
   - {fileID: 1931706380}
   - {fileID: 131721142}
   - {fileID: 1464873021}
+  - {fileID: 1637610525}

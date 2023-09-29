@@ -26,7 +26,7 @@ namespace Solace {
     private float maxPadAngle = 40f;
 
     private int currentGear = 0;
-    private int MAX_GEAR = 6;
+    private int MAX_GEAR = 8;
     private int MIN_GEAR = -1;
 
     private void Start() {
@@ -67,7 +67,9 @@ namespace Solace {
         }
       }
 
-      if (player.GetButton(RewiredUtils.ShiftInto1)) {
+      if (player.GetButton(RewiredUtils.ShiftInto0)) {
+        currentGear = 0;
+      } else if (player.GetButton(RewiredUtils.ShiftInto1)) {
         currentGear = 1;
       } else if (player.GetButton(RewiredUtils.ShiftInto2)) {
         currentGear = 2;
