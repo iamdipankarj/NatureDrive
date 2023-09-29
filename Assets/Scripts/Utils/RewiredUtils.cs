@@ -2,12 +2,12 @@ namespace Solace {
   public class RewiredUtils {
     public static string LookX = "Look X";
     public static string LookY = "Look Y";
-    public static string Steer = "Steer";
+    public static string Steering = "Steering";
     public static string Throttle = "Throttle";
     public static string Brake = "Brake";
     public static string Clutch = "Clutch";
-    public static string ShiftUp = "Shift Up";
-    public static string ShiftDown = "Shift Down";
+    public static string ShiftUp = "ShiftUp";
+    public static string ShiftDown = "ShiftDown";
     public static string ShiftInto0 = "ShiftInto0";
     public static string ShiftInto1 = "ShiftInto1";
     public static string ShiftInto2 = "ShiftInto2";

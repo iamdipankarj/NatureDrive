@@ -132,7 +132,6 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicButton.cs" />
     <Compile Include="Assets\Scripts\VehicleCameraManager.cs" />
-    <Compile Include="Assets\Scripts\Utils\RewiredUtils.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Scripts\Player\CinemachinePOVExtension.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
@@ -1109,6 +1108,10 @@
     <ProjectReference Include="NWH.VehiclePhysics2.csproj">
       <Project>{125B2517-EE38-A046-3031-370AEA270E02}</Project>
       <Name>NWH.VehiclePhysics2</Name>
+    </ProjectReference>
+    <ProjectReference Include="Solace.Utils.csproj">
+      <Project>{0798EB35-BEF6-3B81-2B6E-6FDB0642C900}</Project>
+      <Name>Solace.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="LogitechSDK.csproj">
       <Project>{E8218622-B101-F0A8-3743-1D1D3C909918}</Project>

@@ -264,7 +264,7 @@ namespace Solace {
     void GetWheelInputs() {
       _wheelInput = LogitechGSDK.LogiGetStateUnity(0);
 
-      // Steer angle
+      // Steering angle
       steeringInput = GetAxisValue(steeringAxis, _wheelInput, false) * steeringSensitivity;
       if (flipSteeringInput) steeringInput = -steeringInput;
       float steerDelta = steeringInput - _prevSteering;

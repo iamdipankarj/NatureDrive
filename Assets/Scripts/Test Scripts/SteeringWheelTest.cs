@@ -91,7 +91,7 @@ namespace Solace {
 
       Debug.Log($"Current Gear: {currentGear}");
 
-      float steerAxis = player.GetAxis(RewiredUtils.Steer);
+      float steerAxis = player.GetAxis(RewiredUtils.Steering);
       float wheelAngle = steerAxis * steeringWheelTurnRatio * wheelRotationRange;
       steeringWheel.localRotation = Quaternion.Euler(_initialSteeringWheelRotation);
       steeringWheel.Rotate(Vector3.forward, -wheelAngle);
