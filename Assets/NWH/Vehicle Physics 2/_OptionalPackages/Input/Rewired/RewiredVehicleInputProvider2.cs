@@ -13,11 +13,9 @@ namespace NWH.VehiclePhysics2.Input {
     ///     Awake() method
     ///     to match the change.
     /// </summary>
-    private const int GearCount = 10;
+    private const int H_SHIFTER_GEAR_COUNT = 10;
 
     private Player player;
-
-    private readonly bool[] _shiftIntoHeld = new bool[GearCount];
 
     /// <summary>
     ///     Names of input bindings for each individual gears. If you need to add more gears modify this and the corresponding
@@ -131,9 +129,9 @@ namespace NWH.VehiclePhysics2.Input {
     ///     Used for H-shifters and direct shifting into gear on non-sequential gearboxes.
     /// </summary>
     public override int ShiftInto() {
-      for (int i = -1; i < 9; i++) {
-        if (player.GetButton(shiftInputNames[i + 1])) {
-          return i;
+      for (int i = 0; i < H_SHIFTER_GEAR_COUNT; i++) {
+        if (player.GetButton(shiftInputNames[i])) {
+          return i - 1;
         }
       }
       return -999;
