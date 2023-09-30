@@ -116,7 +116,6 @@ namespace Solace {
     }
 
     void Start() {
-      CursorManager.LockCursor();
       characterController = GetComponent<CharacterController>();
       cameraTransform = Camera.main.transform;
     }

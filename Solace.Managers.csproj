@@ -759,6 +759,10 @@
       <Project>{5B716A75-21FC-6EDE-4143-6E44072EECFE}</Project>
       <Name>SolaceInput</Name>
     </ProjectReference>
+    <ProjectReference Include="Solace.Utils.csproj">
+      <Project>{0798EB35-BEF6-3B81-2B6E-6FDB0642C900}</Project>
+      <Name>Solace.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

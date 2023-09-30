@@ -35,7 +35,6 @@ namespace Solace {
     private void PauseGame() {
       InputSystem.PauseHaptics();
       content.gameObject.SetActive(true);
-      CursorManager.UnlockCursor();
       isPaused = true;
       PauseTime();
       if (fadeCoroutine != null) {
@@ -55,7 +54,6 @@ namespace Solace {
     private void ResumeGame() {
       InputSystem.ResumeHaptics();
       content.gameObject.SetActive(false);
-      CursorManager.LockCursor();
       isPaused = false;
       UnPauseTime();
       if (fadeCoroutine != null) {
@@ -78,7 +76,6 @@ namespace Solace {
 
     private void OnMainMenuClick() {
       UnPauseTime();
-      CursorManager.UnlockCursor();
       LevelManager.instance.LoadScene(LevelManager.MAIN_MENU_LEVEL);
     }
 
@@ -91,7 +88,6 @@ namespace Solace {
 
     private void OnRestartLevelClick() {
       UnPauseTime();
-      CursorManager.LockCursor();
       LevelManager.instance.RestartLevel();
     }
 

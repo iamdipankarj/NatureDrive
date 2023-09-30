@@ -123,9 +123,6 @@ namespace Solace {
     float RRWextremumSlip;
 
     void Start() {
-      // Hide Cursor
-      CursorManager.LockCursor();
-
       // SW_Initialize the inputs
       controller = GetComponent<PrometeoVehicleInput>();
 

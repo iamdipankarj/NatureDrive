@@ -33,5 +33,6 @@ namespace Solace {
     public static string LowBeamLights = "LowBeamLights";
     public static string HighBeamLights = "HighBeamLights";
     public static string EngineStartStop = "EngineStartStop";
+    public static string Pause = "Pause";
   }
 }
