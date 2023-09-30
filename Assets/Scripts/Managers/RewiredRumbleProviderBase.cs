@@ -5,7 +5,7 @@ using Random = System.Random;
 namespace Solace {
   public class RewiredRumbleProviderBase : MonoBehaviour {
     // Rewired
-    private Player player;
+    protected Player player;
     private const int LOW_MOTOR_INDEX = 0;
     private const int HIGH_MOTOR_INDEX = 1;
 
