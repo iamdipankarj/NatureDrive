@@ -643,23 +643,15 @@ namespace NWH.VehiclePhysics2.Input {
       LogitechGSDK.LogiGetFriendlyProductName(index, deviceName, 256);
     }
 
-
-
-
     private bool WheelIsConnected {
       get { return LogitechGSDK.LogiIsConnected(deviceIndex); }
     }
-
-
-
-
 
     private void HandleCollision(Collision collision) {
       int strength = (int)(collision.impulse.magnitude /
                (vehicleController.fixedDeltaTime * vehicleController.vehicleRigidbody.mass * 5f));
       LogitechGSDK.LogiPlayFrontalCollisionForce(deviceIndex, strength);
     }
-
 
     private void HandleActiveVehicleChange(Vehicle previousVehicle, Vehicle currentVehicle) {
       VehicleController previousVehicleController = previousVehicle as VehicleController;

@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\NWH\Vehicle Physics 2\_OptionalPackages\Input\Rewired\RewiredVehicleInputProvider2.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\_OptionalPackages\Input\Rewired\RewiredSceneInputProvider.cs" />
+    <Compile Include="Assets\NWH\Vehicle Physics 2\_OptionalPackages\Input\Rewired\NWHRumbleFeedback.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\_OptionalPackages\Input\Rewired\RewiredVehicleInputProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -752,6 +753,10 @@
     <ProjectReference Include="LogitechSDK.csproj">
       <Project>{E8218622-B101-F0A8-3743-1D1D3C909918}</Project>
       <Name>LogitechSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="Solace.Managers.csproj">
+      <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
+      <Name>Solace.Managers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
