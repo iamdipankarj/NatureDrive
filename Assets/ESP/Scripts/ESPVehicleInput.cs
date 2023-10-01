@@ -1,21 +1,27 @@
 using UnityEngine;
+using Rewired;
 
 namespace Solace {
   /// <summary>
   /// Input Controller for ESP based vehicles.
   /// </summary>
-  public class ESPVehicleInput : VehicleStandardInput {
+  public class ESPVehicleInput : MonoBehaviour {
     private ESP.VehicleController target;
+    private Player player;
+
+    private void Awake() {
+      player = ReInput.players.GetPlayer(0);
+    }
 
     private void Start() {
       target = GetComponent<ESP.VehicleController>();
     }
 
     private void FixedUpdate() {
-      float steerInput = Mathf.Clamp(base.steerInput, -1.0f, 1.0f);
-      bool handbrakeInput = base.handbrakeInput;
-      float forwardInput = Mathf.Clamp01(base.throttleInput);
-      float reverseInput = Mathf.Clamp01(base.brakeInput);
+      float steerInput = Mathf.Clamp(player.GetAxis(RewiredUtils.Steering), -1.0f, 1.0f);
+      bool handbrakeInput = player.GetButtonDown(RewiredUtils.HandBrake);
+      float forwardInput = player.GetAxis(RewiredUtils.Throttle);
+      float reverseInput = player.GetAxis(RewiredUtils.Brake);
 
       float minSpeed = 0.1f;
       float minInput = 0.1f;

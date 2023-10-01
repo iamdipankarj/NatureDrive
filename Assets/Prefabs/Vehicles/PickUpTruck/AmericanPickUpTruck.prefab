@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4044
+  m_VersionIndex: 4050
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2056,6 +2056,9 @@ GameObject:
   - component: {fileID: 6772842153799627808}
   - component: {fileID: 566341747468306088}
   - component: {fileID: 3252381831679006887}
+  - component: {fileID: 2444418705470955486}
+  - component: {fileID: 6627150253048682273}
+  - component: {fileID: 781107609447236905}
   m_Layer: 0
   m_Name: AmericanPickUpTruck
   m_TagString: Vehicle
@@ -2796,8 +2799,62 @@ MonoBehaviour:
   centerOfMass: {x: -0.0032548904, y: -0.38802445, z: 0.26900053}
   combinedCenterOfMass: {x: -0.0032548904, y: -0.38802445, z: 0.26900053}
   useDefaultInertia: 1
-  inertiaTensor: {x: 2305.7454, y: 2333.1135, z: 749.3188}
+  inertiaTensor: {x: 2305.747, y: 2333.114, z: 749.3184}
   combinedInertiaTensor: {x: 0, y: 0, z: 0}
+--- !u!114 &2444418705470955486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000725285556651574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f50704e259dcff46ba9aee74a17650d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  module:
+    artificialSteerStrength: 1
+    driftAssistStrength: 18.8
+    targetDriftAngle: 45
+    steerAngleContribution: 10
+    maxDriftAssistForce: 800
+--- !u!114 &6627150253048682273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000725285556651574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b6c13fdbf28744c913ee5815c46299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  module:
+    yawTorque: 10000
+    pitchTorque: 10000
+--- !u!114 &781107609447236905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000725285556651574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9000aafa038fc419e4ffc3a58efaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  module:
+    flipOverType: 1
+    flipOverActivation: 0
+    allowedAngle: 70
+    instantFlipOverVerticalOffset: 1
+    flippedOver: 0
+    maxDetectionSpeed: 0.6
+    timeout: 1
+    flipOverDuration: 5
 --- !u!1 &4057699032669767342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,15 +4483,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01000002
+      value: -0.010000259
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16600007
+      value: 0.16600001
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07800024
+      value: 0.07801025
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.w
