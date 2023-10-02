@@ -94,8 +94,8 @@
     <Compile Include="Assets\NWH\Common\Scripts\Utility\GeomUtility.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Utility\MathUtility.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Vehicle\WheelUAPI.cs" />
-    <Compile Include="Assets\NWH\Common\Scripts\Utility\GameObjectExtensions.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Vehicle\ShowInTelemetry.cs" />
+    <Compile Include="Assets\NWH\Common\Scripts\Utility\GameObjectExtensions.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Utility\UnitConverter.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Vehicle\ShowInSettings.cs" />
     <Compile Include="Assets\NWH\Common\Scripts\Vehicle\WheelColliderUAPI.cs" />
