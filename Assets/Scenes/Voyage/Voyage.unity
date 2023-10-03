@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.7490196, g: 0.6039216, b: 0.45882356, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 975435747}
-  m_IndirectSpecularColor: {r: 0.23395246, g: 0.33546352, b: 0.4233486, a: 1}
+  m_IndirectSpecularColor: {r: 0.38670045, g: 0.807462, b: 0.8992158, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -9172165083971474258, guid: 698deb11da4ad3d49b398d1cdcb974c8, type: 3}
       propertyPath: m_Volume
-      value: 0.365
+      value: 0.145
       objectReference: {fileID: 0}
     - target: {fileID: 1504329532664558486, guid: 698deb11da4ad3d49b398d1cdcb974c8, type: 3}
       propertyPath: m_Name
@@ -1504,11 +1504,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.15025651
+      value: -0.1502565
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.017442297
+      value: -0.017442295
       objectReference: {fileID: 0}
     - target: {fileID: 7046573025103156823, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1532,11 +1532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.1499144
+      value: -0.14991438
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.020172501
+      value: -0.0201725
       objectReference: {fileID: 0}
     - target: {fileID: 8077639945280949531, guid: f3965ff98e736a247845f233691b1a5b, type: 3}
       propertyPath: m_LocalRotation.y
