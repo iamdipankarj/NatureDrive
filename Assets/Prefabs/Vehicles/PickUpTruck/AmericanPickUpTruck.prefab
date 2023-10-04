@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4050
+  m_VersionIndex: 4059
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2289,8 +2289,8 @@ MonoBehaviour:
       outputInertia: 0
       inputNameHash: 923778348
       outputNameHash: -1471968074
-      engagementRPM: 1040
-      throttleEngagementOffsetRPM: 400
+      engagementRPM: 2200
+      throttleEngagementOffsetRPM: 2000
       clutchInput: 0
       engagementCurve:
         serializedVersion: 2
@@ -2317,8 +2317,8 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       controlType: 0
-      engagementRange: 260
-      slipTorque: 800
+      engagementRange: 500
+      slipTorque: 1600
       creepTorque: 0
       creepSpeedLimit: 1
     differentials:
@@ -2396,8 +2396,8 @@ MonoBehaviour:
         onWastegateRelease:
           m_PersistentCalls:
             m_Calls: []
-      idleRPM: 780.00006
-      maxPower: 60
+      idleRPM: 1200
+      maxPower: 220
       engineLossPercent: 0.25
       onRevLimiter:
         m_PersistentCalls:
@@ -2434,8 +2434,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      revLimiterCutoffDuration: 0
-      revLimiterRPM: 5200
+      revLimiterCutoffDuration: 0.03
+      revLimiterRPM: 8600
       stallingEnabled: 1
       startDuration: 0.5
     transmission:
@@ -2450,7 +2450,7 @@ MonoBehaviour:
       inputNameHash: -1222565927
       outputNameHash: -597444048
       holdToKeepInGear: 0
-      finalGearRatio: 5.8061185
+      finalGearRatio: 5.16
       gearingProfile: {fileID: 0}
       gears:
       - -2.216
@@ -2473,10 +2473,10 @@ MonoBehaviour:
       onUpshift:
         m_PersistentCalls:
           m_Calls: []
-      postShiftBan: 0.5
+      postShiftBan: 0.2
       automaticTransmissionDNRShiftType: 0
       dnrSpeedThreshold: 0.4
-      shiftDuration: 0.2
+      shiftDuration: 0.05
       variableShiftIntensity: 0.3
       ignorePostShiftBanInManual: 1
       variableShiftPoint: 1
@@ -2484,10 +2484,10 @@ MonoBehaviour:
       isPostShiftBanActive: 0
       isShifting: 0
       shiftProgress: 0
-      _downshiftRPM: 1560.0001
-      _upshiftRPM: 3640
+      _downshiftRPM: 4300
+      _upshiftRPM: 8300
       transmissionType: 1
-      isSequential: 0
+      isSequential: 1
       allowUpshiftGearSkipping: 0
       allowDownshiftGearSkipping: 1
     wheelGroups:
@@ -4487,11 +4487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16600001
+      value: 0.16600007
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07801025
+      value: 0.077994995
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.w
