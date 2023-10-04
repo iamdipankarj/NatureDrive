@@ -1,11 +1,15 @@
 using System;
 using UnityEngine;
+using Rewired;
 
 namespace Solace {
   /// <summary>
   /// Input Controller for Promoteo based vehicles
   /// </summary>
   public class PrometeoVehicleInput : VehicleStandardInput {
+    // Rewired
+    private Player player;
+
     [NonSerialized]
     public bool isAcceleratingForward;
     [NonSerialized]
@@ -27,6 +31,10 @@ namespace Solace {
     public bool isPressingHandbrake;
     [NonSerialized]
     public bool isReleasingHandbrake;
+
+    private void Awake() {
+      player = ReInput.players.GetPlayer(0);
+    }
 
     private void OnHandBrake(bool isPressing) {
       if (isPressing) {
@@ -63,10 +71,10 @@ namespace Solace {
     }
 
     private void Update() {
-      OnAccelerateForward(base.throttleInput);
-      OnAccelerateBackward(base.brakeInput);
-      OnSteer(base.steerInput);
-      OnHandBrake(base.handbrakeInput);
+      OnAccelerateForward(player.GetAxis(RewiredUtils.Throttle));
+      OnAccelerateBackward(player.GetAxis(RewiredUtils.Brake));
+      OnSteer(player.GetAxis(RewiredUtils.Steering));
+      OnHandBrake(player.GetButtonDown(RewiredUtils.HandBrake));
     }
   }
 }
