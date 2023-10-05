@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Rewired;
+using Solace;
 
 namespace LastUI {
   public class UIInputManager : MonoBehaviour {
-    private LastUIInputActions lastuiInputActions;
+    //private LastUIInputActions lastuiInputActions;
     private StateManager stateManager;
+
+    private Player player;
 
     [Tooltip("Assign whatever button you want it to start with selected in here.")]
     public Button FirstSelectedButton;
@@ -15,29 +19,44 @@ namespace LastUI {
     [HideInInspector] public GameObject SelectedButton;
 
     private void OnEnable() {
-      lastuiInputActions.Enable();
+      //lastuiInputActions.Enable();
     }
 
     private void OnDisable() {
-      lastuiInputActions.Disable();
+      //lastuiInputActions.Disable();
     }
 
     public void Awake() {
-      lastuiInputActions = new LastUIInputActions();
+      player = ReInput.players.GetPlayer(0);
+      //lastuiInputActions = new LastUIInputActions();
       stateManager = StateManager.instance;
       SelectedButton = FirstSelectedButton.gameObject;
     }
 
     void Start() {
       FirstSelectedButton.Select();
-      lastuiInputActions.LastUI.Cancel.performed += ctx => IfCancelPressed();
-      lastuiInputActions.LastUI.Cancel.performed += ctx => Debug.Log("Go Back Pressed");
-      lastuiInputActions.LastUI.Navigate.performed += ctx => ChangeSliderValue(ctx.ReadValue<Vector2>());
-      lastuiInputActions.LastUI.Submit.performed += ctx => SubmitPerformed();
+      //lastuiInputActions.LastUI.Cancel.performed += ctx => IfCancelPressed();
+      //lastuiInputActions.LastUI.Cancel.performed += ctx => Debug.Log("Go Back Pressed");
+      //lastuiInputActions.LastUI.Navigate.performed += ctx => ChangeSliderValue(ctx.ReadValue<Vector2>());
+      //lastuiInputActions.LastUI.Submit.performed += ctx => SubmitPerformed();
     }
 
     private void Update() {
       SelectedButton = EventSystem.current.currentSelectedGameObject;
+      if (player.GetButtonDown("UICancel")) {
+        Debug.Log("Go Back Pressed");
+        IfCancelPressed();
+      }
+      if (SelectedButton != null) {
+        if (player.GetButtonDown("UIHorizontalLeft")) {
+          ChangeSliderValue(-1);
+        } else if (player.GetButtonDown("UIHorizontalRight")) {
+          ChangeSliderValue(1);
+        }
+      }
+      if (player.GetButtonDown("UISubmit")) {
+        SubmitPerformed();
+      }
     }
 
     void IfCancelPressed() {
@@ -46,13 +65,13 @@ namespace LastUI {
       }
     }
 
-    void ChangeSliderValue(Vector2 direction) {
+    void ChangeSliderValue(float direction) {
       if (SelectedButton.TryGetComponent(out ItemController controller)) {
         if (controller.itemType == ItemController.ItemTypes.HorizontalSelector) {
-          if (direction.x == -1) {
+          if (direction == -1) {
             SelectedButton.transform.GetChild(0).GetChild(0).GetComponent<Button>().onClick.Invoke();
           }
-          if (direction.x == 1) {
+          if (direction == 1) {
             SelectedButton.transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.Invoke();
           }
         }

@@ -54,7 +54,7 @@ namespace LastUI {
       if (ActiveCanvas != null) {
         ActiveCanvas.gameObject.SetActive(false);
       }
-      inspectManager.DeactivateInspector();
+      inspectManager.DeactiveInspector();
 
       StateController NextCanvas = canvasControllerList.Find(x => x.canvasType == _type);
       if (NextCanvas != null) {
@@ -73,7 +73,7 @@ namespace LastUI {
         ActiveCanvas.gameObject.SetActive(false);
       }
 
-      inspectManager.DeactivateInspector();
+      inspectManager.DeactiveInspector();
 
       StateController NextCanvas = canvasControllerList.Find(x => x.canvasType == ActiveCanvas.previousCanvas);
 

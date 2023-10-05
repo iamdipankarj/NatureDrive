@@ -28,7 +28,7 @@ namespace LastUI {
 
 
 
-    public void ActivateInspector() {
+    public void ActiveInspector() {
       Inspector.SetActive(true);
 
       _Title.text = Title;
@@ -51,7 +51,7 @@ namespace LastUI {
       }
     }
 
-    public void DeactivateInspector() {
+    public void DeactiveInspector() {
       Inspector.SetActive(false);
     }
   }
