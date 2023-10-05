@@ -1012,10 +1012,6 @@
       <Project>{C45BDC20-DEE9-9B2D-3A12-AD5562DCBF6A}</Project>
       <Name>Solace.ColorBlind</Name>
     </ProjectReference>
-    <ProjectReference Include="RoadArchitect.csproj">
-      <Project>{00898FDD-9757-D0F3-A5D9-957D88F6DACE}</Project>
-      <Name>RoadArchitect</Name>
-    </ProjectReference>
     <ProjectReference Include="NWH.Common.csproj">
       <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
       <Name>NWH.Common</Name>

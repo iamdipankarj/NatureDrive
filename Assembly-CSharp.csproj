@@ -94,7 +94,6 @@
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerTransform.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseSprite\Scripts\PlayerMouseSpriteExample.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleInput.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTilt\Scripts\CustomControllersTiltDemo.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Player\FPSController.cs" />
@@ -116,7 +115,6 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\ParticleFX.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\AtmosphereProfile.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSRumbleInput.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CanvasScalerFitter.cs" />
     <Compile Include="Assets\Rewired\Examples\GamepadTemplateUI\Scripts\ControllerUIEffect.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyEventManager.cs" />
@@ -140,7 +138,6 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\ChanceEffector.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CanvasScalerExt.cs" />
     <Compile Include="Assets\Rewired\Examples\FallbackJoystickIdentification\Scripts\FallbackJoystickIdentificationDemo.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleHelper.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\CustomControllerDemo.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ButtonInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
@@ -178,7 +175,6 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
     <Compile Include="Assets\Rewired\Examples\PressAnyButtonToJoin\Scripts\PressAnyButtonToJoinExample_GamePlayer.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIControlSet.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSVehicleController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
@@ -188,11 +184,9 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\MultiFXProfile.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\PerennialProfile.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyReports.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSGauges.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\FXParent.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIControl.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyLightningManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\Mirrors.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Examples\ControlMapperDemo\Scripts\ControlMapperDemoMessage.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
@@ -200,13 +194,11 @@
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\MSSteeringWheelInput.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Core\CozyEcosystem.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\DataStorage\UserDataStore_PlayerPrefs.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\SatelliteProfile.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\LanguageData.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyWindManager.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\MSVSSuspensionSpringMesh.cs" />
     <Compile Include="Assets\Rewired\Examples\ControlRemapping1\Scripts\ControlRemappingDemo1.cs" />
     <Compile Include="Assets\Rewired\Examples\SimpleCombinedKeyboardMouseRemapping\Scripts\SimpleCombinedKeyboardMouseRemapping.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\PrecipitationFX.cs" />
@@ -260,7 +252,6 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ToggleInfo.cs" />
     <Compile Include="Assets\Rewired\Examples\Shared\Scripts\Bullet.cs" />
-    <Compile Include="Assets\MSVehicleSystem\Scripts\Utilities\GasStation.cs" />
     <Compile Include="Assets\Rewired\Examples\PressStartToJoin\Scripts\PressStartToJoinExample_GamePlayer.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozySaveLoad.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\WindFX.cs" />
@@ -314,7 +305,6 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Disabled Shader.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Fog (Physical Height).shader" />
-    <None Include="Assets\MSVehicleSystem\TUTORIAL.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
@@ -327,7 +317,6 @@
     <None Include="Assets\Rewired\Documentation\ReleaseNotes.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
-    <None Include="Assets\MSVehicleSystem\SUPPORT.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
@@ -401,7 +390,6 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
-    <None Include="Assets\MSVehicleSystem\Update Notes.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Clouds (Soft).shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Fog (Stepped).shader" />
@@ -409,7 +397,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Rewired\Extras\TouchControls\Shaders\ColorShift.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
-    <None Include="Assets\MSVehicleSystem\Scripts\Shaders\SkidMarks.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Shaders\SolaceRailingShader.shader" />
@@ -1274,10 +1261,6 @@
     <ProjectReference Include="Solace.ColorBlind.csproj">
       <Project>{C45BDC20-DEE9-9B2D-3A12-AD5562DCBF6A}</Project>
       <Name>Solace.ColorBlind</Name>
-    </ProjectReference>
-    <ProjectReference Include="RoadArchitect.csproj">
-      <Project>{00898FDD-9757-D0F3-A5D9-957D88F6DACE}</Project>
-      <Name>RoadArchitect</Name>
     </ProjectReference>
     <ProjectReference Include="NWH.Common.csproj">
       <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
