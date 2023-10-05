@@ -62,7 +62,9 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozySetMoonDirection.cs" />
     <Compile Include="Assets\Rewired\Examples\PressStartToJoin\Scripts\PressStartToJoinExample_Assigner.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
+    <Compile Include="Assets\Last UI\Scripts\Singleton.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Core\CozyWeather.cs" />
+    <Compile Include="Assets\Last UI\Scripts\SwitchHandler.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UISliderControl.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_InputGrid.cs" />
@@ -74,7 +76,9 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
+    <Compile Include="Assets\Last UI\Scripts\UIAlwaysSelect.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
+    <Compile Include="Assets\Last UI\Scripts\NewCanvasSystem.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelVehicleData.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIElementInfo.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\CozyUtilities.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
+    <Compile Include="Assets\Last UI\Scripts\UIScrollToSelection.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozyThunder.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
@@ -97,6 +102,7 @@
     <Compile Include="Assets\Rewired\Examples\CustomControllersTilt\Scripts\CustomControllersTiltDemo.cs" />
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Player\FPSController.cs" />
+    <Compile Include="Assets\Last UI\Scripts\Credits.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
@@ -124,6 +130,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Enums.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\InputMenuController.cs" />
+    <Compile Include="Assets\Last UI\Scripts\StateManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\PlayerPointerEventHandlerExample.cs" />
@@ -151,6 +158,7 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\FXProfile.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyPostFXManager.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozySatellite.cs" />
+    <Compile Include="Assets\Last UI\Scripts\DemoItems.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\LevelScore.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\CustomProperty.cs" />
     <Compile Include="Assets\Scripts\Player\CinemachinePOVExtension.cs" />
@@ -168,6 +176,7 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\CustomControllerDemo_Player.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+    <Compile Include="Assets\Last UI\Scripts\UIInputManager.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\ClimateProfile.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerVehicleEnter.cs" />
     <Compile Include="Assets\Rewired\Examples\DualShock4SpecialFeatures\Scripts\DualShock4SpecialFeaturesExample.cs" />
@@ -181,6 +190,7 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyButoModule.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyMaterialManager.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ContrastStretch.cs" />
+    <Compile Include="Assets\Last UI\InputSystem\LastUIInputActions.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\MultiFXProfile.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\PerennialProfile.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyReports.cs" />
@@ -193,10 +203,14 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ThemedElement.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\AudioMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
+    <Compile Include="Assets\Last UI\Scripts\ItemController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Core\CozyEcosystem.cs" />
+    <Compile Include="Assets\Last UI\Scripts\HintManager.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\DataStorage\UserDataStore_PlayerPrefs.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\SatelliteProfile.cs" />
+    <Compile Include="Assets\Last UI\Scripts\LoadNewScene.cs" />
+    <Compile Include="Assets\Last UI\Scripts\FixScrollRect.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\LanguageData.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyWindManager.cs" />
     <Compile Include="Assets\Rewired\Examples\ControlRemapping1\Scripts\ControlRemappingDemo1.cs" />
@@ -209,6 +223,7 @@
     <Compile Include="Assets\Scripts\Player\LerpControlledBob.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomSlider.cs" />
     <Compile Include="Assets\Scripts\ImpulseModifier.cs" />
+    <Compile Include="Assets\Last UI\Scripts\SliderText.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\GameLevel.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\ModulesSearchProvider.cs" />
@@ -225,6 +240,7 @@
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\Scripts\UI\VehicleSpeedUIController.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputRow.cs" />
+    <Compile Include="Assets\Last UI\Scripts\CanvasType.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\FilterFX.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozyBiome.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
@@ -237,15 +253,19 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CalibrationWindow.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\EditorUtilities.cs" />
+    <Compile Include="Assets\Last UI\Scripts\Events.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyAmbienceManager.cs" />
     <Compile Include="Assets\Rewired\Extras\TouchControls\Examples\TouchControls1\Scripts\TouchControls1_ManipulateCube.cs" />
+    <Compile Include="Assets\Last UI\Scripts\InspectManager.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomButton.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyAudioManager.cs" />
+    <Compile Include="Assets\Last UI\Scripts\StateController.cs" />
     <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\AudioFX.cs" />
+    <Compile Include="Assets\Last UI\Scripts\ScrollRectEx.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\TouchButtonExample.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\AmbienceProfile.cs" />
     <Compile Include="Assets\Scripts\Player\CurveControlledBob.cs" />
@@ -258,12 +278,15 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozySatelliteManager.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\UIPointer.cs" />
     <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
+    <Compile Include="Assets\Last UI\Scripts\StateSwitcher.cs" />
     <Compile Include="Assets\Rewired\Examples\GamepadTemplateUI\Scripts\ControllerUIElement.cs" />
+    <Compile Include="Assets\Last UI\Scripts\PrepareVideo.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ScrollRectSelectableChild.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
     <Compile Include="Assets\Rewired\Examples\SimpleControlRemapping\Scripts\SimpleControlRemapping.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyReflect.cs" />
+    <Compile Include="Assets\Last UI\Scripts\HorizontalSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
@@ -389,6 +412,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Last UI\Third-Party Notices.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Clouds (Soft).shader" />
