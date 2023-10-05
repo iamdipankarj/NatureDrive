@@ -1,22 +1,23 @@
-using LastUI;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class StateSwitcher : MonoBehaviour {
+namespace LastUI {
+  [RequireComponent(typeof(Button))]
+  public class StateSwitcher : MonoBehaviour {
 
-  public CanvasType ChangeCanvasTo;
+    public CanvasType ChangeCanvasTo;
 
-  StateManager stateManager;
-  Button menuButton;
+    StateManager stateManager;
+    Button menuButton;
 
-  private void Start() {
-    menuButton = GetComponent<Button>();
-    menuButton.onClick.AddListener(OnButtonClicked);
-    stateManager = StateManager.instance;
-  }
+    private void Start() {
+      menuButton = GetComponent<Button>();
+      menuButton.onClick.AddListener(OnButtonClicked);
+      stateManager = StateManager.instance;
+    }
 
-  public void OnButtonClicked() {
-    StartCoroutine(stateManager.PlayNextCanvasAnimation(ChangeCanvasTo));
+    public void OnButtonClicked() {
+      StartCoroutine(stateManager.PlayNextCanvasAnimation(ChangeCanvasTo));
+    }
   }
 }
