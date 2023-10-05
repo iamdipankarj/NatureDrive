@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,7 +20,7 @@ public class HorizontalSelector : MonoBehaviour {
 
   public int defalutValueIndex = 0;
 
-  public List<string> data = new List<string>();
+  public List<string> data = new();
 
   public string value {
     get {

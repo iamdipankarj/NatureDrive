@@ -48,7 +48,7 @@ public class UIInputManager : MonoBehaviour {
   void changeSliderValue(Vector2 direction) {
     if (SelectedButton.TryGetComponent(out ItemController controller)) {
       switch (SelectedButton.GetComponent<ItemController>().itemType) {
-        case ItemController.itemTypes.HorizontalSelector:
+        case ItemController.ItemTypes.HorizontalSelector:
           if (direction.x == -1) {
             SelectedButton.transform.GetChild(0).GetChild(0).GetComponent<Button>().onClick.Invoke();
           }
@@ -63,7 +63,7 @@ public class UIInputManager : MonoBehaviour {
   void SubmitPerformed() {
     if (SelectedButton.TryGetComponent(out ItemController controller)) {
       switch (SelectedButton.GetComponent<ItemController>().itemType) {
-        case ItemController.itemTypes.Toggle:
+        case ItemController.ItemTypes.Toggle:
           if (SelectedButton.GetComponentInChildren<Toggle>().isOn == true) {
             SelectedButton.GetComponentInChildren<Toggle>().isOn = false;
           } else {

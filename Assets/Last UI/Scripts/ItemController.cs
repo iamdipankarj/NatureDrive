@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour {
   [Header("Item Type")]
-  public itemTypes itemType = new itemTypes();
+  public ItemTypes itemType = new();
 
-  public enum itemTypes {
+  public enum ItemTypes {
     Button,
     Slider,
     HorizontalSelector,

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -32,7 +28,7 @@ public class InspectManager : MonoBehaviour {
 
 
 
-  public void ActiveInspector() {
+  public void ActivateInspector() {
     Inspector.SetActive(true);
 
     _Title.text = Title;
@@ -55,10 +51,8 @@ public class InspectManager : MonoBehaviour {
     }
   }
 
-  public void DeactiveInspector() {
+  public void DeactivateInspector() {
     Inspector.SetActive(false);
   }
-
-
 }
 

@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class StateManager : MonoBehaviour {
   public static StateManager instance;
   [Tooltip("You need to add all of your states in here.")]
@@ -55,7 +54,7 @@ public class StateManager : MonoBehaviour {
     if (ActiveCanvas != null) {
       ActiveCanvas.gameObject.SetActive(false);
     }
-    inspectManager.DeactiveInspector();
+    inspectManager.DeactivateInspector();
 
     StateController NextCanvas = canvasControllerList.Find(x => x.canvasType == _type);
     if (NextCanvas != null) {
@@ -74,7 +73,7 @@ public class StateManager : MonoBehaviour {
       ActiveCanvas.gameObject.SetActive(false);
     }
 
-    inspectManager.DeactiveInspector();
+    inspectManager.DeactivateInspector();
 
     StateController NextCanvas = canvasControllerList.Find(x => x.canvasType == ActiveCanvas.previousCanvas);
 
