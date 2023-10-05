@@ -4015,7 +4015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 97227381}
   indicator: {fileID: 1298361317}
 --- !u!114 &140777446
@@ -7160,7 +7159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 883710247}
   indicator: {fileID: 1661300135}
 --- !u!114 &287824606
@@ -9006,7 +9004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 550226158}
   indicator: {fileID: 1196895021}
 --- !u!114 &372848471
@@ -10204,7 +10201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 120102726}
   indicator: {fileID: 2130993054}
 --- !u!114 &397385345
@@ -12851,7 +12847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1233408432}
   indicator: {fileID: 1635223919}
 --- !u!114 &467370223
@@ -13478,7 +13473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 482856729}
   indicator: {fileID: 742697779}
 --- !u!114 &514187098
@@ -18636,7 +18630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 2146980037}
   indicator: {fileID: 1069641515}
 --- !u!114 &739212856
@@ -20530,7 +20523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1852852978}
   indicator: {fileID: 697304804}
 --- !u!114 &820562028
@@ -24226,7 +24218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1053737203}
   indicator: {fileID: 218677904}
 --- !u!114 &941673608
@@ -25340,7 +25331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 765529351}
   indicator: {fileID: 394479997}
 --- !u!114 &970057992
@@ -25454,7 +25444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1321254702}
   indicator: {fileID: 721118766}
 --- !u!114 &970186195
@@ -34118,7 +34107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1120510690}
   indicator: {fileID: 1701147551}
 --- !u!114 &1334216996
@@ -35324,7 +35312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 2133250123}
   indicator: {fileID: 302316131}
 --- !u!114 &1412506395
@@ -41033,7 +41020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1086224406}
   indicator: {fileID: 641891709}
 --- !u!114 &1667487067
@@ -45192,7 +45178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 1632669767}
   indicator: {fileID: 1627238245}
 --- !u!114 &1796572770
@@ -53160,7 +53145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5871592914c342958d27ad6e3cd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationSpeed: 0.15
   HandleImage: {fileID: 810411555}
   indicator: {fileID: 667405780}
 --- !u!114 &2145081660
@@ -53570,7 +53554,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using LastUI;
 
 public class UIInputManager : MonoBehaviour {
   private LastUIInputActions lastuiInputActions;

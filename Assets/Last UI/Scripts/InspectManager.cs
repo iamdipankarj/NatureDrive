@@ -2,57 +2,57 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//This script handles inspector.
+namespace LastUI {
+  //This script handles inspector.
+  public class InspectManager : MonoBehaviour {
+    [Header("Inspect Type")]
+    public Types types;
 
-public class InspectManager : MonoBehaviour {
-  [Header("Inspect Type")]
-  public Types types;
+    public enum Types { Text, TextAndImage };
 
-  public enum Types { Text, TextAndImage };
-
-  [Header("References")]
-  public GameObject Inspector;
-
-
-  [Header("Texts")]
-  public string Title;
-  [TextArea]
-  public string Description;
-  [Header("Images")]
-  public Sprite image;
-
-  [Header("References")]
-  [HideInInspector] public TextMeshProUGUI _Title;
-  [HideInInspector] public TextMeshProUGUI _Description;
-  [HideInInspector] public Image _image;
+    [Header("References")]
+    public GameObject Inspector;
 
 
+    [Header("Texts")]
+    public string Title;
+    [TextArea]
+    public string Description;
+    [Header("Images")]
+    public Sprite image;
 
-  public void ActivateInspector() {
-    Inspector.SetActive(true);
-
-    _Title.text = Title;
-    _Description.text = Description;
-    _image.sprite = image;
-
-    if (types == Types.Text) {
-
-      _Title.gameObject.SetActive(true);
-      _Description.gameObject.SetActive(true);
-      _image.gameObject.SetActive(false);
+    [Header("References")]
+    [HideInInspector] public TextMeshProUGUI _Title;
+    [HideInInspector] public TextMeshProUGUI _Description;
+    [HideInInspector] public Image _image;
 
 
-    } else if (types == Types.TextAndImage) {
 
-      _Title.gameObject.SetActive(true);
-      _Description.gameObject.SetActive(true);
-      _image.gameObject.SetActive(true);
+    public void ActivateInspector() {
+      Inspector.SetActive(true);
 
+      _Title.text = Title;
+      _Description.text = Description;
+      _image.sprite = image;
+
+      if (types == Types.Text) {
+
+        _Title.gameObject.SetActive(true);
+        _Description.gameObject.SetActive(true);
+        _image.gameObject.SetActive(false);
+
+
+      } else if (types == Types.TextAndImage) {
+
+        _Title.gameObject.SetActive(true);
+        _Description.gameObject.SetActive(true);
+        _image.gameObject.SetActive(true);
+
+      }
+    }
+
+    public void DeactivateInspector() {
+      Inspector.SetActive(false);
     }
   }
-
-  public void DeactivateInspector() {
-    Inspector.SetActive(false);
-  }
 }
-

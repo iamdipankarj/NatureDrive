@@ -2,22 +2,24 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class FixScrollRect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler {
-  public ScrollRect MainScroll;
+namespace LastUI {
+  public class FixScrollRect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler {
+    public ScrollRect MainScroll;
 
-  public void OnBeginDrag(PointerEventData eventData) {
-    MainScroll.OnBeginDrag(eventData);
-  }
+    public void OnBeginDrag(PointerEventData eventData) {
+      MainScroll.OnBeginDrag(eventData);
+    }
 
-  public void OnDrag(PointerEventData eventData) {
-    MainScroll.OnDrag(eventData);
-  }
+    public void OnDrag(PointerEventData eventData) {
+      MainScroll.OnDrag(eventData);
+    }
 
-  public void OnEndDrag(PointerEventData eventData) {
-    MainScroll.OnEndDrag(eventData);
-  }
+    public void OnEndDrag(PointerEventData eventData) {
+      MainScroll.OnEndDrag(eventData);
+    }
 
-  public void OnScroll(PointerEventData data) {
-    MainScroll.OnScroll(data);
+    public void OnScroll(PointerEventData data) {
+      MainScroll.OnScroll(data);
+    }
   }
 }

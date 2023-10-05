@@ -1,5 +1,7 @@
 using UnityEngine.EventSystems;
 
-public class Events : EventTrigger {
+namespace LastUI {
+  public class Events : EventTrigger {
 
+  }
 }

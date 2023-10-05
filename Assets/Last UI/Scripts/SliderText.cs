@@ -4,17 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-//This script handles slider.
+namespace LastUI {
 
-public class SliderText : MonoBehaviour {
+  //This script handles slider.
 
-  public TextMeshProUGUI sliderValue;
-  public Slider slider;
+  public class SliderText : MonoBehaviour {
 
-  public void Update() {
-    sliderValue.text = slider.value.ToString("0");
-    if (slider.value >= (slider.maxValue - 0.05f) || slider.value <= slider.minValue + 0.05f) {
+    public TextMeshProUGUI sliderValue;
+    public Slider slider;
+
+    public void Update() {
       sliderValue.text = slider.value.ToString("0");
+      if (slider.value >= slider.maxValue - 0.05f || slider.value <= slider.minValue + 0.05f) {
+        sliderValue.text = slider.value.ToString("0");
+      }
     }
   }
 }
