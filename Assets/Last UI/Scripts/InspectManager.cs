@@ -28,7 +28,6 @@ namespace LastUI {
 
     public void ActiveInspector() {
       Inspector.SetActive(true);
-
       _Title.text = Title;
       _Description.text = Description;
       _image.sprite = image;
@@ -38,7 +37,6 @@ namespace LastUI {
         _Title.gameObject.SetActive(true);
         _Description.gameObject.SetActive(true);
         _image.gameObject.SetActive(false);
-
 
       } else if (types == Types.TextAndImage) {
 
