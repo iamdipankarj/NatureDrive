@@ -75,8 +75,8 @@
     <Compile Include="Assets\Scripts\UI\Menus\GraphicsMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
-    <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
     <Compile Include="Assets\Last UI\Scripts\UIAlwaysSelect.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\Last UI\Scripts\NewCanvasSystem.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
@@ -285,8 +285,8 @@
     <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
     <Compile Include="Assets\Rewired\Examples\SimpleControlRemapping\Scripts\SimpleControlRemapping.cs" />
-    <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyReflect.cs" />
     <Compile Include="Assets\Last UI\Scripts\HorizontalSelector.cs" />
+    <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyReflect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
