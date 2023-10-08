@@ -61,7 +61,7 @@ namespace Solace {
     private const string VIBRATION_KEY = "vibration_enabled_key";
     private const string INVERT_Y_AXIS_KEY = "invert_y_axis_enabled_key";
     private const string MOUSE_SENSITIVITY_KEY = "mouse_sensitivity_key";
-    private const string GAMEPAD_SENSITIVITY_KEY = "gamepad_sensitivity_key";
+    private const string JOYSTICK_SENSITIVITY_KEY = "gamepad_sensitivity_key";
 
     private readonly List<string> colorBlindModes = new() {
       "Normal",
@@ -106,6 +106,61 @@ namespace Solace {
       return PlayerPrefs.GetString(LANGUAGE_KEY, "en");
     }
 
+    public void SetAmbientOcclusion(bool enabled) {
+      PlayerPrefs.SetInt(AMBIENT_OCCULUSION_KEY, enabled ? 1 : 0);
+    }
+
+    public bool GetAmbientOcclusion() {
+      if (PlayerPrefs.HasKey(AMBIENT_OCCULUSION_KEY)) {
+        return PlayerPrefs.GetInt(AMBIENT_OCCULUSION_KEY) == 1;
+      }
+      return false;
+    }
+
+    public void SetLensFlares(bool enabled) {
+      PlayerPrefs.SetInt(LENS_FLARES_KEY, enabled ? 1 : 0);
+    }
+
+    public bool GetLensFlares() {
+      if (PlayerPrefs.HasKey(LENS_FLARES_KEY)) {
+        return PlayerPrefs.GetInt(LENS_FLARES_KEY) == 1;
+      }
+      return false;
+    }
+
+    public void SetDepthOfField(bool enabled) {
+      PlayerPrefs.SetInt(DEPTH_OF_FIELD_KEY, enabled ? 1 : 0);
+    }
+
+    public bool GetDepthOfField() {
+      if (PlayerPrefs.HasKey(DEPTH_OF_FIELD_KEY)) {
+        return PlayerPrefs.GetInt(DEPTH_OF_FIELD_KEY) == 1;
+      }
+      return false;
+    }
+
+    public void SetAnisoFiltering(bool enabled) {
+      PlayerPrefs.SetInt(ANISOTROPIC_FILTERING_KEY, enabled ? 1 : 0);
+    }
+
+    public bool GetAnisoFiltering() {
+      if (PlayerPrefs.HasKey(ANISOTROPIC_FILTERING_KEY)) {
+        return PlayerPrefs.GetInt(ANISOTROPIC_FILTERING_KEY) == 1;
+      }
+      return false;
+    }
+
+    public void SetTextureStreaming(bool enabled) {
+      PlayerPrefs.SetInt(TEXTURE_STREAMING, enabled ? 1 : 0);
+    }
+
+    public bool GetTextureStreaming() {
+      if (PlayerPrefs.HasKey(TEXTURE_STREAMING)) {
+        return PlayerPrefs.GetInt(TEXTURE_STREAMING) == 1;
+      }
+      return false;
+    }
+
     public void SetBloomEnabled(bool enabled) {
       PlayerPrefs.SetInt(BLOOM_KEY, enabled ? 1 : 0);
     }
@@ -139,6 +194,14 @@ namespace Solace {
 
     public int GetBrightness() {
       return PlayerPrefs.GetInt(BRIGHTNESS_KEY, 5);
+    }
+
+    public void SetJoystickSensitivity(int amount) {
+      PlayerPrefs.SetInt(JOYSTICK_SENSITIVITY_KEY, amount);
+    }
+
+    public int GetJoystickSensitivity() {
+      return PlayerPrefs.GetInt(JOYSTICK_SENSITIVITY_KEY, 5);
     }
 
     public void SetMouseSensitivity(int amount) {
@@ -177,6 +240,39 @@ namespace Solace {
       Application.targetFrameRate = fps;
 #endif
       PlayerPrefs.SetInt(FPS_KEY, fps);
+    }
+
+    public void SetSteeringAssist(bool enabled) {
+      PlayerPrefs.SetInt(STEERING_ASSIST, enabled ? 1 : 0);
+    }
+
+    public bool SetSteeringAssist() {
+      if (PlayerPrefs.HasKey(STEERING_ASSIST)) {
+        return PlayerPrefs.GetInt(STEERING_ASSIST) == 1;
+      }
+      return false;
+    }
+
+    public void SetGameTutorials(bool enabled) {
+      PlayerPrefs.SetInt(GAME_TUTORIALS, enabled ? 1 : 0);
+    }
+
+    public bool GetGameTutorials() {
+      if (PlayerPrefs.HasKey(GAME_TUTORIALS)) {
+        return PlayerPrefs.GetInt(GAME_TUTORIALS) == 1;
+      }
+      return false;
+    }
+
+    public void SetPhotoMode(bool enabled) {
+      PlayerPrefs.SetInt(PHOTO_MODE, enabled ? 1 : 0);
+    }
+
+    public bool GetPhotoMode() {
+      if (PlayerPrefs.HasKey(PHOTO_MODE)) {
+        return PlayerPrefs.GetInt(PHOTO_MODE) == 1;
+      }
+      return false;
     }
 
     public int GetFPSLimit() {
