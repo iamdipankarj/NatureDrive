@@ -33,39 +33,41 @@ namespace Solace {
     private const int DEFAULT_MUSIC_VOLUME = 50;
     private const int DEFAULT_SFX_VOLUME = 50;
 
-    // Game Settings
-    private const string DIFFICULTY_KEY = "atom_difficulty";
-    private const string HUD_KEY = "hud_enabled_key";
-
-    // Graphics Settings
-    private const string MOTION_BLUR_KEY = "motion_blur_enabled_key";
-    private const string COLOR_BLIND_KEY = "color_blind_mode_key";
+    // Display Settings
     private const string VSYNC_KEY = "vsync_key";
-    private const string FPS_KEY = "fps_key";
-    private const string ANTI_ALIAS_KEY = "anti_alias_key";
-    private const string BLOOM_KEY = "bloom_key";
-    private const string BRIGHTNESS_KEY = "brightness_key";
-    private const string BILINEAR_FILTER_KEY = "bilinear_filter_key";
-
-    // Resolution Settings
     private const string SCREEN_WIDTH_KEY = "screen_width_key";
     private const string SCREEN_HEIGHT_KEY = "screen_height_key";
     private const string DISPLAY_MODE_KEY = "display_mode_key";
+    private const string BRIGHTNESS_KEY = "brightness_key";
+    private const string ANTI_ALIAS_KEY = "anti_alias_key";
+    private const string FPS_KEY = "fps_key";
 
-    // Quality
+    // Gameplay settings
+    private const string STEERING_ASSIST = "steering_assist_key";
+    private const string GAME_TUTORIALS = "game_tutorials_key";
+    private const string PHOTO_MODE = "photo_mode_key";
+
+    // Graphics Settings
     private const string QUALITY_KEY = "quality_key";
+    private const string MOTION_BLUR_KEY = "motion_blur_enabled_key";
+    private const string COLOR_BLIND_KEY = "color_blind_mode_key";
+    private const string BLOOM_KEY = "bloom_key";
+    private const string AMBIENT_OCCULUSION_KEY = "ambient_occlusion_key";
+    private const string DEPTH_OF_FIELD_KEY = "depth_of_field_key";
+    private const string LENS_FLARES_KEY = "lens_flares_key";
+    private const string ANISOTROPIC_FILTERING_KEY = "anisotropic_filtering_key";
+    private const string TEXTURE_STREAMING = "texture_streaming_key";
 
-    // Control Settings
+    // Audio & Language Settings
+    private const string MUSIC_VOLUME_KEY = "music_volume_key";
+    private const string SFX_VOLUME_KEY = "sfx_volume_key";
+    private const string LANGUAGE_KEY = "selected_locale_key";
+
+    // Input Settings
     private const string VIBRATION_KEY = "vibration_enabled_key";
     private const string INVERT_Y_AXIS_KEY = "invert_y_axis_enabled_key";
     private const string MOUSE_SENSITIVITY_KEY = "mouse_sensitivity_key";
-
-    // Audio Settings
-    private const string MUSIC_VOLUME_KEY = "music_volume_key";
-    private const string SFX_VOLUME_KEY = "sfx_volume_key";
-
-    // Language Settings
-    private const string LANGUAGE_KEY = "selected_locale_key";
+    private const string GAMEPAD_SENSITIVITY_KEY = "gamepad_sensitivity_key";
 
     private readonly List<string> colorBlindModes = new() {
       "Normal",
@@ -91,17 +93,6 @@ namespace Solace {
 
     public List<string> GetColorBlindModes() {
       return colorBlindModes;
-    }
-
-    public void SetBilinearFilteringEnabled(bool enabled) {
-      PlayerPrefs.SetInt(BILINEAR_FILTER_KEY, enabled ? 1 : 0);
-    }
-
-    public bool GetBilinearFilteringEnabled() {
-      if (PlayerPrefs.HasKey(BILINEAR_FILTER_KEY)) {
-        return PlayerPrefs.GetInt(BILINEAR_FILTER_KEY) == 1;
-      }
-      return false;
     }
 
     public void SetResolution(int width, int height) {
@@ -232,17 +223,6 @@ namespace Solace {
       return true;
     }
 
-    public void SetHUDEnabled(bool enabled) {
-      PlayerPrefs.SetInt(HUD_KEY, enabled ? 1 : 0);
-    }
-
-    public bool GetHUDEnabled() {
-      if (PlayerPrefs.HasKey(HUD_KEY)) {
-        return PlayerPrefs.GetInt(HUD_KEY) == 1;
-      }
-      return false;
-    }
-
     public void SetInvertYAxisEnabled(bool enabled) {
       PlayerPrefs.SetInt(INVERT_Y_AXIS_KEY, enabled ? 1 : 0);
     }
@@ -263,17 +243,6 @@ namespace Solace {
         return (ColorBlindMode)PlayerPrefs.GetInt(COLOR_BLIND_KEY);
       }
       return ColorBlindMode.Normal;
-    }
-
-    public void SetDifficulty(Difficulty difficulty) {
-      PlayerPrefs.SetInt(DIFFICULTY_KEY, (int)difficulty);
-    }
-
-    public Difficulty GetDifficulty() {
-      if (PlayerPrefs.HasKey(DIFFICULTY_KEY)) {
-        return (Difficulty)PlayerPrefs.GetInt(DIFFICULTY_KEY);
-      }
-      return Difficulty.REGULAR;
     }
 
     public void SetQuality(QualityIndex qualityIndex) {
