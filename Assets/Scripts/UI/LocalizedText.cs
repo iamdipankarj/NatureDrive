@@ -8,8 +8,11 @@ namespace Solace {
   public class LocalizedText : MonoBehaviour {
     private TextMeshProUGUI textComponent;
 
-    private void Start() {
+    private void Awake() {
       textComponent = GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Start() {
       if (TryGetComponent<LocalizeStringEvent>(out var comp)) {
         comp.OnUpdateString.AddListener(OnSelectorLocaleUpdate);
       }

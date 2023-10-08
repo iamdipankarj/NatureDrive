@@ -43,14 +43,15 @@ namespace Solace {
 
     // Graphics Settings
     private const string QUALITY_KEY = "quality_key";
+    private const string SHADOW_QUALITY_KEY = "shadow_quality_key";
     private const string MOTION_BLUR_KEY = "motion_blur_enabled_key";
     private const string COLOR_BLIND_KEY = "color_blind_mode_key";
+    private const string SCREEN_SPACE_REFLECTIONS_KEY = "ssr_key";
     private const string BLOOM_KEY = "bloom_key";
     private const string AMBIENT_OCCULUSION_KEY = "ambient_occlusion_key";
     private const string DEPTH_OF_FIELD_KEY = "depth_of_field_key";
     private const string LENS_FLARES_KEY = "lens_flares_key";
     private const string ANISOTROPIC_FILTERING_KEY = "anisotropic_filtering_key";
-    private const string TEXTURE_STREAMING = "texture_streaming_key";
 
     // Audio & Language Settings
     private const string MUSIC_VOLUME_KEY = "music_volume_key";
@@ -106,6 +107,22 @@ namespace Solace {
       return PlayerPrefs.GetString(LANGUAGE_KEY, "en");
     }
 
+    public void SetScreenSpaceReflections(string code) {
+      PlayerPrefs.SetString(SCREEN_SPACE_REFLECTIONS_KEY, code);
+    }
+
+    public string GetScreenSpaceReflections() {
+      return PlayerPrefs.GetString(SCREEN_SPACE_REFLECTIONS_KEY, "medium");
+    }
+
+    public void SetShadowQuality(string code) {
+      PlayerPrefs.SetString(SHADOW_QUALITY_KEY, code);
+    }
+
+    public string GetShadowQuality() {
+      return PlayerPrefs.GetString(SHADOW_QUALITY_KEY, "medium");
+    }
+
     public void SetAmbientOcclusion(bool enabled) {
       PlayerPrefs.SetInt(AMBIENT_OCCULUSION_KEY, enabled ? 1 : 0);
     }
@@ -146,17 +163,6 @@ namespace Solace {
     public bool GetAnisoFiltering() {
       if (PlayerPrefs.HasKey(ANISOTROPIC_FILTERING_KEY)) {
         return PlayerPrefs.GetInt(ANISOTROPIC_FILTERING_KEY) == 1;
-      }
-      return false;
-    }
-
-    public void SetTextureStreaming(bool enabled) {
-      PlayerPrefs.SetInt(TEXTURE_STREAMING, enabled ? 1 : 0);
-    }
-
-    public bool GetTextureStreaming() {
-      if (PlayerPrefs.HasKey(TEXTURE_STREAMING)) {
-        return PlayerPrefs.GetInt(TEXTURE_STREAMING) == 1;
       }
       return false;
     }
