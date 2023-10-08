@@ -230,6 +230,7 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomToggle.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\LanguageChanger.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\ForecastProfile.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\TouchJoystickExample.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputFieldInfo.cs" />

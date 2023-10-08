@@ -9,6 +9,8 @@ namespace LastUI {
   public class HorizontalSelector : MonoBehaviour {
     private TextMeshProUGUI text;
     private int m_Index = 0;
+    public delegate void SelectionHandler(int index);
+    public event SelectionHandler OnValueChanged;
 
     public int index {
       get {
@@ -32,11 +34,19 @@ namespace LastUI {
 
     void Start() {
       text = transform.Find("txt_text").GetComponent<TextMeshProUGUI>();
+      if (data.Count > 0) {
+        index = defalutValueIndex;
+      }
+    }
 
+    private void OnEnable() {
       transform.Find("btn_left").GetComponent<Button>().onClick.AddListener(OnLeftClicked);
       transform.Find("btn_right").GetComponent<Button>().onClick.AddListener(OnRightClicked);
+    }
 
-      index = defalutValueIndex;
+    private void OnDisable() {
+      transform.Find("btn_left").GetComponent<Button>().onClick.RemoveListener(OnLeftClicked);
+      transform.Find("btn_right").GetComponent<Button>().onClick.RemoveListener(OnRightClicked);
     }
 
     void OnLeftClicked() {
@@ -45,6 +55,7 @@ namespace LastUI {
       } else {
         index--;
       }
+      OnValueChanged?.Invoke(index);
     }
 
     void OnRightClicked() {
@@ -53,6 +64,7 @@ namespace LastUI {
       } else {
         index++;
       }
+      OnValueChanged?.Invoke(index);
     }
   }
 }

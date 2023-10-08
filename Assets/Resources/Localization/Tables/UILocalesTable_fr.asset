@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Langue
     m_Metadata:
       m_Items: []
+  - m_Id: 16328088961122304
+    m_Localized: Press Any Key
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

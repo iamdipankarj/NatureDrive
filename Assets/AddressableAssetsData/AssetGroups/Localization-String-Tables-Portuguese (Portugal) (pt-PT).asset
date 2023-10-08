@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 5b827c85ea4dedf48a90cefb52915c66
-  m_SerializeEntries:
-  - m_GUID: a55750486e7c30f42973b65d1d45f923
-    m_Address: UILocalesTable_pt-PT
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-pt-PT
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: dddc87f2ce75e484cb2849fb4097bd97, type: 2}
   m_SchemaSet:

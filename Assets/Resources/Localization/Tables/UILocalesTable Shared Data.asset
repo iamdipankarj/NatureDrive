@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: language_text
     m_Metadata:
       m_Items: []
+  - m_Id: 16328088961122304
+    m_Key: press_any_key
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -12,7 +12,7 @@ namespace Solace {
       textComponent = GetComponent<TextMeshProUGUI>();
     }
 
-    private void Start() {
+    private void OnEnable() {
       if (TryGetComponent<LocalizeStringEvent>(out var comp)) {
         comp.OnUpdateString.AddListener(OnSelectorLocaleUpdate);
       }
