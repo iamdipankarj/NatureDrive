@@ -27,12 +27,6 @@ namespace Solace {
   public class SettingsManager : MonoBehaviour {
     public static SettingsManager instance;
 
-    // Default values
-    private const int DEFAULT_MOUSE_SENSITIVITY = 50;
-    private const int DEFAULT_BRIGHTNESS = 50;
-    private const int DEFAULT_MUSIC_VOLUME = 50;
-    private const int DEFAULT_SFX_VOLUME = 50;
-
     // Display Settings
     private const string VSYNC_KEY = "vsync_key";
     private const string SCREEN_WIDTH_KEY = "screen_width_key";
@@ -128,7 +122,7 @@ namespace Solace {
     }
 
     public int GetMusicVolume() {
-      return PlayerPrefs.GetInt(MUSIC_VOLUME_KEY, DEFAULT_MUSIC_VOLUME);
+      return PlayerPrefs.GetInt(MUSIC_VOLUME_KEY, 5);
     }
 
     public void SetSFXVolume(int amount) {
@@ -136,7 +130,7 @@ namespace Solace {
     }
 
     public int GetSFXVolume() {
-      return PlayerPrefs.GetInt(SFX_VOLUME_KEY, DEFAULT_SFX_VOLUME);
+      return PlayerPrefs.GetInt(SFX_VOLUME_KEY, 5);
     }
 
     public void SetBrightness(int amount) {
@@ -144,7 +138,7 @@ namespace Solace {
     }
 
     public int GetBrightness() {
-      return PlayerPrefs.GetInt(BRIGHTNESS_KEY, DEFAULT_BRIGHTNESS);
+      return PlayerPrefs.GetInt(BRIGHTNESS_KEY, 5);
     }
 
     public void SetMouseSensitivity(int amount) {
@@ -152,7 +146,7 @@ namespace Solace {
     }
 
     public int GetMouseSensitivity() {
-      return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY, DEFAULT_MOUSE_SENSITIVITY);
+      return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY, 5);
     }
 
     public float GetNormalizedMouseSensitivity() {
