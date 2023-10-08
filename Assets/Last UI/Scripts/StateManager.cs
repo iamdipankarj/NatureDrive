@@ -9,14 +9,13 @@ namespace LastUI {
     [Tooltip("You need to add all of your states in here.")]
     [Header("List of States")]
     [SerializeField]
-    List<GameObject> States = new List<GameObject>();
-
+    public List<GameObject> States = new();
 
     [Tooltip("Assign starting state in here.")]
     public CanvasType FirstCanvas;
 
-    [HideInInspector]
-    public Animator CanvasAnimator;
+    public Canvas mainCanvas;
+    private Animator canvasAnimator;
 
     List<StateController> canvasControllerList;
 
@@ -33,7 +32,8 @@ namespace LastUI {
       } else {
         Destroy(gameObject);
       }
-      DontDestroyOnLoad(gameObject);
+      //DontDestroyOnLoad(gameObject);
+      canvasAnimator = mainCanvas.GetComponent<Animator>();
     }
 
     private void Start() {
@@ -41,7 +41,7 @@ namespace LastUI {
         states.SetActive(true);
       }
       inspectManager = FindObjectOfType<InspectManager>();
-      canvasControllerList = GetComponentsInChildren<StateController>().ToList();
+      canvasControllerList = mainCanvas.GetComponentsInChildren<StateController>().ToList();
       canvasControllerList.ForEach(x => x.gameObject.SetActive(false));
       StartCoroutine(PlayNextCanvasAnimation(FirstCanvas));
     }
@@ -96,17 +96,17 @@ namespace LastUI {
 
 
     public IEnumerator PlayNextCanvasAnimation(CanvasType _type) {
-      CanvasAnimator.Play("out_canvas");
+      canvasAnimator.Play("out_canvas");
       yield return new WaitForSeconds(0.1f);
       GoToNextCanvas(_type);
-      CanvasAnimator.Play("in_canvas");
+      canvasAnimator.Play("in_canvas");
     }
 
     public IEnumerator PlayPreviousCanvasAnimation() {
-      CanvasAnimator.Play("out_canvas");
+      canvasAnimator.Play("out_canvas");
       yield return new WaitForSeconds(0.1f);
       GoToPreviousCanvas();
-      CanvasAnimator.Play("in_canvas");
+      canvasAnimator.Play("in_canvas");
     }
 
     public void LeaveGame() {

@@ -26,8 +26,6 @@ namespace LastUI {
     [HideInInspector] public TextMeshProUGUI _Description;
     [HideInInspector] public Image _image;
 
-
-
     public void ActiveInspector() {
       Inspector.SetActive(true);
 

@@ -238,7 +238,7 @@ namespace NWH.VehiclePhysics2.Input {
         deviceIndex = FindDeviceIndex();
         if (deviceIndex >= 0) {
           GetDeviceName(deviceIndex, ref _inputDeviceName);
-          Debug.Log($"Using {_inputDeviceName}. Initializing.");
+          //Debug.Log($"Using {_inputDeviceName}. Initializing.");
           InitializeWheel();
         }
       }
@@ -386,25 +386,25 @@ namespace NWH.VehiclePhysics2.Input {
             foundDevicesDebugString += $"{i}: {_inputDeviceName}; ";
           }
 
-          Debug.Log("----");
-          Debug.Log($"Found a connected device: {_inputDeviceName}.");
+          //Debug.Log("----");
+          //Debug.Log($"Found a connected device: {_inputDeviceName}.");
 
           if (onlyFFBDevices && !LogitechGSDK.LogiHasForceFeedback(i)) {
             // Only interested in FFB devices, continue if not one.
-            Debug.Log("Device has no FFB support. Only FFB devices option selected. Skipping.");
+            //Debug.Log("Device has no FFB support. Only FFB devices option selected. Skipping.");
             continue;
           }
 
           if (deviceNameContainsWhitelist.Count > 0) {
             // There are items in the name filter, check that the device name contains a match.
-            Debug.Log($"Checking if device name contains a string from the whitelist.");
+            //Debug.Log($"Checking if device name contains a string from the whitelist.");
             string inputDeviceString = _inputDeviceName.ToString();
             foreach (string match in deviceNameContainsWhitelist) {
               if (inputDeviceString.Contains(match)) {
                 return i;
               }
             }
-            Debug.Log($"No match found. Skipping.");
+            //Debug.Log($"No match found. Skipping.");
           } else {
             // No name filters, return the current index.
             return i;
@@ -422,7 +422,7 @@ namespace NWH.VehiclePhysics2.Input {
 
     public void GetDeviceName(int index, ref StringBuilder deviceName) {
       if (index < 0) {
-        Debug.Log("No device selected / found.");
+        //Debug.Log("No device selected / found.");
         return;
       }
 

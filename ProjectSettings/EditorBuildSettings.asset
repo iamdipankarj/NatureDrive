@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype/Prototype.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Voyage/Voyage.unity
+    guid: 34639db7072ae7d4a9e3c236b22b3556
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4adcfe8fd9159b84aad831c51813e6e2, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 83e1348cab4c75946af4c3508cb9519d, type: 2}

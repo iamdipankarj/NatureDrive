@@ -640,7 +640,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: UNITY_POST_PROCESSING_STACK_V2;BCG_RCC
+    Android: UNITY_POST_PROCESSING_STACK_V2;BCG_RCC;DISTANT_LANDS;COZY_WEATHER;NWH_WC3D;NWH_NVP2
     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2;BCG_RCC
     GameCoreScarlett: BCG_RCC
     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2;BCG_RCC
