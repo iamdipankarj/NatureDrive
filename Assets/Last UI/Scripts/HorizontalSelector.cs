@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace LastUI {
@@ -11,6 +12,7 @@ namespace LastUI {
     private int m_Index = 0;
     public delegate void SelectionHandler(int index);
     public event SelectionHandler OnValueChanged;
+    public string selectorName;
 
     public int index {
       get {
@@ -26,16 +28,27 @@ namespace LastUI {
 
     public List<string> data = new();
 
+    public void Add(string val) {
+      data.Add(val);
+    }
+
+    public void Clear() {
+      data.Clear();
+    }
+
     public string value {
       get {
         return data[m_Index];
       }
     }
 
-    void Start() {
+    private void Awake() {
       text = transform.Find("txt_text").GetComponent<TextMeshProUGUI>();
-      if (data.Count > 0) {
-        index = defalutValueIndex;
+    }
+
+    void Start() {
+      if (data.Count > 0 && index == 0) {
+        //index = defalutValueIndex;
       }
     }
 

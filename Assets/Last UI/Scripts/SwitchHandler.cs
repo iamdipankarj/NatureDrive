@@ -48,20 +48,18 @@ namespace LastUI {
 
       toggle.onValueChanged.AddListener(OnSwitch);
 
-      if (toggle.isOn) {
-        OnSwitch(true);
-      }
+      OnSwitch(toggle.isOn);
     }
 
     public void OnSwitch(bool on) {
-      indicator.text = on ? (indicator.text = "ON") : indicator.text = "OFF";
-      if (toggleCoroutine != null) {
-        StopCoroutine(toggleCoroutine);
-      }
-      toggleCoroutine = StartCoroutine(on ? DoToggleOn() : DoToggleOff());
+      indicator.text = on ? "ON" : "OFF";
+      //if (toggleCoroutine != null) {
+      //  StopCoroutine(toggleCoroutine);
+      //}
+      //toggleCoroutine = StartCoroutine(on ? DoToggleOn() : DoToggleOff());
 
 
-      //uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition ; // no anim
+      HandleImage.anchoredPosition = on ? handlePosition * -1 : handlePosition ; // no anim
       //HandleImage.DOAnchorPos(on ? handlePosition * -1 : handlePosition, AnimationSpeed).SetEase(Ease.InSine);
     }
 

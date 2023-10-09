@@ -2,23 +2,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using UnityEngine.Localization.SmartFormat.Core.Parsing;
+using LastUI;
 
 namespace Solace {
-  [RequireComponent(typeof(LastUI.HorizontalSelector))]
+  [RequireComponent(typeof(HorizontalSelector))]
   public class LanguageChanger : MonoBehaviour {
-    private LastUI.HorizontalSelector selector;
+    private HorizontalSelector selector;
     private Coroutine optionsCoroutine;
 
     private void Awake() {
-      selector = GetComponent<LastUI.HorizontalSelector>();
+      selector = GetComponent<HorizontalSelector>();
     }
 
     private void OnEnable() {
       if (optionsCoroutine != null) {
         StopCoroutine(optionsCoroutine);
       }
-      selector.data.Clear();
+      selector.Clear();
       optionsCoroutine = StartCoroutine(LoadLanguagesAsync());
       LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
     }

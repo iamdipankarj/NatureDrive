@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +11,6 @@ namespace Solace {
     public Slider ySensitivitySlider;
     public Slider joyStickSensitivitySlider;
     public Toggle vibrationToggle;
-
-    void Start() {
-      invertMouseXToggle.isOn = SettingsManager.instance.GetInvertXAxisEnabled();
-      invertMouseYToggle.isOn = SettingsManager.instance.GetInvertYAxisEnabled();
-      xSensitivitySlider.value = SettingsManager.instance.GetMouseXSensitivity();
-      ySensitivitySlider.value = SettingsManager.instance.GetMouseYSensitivity();
-      joyStickSensitivitySlider.value = SettingsManager.instance.GetJoystickSensitivity();
-      vibrationToggle.isOn = SettingsManager.instance.GetVibrationEnabled();
-    }
 
     private void OnVibrationChanged(bool value) {
       SettingsManager.instance.SetVibrationEnabled(value);
@@ -45,6 +37,13 @@ namespace Solace {
     }
 
     private void OnEnable() {
+      invertMouseXToggle.isOn = SettingsManager.instance.GetInvertXAxisEnabled();
+      invertMouseYToggle.isOn = SettingsManager.instance.GetInvertYAxisEnabled();
+      xSensitivitySlider.value = SettingsManager.instance.GetMouseXSensitivity();
+      ySensitivitySlider.value = SettingsManager.instance.GetMouseYSensitivity();
+      joyStickSensitivitySlider.value = SettingsManager.instance.GetJoystickSensitivity();
+      vibrationToggle.isOn = SettingsManager.instance.GetVibrationEnabled();
+
       invertMouseXToggle.onValueChanged.AddListener(OnXInvertChanged);
       invertMouseYToggle.onValueChanged.AddListener(OnYInvertChanged);
       xSensitivitySlider.onValueChanged.AddListener(OnXSensitivityChanged);

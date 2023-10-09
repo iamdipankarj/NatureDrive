@@ -58,7 +58,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\HorizontalSelectorLive.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozySetMoonDirection.cs" />
     <Compile Include="Assets\Rewired\Examples\PressStartToJoin\Scripts\PressStartToJoinExample_Assigner.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
@@ -77,6 +76,7 @@
     <Compile Include="Assets\Scripts\UI\Stopwatch.cs" />
     <Compile Include="Assets\Last UI\Scripts\UIAlwaysSelect.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\DisplayMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\Last UI\Scripts\NewCanvasSystem.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
@@ -135,7 +135,6 @@
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\PlayerPointerEventHandlerExample.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\WeatherProfile.cs" />
-    <Compile Include="Assets\Scripts\UI\HorizontalSelectorListener.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredStandaloneInputModule.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Classes.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
@@ -278,7 +277,6 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\WindFX.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozySatelliteManager.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\UIPointer.cs" />
-    <Compile Include="Assets\Scripts\UI\HorizontalSelector.cs" />
     <Compile Include="Assets\Last UI\Scripts\StateSwitcher.cs" />
     <Compile Include="Assets\Rewired\Examples\GamepadTemplateUI\Scripts\ControllerUIElement.cs" />
     <Compile Include="Assets\Last UI\Scripts\PrepareVideo.cs" />
