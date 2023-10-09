@@ -61,8 +61,10 @@ namespace Solace {
 
     // Input Settings
     private const string VIBRATION_KEY = "vibration_enabled_key";
+    private const string INVERT_X_AXIS_KEY = "invert_x_axis_enabled_key";
     private const string INVERT_Y_AXIS_KEY = "invert_y_axis_enabled_key";
-    private const string MOUSE_SENSITIVITY_KEY = "mouse_sensitivity_key";
+    private const string MOUSE_X_SENSITIVITY_KEY = "mouse_x_sensitivity_key";
+    private const string MOUSE_Y_SENSITIVITY_KEY = "mouse_Y_sensitivity_key";
     private const string JOYSTICK_SENSITIVITY_KEY = "gamepad_sensitivity_key";
 
     private readonly List<string> colorBlindModes = new() {
@@ -219,16 +221,20 @@ namespace Solace {
       return PlayerPrefs.GetInt(JOYSTICK_SENSITIVITY_KEY, 5);
     }
 
-    public void SetMouseSensitivity(int amount) {
-      PlayerPrefs.SetInt(MOUSE_SENSITIVITY_KEY, amount);
+    public void SetMouseXSensitivity(int amount) {
+      PlayerPrefs.SetInt(MOUSE_X_SENSITIVITY_KEY, amount);
     }
 
-    public int GetMouseSensitivity() {
-      return PlayerPrefs.GetInt(MOUSE_SENSITIVITY_KEY, 5);
+    public int GetMouseXSensitivity() {
+      return PlayerPrefs.GetInt(MOUSE_X_SENSITIVITY_KEY, 5);
     }
 
-    public float GetNormalizedMouseSensitivity() {
-      return GetMouseSensitivity() / 100;
+    public void SetMouseYSensitivity(int amount) {
+      PlayerPrefs.SetInt(MOUSE_Y_SENSITIVITY_KEY, amount);
+    }
+
+    public int GetMouseYSensitivity() {
+      return PlayerPrefs.GetInt(MOUSE_Y_SENSITIVITY_KEY, 5);
     }
 
     public void SetAntiAliasLevel(AntiAliasingLevel level) {
@@ -326,6 +332,17 @@ namespace Solace {
         return PlayerPrefs.GetInt(VIBRATION_KEY) == 1;
       }
       return true;
+    }
+
+    public void SetInvertXAxisEnabled(bool enabled) {
+      PlayerPrefs.SetInt(INVERT_X_AXIS_KEY, enabled ? 1 : 0);
+    }
+
+    public bool GetInvertXAxisEnabled() {
+      if (PlayerPrefs.HasKey(INVERT_X_AXIS_KEY)) {
+        return PlayerPrefs.GetInt(INVERT_X_AXIS_KEY) == 1;
+      }
+      return false;
     }
 
     public void SetInvertYAxisEnabled(bool enabled) {
