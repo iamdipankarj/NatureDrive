@@ -56,6 +56,7 @@ namespace Solace {
     // Audio & Language Settings
     private const string MUSIC_VOLUME_KEY = "music_volume_key";
     private const string SFX_VOLUME_KEY = "sfx_volume_key";
+    private const string AMBIENT_VOLUME_KEY = "ambient_volume_key";
     private const string LANGUAGE_KEY = "selected_locale_key";
 
     // Input Settings
@@ -192,6 +193,14 @@ namespace Solace {
 
     public int GetSFXVolume() {
       return PlayerPrefs.GetInt(SFX_VOLUME_KEY, 5);
+    }
+
+    public void SetAmbientVolume(int amount) {
+      PlayerPrefs.SetInt(AMBIENT_VOLUME_KEY, amount);
+    }
+
+    public int GetAmbientVolume() {
+      return PlayerPrefs.GetInt(AMBIENT_VOLUME_KEY, 5);
     }
 
     public void SetBrightness(int amount) {
