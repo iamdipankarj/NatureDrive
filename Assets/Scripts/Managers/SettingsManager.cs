@@ -110,38 +110,41 @@ namespace Solace {
       return PlayerPrefs.GetString(LANGUAGE_KEY, "en");
     }
 
-    public void SetScreenSpaceReflections(string code) {
-      PlayerPrefs.SetString(SCREEN_SPACE_REFLECTIONS_KEY, code);
+    public void SetScreenSpaceReflectionsEnabled(bool enabled) {
+      PlayerPrefs.SetInt(SCREEN_SPACE_REFLECTIONS_KEY, enabled ? 1 : 0);
     }
 
-    public string GetScreenSpaceReflections() {
-      return PlayerPrefs.GetString(SCREEN_SPACE_REFLECTIONS_KEY, "medium");
+    public bool GetScreenSpaceReflectionsEnabled() {
+      if (PlayerPrefs.HasKey(SCREEN_SPACE_REFLECTIONS_KEY)) {
+        return PlayerPrefs.GetInt(SCREEN_SPACE_REFLECTIONS_KEY) == 1;
+      }
+      return false;
     }
 
-    public void SetShadowQuality(string code) {
-      PlayerPrefs.SetString(SHADOW_QUALITY_KEY, code);
+    public void SetShadowQuality(int code) {
+      PlayerPrefs.SetInt(SHADOW_QUALITY_KEY, code);
     }
 
-    public string GetShadowQuality() {
-      return PlayerPrefs.GetString(SHADOW_QUALITY_KEY, "medium");
+    public int GetShadowQuality() {
+      return PlayerPrefs.GetInt(SHADOW_QUALITY_KEY, 1);
     }
 
     public void SetAmbientOcclusion(bool enabled) {
       PlayerPrefs.SetInt(AMBIENT_OCCULUSION_KEY, enabled ? 1 : 0);
     }
 
-    public bool GetAmbientOcclusion() {
+    public bool GetAmbientOcclusionEnabled() {
       if (PlayerPrefs.HasKey(AMBIENT_OCCULUSION_KEY)) {
         return PlayerPrefs.GetInt(AMBIENT_OCCULUSION_KEY) == 1;
       }
       return false;
     }
 
-    public void SetLensFlares(bool enabled) {
+    public void SetLensFlaresEnabled(bool enabled) {
       PlayerPrefs.SetInt(LENS_FLARES_KEY, enabled ? 1 : 0);
     }
 
-    public bool GetLensFlares() {
+    public bool GetLensFlaresEnabled() {
       if (PlayerPrefs.HasKey(LENS_FLARES_KEY)) {
         return PlayerPrefs.GetInt(LENS_FLARES_KEY) == 1;
       }
@@ -152,18 +155,18 @@ namespace Solace {
       PlayerPrefs.SetInt(DEPTH_OF_FIELD_KEY, enabled ? 1 : 0);
     }
 
-    public bool GetDepthOfField() {
+    public bool GetDepthOfFieldEnabled() {
       if (PlayerPrefs.HasKey(DEPTH_OF_FIELD_KEY)) {
         return PlayerPrefs.GetInt(DEPTH_OF_FIELD_KEY) == 1;
       }
       return false;
     }
 
-    public void SetAnisoFiltering(bool enabled) {
+    public void SetAnisoFilteringEnabled(bool enabled) {
       PlayerPrefs.SetInt(ANISOTROPIC_FILTERING_KEY, enabled ? 1 : 0);
     }
 
-    public bool GetAnisoFiltering() {
+    public bool GetAnisoFilteringEnabled() {
       if (PlayerPrefs.HasKey(ANISOTROPIC_FILTERING_KEY)) {
         return PlayerPrefs.GetInt(ANISOTROPIC_FILTERING_KEY) == 1;
       }
