@@ -68,16 +68,12 @@ MonoBehaviour:
   - fullName: NWH.VehiclePhysics2.Modules.CruiseControl.CruiseControlModule
     isEnabled: 1
     initialized: 0
-    lodIndex: -1
+    lodIndex: 2
   - fullName: NWH.VehiclePhysics2.Modules.ESC.ESCModule
     isEnabled: 0
     initialized: 0
     lodIndex: -1
   - fullName: NWH.VehiclePhysics2.Modules.FlipOver.FlipOverModule
-    isEnabled: 1
-    initialized: 0
-    lodIndex: -1
-  - fullName: NWH.VehiclePhysics2.Modules.FMOD.FMODModule
     isEnabled: 1
     initialized: 0
     lodIndex: -1
