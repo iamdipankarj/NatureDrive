@@ -73,8 +73,8 @@
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\VehicleController.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\Demo\VehicleOverview\VehicleOverview.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\Modules\ESC\ESCModuleWrapper.cs" />
-    <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\Effects\Skidmarks\SkidmarkManager.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\Modules\Trailer\TrailerModule.cs" />
+    <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\Effects\Skidmarks\SkidmarkManager.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\Modules\ModuleTemplate\Editor\ModuleTemplateDrawer.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Vehicles\Euro Truck by GR3D\GR3D 010416TRUK\Demo Scene\Script\GRCamRotate.cs" />
     <Compile Include="Assets\NWH\Vehicle Physics 2\Scripts\VehicleController\ComponentNUIPropertyDrawer.cs" />

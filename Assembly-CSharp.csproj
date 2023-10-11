@@ -77,7 +77,6 @@
     <Compile Include="Assets\Last UI\Scripts\UIAlwaysSelect.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\DisplayMenuController.cs" />
-    <Compile Include="Assets\Scripts\UI\CaretButton.cs" />
     <Compile Include="Assets\Last UI\Scripts\NewCanvasSystem.cs" />
     <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
@@ -103,7 +102,6 @@
     <Compile Include="Assets\AZURE Nature\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Player\FPSController.cs" />
     <Compile Include="Assets\Last UI\Scripts\Credits.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MainMenuController.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\Scripts\UI\CinematicLetterbox.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\ControllerTemplates\ControllerTemplates.cs" />
@@ -131,7 +129,6 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Enums.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\InputMenuController.cs" />
     <Compile Include="Assets\Last UI\Scripts\StateManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\GameMenuController.cs" />
     <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
     <Compile Include="Assets\Rewired\Examples\PlayerMouseUnityUI\Scripts\PlayerPointerEventHandlerExample.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\WeatherProfile.cs" />
@@ -146,7 +143,6 @@
     <Compile Include="Assets\Rewired\Examples\FallbackJoystickIdentification\Scripts\FallbackJoystickIdentificationDemo.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\CustomControllerDemo.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ButtonInfo.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\SettingsMenuController.cs" />
     <Compile Include="Assets\Rewired\Examples\PressAnyButtonToJoin\Scripts\PressAnyButtonToJoinExample_Assigner.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\MaterialManagerProfile.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
@@ -251,19 +247,16 @@
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_WindowManager.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ICustomSelectable.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CalibrationWindow.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MenuController.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\EditorUtilities.cs" />
     <Compile Include="Assets\Last UI\Scripts\Events.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyAmbienceManager.cs" />
     <Compile Include="Assets\Rewired\Extras\TouchControls\Examples\TouchControls1\Scripts\TouchControls1_ManipulateCube.cs" />
     <Compile Include="Assets\Last UI\Scripts\InspectManager.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomButton.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\LanguageMenuController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\FX Modules\CozyAudioManager.cs" />
     <Compile Include="Assets\Last UI\Scripts\StateController.cs" />
-    <Compile Include="Assets\Scripts\UI\SolaceButton.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\AudioFX.cs" />
     <Compile Include="Assets\Last UI\Scripts\ScrollRectEx.cs" />
     <Compile Include="Assets\Rewired\Examples\CustomControllersTouch\Scripts\TouchButtonExample.cs" />
@@ -281,7 +274,6 @@
     <Compile Include="Assets\Rewired\Examples\GamepadTemplateUI\Scripts\ControllerUIElement.cs" />
     <Compile Include="Assets\Last UI\Scripts\PrepareVideo.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ScrollRectSelectableChild.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\MenuCanvasManager.cs" />
     <Compile Include="Assets\Scripts\UI\LocalizedText.cs" />
     <Compile Include="Assets\Rewired\Examples\SimpleControlRemapping\Scripts\SimpleControlRemapping.cs" />
     <Compile Include="Assets\Last UI\Scripts\HorizontalSelector.cs" />
@@ -1067,9 +1059,6 @@
     <Reference Include="Unity.Recorder.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Sequences.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Sequences.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
@@ -1094,9 +1083,6 @@
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Formats.Fbx.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
@@ -1115,9 +1101,6 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Formats.Fbx.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
@@ -1129,12 +1112,6 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Alembic.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Alembic.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Sequences">
-      <HintPath>Library\ScriptAssemblies\Unity.Sequences.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
@@ -1199,20 +1176,11 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Autodesk.Fbx">
-      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Autodesk.Fbx.Editor">
-      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Alembic.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Formats.Alembic.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
