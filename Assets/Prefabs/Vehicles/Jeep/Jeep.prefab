@@ -259,6 +259,8 @@ GameObject:
   - component: {fileID: 2192824987713936757}
   - component: {fileID: 2943010793850010815}
   - component: {fileID: 6771558627140477653}
+  - component: {fileID: 7726664472583300746}
+  - component: {fileID: 5266539453974260813}
   m_Layer: 0
   m_Name: Jeep
   m_TagString: Vehicle
@@ -274,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730547566453325303}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 425.34, y: 0.077, z: 142.31693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -324,7 +326,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8257274364723828088, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
+  - {fileID: 2100000, guid: 7046f9fc8fbd64644acce6cd1ca00caa, type: 2}
   - {fileID: -3096923569255133051, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
   - {fileID: -3821187276557703246, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
   - {fileID: 8556262120643298411, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
@@ -1004,8 +1006,48 @@ MonoBehaviour:
   centerOfMass: {x: 0.009979248, y: 0.5002034, z: 0.13548279}
   combinedCenterOfMass: {x: 0.009979248, y: 0.5002034, z: 0.13548279}
   useDefaultInertia: 1
-  inertiaTensor: {x: 1926.5585, y: 2018.4723, z: 804.78424}
+  inertiaTensor: {x: 1926.5571, y: 2018.4701, z: 804.78485}
   combinedInertiaTensor: {x: 0, y: 0, z: 0}
+--- !u!114 &7726664472583300746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730547566453325303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9eddec8dadb404192b8fd997d616bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  module:
+    cruiseControlActive: 0
+    Kd: 0.1
+    Ki: 0.25
+    Kp: 0.5
+    setTargetSpeedOnEnable: 0
+    deactivateOnBrake: 0
+    applyBrakesWhenSpeeding: 1
+    targetSpeed: 0
+--- !u!114 &5266539453974260813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730547566453325303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49c68f945f545a43a58d6ff44ae91a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  module:
+    absActivated:
+      m_PersistentCalls:
+        m_Calls: []
+    active: 0
+    lowerSpeedThreshold: 1
+    slipThreshold: 0.1
 --- !u!1 &1853222450587931757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2133,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5011
+  m_VersionIndex: 5014
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2411,7 +2453,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8257274364723828088, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
+  - {fileID: 2100000, guid: 7046f9fc8fbd64644acce6cd1ca00caa, type: 2}
   - {fileID: -3096923569255133051, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2712,7 +2754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8257274364723828088, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
+  - {fileID: 2100000, guid: 7046f9fc8fbd64644acce6cd1ca00caa, type: 2}
   - {fileID: -3096923569255133051, guid: 036fb9a6b023de4438f8a9414e02c22e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2895,7 +2937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.24799502
+      value: 0.24800265
       objectReference: {fileID: 0}
     - target: {fileID: 1135271672590521252, guid: 3325c3c9e0c7dce46b80369ae0d0f7a7, type: 3}
       propertyPath: m_LocalRotation.w

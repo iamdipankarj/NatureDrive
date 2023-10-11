@@ -50,9 +50,9 @@ MonoBehaviour:
     initialized: 0
     lodIndex: -1
   - fullName: NWH.VehiclePhysics2.Modules.ABS.ABSModule
-    isEnabled: 0
+    isEnabled: 1
     initialized: 0
-    lodIndex: -1
+    lodIndex: 2
   - fullName: NWH.VehiclePhysics2.Modules.Aerodynamics.AerodynamicsModule
     isEnabled: 1
     initialized: 0
