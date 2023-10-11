@@ -307,6 +307,7 @@
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
     <None Include="Assets\Rewired\Internal\Libraries\Runtime\Rewired_OSX.dll" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Sky (Mobile).shader" />
+    <None Include="Assets\Fantasy Skybox FREE\Readme.txt" />
     <None Include="Assets\Rewired\Internal\Libraries\Runtime\Rewired_Linux.dll" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
@@ -320,6 +321,7 @@
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Disabled Shader.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Fog (Physical Height).shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+    <None Include="Assets\Fantasy Skybox FREE\ReleaseNotes.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
     <None Include="Assets\Rewired\Internal\Libraries\Runtime\Rewired_WebGL.dll" />
