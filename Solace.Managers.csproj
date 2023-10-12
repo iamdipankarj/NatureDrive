@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\Managers\PrometeoVehicleInput.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\Managers\VehicleManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
     <Compile Include="Assets\Scripts\Managers\RewiredRumbleProviderBase.cs" />
   </ItemGroup>
   <ItemGroup>

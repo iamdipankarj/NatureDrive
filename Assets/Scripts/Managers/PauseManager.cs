@@ -24,6 +24,16 @@ namespace Solace {
     private Coroutine fadeCoroutine;
     private const float fadeSpeed = 8f;
 
+    private void LockCursor() {
+      Cursor.lockState = CursorLockMode.Locked;
+      Cursor.visible = false;
+    }
+
+    private void UnlockCursor() {
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.visible = true;
+    }
+
     private void OnPause() {
       if (isPaused) {
         ResumeGame();
