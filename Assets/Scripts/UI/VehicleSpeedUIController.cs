@@ -7,11 +7,11 @@ namespace Solace {
     private TextMeshProUGUI textComponent;
     void Start() {
       textComponent = GetComponent<TextMeshProUGUI>();
-      CarController.DidUpdateCarSpeed += OnCarSpeedChange;
+      //CarController.DidUpdateCarSpeed += OnCarSpeedChange;
     }
 
     private void OnDisable() {
-      CarController.DidUpdateCarSpeed -= OnCarSpeedChange;
+      //CarController.DidUpdateCarSpeed -= OnCarSpeedChange;
     }
 
     private void OnCarSpeedChange(int speed) {

@@ -100,7 +100,6 @@
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Editor\EmptyShaderGUI.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Editor\E_CozyVolume.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Editor\E_CozyEditor.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Editor\PrometeoEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rewired\Internal\Libraries\Editor\Rewired_Editor.dll" />

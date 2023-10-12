@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Utility\Auxillary\CozySetMoonDirection.cs" />
     <Compile Include="Assets\Rewired\Examples\PressStartToJoin\Scripts\PressStartToJoinExample_Assigner.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoTouchInput.cs" />
     <Compile Include="Assets\Last UI\Scripts\Singleton.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Core\CozyWeather.cs" />
     <Compile Include="Assets\Last UI\Scripts\SwitchHandler.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Assets\Scripts\Interactions\InteractableProp.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\DisplayMenuController.cs" />
     <Compile Include="Assets\Last UI\Scripts\NewCanvasSystem.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\Scripts\SteeringWheel\SteeringWheelVehicleData.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\CozyTVEModule.cs" />
@@ -159,10 +157,8 @@
     <Compile Include="Assets\Scripts\Player\CinemachinePOVExtension.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\EventFX.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Data\FX\ThunderFX.cs" />
-    <Compile Include="Assets\PROMETEO - Car Controller\Scripts\PrometeoCarController.cs" />
     <Compile Include="Assets\Distant Lands\Cozy Weather\Contents\Scripts\Modules\ExampleModule.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\Models\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\Vehicles\CarController.cs" />
     <Compile Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\Scripts\Player\HeadBob.cs" />
     <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\LanguageDataBase.cs" />
@@ -423,7 +419,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
     <None Include="Assets\Distant Lands\Cozy Weather\Contents\Materials\Shaders\Stylized Clouds (Ghibli).shader" />
-    <None Include="Assets\PROMETEO - Car Controller\Fonts\Licence.txt" />
     <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
