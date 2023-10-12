@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  rewiredInputManager: {fileID: 0}
+  rewiredInputManager: {fileID: 1328781187}
   useAllRewiredGamePlayers: 1
   useRewiredSystemPlayer: 1
   rewiredPlayerIds: 00000000
@@ -1691,6 +1691,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d10538baccd46842907d54e987d4d19, type: 3}
+--- !u!114 &1328781187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3709324315591835185, guid: 5db5ab6ac8ad1ff49bbdb9fc19b42cd2, type: 3}
+  m_PrefabInstance: {fileID: 1464873021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1370759382
 GameObject:
   m_ObjectHideFlags: 0
