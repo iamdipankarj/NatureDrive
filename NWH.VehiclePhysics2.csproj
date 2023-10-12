@@ -882,6 +882,10 @@
       <Project>{5B17D0C9-F2AF-3BC3-D712-513D509DFBD4}</Project>
       <Name>NWH.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="Solace.Managers.csproj">
+      <Project>{91626213-35AB-091D-8AD7-7D6F260D9029}</Project>
+      <Name>Solace.Managers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
