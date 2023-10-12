@@ -1,6 +1,7 @@
 using UnityEngine;
 using Rewired;
 using Random = System.Random;
+using UnityEngine.SceneManagement;
 
 namespace Solace {
   public class RewiredRumbleProviderBase : MonoBehaviour {
@@ -12,7 +13,7 @@ namespace Solace {
     private const float DRIFT_RUMBLE_SCALE = 0.85f;
     private const float staticRumbleScale = 0.09f;
     private Random random;
-    private bool isRumbleEnabled = true;
+    private bool isRumbleEnabled = false;
 
     protected void StopVibrations() {
       foreach (Joystick j in player.controllers.Joysticks) {
@@ -58,6 +59,14 @@ namespace Solace {
       if (isRumbleEnabled) {
         player.SetVibration(LOW_MOTOR_INDEX, strength, duration);
         player.SetVibration(HIGH_MOTOR_INDEX, strength, duration);
+      }
+    }
+
+    private void Start() {
+      if (SettingsManager.instance != null) {
+        isRumbleEnabled = SettingsManager.instance.GetVibrationEnabled();
+      } else {
+        Debug.LogWarning($"SettingsManager not found in scene: {SceneManager.GetActiveScene().name}");
       }
     }
 
