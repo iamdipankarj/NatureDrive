@@ -14,6 +14,13 @@ namespace Solace {
     private Random random;
     private bool isRumbleEnabled = true;
 
+    protected void StopVibrations() {
+      foreach (Joystick j in player.controllers.Joysticks) {
+        if (!j.supportsVibration) continue;
+        j.SetVibration(0, 0);
+      }
+    }
+
     public float GetRandomFloat(float minimum, float maximum) {
       return (float)(random.NextDouble() * (maximum - minimum) + minimum);
     }

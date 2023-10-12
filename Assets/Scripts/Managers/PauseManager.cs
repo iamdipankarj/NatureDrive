@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Rewired;
 
 namespace Solace {
   public enum FadeType {
@@ -11,8 +10,11 @@ namespace Solace {
   }
   public class PauseManager : MonoBehaviour {
     public static PauseManager instance;
-    [HideInInspector]
-    public bool isPaused = false;
+    private bool isPaused = false;
+    private Player player;
+
+    public delegate void PauseEventHandler(bool isPaused);
+    public static event PauseEventHandler OnTogglePause;
 
     public Button resumeButton;
     public Button mainMenuButton;
@@ -34,7 +36,7 @@ namespace Solace {
       Cursor.visible = true;
     }
 
-    private void OnPause() {
+    private void TogglePause() {
       if (isPaused) {
         ResumeGame();
       } else {
@@ -43,10 +45,11 @@ namespace Solace {
     }
 
     private void PauseGame() {
-      InputSystem.PauseHaptics();
+      UnlockCursor();
       content.gameObject.SetActive(true);
       isPaused = true;
       PauseTime();
+      OnTogglePause?.Invoke(true);
       if (fadeCoroutine != null) {
         StopCoroutine(fadeCoroutine);
       }
@@ -62,10 +65,11 @@ namespace Solace {
     }
 
     private void ResumeGame() {
-      InputSystem.ResumeHaptics();
+      UnlockCursor();
       content.gameObject.SetActive(false);
       isPaused = false;
       UnPauseTime();
+      OnTogglePause?.Invoke(false);
       if (fadeCoroutine != null) {
         StopCoroutine(fadeCoroutine);
       }
@@ -90,7 +94,6 @@ namespace Solace {
     }
 
     private void OnEnable() {
-      InputManager.DidPause += OnPause;
       resumeButton.onClick.AddListener(ResumeGame);
       mainMenuButton.onClick.AddListener(OnMainMenuClick);
       restartLevelButton.onClick.AddListener(OnRestartLevelClick);
@@ -102,7 +105,6 @@ namespace Solace {
     }
 
     private void OnDisable() {
-      InputManager.DidPause -= OnPause;
       resumeButton.onClick.RemoveListener(ResumeGame);
       mainMenuButton.onClick.RemoveListener(OnMainMenuClick);
       restartLevelButton.onClick.RemoveListener(OnRestartLevelClick);
@@ -111,7 +113,14 @@ namespace Solace {
       }
     }
 
+    private void Update() {
+      if (player.GetButtonDown(RewiredUtils.Pause)) {
+        TogglePause();
+      }
+    }
+
     private void Start() {
+      LockCursor();
       panelRenderer = panel.GetComponent<CanvasRenderer>();
       panel.gameObject.SetActive(true);
       content.gameObject.SetActive(false);
@@ -119,6 +128,7 @@ namespace Solace {
     }
 
     private void Awake() {
+      player = ReInput.players.GetPlayer(0);
       if (instance == null) {
         instance = this;
       }

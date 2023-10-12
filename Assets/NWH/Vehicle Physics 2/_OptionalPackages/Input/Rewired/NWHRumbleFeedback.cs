@@ -10,6 +10,7 @@ namespace NWH.VehiclePhysics2.Input {
     private bool isColliding = false;
     private Coroutine delayedCollision;
     private bool isFlashing = false;
+    private bool isGamePaused = false;
 
     public override void Awake() {
       base.Awake();
@@ -17,9 +18,18 @@ namespace NWH.VehiclePhysics2.Input {
 
     private void OnEnable() {
       vehicleController.onCollision.AddListener(HandleCollision);
+      PauseManager.OnTogglePause += OnTogglePause;
+    }
+
+    private void OnTogglePause(bool isPaused) {
+      isGamePaused = isPaused;
+      if (isGamePaused) {
+        base.StopVibrations();
+      }
     }
 
     private void OnDisable() {
+      PauseManager.OnTogglePause -= OnTogglePause;
       vehicleController.onCollision.RemoveListener(HandleCollision);
       if (delayedCollision != null) {
         StopCoroutine(delayedCollision);
@@ -35,7 +45,9 @@ namespace NWH.VehiclePhysics2.Input {
     private void HandleCollision(Collision collision) {
       delayedCollision = StartCoroutine(CollisionCoroutine());
       float strength = collision.impulse.magnitude / (vehicleController.fixedDeltaTime * vehicleController.vehicleRigidbody.mass * 5f);
-      base.SetCollisionVibration(strength);
+      if (!isGamePaused) {
+        base.SetCollisionVibration(strength);
+      }
     }
 
     private void ToggleFlash() {
@@ -49,7 +61,7 @@ namespace NWH.VehiclePhysics2.Input {
 
     void Update() {
       float speed = vehicleController.Speed / 50.8f;
-      if (!isColliding) {
+      if (!isColliding && !isGamePaused) {
         base.SetStaticVibration(speed);
       }
 
